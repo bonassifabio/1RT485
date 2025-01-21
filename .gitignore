@@ -2,3 +2,5 @@ book/_build/
 _build/
 .venv
 octave-workspace
+bin/
+.DS_Store

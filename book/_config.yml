@@ -10,7 +10,7 @@ logo: res/logo.svg
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: cache
+  execute_notebooks: auto
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -36,24 +36,22 @@ parse:
     - tasklist
   myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
   myst_dmath_double_inline: true  # Allow display math ($$) within an inline context
+  myst_footnote_transition: false
 
 # Information about where the book exists on the web
-# repository:
-#   url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-#   path_to_book: docs  # Optional path to your book, relative to the repository root
-#   branch: master  # Which branch of the repository should be used when creating links (optional)
+repository:
+  url: https://github.com/bonassifabio/1RT485  # Online location of your book
+  # path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: gh-pages  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-html:
-  use_issues_button: false
-  use_repository_button: false
 
 html:
   favicon                   : res/favicon.png  # A path to a favicon image
   use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
-  use_repository_button     : false  # Whether to add a link to your repository button
-  use_issues_button         : false  # Whether to add an "open an issue" button
+  use_repository_button     : true  # Whether to add a link to your repository button
+  use_issues_button         : true  # Whether to add an "open an issue" button
   use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
   extra_footer              : ""  # Will be displayed underneath the footer.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
@@ -75,3 +73,4 @@ sphinx:
   config:
     html_js_files:
       - "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"
+    myst_footnote_transition: false
