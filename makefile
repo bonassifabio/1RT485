@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 
 setup:
 	echo "Creating conda environment"
@@ -12,6 +12,6 @@ build:
 	mamba run -n book jupyter book build ./book --path-output ./
 
 web:
-	ghp-import -n -p -f _build/html
+	mamba run -n book ghp-import -n -p -f _build/html
 
 all: build web
