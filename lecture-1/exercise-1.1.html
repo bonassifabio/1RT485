@@ -60,12 +60,14 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-1/exercise-1.1';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exercise 1.1" href="exercise-1.2.html" />
+    <link rel="next" title="Exercise 1.2" href="exercise-1.2.html" />
     <link rel="prev" title="Lecture 1" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,8 +175,10 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Lecture 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercise 1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise-1.2.html">Exercise 1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise-1.3.html">Exercise 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise-1.2.html">Exercise 1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise-1.3.html">Exercise 1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise-1.4.html">Exercise 1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise-1.5.html">Exercise 1.5</a></li>
 </ul>
 </details></li>
 </ul>
@@ -223,6 +227,53 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/bonassifabio/1RT485" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/bonassifabio/1RT485/issues/new?title=Issue%20on%20page%20%2Flecture-1/exercise-1.1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -324,9 +375,44 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="exercise-1-1">
-<h1>Exercise 1.1<a class="headerlink" href="#exercise-1-1" title="Link to this heading">#</a></h1>
-<p>Text of the exercise here</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercise-1-1">
+<span id="ref-lec1-ex1"></span><h1>Exercise 1.1<a class="headerlink" href="#exercise-1-1" title="Link to this heading">#</a></h1>
+<figure class="align-center" id="id1">
+<img alt="../_images/ex1.png" src="../_images/ex1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Schematic of the motor (courtesy of <a class="reference external" href="https://uppsala.instructure.com/courses/102131/files/7991063?module_item_id=1296223"><em>Exercise Manual for Automatic Control</em></a>)</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The scheme above is a DC motor  characterized by the following physical relationships. The rotating axis is described by</p>
+<div class="math notranslate nohighlight">
+\[J\ddot{\theta} = -f\dot{\theta} + M,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle of rotation, <span class="math notranslate nohighlight">\(M\)</span> is the torque, <span class="math notranslate nohighlight">\(J\)</span> is the angular momentum, and <span class="math notranslate nohighlight">\(f\)</span> is the frictional coefficient.</p>
+<p>The torque is related to the stator current by the following relationship</p>
+<div class="math notranslate nohighlight">
+\[M = k_a i\]</div>
+<p>where <span class="math notranslate nohighlight">\(i\)</span> is the stator current and  <span class="math notranslate nohighlight">\(k_a\)</span> is a proportional constant characteristic for the motor. In addition,</p>
+<div class="math notranslate nohighlight">
+\[V = k_v\dot{\theta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(V\)</span> is the induced voltage and <span class="math notranslate nohighlight">\(k_v\)</span> is a proportional constant.</p>
+<p>Let the input voltage <span class="math notranslate nohighlight">\(u\)</span> be the control signal and <span class="math notranslate nohighlight">\(\theta\)</span> be the output.</p>
+<ol class="arabic simple">
+<li><p>Write a differential equation that relates <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span> (the inductance <span class="math notranslate nohighlight">\(L_a\)</span> can be neglected).</p></li>
+<li><p>Determine the transfer function  between the input and the output.</p></li>
+<li><p>Discuss the behavior of the system by calculating step response of the system. That is, <span class="math notranslate nohighlight">\(\theta(t)\)</span> when <span class="math notranslate nohighlight">\(u = \textrm{step}(t)\)</span>.</p></li>
+</ol>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
+<span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="n">bode</span><span class="p">(</span><span class="n">G</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/407dada85c01c2f367f84747ae8a25bfa99e8be048d70b9275ba49897b1367ce.png" src="../_images/407dada85c01c2f367f84747ae8a25bfa99e8be048d70b9275ba49897b1367ce.png" />
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -373,7 +459,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercise 1.1</p>
+        <p class="prev-next-title">Exercise 1.2</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
