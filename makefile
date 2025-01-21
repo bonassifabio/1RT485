@@ -9,9 +9,9 @@ setup:
 
 build:
 	echo "Building the book"
-	mamba run -n book jupyter book build ./book --output-dir ./_build
+	mamba run -n book jupyter book build ./book --path-output ./
 
-serve:
+web:
 	ghp-import -n -p -f _build/html
 
-all: build serve
+all: build web
