@@ -16,13 +16,13 @@ Take the time to engage with each problem and work through the solutions thoroug
 
 Some exercises include corresponding MATLAB code to assist with problem-solving and visualization. To make the most of these exercises, refer to the [**How to Run the Code**](#how-to-run-the-code) section for step-by-step instructions on setting up your environment and running the code smoothly.
 
-:::{caution} Disclaimer
-Remember to learn how to solve them step-by-step without relying too much on MATLAB. Remember, you won't have access to MATLAB during the exam, so focus on understanding the concepts and methods!  
-:::
+```{admonition} Disclaimer
+:class: caution
+Learn how to solve them step-by-step without relying too much on MATLAB. Remember, you won't have access to MATLAB during the exam, so focus on understanding the concepts and methods!  
+```
 
 Happy learning!
 
----
 
 ## How to Run the Code
 
@@ -66,6 +66,6 @@ This book is still a work in progress. If you spot any error, you can proceed in
 
 You are also welcome to contribute proposing additional exercises or fixing errors in existing ones.
 
-:::{note} Future developments
+```{note} Future developments
   We are considering switching to [Octave](https://octave.org) so that interactive notebooks can be created via [mybinder.org](https://mybinder.org). We will keep you posted!
-:::
+```
