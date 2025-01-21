@@ -1,0 +1,16 @@
+name: book
+channels:
+  - conda-forge
+dependencies:
+  - jupyter-book=1
+  - xeus-octave
+  - octave
+  - python=3.12
+  - jupyterlab
+  - ipywidgets
+  - fortran-compiler
+  - cxx-compiler
+  - pip:
+      - ghp-import
+      - jupyter-matlab-proxy
+      - sphinxemoji

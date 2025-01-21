@@ -1,0 +1,9 @@
+format: jb-book
+root: intro
+chapters:
+  - file: lecture-1/index
+    sections: 
+      - file: lecture-1/exercise-1.1.ipynb
+      - file: lecture-1/exercise-1.2.ipynb
+      - file: lecture-1/exercise-1.3.ipynb
+
