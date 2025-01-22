@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -350,7 +350,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -366,6 +368,19 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -401,6 +416,47 @@
 <li><p>Discuss the behavior of the system by calculating step response of the system. That is, <span class="math notranslate nohighlight">\(\theta(t)\)</span> when <span class="math notranslate nohighlight">\(u = \textrm{step}(t)\)</span>.</p></li>
 </ol>
 <hr class="docutils" />
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+<p>Let’s start by noting that <span class="math notranslate nohighlight">\(V_L(t) = L_a \frac{di}{dt}\)</span> corresponds, in the Laplace domain, to <span class="math notranslate nohighlight">\(V_L(s) = L_a s I(s)\)</span>, where <span class="math notranslate nohighlight">\(s\)</span> is the Laplace operator.</p>
+<section id="question-1">
+<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
+<p>From the Ohm’s law,</p>
+<div class="math notranslate nohighlight">
+\[U(s) = R_a I(s) + L_a s I(s) + k_v s \Theta(s)\]</div>
+<p>Solving by <span class="math notranslate nohighlight">\(I(s)\)</span>, and recalling that <span class="math notranslate nohighlight">\(L_a = 0\)</span>, we get</p>
+<div class="math notranslate nohighlight">
+\[I(s) = \frac{U(s)}{R_a} + \frac{k_v s}{R_a} \Theta(s)\]</div>
+</section>
+<section id="question-2">
+<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+J s^2 \Theta(s) = -f_s \Theta(s) + M(s) =  -f_s \Theta(s)  + k_a I(s)
+\]</div>
+<p>Or, equivalently,</p>
+<div class="math notranslate nohighlight">
+\[
+J s^2 \Theta(s) + f_s \Theta(s) =  k_a \left( \frac{U(s)}{R_a} + \frac{k_v s}{R_a}\Theta(s) \right)
+\]</div>
+<p>Isolating <span class="math notranslate nohighlight">\(\Theta(s)\)</span> we get</p>
+<div class="math notranslate nohighlight">
+\[
+\Theta(s) = \frac{\frac{k_a}{R_a}}{s^2 J + \left(f_s - \frac{k_a k_v}{R_a}\right)s} U(s)
+\]</div>
+<p>The transfer function is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\Theta(s) = \cdot \frac{K}{s \left(s + \alpha\right)} U(s) \quad \text{where } K = \frac{k_a}{R_a J} \text{ and } \alpha = \frac{f_s - \frac{k_a k_v}{R_a}}{J} 
+\]</div>
+<p>Note: the ODE describing the evolution of the angle can be derived as</p>
+<div class="math notranslate nohighlight">
+\[s(s+\alpha) \Theta(s) = K U(s) \quad \rightarrow \quad \frac{d^2}{d t^2} \theta(t) + \alpha \frac{d}{d t} \theta(t) = K u(t)\]</div>
+</section>
+<section id="question-3">
+<h3>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h3>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -457,6 +513,27 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
