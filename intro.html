@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,7 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -375,8 +375,12 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-the-code">How to Run the Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-setup">First-time setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-jupyter-notebooks">Opening Jupyter notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-binder">Using Binder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-notebooks-locally">Run notebooks locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-jupyter-notebooks">Opening Jupyter notebooks</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
@@ -405,9 +409,20 @@ Take the time to engage with each problem and work through the solutions thoroug
 <p>Happy learning!</p>
 <section id="how-to-run-the-code">
 <h2>How to Run the Code<a class="headerlink" href="#how-to-run-the-code" title="Link to this heading">#</a></h2>
-<section id="first-time-setup">
-<h3>First-time setup<a class="headerlink" href="#first-time-setup" title="Link to this heading">#</a></h3>
-<p>To execute the MATLAB code provided in some exercises, ensure the following software is installed on your system:</p>
+<section id="using-binder">
+<h3>Using Binder<a class="headerlink" href="#using-binder" title="Link to this heading">#</a></h3>
+<p>The easiest way to interactively run the MATLAB code reported in the exercises’ solutions is using Binder. Binder is a free and open source service that allows to open and run Jupyter Notebooks from your browser.</p>
+<p>To run the code in Binder, just click on the rocket logo in the top navigation bar, and then on “Binder”. When the notebook gets opened in Binder, select the <strong>Octave kernel</strong><a class="footnote-reference brackets" href="#octave" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Binder is a free service, and from time to time it might be congested or offline. In this case, retry after a while or open the notebook locally, see below.</p>
+</div>
+</section>
+<section id="run-notebooks-locally">
+<h3>Run notebooks locally<a class="headerlink" href="#run-notebooks-locally" title="Link to this heading">#</a></h3>
+<section id="setup">
+<h4>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h4>
+<p>First, the following software needs to be installed on your system:</p>
 <ul class="simple">
 <li><p><strong>Licensed MATLAB installation</strong></p></li>
 <li><p><strong>Mamba</strong> (or <strong>Conda</strong>) – any distribution is fine, just make sure that it is in the Environment PATH. See <a class="reference external" href="https://github.com/conda-forge/miniforge">this documentation</a> if you need help to setup a mamba installation.</p></li>
@@ -422,13 +437,14 @@ Take the time to engage with each problem and work through the solutions thoroug
 </div>
 </section>
 <section id="opening-jupyter-notebooks">
-<h3>Opening Jupyter notebooks<a class="headerlink" href="#opening-jupyter-notebooks" title="Link to this heading">#</a></h3>
+<h4>Opening Jupyter notebooks<a class="headerlink" href="#opening-jupyter-notebooks" title="Link to this heading">#</a></h4>
 <p>The Jupyter notebook of exercise with code can be downloaded from the website (top-right corner).</p>
 <p>To run one of those notebooks, you can open them in Jupyter Lab:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">mamba</span> <span class="n">run</span> <span class="o">-</span><span class="n">n</span> <span class="mi">1</span><span class="n">RT485</span> <span class="n">jupyter</span> <span class="n">lab</span>
 </pre></div>
 </div>
 <p>Remember to set the notebook’s kernel to <code class="docutils literal notranslate"><span class="pre">MATLAB</span> <span class="pre">(1RT485)</span></code>. The first time you run MATLAB code in Jupyter, you might be prompted to login with your Mathworks account (<a class="reference external" href="https://github.com/mathworks/jupyter-matlab-proxy?tab=readme-ov-file#notes">see here</a>).</p>
+</section>
 </section>
 </section>
 <hr class="docutils" />
@@ -440,11 +456,13 @@ Take the time to engage with each problem and work through the solutions thoroug
 <li><p>Open a Github issue (this makes the discussion easier, but you need a Github account)</p></li>
 </ul>
 <p>You are also welcome to contribute proposing additional exercises or fixing errors in existing ones.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Future developments
-We are considering switching to <a class="reference external" href="https://octave.org">Octave</a> so that interactive notebooks can be created via <a class="reference external" href="https://mybinder.org">mybinder.org</a>. We will keep you posted!</p>
-</div>
+<hr class="docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="octave" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Octave is a GNU-GPL scientific programming language that offers, in many cases, a drop-in replacement to MATLAB. See <a class="reference external" href="https://octave.org">the website</a> for more information.</p>
+</aside>
+</aside>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -507,8 +525,12 @@ We are considering switching to <a class="reference external" href="https://octa
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-run-the-code">How to Run the Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-setup">First-time setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-jupyter-notebooks">Opening Jupyter notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-binder">Using Binder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-notebooks-locally">Run notebooks locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-jupyter-notebooks">Opening Jupyter notebooks</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
