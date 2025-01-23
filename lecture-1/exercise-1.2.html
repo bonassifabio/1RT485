@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -232,6 +232,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/bonassifabio/1RT485/main?urlpath=lab/tree/book/lecture-1/exercise-1.2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -350,7 +381,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -366,6 +399,14 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,6 +430,40 @@ Let <span class="math notranslate nohighlight">\(k\)</span> be the axis’ sprin
 <li><p>Write the transfer function between the input voltage <span class="math notranslate nohighlight">\(u\)</span> and the angle <span class="math notranslate nohighlight">\(\theta_L\)</span>.</p></li>
 </ol>
 <hr class="docutils" />
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+<p>Writing the momentum balance of the load and of the motor we get, respectively</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+J_L \ddot{\theta}_L =&amp; - f_L \dot{\theta}_L - k (\theta_L - \theta_m) \\
+J_m \ddot{\theta}_m =&amp; -f_m \dot{\theta}_m + k (\theta_L - \theta_m) + k_a i
+\end{aligned}
+\end{split}\]</div>
+<p>Moving to the Laplace domain,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+J_L s^2 {\Theta}_L(s) =&amp; - f_L s {\Theta}_L(s) - k (\Theta_L(s) - \Theta_m(s)) \\
+J_m s^2 {\Theta}_m(s) =&amp; -f_m s {\Theta}_m(s) + k (\Theta_L(s) - \Theta_m(s)) + k_a I(s)
+\end{aligned}
+\end{split}\]</div>
+<p>We can isolate <span class="math notranslate nohighlight">\(\Theta_m(s)\)</span> from the second equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\Theta_m(s) = \frac{k}{J_m s^2 + f_m s + k} \Theta_L(s) + \frac{k_a}{J_m  s^2+ f_m s + k} I(s)
+\]</div>
+<p>Replacing it back into the first equation, we get</p>
+<div class="math notranslate nohighlight">
+\[
+(J_L s^2 + f_L s + k) \Theta_L(s) = \frac{k^2}{J_m s^2 + f_m s + k} \Theta_L(s) + \frac{k \cdot k_a}{J_m  s^2+ f_m s + k} I(s)
+\]</div>
+<p>Isolating <span class="math notranslate nohighlight">\(\Theta_L(s)\)</span>, and recalling that <span class="math notranslate nohighlight">\(I(s) = \frac{U(s)}{R_a}\)</span>, we finally get our transfer function</p>
+<div class="math notranslate nohighlight">
+\[
+\Theta_L(s) = \frac{\frac{k \cdot k_a}{R_a}}{J_m J_L s^4 + (J_m f_L + J_L f_m)s^3 + (k J_m + k J_L + f_M f_L) s^2 + k(f_L + f_m) s} U(s)
+\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -445,6 +520,22 @@ Let <span class="math notranslate nohighlight">\(k\)</span> be the axis’ sprin
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

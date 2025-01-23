@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -232,6 +232,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/bonassifabio/1RT485/main?urlpath=lab/tree/book/lecture-1/exercise-1.3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -350,7 +381,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -366,6 +399,22 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-delta-geq-0">Case <span class="math notranslate nohighlight">\(\Delta \geq 0\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-delta-0">Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-question-1">Solution to Question 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,6 +433,90 @@
 <li><p>Consider now a <strong>Proportional Integral (PI)</strong> controller. What will the steady-state error be if the reference signal is a ramp?</p></li>
 </ol>
 <hr class="docutils" />
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+<p>As shown in <a class="reference internal" href="exercise-1.1.html#ref-lec1-ex1"><span class="std std-ref">Exercise 1.1</span></a>, the transfer function of the motor is</p>
+<div class="math notranslate nohighlight">
+\[
+G(s) = \frac{k_o}{s(s+\alpha)}
+\]</div>
+<p>The open-loop transfer function is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+G_o(s) = \frac{\Theta(s)}{\Theta_{ref}(s)} = F(s) \cdot G(s)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Theta_{ref}(s)\)</span> is the reference signal, and <span class="math notranslate nohighlight">\(F(s)\)</span> is the controller.</p>
+<p>We now compute the <strong>closed-loop transfer function</strong> as</p>
+<div class="math notranslate nohighlight">
+\[
+    \Theta(s) = G(s) F(s) \underbrace{(\Theta_{ref}(s) - \Theta(s))}_{\text{Error $E(s)$}} \quad \Rightarrow \quad \Theta(s) = \frac{F(s)G(s)}{1 + F(s) G(s)} \Theta_{ref}(s) = \frac{G_o(s)}{1+G_o(s)} \Theta_{ref}(s)
+\]</div>
+<section id="question-1">
+<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
+<p>We start by considering a proportional controller, <span class="math notranslate nohighlight">\(F(s) = K\)</span>, where <strong><span class="math notranslate nohighlight">\(K\)</span> is the proportional gain</strong>.</p>
+<p>In this case, the closed loop transfer function is</p>
+<div class="math notranslate nohighlight">
+\[
+G_{c}(s) = \frac{K \cdot \frac{k_o}{s(s+\alpha)}}{1+K \cdot \frac{k_o}{s(s+\alpha)}} = \frac{k_o K}{s^2 + \alpha s +k_o K}
+\]</div>
+<p>The closed-loop poles are the poles of <span class="math notranslate nohighlight">\(G_c(s)\)</span>. We hence need to find the roots of the denominator of <span class="math notranslate nohighlight">\(G_c(s)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 + \alpha s + k_o K = 0
+\]</div>
+<p>We solve this equation by <span class="math notranslate nohighlight">\(s\)</span>. The discriminant is <span class="math notranslate nohighlight">\(\Delta = {\alpha^2 - 4 k_o K}\)</span>.</p>
+<p>Now, there are two relevant cases.</p>
+<section id="case-delta-geq-0">
+<h4>Case <span class="math notranslate nohighlight">\(\Delta \geq 0\)</span><a class="headerlink" href="#case-delta-geq-0" title="Link to this heading">#</a></h4>
+<p>When <span class="math notranslate nohighlight">\(K \geq \frac{\alpha^2}{4 k_o}\)</span> the discriminant is positive, which means that there exist <strong>two real poles</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+s = \frac{-\alpha  \pm \sqrt{\Delta}}{2}
+\]</div>
+<p>These poles are stable as long as both of them are strictly negative.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(- \alpha - \sqrt{\Delta} &lt; 0 \quad \rightarrow \quad  \sqrt{\Delta} &gt; -\alpha\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(- \alpha + \sqrt{\Delta} &lt; 0 \quad \rightarrow \quad  \sqrt{\Delta} &lt; \alpha\)</span></p></li>
+</ul>
+<p>The first is always satisfied as long as <span class="math notranslate nohighlight">\(\Delta \geq 0\)</span>.
+When it comes to the second one, under the condition <span class="math notranslate nohighlight">\(\Delta \geq 0\)</span> we can square both sides since <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>.</p>
+<p>This way, we get the following system of inequalities</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left\{\begin{array}{l} 
+    K \geq \frac{\alpha^2}{4 k_o} \\
+    \alpha^2 - 4 k_o K &lt; \alpha^2
+\end{array} \right. \Rightarrow \left\{\begin{array}{l} 
+    K \geq \frac{\alpha^2}{4 k_o} \\
+     K &gt; 0
+\end{array} \right.  \Rightarrow K \geq \frac{\alpha^2}{4 k_o}
+\end{split}\]</div>
+</section>
+<section id="case-delta-0">
+<h4>Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span><a class="headerlink" href="#case-delta-0" title="Link to this heading">#</a></h4>
+<p>When <span class="math notranslate nohighlight">\(K &lt; \frac{\alpha^2}{4 k_o}\)</span> the discriminant is negative, which means that we have two complex conjugate poles.</p>
+<p>In this case, it is easy to notice that</p>
+<div class="math notranslate nohighlight">
+\[
+    s = -\frac{\alpha}{2} \pm i \frac{\sqrt{\lvert \Delta \lvert}}{2}
+\]</div>
+<p>In this case the real part of these eigenvalues is <span class="math notranslate nohighlight">\(-\frac{\alpha}{2} &lt; 0\)</span> regardless of <span class="math notranslate nohighlight">\(K\)</span>. Therefore, any <span class="math notranslate nohighlight">\(K &lt; \frac{\alpha^2}{4 k_o}\)</span> makes the closed-loop stable.</p>
+</section>
+<section id="solution-to-question-1">
+<h4>Solution to Question 1<a class="headerlink" href="#solution-to-question-1" title="Link to this heading">#</a></h4>
+<p>The overall solution is given by the union of the solutions in the two cases:</p>
+<div class="math notranslate nohighlight">
+\[ 
+ \left\{ K \geq \frac{\alpha^2}{4 k_o} \cup K &lt; \frac{\alpha^2}{4 k_o} \right\} = \mathbb{R}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An alternative (and faster) approach to solve the problem would be to use the so-called Routh criterion!</p>
+</div>
+<p>Finally, we can visualize how the closed-loop poles move in the complex plane as a function of <span class="math notranslate nohighlight">\(K\)</span> by inspecting the root locus. We will plot the root locus with MATLAB assuming <span class="math notranslate nohighlight">\(k_o = 1\)</span> and <span class="math notranslate nohighlight">\(\alpha=1\)</span>.</p>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -440,6 +573,30 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-delta-geq-0">Case <span class="math notranslate nohighlight">\(\Delta \geq 0\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-delta-0">Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-question-1">Solution to Question 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

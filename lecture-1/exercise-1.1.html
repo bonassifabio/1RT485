@@ -232,6 +232,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/bonassifabio/1RT485/main?urlpath=lab/tree/book/lecture-1/exercise-1.1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -407,8 +438,8 @@
 \[M = k_a i\]</div>
 <p>where <span class="math notranslate nohighlight">\(i\)</span> is the stator current and  <span class="math notranslate nohighlight">\(k_a\)</span> is a proportional constant characteristic for the motor. In addition,</p>
 <div class="math notranslate nohighlight">
-\[V = k_v\dot{\theta}\]</div>
-<p>where <span class="math notranslate nohighlight">\(V\)</span> is the induced voltage and <span class="math notranslate nohighlight">\(k_v\)</span> is a proportional constant.</p>
+\[v = k_v\dot{\theta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(v\)</span> is the induced voltage and <span class="math notranslate nohighlight">\(k_v\)</span> is a proportional constant.</p>
 <p>Let the input voltage <span class="math notranslate nohighlight">\(u\)</span> be the control signal and <span class="math notranslate nohighlight">\(\theta\)</span> be the output.</p>
 <ol class="arabic simple">
 <li><p>Write a differential equation that relates <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span> (the inductance <span class="math notranslate nohighlight">\(L_a\)</span> can be neglected).</p></li>
@@ -418,43 +449,120 @@
 <hr class="docutils" />
 <section id="solution">
 <h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<p>Let’s start by noting that <span class="math notranslate nohighlight">\(V_L(t) = L_a \frac{di}{dt}\)</span> corresponds, in the Laplace domain, to <span class="math notranslate nohighlight">\(V_L(s) = L_a s I(s)\)</span>, where <span class="math notranslate nohighlight">\(s\)</span> is the Laplace operator.</p>
+<p>Let’s start by noting that <span class="math notranslate nohighlight">\(V_L(t) = L_a \frac{di}{dt}\)</span> corresponds, in the Laplace domain, to <span class="math notranslate nohighlight">\(V_L(s) = L_a s I(s)\)</span>, where <span class="math notranslate nohighlight">\(s\)</span> is the Laplace operator. Similarly, the induced voltage is <span class="math notranslate nohighlight">\(v(t) = k_v \dot{\theta}(t)\)</span>, which means <span class="math notranslate nohighlight">\(V(s) = k_v s \Theta(s)\)</span>.</p>
 <section id="question-1">
 <h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
-<p>From the Ohm’s law,</p>
+<p>From the Ohm’s law, we have that <span class="math notranslate nohighlight">\(U(s) = R_a I(s) + L_a s I(s) + k_v s \Theta(s)\)</span>.
+Solving by <span class="math notranslate nohighlight">\(I(s)\)</span>, and recalling that <span class="math notranslate nohighlight">\(L_a = 0\)</span>, we get</p>
 <div class="math notranslate nohighlight">
-\[U(s) = R_a I(s) + L_a s I(s) + k_v s \Theta(s)\]</div>
-<p>Solving by <span class="math notranslate nohighlight">\(I(s)\)</span>, and recalling that <span class="math notranslate nohighlight">\(L_a = 0\)</span>, we get</p>
-<div class="math notranslate nohighlight">
-\[I(s) = \frac{U(s)}{R_a} + \frac{k_v s}{R_a} \Theta(s)\]</div>
+\[
+I(s) = \frac{U(s)}{R_a} - \frac{k_v s}{R_a} \Theta(s)
+\]</div>
 </section>
 <section id="question-2">
 <h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
+<p>From the momentum balance,</p>
 <div class="math notranslate nohighlight">
 \[
 J s^2 \Theta(s) = -f_s \Theta(s) + M(s) =  -f_s \Theta(s)  + k_a I(s)
 \]</div>
-<p>Or, equivalently,</p>
+<p>Replacing the expression of <span class="math notranslate nohighlight">\(I(s)\)</span> we get</p>
 <div class="math notranslate nohighlight">
 \[
-J s^2 \Theta(s) + f_s \Theta(s) =  k_a \left( \frac{U(s)}{R_a} + \frac{k_v s}{R_a}\Theta(s) \right)
+J s^2 \Theta(s) + f_s \Theta(s) =  k_a \left( \frac{U(s)}{R_a} - \frac{k_v s}{R_a}\Theta(s) \right)
 \]</div>
-<p>Isolating <span class="math notranslate nohighlight">\(\Theta(s)\)</span> we get</p>
+<p>We then isolate <span class="math notranslate nohighlight">\(\Theta(s)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\Theta(s) = \frac{\frac{k_a}{R_a}}{s^2 J + \left(f_s - \frac{k_a k_v}{R_a}\right)s} U(s)
+\Theta(s) = \frac{\frac{k_a}{R_a}}{s^2 J + \left(f_s + \frac{k_a k_v}{R_a}\right)s} U(s)
 \]</div>
 <p>The transfer function is therefore</p>
-<div class="math notranslate nohighlight">
-\[
-\Theta(s) = \cdot \frac{K}{s \left(s + \alpha\right)} U(s) \quad \text{where } K = \frac{k_a}{R_a J} \text{ and } \alpha = \frac{f_s - \frac{k_a k_v}{R_a}}{J} 
+<div class="math notranslate nohighlight" id="equation-eq-lec1-ex1-theta">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-lec1-ex1-theta" title="Link to this equation">#</a></span>\[
+\Theta(s) =  \frac{k_o}{s \left(s + \alpha\right)} U(s)
 \]</div>
-<p>Note: the ODE describing the evolution of the angle can be derived as</p>
+<p>where <span class="math notranslate nohighlight">\(k_o = \frac{k_a}{R_a J}\)</span> and  <span class="math notranslate nohighlight">\(\alpha = \frac{f_s + \frac{k_a k_v}{R_a}}{J}\)</span>.</p>
+<p><strong>Note</strong>: the ODE describing the evolution of the angle can be derived as</p>
 <div class="math notranslate nohighlight">
-\[s(s+\alpha) \Theta(s) = K U(s) \quad \rightarrow \quad \frac{d^2}{d t^2} \theta(t) + \alpha \frac{d}{d t} \theta(t) = K u(t)\]</div>
+\[s(s+\alpha) \Theta(s) = k_o U(s) \quad \rightarrow \quad \frac{d^2}{d t^2} \theta(t) + \alpha \frac{d}{d t} \theta(t) = k_o u(t)\]</div>
 </section>
 <section id="question-3">
 <h3>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h3>
+<p>We can get a qualitative idea of the step response  by looking at the static gain and poles of the transfer function <a class="reference internal" href="#equation-eq-lec1-ex1-theta">(1)</a>.</p>
+<p>We compute the <strong>poles</strong> as the roots of the denominator, i.e. by solving <span class="math notranslate nohighlight">\(s(s+\alpha) = 0\)</span>. We have two poles:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s=-\alpha &lt; 0\)</span>, which is stable.</p></li>
+<li><p><span class="math notranslate nohighlight">\(s = 0\)</span>, which is only marginally stable. This pole is due to the fact that the angular position <span class="math notranslate nohighlight">\(\theta(t)\)</span> is the integral of the angular velocity <span class="math notranslate nohighlight">\(\dot{\theta}(t)\)</span>. In the Laplace domain, this corresponds to <span class="math notranslate nohighlight">\(\Theta(s) = \frac{1}{s} \dot{\Theta}(s)\)</span>.</p></li>
+</ul>
+<p>Because the assumption of the Final Value Theorem are <strong>not satisfied</strong> (not all the poles are stable, that is, not all the poles have strictly negative real part), <strong>we cannot apply it</strong> to compute <span class="math notranslate nohighlight">\(\lim_{t \to \infty} \theta(t)\)</span>.</p>
+<p>Whether such a limit exists and is finite depends on the specific input <span class="math notranslate nohighlight">\(u(t)\)</span> applied to the system. We can get the output by computing the output <span class="math notranslate nohighlight">\(\Theta(s)\)</span> in the Laplace domain, and then anti-transforming it to get <span class="math notranslate nohighlight">\(\theta(t)\)</span>.</p>
+<p>Noting that <span class="math notranslate nohighlight">\(U(s) = \mathcal{L} \left[ \textrm{step}(t) \right] = \frac{1}{s}\)</span>, we get</p>
+<div class="math notranslate nohighlight">
+\[
+\Theta(s) = \frac{k_o}{s(s+\alpha)} \frac{1}{s} = \frac{k_o}{s^2(s+\alpha)}
+\]</div>
+<p>We then decompose it into the sum of simpler rational transfer functions</p>
+<div class="math notranslate nohighlight">
+\[
+\Theta(s) = \frac{A}{s} + \frac{B}{s} + \frac{C}{s+\alpha}
+\]</div>
+<p>The values of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> are found equating the two expressions of <span class="math notranslate nohighlight">\(\Theta(s)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{A}{s} + \frac{B}{s^2} + \frac{C}{s+\alpha} = \frac{As(s+\alpha) + B(s+\alpha) + C s^2}{s^2(s+\alpha)} = \frac{(A+C)s^2 + (A \alpha + B)s + B \alpha}{s^2(s+\alpha)} = \frac{k_o}{s^2(s+\alpha)}
+\]</div>
+<p><span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> can be found by comparing the coefficients of the polynomial at the numerator, which results in a linear system of equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left\{ \begin{array}{l}
+    A + C = 0 \\
+    A \alpha + B = 0 \\
+    B \alpha = k_o \end{array} \right. \quad \Rightarrow \quad A = - \frac{k_o}{\alpha^2}, B = \frac{k_o}{\alpha}, C = \frac{k_o}{\alpha^2}
+\end{split}\]</div>
+<p>We can therefore re-write <span class="math notranslate nohighlight">\(\Theta(s)\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[
+\Theta(s) = \frac{A}{s} + \frac{B}{s^2} + \frac{C}{s+\alpha}
+\]</div>
+<p>This allows us to easily anti-transform <span class="math notranslate nohighlight">\(\Theta(s)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\theta(t) =&amp; \mathcal{L}^{-1}\left[ \Theta(s)  \right] = \mathcal{L}^{-1}\left[ \frac{A}{s}  \right] + \mathcal{L}^{-1}\left[ \frac{B}{s^2}  \right] + \mathcal{L}^{-1}\left[ \frac{C}{s+\alpha}  \right]\\
+=&amp; A \cdot \textrm{step}(t) + B \cdot \textrm{ramp}(t) + C \cdot e^{-\alpha t} \textrm{step}(t)
+\end{aligned}
+\end{split}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\lim_{t \to \infty} \theta(t) = \infty\)</span>.</p>
+<p>Let’s use MATLAB (Octave) to plot the step response (we will take <span class="math notranslate nohighlight">\(\alpha=1\)</span> and <span class="math notranslate nohighlight">\(k_o=1\)</span> since numerical values are not provided in the text of the exercise).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if we are running in Octave or MATLAB</span>
+<span class="k">if</span> <span class="nb">exist</span><span class="p">(</span><span class="s">&#39;OCTAVE_VERSION&#39;</span><span class="p">,</span> <span class="s">&#39;builtin&#39;</span><span class="p">)</span>
+    <span class="n">pkg</span> <span class="nb">load</span> <span class="n">control</span><span class="p">;</span> <span class="nb">warning</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">,</span> <span class="s">&#39;all&#39;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="nb">isempty</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;BINDER_SERVICE_HOST&#39;</span><span class="p">));</span> <span class="n">t</span> <span class="p">=</span> <span class="s">&#39;notebook&#39;</span><span class="p">;</span> <span class="k">else</span><span class="p">;</span> <span class="n">t</span> <span class="p">=</span> <span class="s">&#39;plotly&#39;</span><span class="p">;</span> <span class="k">end</span>
+    <span class="nb">graphics_toolkit</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="p">=</span> <span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
+<span class="n">G</span> <span class="p">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+
+<span class="n">step</span><span class="p">(</span><span class="n">G</span><span class="p">);</span>     <span class="c">% Get the step response of the transfer function G</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../_images/45100f2338e99ebdf3c23d4b891cdf2b9318852c03f47756db28e1dd98202556.png"><img alt="../_images/45100f2338e99ebdf3c23d4b891cdf2b9318852c03f47756db28e1dd98202556.png" src="../_images/45100f2338e99ebdf3c23d4b891cdf2b9318852c03f47756db28e1dd98202556.png" style="width: 560.0px; height: 420.0px;" /></a>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Remember</p>
+<p>Before applying the Final Value Theorem, always check that its assumptions are satisfied!</p>
+</div>
 </section>
 </section>
 </section>
@@ -468,16 +576,16 @@ J s^2 \Theta(s) + f_s \Theta(s) =  k_a \left( \frac{U(s)}{R_a} + \frac{k_v s}{R_
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "jupyter_matlab_kernel"
+            mode: "xoctave"
         },
         kernelOptions: {
-            name: "jupyter_matlab_kernel",
+            name: "xoctave",
             path: "./lecture-1"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'jupyter_matlab_kernel'</script>
+    <script>kernelName = 'xoctave'</script>
 
                 </article>
               
