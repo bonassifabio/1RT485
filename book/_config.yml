@@ -76,6 +76,14 @@ sphinx:
     default_mode: light
   config:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    mathjax3_config: 
+      loader:
+        load:
+          - "[tex]/mathtools"
+      tex:
+        packages:
+          "[+]":
+            - "mathtools"
     html_js_files:
       - "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"
     myst_footnote_transition: false

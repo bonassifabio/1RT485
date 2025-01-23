@@ -26,9 +26,21 @@ Happy learning!
 
 ## How to Run the Code
 
-### First-time setup 
+### Using Binder
 
-To execute the MATLAB code provided in some exercises, ensure the following software is installed on your system:
+The easiest way to interactively run the MATLAB code reported in the exercises' solutions is using Binder. Binder is a free and open source service that allows to open and run Jupyter Notebooks from your browser.
+
+To run the code in Binder, just click on the rocket logo in the top navigation bar, and then on "Binder". When the notebook gets opened in Binder, select the **Octave kernel**[^octave].
+
+```{note}
+Binder is a free service, and from time to time it might be congested or offline. In this case, retry after a while or open the notebook locally, see below.
+```
+
+### Run notebooks locally
+
+#### Setup 
+
+First, the following software needs to be installed on your system:
 
 - **Licensed MATLAB installation**
 - **Mamba** (or **Conda**) – any distribution is fine, just make sure that it is in the Environment PATH. See [this documentation](https://github.com/conda-forge/miniforge) if you need help to setup a mamba installation.
@@ -44,7 +56,7 @@ Then, activate the environemnt with `mamba activate 1RT485` and install the Math
   pip install -U jupyter-matlab-proxy && install-matlab-kernelspec
 :::
 
-### Opening Jupyter notebooks
+#### Opening Jupyter notebooks
 
 The Jupyter notebook of exercise with code can be downloaded from the website (top-right corner).
 
@@ -66,6 +78,7 @@ This book is still a work in progress. If you spot any error, you can proceed in
 
 You are also welcome to contribute proposing additional exercises or fixing errors in existing ones.
 
-```{note} Future developments
-  We are considering switching to [Octave](https://octave.org) so that interactive notebooks can be created via [mybinder.org](https://mybinder.org). We will keep you posted!
-```
+
+---
+
+[^octave]: Octave is a GNU-GPL scientific programming language that offers, in many cases, a drop-in replacement to MATLAB. See [the website](https://octave.org) for more information.
