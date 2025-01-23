@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+default: build
+
 setup:
 	echo "Creating conda environment"
 	mamba env create -y -f environment.yml -n book

@@ -1,0 +1,15 @@
+name: xeus-octave
+channels:
+  - conda-forge
+dependencies:
+  - xeus-octave ==0.2.0
+  # For Plotly graphical toolkit
+  - plotly
+  # Runtime dependency for Octave ``symbolic`` package.
+  - sympy
+  # For compiling the Octave ``control`` and ``signal`` packages
+  - compilers
+  - make
+  - fortran-compiler
+  - cxx-compiler
+  - jupytext
