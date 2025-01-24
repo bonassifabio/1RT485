@@ -411,6 +411,12 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-question-1">Solution to Question 1</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-theta-ref-t-textrm-step-t">Case <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{step}(t)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-theta-ref-t-textrm-ramp-t">Case <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{ramp}(t)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
 </ul>
 </li>
 </ul>
@@ -468,7 +474,7 @@ s^2 + \alpha s + k_o K = 0
 <p>Now, there are two relevant cases.</p>
 <section id="case-delta-geq-0">
 <h4>Case <span class="math notranslate nohighlight">\(\Delta \geq 0\)</span><a class="headerlink" href="#case-delta-geq-0" title="Link to this heading">#</a></h4>
-<p>When <span class="math notranslate nohighlight">\(K \geq \frac{\alpha^2}{4 k_o}\)</span> the discriminant is positive, which means that there exist <strong>two real poles</strong>:</p>
+<p>When <span class="math notranslate nohighlight">\(K &lt; \frac{\alpha^2}{4 k_o}\)</span> the discriminant is positive, which means that there exist <strong>two real poles</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
 s = \frac{-\alpha  \pm \sqrt{\Delta}}{2}
@@ -483,38 +489,118 @@ When it comes to the second one, under the condition <span class="math notransla
 <p>This way, we get the following system of inequalities</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\left\{\begin{array}{l} 
-    K \geq \frac{\alpha^2}{4 k_o} \\
+\begin{dcases}
+    K \leq \frac{\alpha^2}{4 k_o} \\
     \alpha^2 - 4 k_o K &lt; \alpha^2
-\end{array} \right. \Rightarrow \left\{\begin{array}{l} 
-    K \geq \frac{\alpha^2}{4 k_o} \\
+\end{dcases} \,\, \Rightarrow \,\, \begin{dcases}
+    K \leq \frac{\alpha^2}{4 k_o} \\
      K &gt; 0
-\end{array} \right.  \Rightarrow K \geq \frac{\alpha^2}{4 k_o}
+\end{dcases} \,\, \Rightarrow \,\, 0 &lt; K \leq \frac{\alpha^2}{4 k_o}
 \end{split}\]</div>
 </section>
 <section id="case-delta-0">
 <h4>Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span><a class="headerlink" href="#case-delta-0" title="Link to this heading">#</a></h4>
-<p>When <span class="math notranslate nohighlight">\(K &lt; \frac{\alpha^2}{4 k_o}\)</span> the discriminant is negative, which means that we have two complex conjugate poles.</p>
+<p>When <span class="math notranslate nohighlight">\(K &gt; \frac{\alpha^2}{4 k_o}\)</span> the discriminant is negative, which means that we have two complex conjugate poles.</p>
 <p>In this case, it is easy to notice that</p>
 <div class="math notranslate nohighlight">
 \[
     s = -\frac{\alpha}{2} \pm i \frac{\sqrt{\lvert \Delta \lvert}}{2}
 \]</div>
-<p>In this case the real part of these eigenvalues is <span class="math notranslate nohighlight">\(-\frac{\alpha}{2} &lt; 0\)</span> regardless of <span class="math notranslate nohighlight">\(K\)</span>. Therefore, any <span class="math notranslate nohighlight">\(K &lt; \frac{\alpha^2}{4 k_o}\)</span> makes the closed-loop stable.</p>
+<p>In this case the real part of these eigenvalues is <span class="math notranslate nohighlight">\(-\frac{\alpha}{2} &lt; 0\)</span> regardless of <span class="math notranslate nohighlight">\(K\)</span>. Therefore, any <span class="math notranslate nohighlight">\(K &gt; \frac{\alpha^2}{4 k_o}\)</span> makes the closed-loop stable.</p>
 </section>
 <section id="solution-to-question-1">
 <h4>Solution to Question 1<a class="headerlink" href="#solution-to-question-1" title="Link to this heading">#</a></h4>
 <p>The overall solution is given by the union of the solutions in the two cases:</p>
 <div class="math notranslate nohighlight">
 \[ 
- \left\{ K \geq \frac{\alpha^2}{4 k_o} \cup K &lt; \frac{\alpha^2}{4 k_o} \right\} = \mathbb{R}
+ \left\{ K \geq \frac{\alpha^2}{4 k_o} \cup K &lt; \frac{\alpha^2}{4 k_o} \right\} = {K &gt; 0}
 \]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>An alternative (and faster) approach to solve the problem would be to use the so-called Routh criterion!</p>
 </div>
 <p>Finally, we can visualize how the closed-loop poles move in the complex plane as a function of <span class="math notranslate nohighlight">\(K\)</span> by inspecting the root locus. We will plot the root locus with MATLAB assuming <span class="math notranslate nohighlight">\(k_o = 1\)</span> and <span class="math notranslate nohighlight">\(\alpha=1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if we are running in Octave or MATLAB</span>
+<span class="k">if</span><span class="w"> </span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;OCTAVE_VERSION&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;builtin&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">pkg</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">control</span><span class="p">;</span><span class="w"> </span><span class="nb">warning</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">isempty</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;BINDER_SERVICE_HOST&#39;</span><span class="p">));</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;notebook&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;plotly&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">end</span>
+<span class="w">    </span><span class="n">graphics_toolkit</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
+<span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">rlocusplot</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f304bb0462b205670000d7d6f3667818e885707adc0e8644a6ce834ad3f2fdb4.png" src="../_images/f304bb0462b205670000d7d6f3667818e885707adc0e8644a6ce834ad3f2fdb4.png" />
+</div>
+</div>
+<p>As one can see from the plot above, for every <span class="math notranslate nohighlight">\(K &gt; 0\)</span> the closed-loop eigenvalues have negative real part.</p>
 </section>
+</section>
+<section id="question-2">
+<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
+<p>Recalling that <span class="math notranslate nohighlight">\(\Theta(s) = G_c(s) \Theta_{ref}(s)\)</span>, where <span class="math notranslate nohighlight">\(G_c(s)\)</span> is the closed-loop transfer function,  since we have verified that <span class="math notranslate nohighlight">\(G_c(s) = \frac{k_o K}{s^2 + \alpha s + k_o K}\)</span> is stable for any <span class="math notranslate nohighlight">\(K &gt; 0\)</span>, we can apply the Final Value Theorem.</p>
+<p>According to the Final Value Theorem,</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{t \to \infty} \theta(t) = \lim_{s \to 0} s G_c(s) \Theta_{ref}(s)
+\]</div>
+<p>From this, the final error is</p>
+<p>$$
+\lim_{t \to \infty} e(t) = \lim_{t \to \infty} \theta_{ref}(t)  - \lim_{t \to \infty} \theta(t) = \lim_{s \to 0} s\left[ 1 -  G_c(s) \right] \Theta_{ref}(s)</p>
+<section id="case-theta-ref-t-textrm-step-t">
+<h4>Case <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{step}(t)\)</span><a class="headerlink" href="#case-theta-ref-t-textrm-step-t" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+e(\infty) = \lim_{s\to 0} \cancel{s} \left[ 1 - \frac{k_o K}{s^2 + \alpha s + k_o K} \right] \frac{1}{\cancel{s}} = \lim_{s\to 0} \frac{s^2 + \alpha s}{s^2 + \alpha s + k_o K} = 0
+\]</div>
+</section>
+<section id="case-theta-ref-t-textrm-ramp-t">
+<h4>Case <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{ramp}(t)\)</span><a class="headerlink" href="#case-theta-ref-t-textrm-ramp-t" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+e(\infty) = \lim_{s\to 0} \cancel{s} \left[ 1 - \frac{k_o K}{s^2 + \alpha s + k_o K} \right] \frac{1}{s^{\cancel{2}}} = \lim_{s\to 0} \frac{s^2 + \alpha s}{s^2 + \alpha s + k_o K} \frac{1}{s} = \frac{\alpha}{k_o K} \neq 0
+\]</div>
+</section>
+</section>
+<section id="question-3">
+<h3>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h3>
+<p>We now consider the case where we have a PI controller:</p>
+<div class="math notranslate nohighlight">
+\[
+F(s) = \frac{k_i}{s} + k_p = \frac{k_p s + k_i}{s}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_p\)</span> is the proportional gain and <span class="math notranslate nohighlight">\(k_i\)</span> is the integral gain. The closed-loop transfer function becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+G_c(s) =&amp; \frac{F(s) G(s)}{1 + F(s) G(s)} \\
+=&amp; \frac{(k_p s + k_i) k_o}{s^2(s+\alpha) + k_o (k_p s + k_i)}\\
+=&amp; \frac{(k_p s + k_i) k_o}{s^3 + \alpha s^2  + k_o k_p s + k_o k_i}
+\end{aligned}
+\end{split}\]</div>
+<p><strong>Assuming that <span class="math notranslate nohighlight">\(G_c(s)\)</span> is stable</strong>, i.e. <span class="math notranslate nohighlight">\(k_p\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span> are designed so that all the roots of <span class="math notranslate nohighlight">\(s^3 + \alpha s^2 + k_o k_p s + k_o k_i = 0\)</span> have negative real part<a class="footnote-reference brackets" href="#assumption" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, then we can apply the Final Value theorem.</p>
+<div class="math notranslate nohighlight">
+\[
+e(\infty) = \lim_{s \to 0} s \left[ 1 -  \frac{(k_p s + k_i) k_o}{s^3 + \alpha s^2  + k_o k_p s + k_o k_i} \right] \frac{1}{s^2} = \lim_{s \to 0} \frac{s^3 + \alpha s^2}{s^3 + \alpha s^2  + k_o k_p s + k_o k_i} \frac{1}{s} = 0
+\]</div>
+<hr class="docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="assumption" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><span class="math notranslate nohighlight">\(k_p\)</span> and <span class="math notranslate nohighlight">\(k_i\)</span> can be designed either with the Routh criterion or with the rootlocus.</p>
+</aside>
+</aside>
 </section>
 </section>
 </section>
@@ -591,6 +677,12 @@ When it comes to the second one, under the condition <span class="math notransla
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-question-1">Solution to Question 1</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-theta-ref-t-textrm-step-t">Case <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{step}(t)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-theta-ref-t-textrm-ramp-t">Case <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{ramp}(t)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
 </ul>
 </li>
 </ul>
