@@ -420,15 +420,14 @@
 \[
 G(s) = \frac{10}{s(s+10)}
 \]</div>
-<p>We adopt a proportional controller with a low-pass filter. The controller’s transfer function is</p>
+<p>We adopt a proportional controller:</p>
 <div class="math notranslate nohighlight">
 \[
-F(s) = \frac{K}{1+sT},
+F(s) = K
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(K &gt; 0\)</span> is the proportional gain and <span class="math notranslate nohighlight">\(T &gt; 0\)</span> is the time constant of the low-pass filter. The controller is fed with the tracking error, <span class="math notranslate nohighlight">\(e(t) = \theta_{ref}(t) - \theta(t)\)</span>.</p>
 <ol class="arabic simple">
 <li><p>For which values of <span class="math notranslate nohighlight">\(K\)</span> is the closed-loop stable?</p></li>
-<li><p>What happens if <span class="math notranslate nohighlight">\(T\)</span> is very small or very large, respectively?</p></li>
+<li><p>If the reference signal is <span class="math notranslate nohighlight">\(\theta_{ref}(t) = R \cdot \textrm{step}(t)\)</span>, for what values of <span class="math notranslate nohighlight">\(K\)</span> the steady-state output error is less than <span class="math notranslate nohighlight">\(1\%\)</span>?</p></li>
 </ol>
 <hr class="docutils" />
 <p><em>Solution to be uploaded</em></p>
