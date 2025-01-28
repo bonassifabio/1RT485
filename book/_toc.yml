@@ -8,4 +8,11 @@ chapters:
       - file: lecture-1/exercise-1.3.ipynb
       - file: lecture-1/exercise-1.4.ipynb
       - file: lecture-1/exercise-1.5.ipynb
+  - file: lecture-2/index
+    sections: 
+      - file: lecture-2/exercise-2.1.ipynb
+      - file: lecture-2/exercise-2.2.ipynb
+      - file: lecture-2/exercise-2.3.ipynb
+      - file: lecture-2/exercise-2.4.ipynb
+
 
