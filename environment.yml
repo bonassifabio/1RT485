@@ -10,8 +10,9 @@ dependencies:
   - ipywidgets
   - fortran-compiler
   - cxx-compiler
+  - poppler
   - pip:
       - ghp-import
       - jupyter-matlab-proxy
       - sphinxemoji
-      - git+https://github.com/michakraus/ipython-tikzmagic.git
+      - jupyter-tikz
