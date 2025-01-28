@@ -1,0 +1,137 @@
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+%%tikz -l positioning,calc,arrows -sp=ex3.pdf
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+
+	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=6em]
+	\tikzstyle{sum} = [draw, fill=white, circle, node distance=1cm]
+	\tikzstyle{input} = [coordinate]
+	\tikzstyle{output} = [coordinate]
+	\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+	
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum] (controller) { \Large $\frac{K}{s+2}$};
+    \node [block, right of=controller, node distance=3cm] (system) {\Large $\frac{1}{s(s+2)}$};
+
+    \draw [->] (controller) -- node[name=u] {$u$} (system);
+    \node [output, right of=system] (output) {};
+    \coordinate [below of=u] (measurements);
+
+    \draw [draw,->] (input) -- node {$r$} (sum);
+    \draw [->] (sum) -- node {$e$} (controller);
+    \draw [->] (system) -- node [name=y] {$y$}(output);
+    \draw [->] (y) |- (measurements) -| node[pos=0.99] {$-$}  (sum);
+\end{tikzpicture}
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyboardInterrupt[0m                         Traceback (most recent call last)
+Cell [0;32mIn[3], line 1[0m
+[0;32m----> 1[0m [43mget_ipython[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mrun_cell_magic[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mtikz[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43m-l positioning,calc,arrows -sp=ex3.pdf[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mbegin[39;49m[38;5;132;43;01m{tikzpicture}[39;49;00m[38;5;124;43m[auto, node distance=2cm,>=latex[39;49m[38;5;124;43m'[39;49m[38;5;124;43m][39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\t[39;49;00m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mtikzstyle[39;49m[38;5;132;43;01m{block}[39;49;00m[38;5;124;43m = [draw, fill=white, rectangle, minimum height=3em, minimum width=6em][39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\t[39;49;00m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mtikzstyle[39;49m[38;5;132;43;01m{sum}[39;49;00m[38;5;124;43m = [draw, fill=white, circle, node distance=1cm][39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\t[39;49;00m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mtikzstyle[39;49m[38;5;132;43;01m{input}[39;49;00m[38;5;124;43m = [coordinate][39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\t[39;49;00m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mtikzstyle[39;49m[38;5;132;43;01m{output}[39;49;00m[38;5;124;43m = [coordinate][39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\t[39;49;00m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mtikzstyle[39;49m[38;5;132;43;01m{pinstyle}[39;49;00m[38;5;124;43m = [pin edge=[39;49m[38;5;124;43m{[39;49m[38;5;124;43mto-,thin,black}][39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\t[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mnode [input, name=input] [39;49m[38;5;132;43;01m{}[39;49;00m[38;5;124;43m;[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mnode [sum, right of=input] (sum) [39;49m[38;5;132;43;01m{}[39;49;00m[38;5;124;43m;[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mnode [block, right of=sum] (controller) [39;49m[38;5;124;43m{[39;49m[38;5;124;43m [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mLarge $[39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mfrac[39;49m[38;5;132;43;01m{K}[39;49;00m[38;5;124;43m{[39;49m[38;5;124;43ms+2}$};[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mnode [block, right of=controller, node distance=3cm] (system) [39;49m[38;5;124;43m{[39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mLarge $[39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mfrac[39;49m[38;5;132;43;01m{1}[39;49;00m[38;5;124;43m{[39;49m[38;5;124;43ms(s+2)}$};[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mdraw [->] (controller) -- node[name=u] [39;49m[38;5;124;43m{[39;49m[38;5;124;43m$u$} (system);[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mnode [output, right of=system] (output) [39;49m[38;5;132;43;01m{}[39;49;00m[38;5;124;43m;[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mcoordinate [below of=u] (measurements);[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mdraw [draw,->] (input) -- node [39;49m[38;5;124;43m{[39;49m[38;5;124;43m$r$} (sum);[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mdraw [->] (sum) -- node [39;49m[38;5;124;43m{[39;49m[38;5;124;43m$e$} (controller);[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mdraw [->] (system) -- node [name=y] [39;49m[38;5;124;43m{[39;49m[38;5;124;43m$y$}(output);[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m    [39;49m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mdraw [->] (y) |- (measurements) -| node[pos=0.99] [39;49m[38;5;124;43m{[39;49m[38;5;124;43m$-$}  (sum);[39;49m[38;5;130;43;01m\n[39;49;00m[38;5;130;43;01m\\[39;49;00m[38;5;124;43mend[39;49m[38;5;132;43;01m{tikzpicture}[39;49;00m[38;5;130;43;01m\n[39;49;00m[38;5;124;43m"[39;49m[43m)[49m
+
+File [0;32m/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/IPython/core/interactiveshell.py:2541[0m, in [0;36mInteractiveShell.run_cell_magic[0;34m(self, magic_name, line, cell)[0m
+[1;32m   2539[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39mbuiltin_trap:
+[1;32m   2540[0m     args [38;5;241m=[39m (magic_arg_s, cell)
+[0;32m-> 2541[0m     result [38;5;241m=[39m [43mfn[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m   2543[0m [38;5;66;03m# The code below prevents the output from being displayed[39;00m
+[1;32m   2544[0m [38;5;66;03m# when using magics with decorator @output_can_be_silenced[39;00m
+[1;32m   2545[0m [38;5;66;03m# when the last Python token in the expression is a ';'.[39;00m
+[1;32m   2546[0m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(fn, magic[38;5;241m.[39mMAGIC_OUTPUT_CAN_BE_SILENCED, [38;5;28;01mFalse[39;00m):
+
+File [0;32m/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/jupyter_tikz/jupyter_tikz.py:746[0m, in [0;36mTikZMagics.tikz[0;34m(self, line, cell, local_ns)[0m
+[1;32m    744[0m image [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m    745[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39margs[[38;5;124m"[39m[38;5;124mno_compile[39m[38;5;124m"[39m]:
+[0;32m--> 746[0m     image [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mtex_obj[49m[38;5;241;43m.[39;49m[43mrun_latex[49m[43m([49m
+[1;32m    747[0m [43m        [49m[43mtex_program[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mtex_program[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    748[0m [43m        [49m[43mtex_args[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mtex_args[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    749[0m [43m        [49m[43mrasterize[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mrasterize[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    750[0m [43m        [49m[43mfull_err[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mfull_err[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    751[0m [43m        [49m[43mkeep_temp[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mkeep_temp[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    752[0m [43m        [49m[43msave_tikz[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43msave_tikz[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    753[0m [43m        [49m[43msave_tex[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43msave_tex[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    754[0m [43m        [49m[43msave_pdf[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43msave_pdf[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    755[0m [43m        [49m[43msave_image[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43msave_image[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    756[0m [43m        [49m[43mdpi[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mdpi[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    757[0m [43m        [49m[43mgrayscale[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43margs[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mgray[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m    758[0m [43m    [49m[43m)[49m
+[1;32m    759[0m     [38;5;28;01mif[39;00m image [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    760[0m         [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
+
+File [0;32m/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/jupyter_tikz/jupyter_tikz.py:194[0m, in [0;36mTexDocument.run_latex[0;34m(self, tex_program, tex_args, rasterize, full_err, keep_temp, save_image, dpi, grayscale, save_tex, save_tikz, save_pdf)[0m
+[1;32m    191[0m     tex_command [38;5;241m+[39m[38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;124m [39m[38;5;132;01m{[39;00mtex_args[38;5;132;01m}[39;00m[38;5;124m"[39m
+[1;32m    192[0m tex_command [38;5;241m+[39m[38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;124m [39m[38;5;132;01m{[39;00mtex_path[38;5;132;01m}[39;00m[38;5;124m"[39m
+[0;32m--> 194[0m res [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_run_command[49m[43m([49m[43mtex_command[49m[43m,[49m[43m [49m[43mfull_err[49m[38;5;241;43m=[39;49m[43mfull_err[49m[43m)[49m
+[1;32m    195[0m [38;5;28;01mif[39;00m res [38;5;241m!=[39m [38;5;241m0[39m:
+[1;32m    196[0m     [38;5;28mself[39m[38;5;241m.[39m_clearup_latex_garbage(keep_temp)
+
+File [0;32m/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/site-packages/jupyter_tikz/jupyter_tikz.py:111[0m, in [0;36mTexDocument._run_command[0;34m(self, command, full_err, **kwargs)[0m
+[1;32m    109[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21m_run_command[39m([38;5;28mself[39m, command: [38;5;28mstr[39m, full_err: [38;5;28mbool[39m [38;5;241m=[39m [38;5;28;01mFalse[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mint[39m:
+[0;32m--> 111[0m     result [38;5;241m=[39m [43msubprocess[49m[38;5;241;43m.[39;49m[43mrun[49m[43m([49m
+[1;32m    112[0m [43m        [49m[43mcommand[49m[43m,[49m
+[1;32m    113[0m [43m        [49m[43mshell[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[1;32m    114[0m [43m        [49m[43mcapture_output[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[1;32m    115[0m [43m        [49m[43mtext[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[1;32m    116[0m [43m        [49m[43mcheck[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[1;32m    117[0m [43m        [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m    118[0m [43m    [49m[43m)[49m
+[1;32m    119[0m     [38;5;28;01mif[39;00m result[38;5;241m.[39mreturncode [38;5;241m!=[39m [38;5;241m0[39m:
+[1;32m    120[0m         err_msg [38;5;241m=[39m result[38;5;241m.[39mstderr [38;5;28;01mif[39;00m result[38;5;241m.[39mstderr [38;5;28;01melse[39;00m result[38;5;241m.[39mstdout
+
+File [0;32m/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/subprocess.py:550[0m, in [0;36mrun[0;34m(input, capture_output, timeout, check, *popenargs, **kwargs)[0m
+[1;32m    548[0m [38;5;28;01mwith[39;00m Popen([38;5;241m*[39mpopenargs, [38;5;241m*[39m[38;5;241m*[39mkwargs) [38;5;28;01mas[39;00m process:
+[1;32m    549[0m     [38;5;28;01mtry[39;00m:
+[0;32m--> 550[0m         stdout, stderr [38;5;241m=[39m [43mprocess[49m[38;5;241;43m.[39;49m[43mcommunicate[49m[43m([49m[38;5;28;43minput[39;49m[43m,[49m[43m [49m[43mtimeout[49m[38;5;241;43m=[39;49m[43mtimeout[49m[43m)[49m
+[1;32m    551[0m     [38;5;28;01mexcept[39;00m TimeoutExpired [38;5;28;01mas[39;00m exc:
+[1;32m    552[0m         process[38;5;241m.[39mkill()
+
+File [0;32m/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/subprocess.py:1209[0m, in [0;36mPopen.communicate[0;34m(self, input, timeout)[0m
+[1;32m   1206[0m     endtime [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m   1208[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 1209[0m     stdout, stderr [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_communicate[49m[43m([49m[38;5;28;43minput[39;49m[43m,[49m[43m [49m[43mendtime[49m[43m,[49m[43m [49m[43mtimeout[49m[43m)[49m
+[1;32m   1210[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyboardInterrupt[39;00m:
+[1;32m   1211[0m     [38;5;66;03m# https://bugs.python.org/issue25942[39;00m
+[1;32m   1212[0m     [38;5;66;03m# See the detailed comment in .wait().[39;00m
+[1;32m   1213[0m     [38;5;28;01mif[39;00m timeout [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/subprocess.py:2115[0m, in [0;36mPopen._communicate[0;34m(self, input, endtime, orig_timeout)[0m
+[1;32m   2108[0m     [38;5;28mself[39m[38;5;241m.[39m_check_timeout(endtime, orig_timeout,
+[1;32m   2109[0m                         stdout, stderr,
+[1;32m   2110[0m                         skip_check_and_raise[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m   2111[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m(  [38;5;66;03m# Impossible :)[39;00m
+[1;32m   2112[0m         [38;5;124m'[39m[38;5;124m_check_timeout(..., skip_check_and_raise=True) [39m[38;5;124m'[39m
+[1;32m   2113[0m         [38;5;124m'[39m[38;5;124mfailed to raise TimeoutExpired.[39m[38;5;124m'[39m)
+[0;32m-> 2115[0m ready [38;5;241m=[39m [43mselector[49m[38;5;241;43m.[39;49m[43mselect[49m[43m([49m[43mtimeout[49m[43m)[49m
+[1;32m   2116[0m [38;5;28mself[39m[38;5;241m.[39m_check_timeout(endtime, orig_timeout, stdout, stderr)
+[1;32m   2118[0m [38;5;66;03m# XXX Rewrite these to use non-blocking I/O on the file[39;00m
+[1;32m   2119[0m [38;5;66;03m# objects; they are no longer using C stdio![39;00m
+
+File [0;32m/opt/homebrew/Caskroom/miniforge/base/envs/book/lib/python3.12/selectors.py:415[0m, in [0;36m_PollLikeSelector.select[0;34m(self, timeout)[0m
+[1;32m    413[0m ready [38;5;241m=[39m []
+[1;32m    414[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 415[0m     fd_event_list [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_selector[49m[38;5;241;43m.[39;49m[43mpoll[49m[43m([49m[43mtimeout[49m[43m)[49m
+[1;32m    416[0m [38;5;28;01mexcept[39;00m [38;5;167;01mInterruptedError[39;00m:
+[1;32m    417[0m     [38;5;28;01mreturn[39;00m ready
+
+[0;31mKeyboardInterrupt[0m: 
+
