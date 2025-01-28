@@ -411,14 +411,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-delta-0">Case <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-question-1">Solution to question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-delta-0">Case <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-question-1">Solution to question 1</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -447,8 +449,8 @@ F(s) = K
 <li><p>If the reference signal is <span class="math notranslate nohighlight">\(\theta_{ref}(t) = R \cdot \textrm{step}(t)\)</span>, for what values of <span class="math notranslate nohighlight">\(K\)</span> the steady-state output error is less than <span class="math notranslate nohighlight">\(1\%\)</span>?</p></li>
 </ol>
 <hr class="docutils" />
-<section id="solutions">
-<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
 <section id="question-1">
 <h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
 <p>We start by computing the closed-loop transfer function:</p>
@@ -462,9 +464,8 @@ G_c(s) = \frac{K \cdot G(s)}{1 + K \cdot G(s)} = \frac{10 K}{s^2 + 10 s + 10 K}
 s^2 + 10s +10K = 0
 \]</div>
 <p>The discriminant is <span class="math notranslate nohighlight">\(\Delta = 100 - 40 K\)</span>.</p>
-</section>
 <section id="case-delta-0">
-<h3>Case <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span><a class="headerlink" href="#case-delta-0" title="Link to this heading">#</a></h3>
+<h4>Case <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span><a class="headerlink" href="#case-delta-0" title="Link to this heading">#</a></h4>
 <p>If <span class="math notranslate nohighlight">\(K \leq 2.5\)</span>, the discriminant is positive (<span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span>), which means we have two real solutions</p>
 <div class="math notranslate nohighlight">
 \[
@@ -473,7 +474,7 @@ s = \frac{-10 \pm \sqrt{100 - 40K}}{2} = -5 \pm \sqrt{25 - 10K}
 <p>The real part of the poles is strictly negative as long as <span class="math notranslate nohighlight">\(\sqrt{25 - 10K} \leq 5\)</span>, that is, <span class="math notranslate nohighlight">\(0 &lt; K \leq 2.5\)</span>.</p>
 </section>
 <section id="id1">
-<h3>Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h4>Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span><a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <p>If <span class="math notranslate nohighlight">\(K &gt; 2.5\)</span> the discriminant is negative, hence we have two complex-conjugate solutions</p>
 <div class="math notranslate nohighlight">
 \[
@@ -482,7 +483,7 @@ s = \frac{-10 \pm i \sqrt{\lvert \Delta \lvert}}{2} = -5 \pm i \sqrt{\frac{\lver
 <p>The real part is negative and independent of <span class="math notranslate nohighlight">\(K\)</span>. Therefore, for any <span class="math notranslate nohighlight">\(K &gt; 2.5\)</span> the closed-loop is stable.</p>
 </section>
 <section id="solution-to-question-1">
-<h3>Solution to question 1<a class="headerlink" href="#solution-to-question-1" title="Link to this heading">#</a></h3>
+<h4>Solution to question 1<a class="headerlink" href="#solution-to-question-1" title="Link to this heading">#</a></h4>
 <p>Any <span class="math notranslate nohighlight">\(K &gt; 0\)</span> makes the closed-loop stable.</p>
 <p>We can double-check this result looking at the root locus of the system.</p>
 <div class="cell docutils container">
@@ -508,13 +509,14 @@ s = \frac{-10 \pm i \sqrt{\lvert \Delta \lvert}}{2} = -5 \pm i \sqrt{\frac{\lver
 </section>
 </section>
 <section id="question-2">
-<h2>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h2>
+<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
 <p>We now restrict ourselves to the case <span class="math notranslate nohighlight">\(K &gt; 0\)</span>, where the closed-loop is stable. Thanks to the stability of the closed-loop, we can apply the Final Value Theore (where <span class="math notranslate nohighlight">\(\Theta_{ref}(s) = \frac{R}{s}\)</span>)</p>
 <div class="math notranslate nohighlight">
 \[
 \lim_{t \to \infty} \theta(t) = \lim_{s \to 0} s \left( G_c(s) \Theta_{ref}(s) \right) = \lim_{s \to 0} s \left( \frac{10 K}{s^2 + 10 s + 10 K} \frac{R}{s} \right) = \frac{10K}{10 K} = R
 \]</div>
 <p>The steady-state error is <span class="math notranslate nohighlight">\(e(\infty) = \theta_{ref}(\infty) - \theta(\infty)  = R - R = 0\)</span> for every value of <span class="math notranslate nohighlight">\(K &gt; 0\)</span>.</p>
+</section>
 </section>
 </section>
 
@@ -583,14 +585,16 @@ s = \frac{-10 \pm i \sqrt{\lvert \Delta \lvert}}{2} = -5 \pm i \sqrt{\frac{\lver
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-delta-0">Case <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-question-1">Solution to question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#case-delta-0">Case <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Case <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-question-1">Solution to question 1</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
