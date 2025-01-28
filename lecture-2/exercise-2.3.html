@@ -388,7 +388,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -404,6 +406,18 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -427,7 +441,95 @@
 <li><p>Is there any value of <span class="math notranslate nohighlight">\(K\)</span> such that the closed-loop can track the reference signal <span class="math notranslate nohighlight">\(r(t) = 0.1 \textrm{ramp}(t)\)</span> with an error less than <span class="math notranslate nohighlight">\(5 \cdot 10^{-3}\)</span>?</p></li>
 </ol>
 <hr class="docutils" />
-<p><em>Solution to be uploaded</em></p>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<section id="question-1">
+<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
+<p>The open-loop transfer function of the system is</p>
+<div class="math notranslate nohighlight">
+\[
+G_o(s) = K \frac{1}{s(s+1)(s+2)}
+\]</div>
+<p>The closed-loop transfer function is</p>
+<div class="math notranslate nohighlight">
+\[
+G_c(s) = \frac{G_o(s)}{1 + G_o(s)} = \frac{K}{s^3 + 3s^2 + 2s + K}
+\]</div>
+<p>Unfortunately, <span class="math notranslate nohighlight">\(G_c(s)\)</span> is a third-order transfer function, therefore we cannot analytically inspect how the poles of <span class="math notranslate nohighlight">\(G_c(s)\)</span> change as a function of <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<p>Two approaches can be used to solve the exercise:</p>
+<ul class="simple">
+<li><p>Using the <a class="reference external" href="https://en.wikipedia.org/wiki/Routh%E2%80%93Hurwitz_stability_criterion#Higher-order_example">Routh stability criterion</a></p></li>
+<li><p>Using the rootlocus</p></li>
+</ul>
+<p>Because the former is out of the scope of this course, we will go for the second one. Let’s plot the root locus of <span class="math notranslate nohighlight">\(G_o(s)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if we are running in Octave or MATLAB</span>
+<span class="k">if</span><span class="w"> </span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;OCTAVE_VERSION&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;builtin&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">pkg</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">control</span><span class="p">;</span><span class="w"> </span><span class="nb">warning</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">isempty</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;BINDER_SERVICE_HOST&#39;</span><span class="p">));</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;notebook&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;plotly&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">end</span>
+<span class="w">    </span><span class="n">graphics_toolkit</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
+<span class="n">Go</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">rlocus</span><span class="p">(</span><span class="n">Go</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"> </span><span class="c">% Plot the root locus</span>
+
+<span class="c">% Plot the closed-loop poles for specific values of K</span>
+<span class="n">K_points</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.4</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">];</span>
+<span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="n">K_points</span>
+<span class="w">    </span><span class="n">Gok</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Go</span><span class="p">;</span>
+<span class="w">    </span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">den</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tfdata</span><span class="p">(</span><span class="n">Gok</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;vector&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">poles</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">roots</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">den</span><span class="p">);</span>
+<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;auto&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;DisplayName&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;K=%.2f&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">));</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;markerfacecolor&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">get</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;color&#39;</span><span class="p">));</span>
+<span class="k">end</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;northwest&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a5ed5dd0759a43919aad6d1d9ad2d24bbb3337c445ae78b3e3e4d1c50866d8d5.png" src="../_images/a5ed5dd0759a43919aad6d1d9ad2d24bbb3337c445ae78b3e3e4d1c50866d8d5.png" />
+</div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li><p>For <span class="math notranslate nohighlight">\(0 &lt; K \geq 0.4\)</span>, the closed-loop are real-valued and negative</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(0.4 &lt; K &lt; 6\)</span> we have 1 real-valued negative pole and two complex-conjugate (dominating) poles with negative real part.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(K &gt;6\)</span> the two complex-conjugate poles have positive real part, so the closed-loop is unstable.</p></li>
+</ul>
+<p>The solution is therefore <span class="math notranslate nohighlight">\(0 &lt; K &lt; 6\)</span>.</p>
+</section>
+<section id="question-2">
+<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
+<p>Under the assumption that the closed-loop is stable (<span class="math notranslate nohighlight">\(0 &lt; K &lt; 6\)</span>), we can apply the Final Value Theorem, where the reference is <span class="math notranslate nohighlight">\(R(s) = \frac{0.1}{s^2}\)</span>.</p>
+<p>Recalling that Laplace transform of the error is <span class="math notranslate nohighlight">\(E(s) = R(s) - Y(s) = (1 - G_c(s)) R(s)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\lim_{t \to \infty} e(t) = \lim_{s \to 0} s \left[ 1 - G_c(s)  \right] \frac{0.1}{s^2} &amp;= \lim_{s \to 0} s \frac{s^3 + 3 s^2 + 2s }{s^3 + 3 s^2 + 2s + K} \frac{0.1}{s^2} \\
+&amp;= \lim_{s \to 0} \frac{s^2 + 3 s + 2 }{s^3 + 3 s^2 + 2s + K} 0.1 = \frac{0.2}{K}
+\end{aligned}
+\end{split}\]</div>
+<p>To get the desired error, we impose</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{0.2}{K} \leq 0.005 \quad \implies \quad K \geq 40
+\]</div>
+<p>Unfortunately, this error is not achievable because for <span class="math notranslate nohighlight">\(K &gt; 6\)</span> the closed-loop is unstable.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -439,16 +541,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "jupyter_matlab_kernel"
         },
         kernelOptions: {
-            name: "python3",
+            name: "jupyter_matlab_kernel",
             path: "./lecture-2"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'jupyter_matlab_kernel'</script>
 
                 </article>
               
@@ -484,6 +586,26 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

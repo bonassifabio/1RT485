@@ -387,7 +387,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -403,6 +405,18 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -428,13 +442,76 @@ u = K_1 (r - y) - K_1 K_2 \frac{dy}{dt},
 \end{itemize}</p></li>
 </ul>
 <p>The astronaut, including equipment, has a total mass of 100 kg.
-Your task is to determine suitable values for the controller parameters <span class="math notranslate nohighlight">\(K_1\)</span> and <span class="math notranslate nohighlight">\(K_2\)</span> such that the following requirements are met:</p>
+Your task is to determine suitable values for the controller parameters <span class="math notranslate nohighlight">\(K_1 &gt; 0\)</span> and <span class="math notranslate nohighlight">\(K_2 &gt; 0\)</span> such that the following requirements are met:</p>
 <ol class="arabic simple">
-<li><p>If the desired position is given as <span class="math notranslate nohighlight">\(r(t) = t\)</span>, there should be a time <span class="math notranslate nohighlight">\(T_0\)</span> such that the tracking error satisfies <span class="math notranslate nohighlight">\(|r(t) - y(t)| &lt; 1\)</span> for all <span class="math notranslate nohighlight">\(t \geq T_0\)</span>.</p></li>
+<li><p>If the desired position is given as <span class="math notranslate nohighlight">\(r(t) = \textrm{ramp}(t)\)</span>, there should be a time <span class="math notranslate nohighlight">\(T_0\)</span> such that the tracking error satisfies <span class="math notranslate nohighlight">\(|r(t) - y(t)| &lt; 1\)</span> for all <span class="math notranslate nohighlight">\(t \geq T_0\)</span>.</p></li>
 <li><p>The damping ratio  of the closed-loop system is 0.7. This ensures smooth and stable motion without excessive oscillations.</p></li>
 </ol>
 <hr class="docutils" />
-<p><em>Solution to be uploaded</em></p>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<p>Let’s start by writing the dynamical model of the astronaut. From the second Newton’s law <span class="math notranslate nohighlight">\(F = m \cdot a\)</span>. The force <span class="math notranslate nohighlight">\(F\)</span> here is the thrust force (<span class="math notranslate nohighlight">\(u\)</span>), while the accelerations is the second derivative of the the position (<span class="math notranslate nohighlight">\(\ddot{y}\)</span>). Hence <span class="math notranslate nohighlight">\(m \ddot{y} = u\)</span>, or equivalently</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{y} = \frac{1}{m} u
+\]</div>
+<p>The transfer function corresponding to this ODE is</p>
+<div class="math notranslate nohighlight">
+\[
+Y(s) = \frac{0.01}{s^2} U(s)
+\]</div>
+<p>In Laplace domain, the control law is</p>
+<div class="math notranslate nohighlight">
+\[
+U(s) = K_1 \underbrace{(R(s) - Y(s))}_{E(s)} - K_1 K_2 s Y(s)
+\]</div>
+<p>Replacing this <span class="math notranslate nohighlight">\(U(s)\)</span> in <span class="math notranslate nohighlight">\(Y(s)\)</span> we get</p>
+<div class="math notranslate nohighlight">
+\[
+Y(s) = \frac{0.01}{s^2} \left[ K_1 R(s) - K_1 Y(s) - K_1 K_2 s Y(s)\right]
+\]</div>
+<p>We then isolate <span class="math notranslate nohighlight">\(Y(s)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+Y(s) = \frac{\frac{0.01}{s^2} K_1}{1 + K_1 \frac{0.01}{s^2} + K_1 K_2 \frac{0.01}{s}} R(s) = \frac{0.01 K_1}{s^2 + 0.01 K_1 K_2 s + 0.01 K_1}  R(s)
+\]</div>
+<section id="question-1">
+<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
+<p>It can be verified that any <span class="math notranslate nohighlight">\(K_1 &gt; 0\)</span>, <span class="math notranslate nohighlight">\(K_2 &gt; 0\)</span> guarantees the stability of the closed-loop (Descartes’ rule of signs).</p>
+<p>We can therefore apply the Final Value Theorem, recalling that <span class="math notranslate nohighlight">\(E(s) = R(s) - Y(s)\)</span>, where <span class="math notranslate nohighlight">\(R(s) = \frac{1}{s^2}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{t \to \infty} e(t) = \lim_{s \to 0} s \left( 1 - \frac{0.01 K_1}{s^2 + 0.01 K_1 K_2 s + 0.01 K_1}  \right) \frac{1}{s^2} = \lim_{s \to 0} \left( 1 - \frac{s(s + 0.01 K_1 K_2)}{s^2 + 0.01 K_1 K_2 s + 0.01 K_1}  \right) \frac{1}{s} = \frac{0.01 K_1 K_2}{0.01 K_1} = K_2
+\]</div>
+<p>Hence, <span class="math notranslate nohighlight">\(K_2 \leq 1\)</span> ensures that the error is asymptotically smaller than <span class="math notranslate nohighlight">\(1\)</span>.</p>
+</section>
+<section id="question-2">
+<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
+<p>We have seen that the denominator of the closed-loop transfer function is <span class="math notranslate nohighlight">\(s^2 + 0.01 K_1 K_2 s + 0.01 K_1\)</span>.</p>
+<p>For two complex-conjugate poles, the damping <span class="math notranslate nohighlight">\(\xi \geq 0\)</span> and the natural frequency <span class="math notranslate nohighlight">\(\omega_n &gt; 0\)</span> are defined as the values such that</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 + 2 \xi \omega_n s + \omega_n^2
+\]</div>
+<p>In our case</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{dcases}
+2 \xi \omega_n = 0.01 K_1 K_2 \\
+\omega_n^2 = 0.01 K_1 
+\end{dcases} \quad \implies \quad 
+\begin{dcases}
+\omega_n  = 0.1 \sqrt{K_1} \\
+\xi = \frac{0.01 K_1 K_2}{0.2 \sqrt{K_1}} = 0.05 \sqrt{K_1} K_2
+\end{dcases}
+\end{split}\]</div>
+<p>Forcing the damping ration <span class="math notranslate nohighlight">\(\xi\)</span> to be smaller than <span class="math notranslate nohighlight">\(0.7\)</span> we get</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{K_1} \leq \frac{14}{K_2} \quad \implies \quad K_1 \leq \frac{196}{K_2^2}
+\]</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -482,6 +559,26 @@ Your task is to determine suitable values for the controller parameters <span cl
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
