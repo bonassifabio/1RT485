@@ -543,15 +543,41 @@ When it comes to the second one, under the condition <span class="math notransla
 <div class="cell_input docutils container">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
 <span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
-<span class="n">rlocusplot</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">rlocus</span><span class="p">(</span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"> </span><span class="c">% Plot the root locus</span>
+
+<span class="c">% Plot the closed-loop poles for specific values of K</span>
+<span class="n">K_points</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">];</span>
+<span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="n">K_points</span>
+<span class="w">    </span><span class="n">Go</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G</span><span class="p">;</span>
+<span class="w">    </span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">den</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tfdata</span><span class="p">(</span><span class="n">Go</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;vector&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">poles</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">roots</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">den</span><span class="p">);</span>
+<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;auto&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;DisplayName&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;K=%.2f&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">));</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;markerfacecolor&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">get</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;color&#39;</span><span class="p">));</span>
+<span class="k">end</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;northwest&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f304bb0462b205670000d7d6f3667818e885707adc0e8644a6ce834ad3f2fdb4.png" src="../_images/f304bb0462b205670000d7d6f3667818e885707adc0e8644a6ce834ad3f2fdb4.png" />
+<img alt="../_images/8b7ac377de905984075826932eacb96a7db3de61d2306d56a5726e455f718c03.png" src="../_images/8b7ac377de905984075826932eacb96a7db3de61d2306d56a5726e455f718c03.png" />
 </div>
 </div>
 <p>As one can see from the plot above, for every <span class="math notranslate nohighlight">\(K &gt; 0\)</span> the closed-loop eigenvalues have negative real part.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Interactive root locus plots are unfortunately not supported. To get the closed-loop poles for specific values of <span class="math notranslate nohighlight">\(K\)</span> you can</p>
+<ul class="simple">
+<li><p>Run this notebook in Binder and add put the value of interest in <code class="docutils literal notranslate"><span class="pre">K_points</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">rlocus(G)</span></code> in MATLAB, which will create an interactive point.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">rlocusx(G)</span></code> in a GUI installation of Octave.</p></li>
+</ul>
+</div>
 </section>
 </section>
 <section id="question-2">
@@ -563,8 +589,10 @@ When it comes to the second one, under the condition <span class="math notransla
 \lim_{t \to \infty} \theta(t) = \lim_{s \to 0} s G_c(s) \Theta_{ref}(s)
 \]</div>
 <p>From this, the final error is</p>
-<p>$$
-\lim_{t \to \infty} e(t) = \lim_{t \to \infty} \theta_{ref}(t)  - \lim_{t \to \infty} \theta(t) = \lim_{s \to 0} s\left[ 1 -  G_c(s) \right] \Theta_{ref}(s)</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{t \to \infty} e(t) = \lim_{t \to \infty} \theta_{ref}(t)  - \lim_{t \to \infty} \theta(t) = \lim_{s \to 0} s\left[ 1 -  G_c(s) \right] \Theta_{ref}(s)
+\]</div>
 <section id="case-theta-ref-t-textrm-step-t">
 <h4>Case <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{step}(t)\)</span><a class="headerlink" href="#case-theta-ref-t-textrm-step-t" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
