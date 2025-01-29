@@ -481,7 +481,7 @@ Y(s) = \frac{\frac{0.01}{s^2} K_1}{1 + K_1 \frac{0.01}{s^2} + K_1 K_2 \frac{0.01
 <p>We can therefore apply the Final Value Theorem, recalling that <span class="math notranslate nohighlight">\(E(s) = R(s) - Y(s)\)</span>, where <span class="math notranslate nohighlight">\(R(s) = \frac{1}{s^2}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
-\lim_{t \to \infty} e(t) = \lim_{s \to 0} s \left( 1 - \frac{0.01 K_1}{s^2 + 0.01 K_1 K_2 s + 0.01 K_1}  \right) \frac{1}{s^2} = \lim_{s \to 0} \left( 1 - \frac{s(s + 0.01 K_1 K_2)}{s^2 + 0.01 K_1 K_2 s + 0.01 K_1}  \right) \frac{1}{s} = \frac{0.01 K_1 K_2}{0.01 K_1} = K_2
+\lim_{t \to \infty} e(t) = \lim_{s \to 0} s \left( 1 - \frac{0.01 K_1}{s^2 + 0.01 K_1 K_2 s + 0.01 K_1}  \right) \frac{1}{s^2} = \lim_{s \to 0} \frac{s(s + 0.01 K_1 K_2)}{s^2 + 0.01 K_1 K_2 s + 0.01 K_1}  \cdot \frac{1}{s} = \frac{0.01 K_1 K_2}{0.01 K_1} = K_2
 \]</div>
 <p>Hence, <span class="math notranslate nohighlight">\(K_2 \leq 1\)</span> ensures that the error is asymptotically smaller than <span class="math notranslate nohighlight">\(1\)</span>.</p>
 </section>
