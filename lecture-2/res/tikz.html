@@ -454,7 +454,7 @@
     \node [input, name=input] {};
     \node [sum, right of=input] (sum) {};
     \node [block, right of=sum] (controller) { \Large $\frac{K}{s+2}$};
-    \node [block, right of=controller, node distance=3cm] (system) {\Large $\frac{1}{s(s+2)}$};
+    \node [block, right of=controller, node distance=3cm] (system) {\Large $\frac{1}{s(s+1)}$};
 
     \draw [-&gt;] (controller) -- node[name=u] {$u$} (system);
     \node [output, right of=system] (output) {};
@@ -469,7 +469,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/333d7e2cf6d94ff37ce6f6933429d0aa3c3efd342ae3e77198908bdef9fa7660.svg" src="../../_images/333d7e2cf6d94ff37ce6f6933429d0aa3c3efd342ae3e77198908bdef9fa7660.svg" />
+<img alt="../../_images/4a44a2f6bad4d38316639bde9e18bfb408ec52ad428c8d04574724cf41192104.svg" src="../../_images/4a44a2f6bad4d38316639bde9e18bfb408ec52ad428c8d04574724cf41192104.svg" />
 </div>
 </div>
 
