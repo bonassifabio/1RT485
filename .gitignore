@@ -4,3 +4,4 @@ _build/
 octave-workspace
 bin/
 .DS_Store
+book/lecture-*/asymptotic_bode.m
