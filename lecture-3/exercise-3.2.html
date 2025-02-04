@@ -395,7 +395,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -411,6 +413,18 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-1">System 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-2">System 2</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -422,13 +436,156 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-3-2">
 <span id="ref-lec3-ex2"></span><h1>Exercise 3.2<a class="headerlink" href="#exercise-3-2" title="Link to this heading">#</a></h1>
-<p>Make a Bode plot for the following system:</p>
+<p>Sketch the Bode plot of the following systems:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(G(s) = \frac{100(s + 8)}{s^2(s + 4)(s + 5)(s + 10)}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(G(s) = \frac{0.4}{(s + 0.1)(s^2 + 0.4s + 4)(s + 0.5)}\)</span></p></li>
 </ol>
 <hr class="docutils" />
-<p><em>Solutions to be uploaded.</em></p>
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+<section id="system-1">
+<h3>System 1<a class="headerlink" href="#system-1" title="Link to this heading">#</a></h3>
+<p>We first need to compute the poles and zeros of the system:</p>
+<p><strong>Poles</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s = 0\)</span> (twice)</p></li>
+<li><p><span class="math notranslate nohighlight">\(s = -4\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s = -5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s = -10\)</span></p></li>
+</ul>
+<p><strong>Zeros</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s = -8\)</span></p></li>
+</ul>
+<p>Then, we sort poles and zeros by increasing frequencies, and we apply the rules to sketch asymptotic bode diagrams</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Frequency</p></th>
+<th class="head"><p>What happens to the modulus plot</p></th>
+<th class="head"><p>What happens to the phase plot</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(0\)</span> rad/s  (pole)</p></td>
+<td><p>The initial slope is <span class="math notranslate nohighlight">\(-2\)</span> (<span class="math notranslate nohighlight">\(-40 \text{ dB/dec}\)</span>)</p></td>
+<td><p>The initial phase is <span class="math notranslate nohighlight">\(-180^\circ\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(4\)</span> rad/s  (pole)</p></td>
+<td><p>The slope decreases from <span class="math notranslate nohighlight">\(-2\)</span> to <span class="math notranslate nohighlight">\(-3\)</span></p></td>
+<td><p>The phase decreases by <span class="math notranslate nohighlight">\(90^\circ\)</span> (<span class="math notranslate nohighlight">\(-270^\circ\)</span>)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(5\)</span> rad/s  (pole)</p></td>
+<td><p>The slope decreases from <span class="math notranslate nohighlight">\(-3\)</span> to <span class="math notranslate nohighlight">\(-4\)</span></p></td>
+<td><p>The phase decreases by <span class="math notranslate nohighlight">\(90^\circ\)</span> (<span class="math notranslate nohighlight">\(-360^\circ\)</span>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(8\)</span> rad/s  (zero)</p></td>
+<td><p>The slope increases from <span class="math notranslate nohighlight">\(-4\)</span> to <span class="math notranslate nohighlight">\(-3\)</span></p></td>
+<td><p>The phase increases by <span class="math notranslate nohighlight">\(90^\circ\)</span> (<span class="math notranslate nohighlight">\(-270^\circ\)</span>)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(10\)</span> rad/s  (pole)</p></td>
+<td><p>The slope decreases from <span class="math notranslate nohighlight">\(-3\)</span> to <span class="math notranslate nohighlight">\(-4\)</span></p></td>
+<td><p>The phase decreases by <span class="math notranslate nohighlight">\(90^\circ\)</span> (<span class="math notranslate nohighlight">\(-360^\circ\)</span>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Because of the poles in the origin, we can’t compute the static gain which would be needed to start sketching the modulus at low frequencies.</p>
+<p>The solution here is to evaluate <span class="math notranslate nohighlight">\(\lvert G(i \omega) \lvert_{\text{dB}}\)</span> at a sufficiently small frequency <span class="math notranslate nohighlight">\(\omega\)</span>. A <strong>general guideline</strong> is to evaluate such a modulus <strong>one or two decades before the slowest pole/zero</strong> (save for the ones in <span class="math notranslate nohighlight">\(s=0\)</span>, of course).</p>
+<p>In our case, the slowest pole (save for <span class="math notranslate nohighlight">\(s=0\)</span>) is in <span class="math notranslate nohighlight">\(4\)</span> rad/s, hence we compute <span class="math notranslate nohighlight">\(\lvert G(i 0.04) \lvert_{\text{dB}}\)</span>.</p>
+<p>$$\lvert G(i 0.04) \lvert = \frac{100 \cdot \lvert i 0.04 + 8 \lvert}{\lvert i 0.04 \lvert^2 \cdot \lvert i 0.04 + 4 \lvert \cdot \lvert i 0.04 + 5 \lvert \cdot \lvert i 0.04 + 10 \lvert}</p>
+<p>While it might seem a lot of work to compute this modulus we can note that, thanks our choice <span class="math notranslate nohighlight">\(\omega = 0.04\)</span>, within every modulus operation the imaginary part is always negligible compared to the real part (save for the poles in <span class="math notranslate nohighlight">\(s=0\)</span>, where of course the real part is null). As an example, <span class="math notranslate nohighlight">\(\lvert i 0.04 + 5 \lvert \simeq \lvert 5 \lvert = 5\)</span>. The computation therefore simplifies to</p>
+<p><span class="math notranslate nohighlight">\(\lvert G(i 0.04) \lvert \simeq \frac{100 \cdot 8}{0.04^2 \cdot 4 \cdot 5 \cdot 10} = 2500 \to 68 \text{dB}\)</span></p>
+<p>We can now sketch the Bode plot 🥳  Reported below is the solution, sketched with the script <a class="reference external" href="https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/">asymptotic_bode</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if we are running in Octave or MATLAB</span>
+<span class="k">if</span><span class="w"> </span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;OCTAVE_VERSION&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;builtin&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">pkg</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">control</span><span class="p">;</span><span class="w"> </span><span class="nb">warning</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">isempty</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;BINDER_SERVICE_HOST&#39;</span><span class="p">));</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;notebook&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;plotly&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">end</span>
+<span class="w">    </span><span class="n">graphics_toolkit</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="k">end</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;file&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">websave</span><span class="p">(</span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/asymptotic_bode.m&#39;</span><span class="p">);</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Define the transfer function</span>
+<span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
+<span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">));</span>
+<span class="n">asymptotic_bode</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d3ccc0824292b770b7687ce456c618bdd41a895564a00c21a2646ac211d582b0.png" src="../_images/d3ccc0824292b770b7687ce456c618bdd41a895564a00c21a2646ac211d582b0.png" />
+</div>
+</div>
+</section>
+<section id="system-2">
+<h3>System 2<a class="headerlink" href="#system-2" title="Link to this heading">#</a></h3>
+<p>We start by computing the poles, zeros, and static gain of the system <span class="math notranslate nohighlight">\(G(s) = \frac{0.4}{(s + 0.1)(s^2 + 0.4s + 4)(s + 0.5)}\)</span></p>
+<p><strong>Poles</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s = -0.1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s = -0.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s \simeq -0.2 \pm i 2\)</span> (complex conjugate poles with natural frequency <span class="math notranslate nohighlight">\(\omega_n = \sqrt{0.2^2 + 2^2} \simeq 2\)</span> rad/s)</p></li>
+</ul>
+<p><strong>Zeros</strong></p>
+<ul class="simple">
+<li><p>None</p></li>
+</ul>
+<p><strong>Static gain</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(G(0) = 2 \to 6 \text{ dB}\)</span></p></li>
+</ul>
+<p>We can then sketch the asymptotic Bode plot by applying the rules</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Frequency</p></th>
+<th class="head"><p>What happens to the modulus plot</p></th>
+<th class="head"><p>What happens to the phase plot</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(0\)</span> rad/s</p></td>
+<td><p>The magnitude plot starts flat (slope is <span class="math notranslate nohighlight">\(0\)</span>) at $6 \text{dB}</p></td>
+<td><p>The initial phase is <span class="math notranslate nohighlight">\(0^\circ\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(0.1\)</span> rad/s (pole)</p></td>
+<td><p>The slope decreases from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(-1\)</span></p></td>
+<td><p>The phase decreases by <span class="math notranslate nohighlight">\(90^\circ\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(0.4\)</span> rad/s (pole)</p></td>
+<td><p>The slope decreases from <span class="math notranslate nohighlight">\(-1\)</span> to <span class="math notranslate nohighlight">\(-2\)</span></p></td>
+<td><p>The phase decreases by <span class="math notranslate nohighlight">\(90^\circ\)</span> (<span class="math notranslate nohighlight">\(-180^\circ\)</span>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(2\)</span> rad/s (complex poles)</p></td>
+<td><p>The slope decreases from <span class="math notranslate nohighlight">\(-2\)</span> to <span class="math notranslate nohighlight">\(-4\)</span></p></td>
+<td><p>The phase decreases by <span class="math notranslate nohighlight">\(180^\circ\)</span> (<span class="math notranslate nohighlight">\(-360^\circ\)</span>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can now sketch the Bode plot!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.4</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">((</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="p">));</span>
+<span class="n">asymptotic_bode</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/30bb54ce3cee5cc6753047a0c96224ada76464c62c27b17f6b9107d3d523bb8f.png" src="../_images/30bb54ce3cee5cc6753047a0c96224ada76464c62c27b17f6b9107d3d523bb8f.png" />
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -485,6 +642,26 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-1">System 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-2">System 2</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
