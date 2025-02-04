@@ -493,7 +493,10 @@
 <p>Because of the poles in the origin, we can’t compute the static gain which would be needed to start sketching the modulus at low frequencies.</p>
 <p>The solution here is to evaluate <span class="math notranslate nohighlight">\(\lvert G(i \omega) \lvert_{\text{dB}}\)</span> at a sufficiently small frequency <span class="math notranslate nohighlight">\(\omega\)</span>. A <strong>general guideline</strong> is to evaluate such a modulus <strong>one or two decades before the slowest pole/zero</strong> (save for the ones in <span class="math notranslate nohighlight">\(s=0\)</span>, of course).</p>
 <p>In our case, the slowest pole (save for <span class="math notranslate nohighlight">\(s=0\)</span>) is in <span class="math notranslate nohighlight">\(4\)</span> rad/s, hence we compute <span class="math notranslate nohighlight">\(\lvert G(i 0.04) \lvert_{\text{dB}}\)</span>.</p>
-<p>$$\lvert G(i 0.04) \lvert = \frac{100 \cdot \lvert i 0.04 + 8 \lvert}{\lvert i 0.04 \lvert^2 \cdot \lvert i 0.04 + 4 \lvert \cdot \lvert i 0.04 + 5 \lvert \cdot \lvert i 0.04 + 10 \lvert}</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert G(i 0.04) \lvert = \frac{100 \cdot \lvert i 0.04 + 8 \lvert}{\lvert i 0.04 \lvert^2 \cdot \lvert i 0.04 + 4 \lvert \cdot \lvert i 0.04 + 5 \lvert \cdot \lvert i 0.04 + 10 \lvert} 
+\]</div>
 <p>While it might seem a lot of work to compute this modulus we can note that, thanks our choice <span class="math notranslate nohighlight">\(\omega = 0.04\)</span>, within every modulus operation the imaginary part is always negligible compared to the real part (save for the poles in <span class="math notranslate nohighlight">\(s=0\)</span>, where of course the real part is null). As an example, <span class="math notranslate nohighlight">\(\lvert i 0.04 + 5 \lvert \simeq \lvert 5 \lvert = 5\)</span>. The computation therefore simplifies to</p>
 <p><span class="math notranslate nohighlight">\(\lvert G(i 0.04) \lvert \simeq \frac{100 \cdot 8}{0.04^2 \cdot 4 \cdot 5 \cdot 10} = 2500 \to 68 \text{dB}\)</span></p>
 <p>We can now sketch the Bode plot 🥳  Reported below is the solution, sketched with the script <a class="reference external" href="https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/">asymptotic_bode</a>.</p>
@@ -523,7 +526,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1717ad660e49583edc46daf5404a4b2e5c1f8924fb5ff86ce87120278d07df20.png" src="../_images/1717ad660e49583edc46daf5404a4b2e5c1f8924fb5ff86ce87120278d07df20.png" />
+<img alt="../_images/a4cb9ee8cff04c55c03cb8cc171038506a6beaac587ddb263356e0ecfefde7fe.png" src="../_images/a4cb9ee8cff04c55c03cb8cc171038506a6beaac587ddb263356e0ecfefde7fe.png" />
 </div>
 </div>
 </section>
@@ -581,7 +584,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/928d6254d5432fe532af87638b02299d9850ef5f02aa52f78a0ce360d994e35e.png" src="../_images/928d6254d5432fe532af87638b02299d9850ef5f02aa52f78a0ce360d994e35e.png" />
+<img alt="../_images/3d48860b084b8e5c5d0c2278a4d77ae9788bf55d345e93c5c903f37e98ab2401.png" src="../_images/3d48860b084b8e5c5d0c2278a4d77ae9788bf55d345e93c5c903f37e98ab2401.png" />
 </div>
 </div>
 </section>
