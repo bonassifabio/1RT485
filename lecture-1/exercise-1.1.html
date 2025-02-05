@@ -550,27 +550,14 @@ J s^2 \Theta(s) + f_s \Theta(s) =  k_a \left( \frac{U(s)}{R_a} - \frac{k_v s}{R_
 <p>Let’s use MATLAB (Octave) to plot the step response (we will take <span class="math notranslate nohighlight">\(\alpha=1\)</span> and <span class="math notranslate nohighlight">\(k_o=1\)</span> since numerical values are not provided in the text of the exercise).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if we are running in Octave or MATLAB</span>
-<span class="k">if</span><span class="w"> </span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;OCTAVE_VERSION&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;builtin&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">pkg</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">control</span><span class="p">;</span><span class="w"> </span><span class="nb">warning</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">isempty</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;BINDER_SERVICE_HOST&#39;</span><span class="p">));</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;notebook&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;plotly&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">end</span>
-<span class="w">    </span><span class="n">graphics_toolkit</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
-<span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="p">=</span> <span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
+<span class="n">G</span> <span class="p">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
 
-<span class="nb">step</span><span class="p">(</span><span class="n">G</span><span class="p">);</span><span class="w">     </span><span class="c">% Get the step response of the transfer function G</span>
+<span class="n">step</span><span class="p">(</span><span class="n">G</span><span class="p">);</span>     <span class="c">% Get the step response of the transfer function G</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/880a943b1a960d9637b24183f9976e6cad0b9b3f7706649c9593beea2949d857.png" src="../_images/880a943b1a960d9637b24183f9976e6cad0b9b3f7706649c9593beea2949d857.png" />
 </div>
 </div>
 <div class="note admonition">

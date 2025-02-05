@@ -536,18 +536,6 @@ When it comes to the second one, under the condition <span class="math notransla
 <p>Finally, we can visualize how the closed-loop poles move in the complex plane as a function of <span class="math notranslate nohighlight">\(K\)</span> by inspecting the root locus. We will plot the root locus with MATLAB assuming <span class="math notranslate nohighlight">\(k_o = 1\)</span> and <span class="math notranslate nohighlight">\(\alpha=1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if we are running in Octave or MATLAB</span>
-<span class="k">if</span><span class="w"> </span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;OCTAVE_VERSION&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;builtin&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">pkg</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">control</span><span class="p">;</span><span class="w"> </span><span class="nb">warning</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">isempty</span><span class="p">(</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;BINDER_SERVICE_HOST&#39;</span><span class="p">));</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;notebook&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="p">;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;plotly&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">end</span>
-<span class="w">    </span><span class="n">graphics_toolkit</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
 <span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
 </pre></div>
@@ -572,7 +560,7 @@ When it comes to the second one, under the condition <span class="math notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/56b5954cb1750925a83dc3afe1c66bf99e7f2e5453a095b645aaa5fc0e5cae36.png" src="../_images/56b5954cb1750925a83dc3afe1c66bf99e7f2e5453a095b645aaa5fc0e5cae36.png" />
+<img alt="../_images/0ed61c2044007b2c48452478e41166d8e23730e2ac840f210ae6170d124f45db.png" src="../_images/0ed61c2044007b2c48452478e41166d8e23730e2ac840f210ae6170d124f45db.png" />
 </div>
 </div>
 <p>As one can see from the plot above, for every <span class="math notranslate nohighlight">\(K &gt; 0\)</span> the closed-loop eigenvalues have negative real part.</p>
