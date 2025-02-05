@@ -8,3 +8,6 @@ install-matlab-kernelspec
 
 echo "Installing Octave's control system toolbox"
 octave --eval "pkg install -forge control"
+
+echo "Adding utility functions to Octave's path"
+echo "addpath('book/res/matlab')" >> ~/.octaverc
