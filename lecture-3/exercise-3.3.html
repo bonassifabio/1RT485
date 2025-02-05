@@ -488,7 +488,7 @@ G(s) = \frac{s+10}{(s+0.1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/55664f75ffc25ed75997173acb26cd753a698a2e478dfe7bafdc5f99e5ebde18.png" src="../_images/55664f75ffc25ed75997173acb26cd753a698a2e478dfe7bafdc5f99e5ebde18.png" />
+<img alt="../_images/406dd247b67d42ef7a225800a5ae46c9617edd5073d54e5374abec6d281de0d1.png" src="../_images/406dd247b67d42ef7a225800a5ae46c9617edd5073d54e5374abec6d281de0d1.png" />
 </div>
 </div>
 <p>From the root locus, we can see that the closed-loop poles are stable for <span class="math notranslate nohighlight">\(K &lt; 24\)</span>.</p>
@@ -533,7 +533,7 @@ G_o(s) = 10 \frac{s + 10}{(s+0.1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ad9798f3f0e21f3905f006583b0930aea1618675ddabb9c31ef18c32daccd7b5.png" src="../_images/ad9798f3f0e21f3905f006583b0930aea1618675ddabb9c31ef18c32daccd7b5.png" />
+<img alt="../_images/e538f6c2f36765987ec1df35c965b053458f6daf9bf0d241c9cc824abf7e9780.png" src="../_images/e538f6c2f36765987ec1df35c965b053458f6daf9bf0d241c9cc824abf7e9780.png" />
 </div>
 </div>
 <p>We can now evaluate the phase margin as</p>
@@ -554,11 +554,11 @@ G_o(s) = 10 \frac{s + 10}{(s+0.1)^2(s+5)}
 <div class="cell_output docutils container">
 <div class="output text_html"><html><body><pre>phase_margin = 11.2141</pre></body></html></div></div>
 </div>
-<p>While a phase margin of <span class="math notranslate nohighlight">\(11^\circ\)</span> is bigger than <span class="math notranslate nohighlight">\(0\)</span>, so it is enough to guarantee the closed-loop stability, in practical applications it is too low to be accepted.</p>
+<p>While a phase margin of <span class="math notranslate nohighlight">\(11^\circ\)</span> is bigger than <span class="math notranslate nohighlight">\(0^\circ\)</span>, so it is enough to guarantee the closed-loop stability, in practical applications it is too low to be accepted.</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(\varphi_m &gt; 90^\circ\)</span>, the <strong>dominant closed-loop pole</strong> is real valued and stable.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(0 &lt; \varphi_m &lt; 90\)</span>, the <strong>dominant closed-loop poles</strong> are complex-conjugate, with damping coefficient <span class="math notranslate nohighlight">\(\xi = \cos(\varphi_m)\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\varphi_m \leq 0\)</span>, the system is unstable.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(0^\circ &lt; \varphi_m &lt; 90^\circ\)</span>, the <strong>dominant closed-loop poles</strong> are complex-conjugate, with damping coefficient <span class="math notranslate nohighlight">\(\xi = \cos(\varphi_m)\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\varphi_m \leq 0^\circ\)</span>, the system is unstable.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -580,7 +580,7 @@ A_m = -\lvert G_o(i \omega_p) \lvert_{\text{dB}}
 <p>Here <span class="math notranslate nohighlight">\(\omega_p\)</span> is the phase crossover frequency, i.e., the frequency at which the phase plot first crosses the <span class="math notranslate nohighlight">\(-180^\circ\)</span> axis. To find <span class="math notranslate nohighlight">\(\omega_p\)</span> we need to solve</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec3-ex3-phase">
 <span class="eqno">(2)<a class="headerlink" href="#equation-eq-lec3-ex3-phase" title="Link to this equation">#</a></span>\[
-\angle G_o(i \omega) := \varphi(0) - \sum_{i} \textrm{atan} \left( \frac{\omega}{p_i} \right) +  - \sum_{i} \textrm{atan} \left( \frac{\omega}{z_i} \right) = -180^\circ
+\angle G_o(i \omega) := \varphi(0) + \sum_{i} \textrm{atan} \left( \frac{\omega}{p_i} \right) - \sum_{i} \textrm{atan} \left( \frac{\omega}{z_i} \right) = -180^\circ
 \]</div>
 <p>The initial phase <span class="math notranslate nohighlight">\(\varphi(0)\)</span> is <span class="math notranslate nohighlight">\(0^\circ\)</span>  if the static gain is positive, decremented by <span class="math notranslate nohighlight">\(90^\circ\)</span> for each pole in the origin and incremented by <span class="math notranslate nohighlight">\(90^\circ\)</span> for each zero in the origin.
 In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">(2)</a>, <span class="math notranslate nohighlight">\(p_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th pole of <span class="math notranslate nohighlight">\(G_o(s)\)</span> and <span class="math notranslate nohighlight">\(z_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th zero.</p>
@@ -626,7 +626,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">(2)</a>, <sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5d8bd7725d0fe43ed1af6178c53caf7bf499bb450c98f795fd48bc33b49d5bf7.png" src="../_images/5d8bd7725d0fe43ed1af6178c53caf7bf499bb450c98f795fd48bc33b49d5bf7.png" />
+<img alt="../_images/70173b96043946c4ddbf3b5fb521aa2bc456d5243eff487f93b870c30cc039b0.png" src="../_images/70173b96043946c4ddbf3b5fb521aa2bc456d5243eff487f93b870c30cc039b0.png" />
 </div>
 </div>
 </section>
