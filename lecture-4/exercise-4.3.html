@@ -422,7 +422,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#error-for-step-references">Error for step references</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#error-for-ramp-references">Error for ramp references</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -444,28 +453,158 @@
 </figure>
 <p>In <a class="reference internal" href="#fig-lec4-ex3"><span class="std std-numref">Fig. 14</span></a> the block diagram of a DC-servomotor is illustrated.</p>
 <p>In this system, the input voltage <span class="math notranslate nohighlight">\(u\)</span> first goes through a <a class="reference external" href="https://en.wikipedia.org/wiki/DC-to-DC_converter">isolated DC-DC convert</a><a class="footnote-reference brackets" href="#dc-dc" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, which applies the desired voltage <span class="math notranslate nohighlight">\(u\)</span> to the motor.
-This converter is modeled by the first-order transfer function <span class="math notranslate nohighlight">\(G_2(s) = \frac{1}{1+sT}\)</span>, where <span class="math notranslate nohighlight">\(T=10\)</span> ms is the converter’s time constant.</p>
-<p>The voltage is then applied to the motor, described by the transfer function <span class="math notranslate nohighlight">\(G_1(s) = \frac{10}{s(1+s T_1)(1+s T_2)}\)</span>, where <span class="math notranslate nohighlight">\(T_1 =25\)</span> ms is the electric time constant and <span class="math notranslate nohighlight">\(T_2 = 50\)</span> ms is the mechanical time constant.</p>
+This converter is modeled by the first-order transfer function with time constant <span class="math notranslate nohighlight">\(T=10\)</span> ms.</p>
+<p>The voltage is then applied to the motor, described by a second order transfer function with gaim <span class="math notranslate nohighlight">\(k_m=10\)</span>, electrical time constant <span class="math notranslate nohighlight">\(T_2 =25\)</span> ms, and mechanical time constant <span class="math notranslate nohighlight">\(T_1 = 50\)</span> ms.</p>
 <p>The servomotor is first tested with <span class="math notranslate nohighlight">\(F(s) = 1\)</span>, but the closed-loop turns out to be too slow.</p>
 <ol class="arabic simple">
 <li><p>Find <span class="math notranslate nohighlight">\(F(s) = K\)</span> so thatthe closed-loop is twice as fast as for <span class="math notranslate nohighlight">\(F(s)=1\)</span>.</p></li>
 <li><p>Then, find <span class="math notranslate nohighlight">\(K\)</span> so that the following accuracy requirements are sastisfied:</p>
 <ul class="simple">
 <li><p>When <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{step}(t)\)</span>, at steady state <span class="math notranslate nohighlight">\(\lvert \theta -  \theta_{ref} \lvert \leq 0.001\)</span></p></li>
-<li><p>When <span class="math notranslate nohighlight">\(\theta_{ref}(t) = 10 \cdot \textrm{ramp}(t)\)</span>, at steady state <span class="math notranslate nohighlight">\(\lvert \theta(t) -  \theta_{ref}(t)\leq  \lvert 0.01\)</span></p></li>
+<li><p>When <span class="math notranslate nohighlight">\(\theta_{ref}(t) = 10 \cdot \textrm{ramp}(t)\)</span>, at steady state <span class="math notranslate nohighlight">\(\lvert \theta(t) -  \theta_{ref}(t)  \lvert \leq 0.01\)</span></p></li>
 </ul>
 </li>
+<li><p><strong>(Extra!)</strong> Assume that the motor current can be measured. With the help of MATLAB, design a cascade control scheme for <span class="math notranslate nohighlight">\(G_2(s) = \frac{Z(s)}{U(s)} = \frac{1}{(1+sT)(1+sT_2)}\)</span> and <span class="math notranslate nohighlight">\(G_1(s) = \frac{Y(s)}{Z(s)} \frac{10}{s(1+sT_1)}\)</span>, so that the phase margin is at least <span class="math notranslate nohighlight">\(60^\circ\)</span>, and the bandwidth of the servomotr is at least <span class="math notranslate nohighlight">\(100\)</span>  rad/s.</p></li>
 </ol>
 <hr class="docutils" />
 <section id="solution">
 <h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<p><em>To be uploaded</em></p>
+<section id="question-1">
+<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
+<p>First of all, let’s compute the bandwith for <span class="math notranslate nohighlight">\(F(s) = K = 1\)</span>. The open loop transfer function is defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-lec4-ex3-go">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-lec4-ex3-go" title="Link to this equation">#</a></span>\[
+G_o(s) = F(s) G(s) = K \frac{10}{s(1+sT)(1+sT_1)(1+sT_2)}
+\]</div>
+<p>while the closed-loop transfer function is</p>
+<div class="math notranslate nohighlight" id="equation-eq-lec4-ex3-gc">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-lec4-ex3-gc" title="Link to this equation">#</a></span>\[
+G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 + T_1 T_2) s^3 + (T+T_1+T_2 + T) s^2 + s + 10 K}
+\]</div>
+<p>Finding <span class="math notranslate nohighlight">\(\omega_B\)</span> such that <span class="math notranslate nohighlight">\(\lvert G_c(i \omega_B) \lvert = \frac{1}{\sqrt{2}}\)</span> is impractical because of its high order.</p>
+<p>Instead, we can sketch the Bode plot of <span class="math notranslate nohighlight">\(G_o(s)\)</span> and compute the critical frequency <span class="math notranslate nohighlight">\(\omega_c \approx \omega_B\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
+<span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.01</span><span class="o">*</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.025</span><span class="o">*</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.05</span><span class="o">*</span><span class="n">s</span><span class="p">));</span>
+<span class="nb">figure</span><span class="p">;</span>
+<span class="n">bode</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">});</span>
+<span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c728a0fab44ad904d7279def60aed787f6bb0c37b626284f4faf7660aec105bb.png" src="../_images/c728a0fab44ad904d7279def60aed787f6bb0c37b626284f4faf7660aec105bb.png" />
+</div>
+</div>
+<p>The bandwidth for <span class="math notranslate nohighlight">\(K=1\)</span> is approximately <span class="math notranslate nohighlight">\(9\)</span> rad/s.</p>
+<p>This means we are required to find <span class="math notranslate nohighlight">\(K\)</span> such that the critical frequency is <span class="math notranslate nohighlight">\(18\)</span> rad/s. Looking at the Bode plot of <span class="math notranslate nohighlight">\(G(s)\)</span>, we can see that <span class="math notranslate nohighlight">\(\lvert G(i 18) \lvert_{\text{dB}} \approx -8 \)</span> dB.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Magnitude at 18 rad/s: %.1f dB\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">mag2db</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">freqresp</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">))));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Magnitude at 18 rad/s: -8.6 dB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Therefore, taking <span class="math notranslate nohighlight">\(K = 8.6 \text{ dB } = 2.7\)</span> we get an open-loop transfer function with critical frequency <span class="math notranslate nohighlight">\(\omega_c = 18\)</span> rad/s</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Go</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">2.7</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G</span><span class="p">;</span>
+<span class="nb">figure</span><span class="p">;</span><span class="w"> </span>
+<span class="n">bode</span><span class="p">(</span><span class="n">Go</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">});</span>
+<span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b6d2e481926cc735ca5785b233615855d2676ae4800e80e513ef202cef71c598.png" src="../_images/b6d2e481926cc735ca5785b233615855d2676ae4800e80e513ef202cef71c598.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G_c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="c">% Closed looop transfer function for K=1</span>
+<span class="p">[</span><span class="n">mag</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bode</span><span class="p">(</span><span class="n">G_c</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">});</span>
+<span class="n">w_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">mag</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last&#39;</span><span class="p">));</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Closed-loop bandwidth for K=1 is %.2f rad/s, while the critical frequency is %.0f rad/s\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">w_b</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+
+<span class="n">G_c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Go</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Go</span><span class="p">);</span><span class="w"> </span><span class="c">% Closed looop transfer function for K=2.7</span>
+<span class="p">[</span><span class="n">mag</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bode</span><span class="p">(</span><span class="n">G_c</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">});</span>
+<span class="n">w_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">mag</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last&#39;</span><span class="p">));</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Closed-loop bandwidth for K=2.7 is %.2f rad/s, while the critical frequency is %.0f rad/s\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">w_b</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closed-loop bandwidth for K=1 is 14.42 rad/s, while the critical frequency is 9 rad/s
+Closed-loop bandwidth for K=2.7 is 28.45 rad/s, while the critical frequency is 18 rad/s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2">
+<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
+<p>Consider the open-loop transfer function <a class="reference internal" href="#equation-eq-lec4-ex3-go">(7)</a> and the closed-loop transfer function <a class="reference internal" href="#equation-eq-lec4-ex3-gc">(8)</a> for a generic gain <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<p>We start by analyzing for what values of <span class="math notranslate nohighlight">\(K\)</span> the closed-loop remains stable. For this, we can use root locus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span>
+<span class="n">rlocus</span><span class="p">(</span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"> </span><span class="c">% Plot the root locus</span>
+
+<span class="c">% Plot the closed-loop poles for specific values of K</span>
+<span class="n">K_points</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2.7</span><span class="p">,</span><span class="w"> </span><span class="mf">3.9</span><span class="p">];</span>
+<span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="n">K_points</span>
+<span class="w">    </span><span class="n">Gok</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G</span><span class="p">;</span>
+<span class="w">    </span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">den</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tfdata</span><span class="p">(</span><span class="n">Gok</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;vector&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">poles</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">roots</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">den</span><span class="p">);</span>
+<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;auto&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;DisplayName&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;K=%.2f&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">));</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;markerfacecolor&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">get</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;color&#39;</span><span class="p">));</span>
+<span class="k">end</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;northwest&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/276b3ea08849c75749662f65d5f65c3ce976d549ce12ad62eb456fc09f8c2cba.png" src="../_images/276b3ea08849c75749662f65d5f65c3ce976d549ce12ad62eb456fc09f8c2cba.png" />
+</div>
+</div>
+<p>The closed-loop is stable for <span class="math notranslate nohighlight">\(0 &lt; K &lt; 3.9\)</span>.</p>
+<section id="error-for-step-references">
+<h4>Error for step references<a class="headerlink" href="#error-for-step-references" title="Link to this heading">#</a></h4>
+<p>For step references, i.e.  <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{step}(t)\)</span>, the steady-state tracking error is exactly <span class="math notranslate nohighlight">\(0\)</span>, provided that the closed loop is stable (<span class="math notranslate nohighlight">\(0 &lt; K &lt; 3.9\)</span>).
+In fact, the type of <span class="math notranslate nohighlight">\(G_o(s)\)</span> is <span class="math notranslate nohighlight">\(g=1\)</span>, because <span class="math notranslate nohighlight">\(G_o(s)\)</span> has exactly one pole in <span class="math notranslate nohighlight">\(s=0\)</span>.</p>
+</section>
+<section id="error-for-ramp-references">
+<h4>Error for ramp references<a class="headerlink" href="#error-for-ramp-references" title="Link to this heading">#</a></h4>
+<p>When it comes to <span class="math notranslate nohighlight">\(\theta_{ref}(t) = 10 \cdot \textrm{ramp}(t)\)</span>, we can apply the Final Value Theorem</p>
+<div class="math notranslate nohighlight">
+\[
+e(t) = \lim_{s \to 0} s \big[ 1 - G_c(s)] \frac{10}{s^2} = \lim_{s \to 0} \frac{\cancel{s} + h.o.t.}{h.o.t. +  10 K} \frac{10}{\cancel{s}} = \frac{1}{K}
+\]</div>
+<p>In order to get the desired <span class="math notranslate nohighlight">\(1\%\)</span> accuracy we would need <span class="math notranslate nohighlight">\(K&gt; 100\)</span>, which unfortunately breaks the closed-loop stability assumption of the Final Value Theorem!</p>
+</section>
+</section>
+<section id="question-3">
+<h3>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h3>
+<p>The solution will be provided over the next few weeks.</p>
+<p><strong>Hints:</strong></p>
+<ul class="simple">
+<li><p>Use PD controllers for both the outer and the inner control loop.</p></li>
+<li><p>Use the function <code class="docutils literal notranslate"><span class="pre">margin(Go)</span></code> to evaluate the phase and gain margin given the open loop transfer function <code class="docutils literal notranslate"><span class="pre">Go</span></code></p></li>
+<li><p>Remember that the bandwidth of the inner loop must be at least <span class="math notranslate nohighlight">\(10\times\)</span> larger than that of the outer loop.</p></li>
+</ul>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="dc-dc" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>A DC-DC isolated converter is an electronic device that applies the desired control signal  <span class="math notranslate nohighlight">\(u\)</span>  to the motor while keeping the controller board electrically insulated from the high-current/high-voltage motor circuit.</p>
 </aside>
 </aside>
+</section>
 </section>
 </section>
 
@@ -478,16 +617,16 @@ This converter is modeled by the first-order transfer function <span class="math
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "jupyter_matlab_kernel"
         },
         kernelOptions: {
-            name: "python3",
+            name: "jupyter_matlab_kernel",
             path: "./lecture-4"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'jupyter_matlab_kernel'</script>
 
                 </article>
               
@@ -525,7 +664,16 @@ This converter is modeled by the first-order transfer function <span class="math
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#error-for-step-references">Error for step references</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#error-for-ramp-references">Error for ramp references</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
