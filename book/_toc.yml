@@ -20,5 +20,10 @@ chapters:
       - file: lecture-3/exercise-3.2.ipynb
       - file: lecture-3/exercise-3.3.ipynb
       - file: lecture-3/exercise-3.4.ipynb
+  - file: lecture-4/index
+    sections:
+      - file: lecture-4/exercise-4.1.ipynb
+      - file: lecture-4/exercise-4.2.ipynb
+      - file: lecture-4/exercise-4.3.ipynb
 
 
