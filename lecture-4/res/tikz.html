@@ -61,7 +61,6 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-4/res/tikz';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -191,6 +190,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../lecture-3/exercise-3.2.html">Exercise 3.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../lecture-3/exercise-3.3.html">Exercise 3.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../lecture-3/exercise-3.4.html">Exercise 3.4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Exercise session 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercise-4.1.html">Exercise 4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercise-4.2.html">Exercise 4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercise-4.3.html">Exercise 4.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -442,14 +447,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> jupyter_tikz
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> jupyter_tikz 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex4.svg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex2.svg
 \begin{tikzpicture}[auto, node distance=3.5cm,&gt;=latex&#39;]
 
 	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=6em]
@@ -472,6 +477,101 @@
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/6f682d49c6c99fe178f43a80ecdc766a4948d372cadfe3468116833f28b85327.svg" src="../../_images/6f682d49c6c99fe178f43a80ecdc766a4948d372cadfe3468116833f28b85327.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex1-block.svg
+\begin{tikzpicture}[auto, node distance=2cm,&gt;=latex&#39;]
+
+	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=6em]
+	\tikzstyle{sum} = [draw, fill=white, circle, node distance=1cm]
+	\tikzstyle{input} = [coordinate]
+	\tikzstyle{output} = [coordinate]
+	\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+	
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum] (controller) { \Large $K$};
+    \node [block, right of=controller, node distance=3cm] (system) {\Large $G(s)$};
+
+    \draw [-&gt;] (controller) -- node[name=u] {$u$} (system);
+    \node [output, right of=system] (output) {};
+    \coordinate [below of=u] (measurements);
+
+    \draw [draw,-&gt;] (input) -- node {$r$} (sum);
+    \draw [-&gt;] (sum) -- node {$e$} (controller);
+    \draw [-&gt;] (system) -- node [name=y] {$y$}(output);
+    \draw [-&gt;] (y) |- (measurements) -| node[pos=0.99] {$-$}  (sum);
+\end{tikzpicture}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/12bd75d59d7a6a4e982ba76212162486118b766faad868c1d30c56f72065133e.svg" src="../../_images/12bd75d59d7a6a4e982ba76212162486118b766faad868c1d30c56f72065133e.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex1-bode.svg
+\documentclass{article}
+\usepackage[pgf]{bodeplot}
+\usepackage[paperwidth=20cm, paperheight=14cm, margin=0cm]{geometry}
+
+
+\begin{document}
+\BodeZPK[%
+	plot/mag/{black,thick},
+	plot/ph/{black,thick},
+	axes/mag/{ytick distance=10, width=17cm, height=6cm, ylabel=Magnitude (dB)},
+	axes/ph/{ytick distance=30, width=17cm, height=6cm},
+]{%
+	z/{-8},
+	p/{{-0.04,-1},{-0.04,1}},
+	k/0.2,
+}
+{0.1}
+{100}
+\end{document}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/aee463486f6a219270c22574883f18842b2687a43ceebdd309c5d1c98f4a1ad8.svg" src="../../_images/aee463486f6a219270c22574883f18842b2687a43ceebdd309c5d1c98f4a1ad8.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex3.svg
+\begin{tikzpicture}[auto, node distance=3cm,&gt;=latex&#39;]
+
+	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=5em]
+	\tikzstyle{sum} = [draw, fill=white, circle, node distance=1cm]
+	\tikzstyle{input} = [coordinate]
+	\tikzstyle{output} = [coordinate]
+	\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+	
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum, node distance=2cm] (controller) { \Large $F(s)$};
+    \node [block, right of=controller] (actuator) { \Large $\frac{1}{1+sT}$};
+    \node [block, right of=actuator, node distance=3cm] (system) {\Large $\frac{1}{(1+sT_1)(1+sT_2)}$};
+
+    \draw [-&gt;] (controller) -- node[name=u] {$u$} (actuator);
+    \draw [-&gt;] (actuator) -- node[name=z] {$z$} (system);
+    \node [output, right of=system] (output) {};
+    \coordinate [below of=u, node distance=2cm] (measurements);
+
+    \draw [draw,-&gt;] (input) -- node {$\theta_{ref}$} (sum);
+    \draw [-&gt;] (sum) -- node {$e$} (controller);
+    \draw [-&gt;] (system) -- node [name=y] {$\theta$}(output);
+    \draw [-&gt;] (y) |- (measurements) -| node[pos=0.99] {$-$}  (sum);
+\end{tikzpicture}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/de52a50d656efd71462c24b0ac1bc50cf1bcd4cce53ea2a17fdbabafcbf89015.svg" src="../../_images/de52a50d656efd71462c24b0ac1bc50cf1bcd4cce53ea2a17fdbabafcbf89015.svg" />
 </div>
 </div>
 
