@@ -454,13 +454,13 @@
 <figure class="align-default" id="fig-lec4-ex2-car">
 <a class="reference internal image-reference" href="../_images/ex2.svg"><img alt="../_images/ex2.svg" src="../_images/ex2.svg" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex2-car" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex2-car" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The cruise controller of an electric car works by adjusting the voltage applied to the electric motor to regulate the velocity, making sure it is as close as possible to the speed setpoint coming from the driver. The system has the following dynamics:</p>
 <p><strong>Electric Dynamics</strong> (Voltage <span class="math notranslate nohighlight">\(\to\)</span> Current): <span class="math notranslate nohighlight">\(G_2(s) = \frac{90}{s + 100}\)</span></p>
 <p><strong>Mechanical Dynamics</strong> (Current <span class="math notranslate nohighlight">\(\to\)</span> Speed): <span class="math notranslate nohighlight">\(G_1(s) = \frac{5}{s + 0.2}\)</span></p>
-<p>The block diagram of the car is shown in <a class="reference internal" href="#fig-lec4-ex2-car"><span class="std std-numref">Fig. 11</span></a>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
+<p>The block diagram of the car is shown in <a class="reference internal" href="#fig-lec4-ex2-car"><span class="std std-numref">Fig. 12</span></a>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
 <ol class="arabic simple">
 <li><p>Sketch the block diagram of the system when a cascade control scheme is used. What are the control variable, the  <em>intermediate signal</em> that is fed back in the internal loop, and the output?</p></li>
 <li><p>We start designing the cascade control scheme by the inner controller. Assume that we use a proportional controller <span class="math notranslate nohighlight">\(F_i(s) = K_2\)</span>. Design <span class="math notranslate nohighlight">\(K_2\)</span> so that the bandwidth of the inner loop is at least <span class="math notranslate nohighlight">\(50\)</span> rad/s and the steady-state error of this internal loop is no larger than <span class="math notranslate nohighlight">\(1\%\)</span>.</p></li>
@@ -476,15 +476,15 @@
 <figure class="align-default" id="fig-lec4-ex2-cascade">
 <a class="reference internal image-reference" href="../_images/ex2-sol1.svg"><img alt="../_images/ex2-sol1.svg" src="../_images/ex2-sol1.svg" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Cascade control scheme.</span><a class="headerlink" href="#fig-lec4-ex2-cascade" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Cascade control scheme.</span><a class="headerlink" href="#fig-lec4-ex2-cascade" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="question-2">
 <h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
 <p>The inner control loop is characterized by the open-loop transfer function <span class="math notranslate nohighlight">\(G_{o2}(s) = F_i(s) \cdot G_2(s) = \frac{90 K_2}{s + 100}\)</span>, and by the closed-loop transfer function</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eq-lec4-ex2-gc2">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-lec4-ex2-gc2" title="Link to this equation">#</a></span>\[
 G_{c2}(s) = \frac{G_{o2}(s)}{1 + G_{o2}(s)} = \frac{\frac{90 K_2}{s + 100}}{1 + \frac{90 K_2}{s + 100}} = \frac{90 K_2}{s + (100 + 90 K_2)}
 \]</div>
 <p>This closed-loop is stable if <span class="math notranslate nohighlight">\(100 + 90 K_2 &gt; 0\)</span>, i.e. <span class="math notranslate nohighlight">\(K &gt; - \frac{10}{9}\)</span>. Therefore, any <span class="math notranslate nohighlight">\(K_2 &gt; 0\)</span> ensures closed-loop stability.</p>
@@ -539,7 +539,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7ed9e1e0e80f44c1542fe8b2e8e7d2870f528983c8d52df84bf80f1fe8e40c2c.png" src="../_images/7ed9e1e0e80f44c1542fe8b2e8e7d2870f528983c8d52df84bf80f1fe8e40c2c.png" />
+<img alt="../_images/a09a948434dfb597895dd7ca1ecf01bb1f0ad348712c62339423cd0ac7b8135e.png" src="../_images/a09a948434dfb597895dd7ca1ecf01bb1f0ad348712c62339423cd0ac7b8135e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -572,7 +572,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2229b61bef4370bf3193fc1736fc1e8842de2564e94c87a1cad1413083792d60.png" src="../_images/2229b61bef4370bf3193fc1736fc1e8842de2564e94c87a1cad1413083792d60.png" />
+<img alt="../_images/814e8d1a663940b657f8c6e40162227f342d7112057c6973dad8ab7d0bdbf2cd.png" src="../_images/814e8d1a663940b657f8c6e40162227f342d7112057c6973dad8ab7d0bdbf2cd.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
 </pre></div>
 </div>
@@ -619,7 +619,7 @@ G_{c1}(s) = \frac{5 K_1}{s + (0.2 + 5 K_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c23bfd40f3d66f86be598804a4d7aa0dfdca643104bd79026bac68f309ff74be.png" src="../_images/c23bfd40f3d66f86be598804a4d7aa0dfdca643104bd79026bac68f309ff74be.png" />
+<img alt="../_images/fe941ce0b6940f5abc26611f6003c9dd536cb3f0e92aab55cf1b506231a2f961.png" src="../_images/fe941ce0b6940f5abc26611f6003c9dd536cb3f0e92aab55cf1b506231a2f961.png" />
 </div>
 </div>
 <p>Let’s recall that the bandwitdh <span class="math notranslate nohighlight">\(\omega_B\)</span> can roughly be approximated as the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = 0\)</span> dB. Then, the magnitude of <span class="math notranslate nohighlight">\(G_1(s)\)</span> at the target critical frequency <span class="math notranslate nohighlight">\(\omega_c = 1\)</span> rad/s is <span class="math notranslate nohighlight">\(\lvert G_1(i 1) \lvert_{\text{dB}} \simeq 15\)</span> dB.
@@ -654,7 +654,7 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bf279f1b7addb607a8c97955de935d1432f54b51200b0739ddfa910332e03c48.png" src="../_images/bf279f1b7addb607a8c97955de935d1432f54b51200b0739ddfa910332e03c48.png" />
+<img alt="../_images/23e53c32ee1c61c55274cf9ab6555b5995b8a5d382f7fc7797114a26b866ec55.png" src="../_images/23e53c32ee1c61c55274cf9ab6555b5995b8a5d382f7fc7797114a26b866ec55.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -679,10 +679,15 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </section>
 <section id="question-4">
 <h3>Question 4<a class="headerlink" href="#question-4" title="Link to this heading">#</a></h3>
-<p>Picking <span class="math notranslate nohighlight">\(K_2 = 110\)</span> and <span class="math notranslate nohighlight">\(K_1 = 0.25\)</span>, the overall closed-loop transfer function is</p>
+<p>Recalling <a class="reference internal" href="#equation-eq-lec4-ex2-gc2">(5)</a>, the overall closed-loop transfer function is</p>
+<div class="math notranslate nohighlight" id="equation-eq-lec4-ex2-gc">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-lec4-ex2-gc" title="Link to this equation">#</a></span>\[
+G_c(s) = \frac{F(s) G_{c2}(s) G_1(s)}{1 + F(s) G_{c2}(s) G_1(s)} 
+\]</div>
+<p>Picking <span class="math notranslate nohighlight">\(K_2 = 110\)</span> and <span class="math notranslate nohighlight">\(K_1 = 0.25\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
-G_c(s) = \frac{F(s) G_{c2}(s) G_1(s)}{1 + F(s) G_{c2}(s) G_1(s)} = \frac{\frac{12375}{(s+0.2)(s + 10000)}}{1 + \frac{12375}{(s+0.2)(s + 10000)}} = \frac{12375}{s^2 + 10000.2 s + 14375}
+G_c(s) = \frac{\frac{12375}{(s+0.2)(s + 10000)}}{1 + \frac{12375}{(s+0.2)(s + 10000)}} = \frac{12375}{s^2 + 10000.2 s + 14375}
 \]</div>
 <p>The steady-state error for a step reference is</p>
 <p><span class="math notranslate nohighlight">\(e_\infty = \lim_{s \to 0} s \big[ 1 - G_c(s) \big] \frac{1}{s} = \frac{2000}{14375} \simeq 14 \%\)</span></p>
@@ -735,7 +740,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/89947b23a74db9342d8ef5bea3fcd68e69285b91b2b5d47954bfd14d44534b8d.png" src="../_images/89947b23a74db9342d8ef5bea3fcd68e69285b91b2b5d47954bfd14d44534b8d.png" />
+<img alt="../_images/326f4b9f482354fdc0807ff0bdf6c3c0e8e6dfbe7a21600c6b315130c1746ad3.png" src="../_images/326f4b9f482354fdc0807ff0bdf6c3c0e8e6dfbe7a21600c6b315130c1746ad3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -777,7 +782,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eaac0cbbbfb054e4f20555d8257cf77bec63fcc0ca513673bed84a5b22f68d1e.png" src="../_images/eaac0cbbbfb054e4f20555d8257cf77bec63fcc0ca513673bed84a5b22f68d1e.png" />
+<img alt="../_images/bc5f778890f2bf8e5dd8d2a2c71a2ea85f431cbe9d7e156b0fd8130fd001067c.png" src="../_images/bc5f778890f2bf8e5dd8d2a2c71a2ea85f431cbe9d7e156b0fd8130fd001067c.png" />
 </div>
 </div>
 <div class="cell docutils container">

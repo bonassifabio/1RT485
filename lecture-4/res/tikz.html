@@ -582,6 +582,70 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex1-bode-sol-mag.svg
+\documentclass{article}
+\usepackage[pgf]{bodeplot}
+\usepackage[paperwidth=20cm, paperheight=8cm, margin=0cm]{geometry}
+
+
+\begin{document}
+
+\begin{BodeMagPlot}[ytick distance=10, width=17cm, height=6cm, ylabel=Magnitude (dB)] {0.01} {100}
+    \addBodeZPKPlots[%
+    true/{black,thick, dotted}]
+    {magnitude}
+    {z/{-8},
+	p/{{-0.04,-1},{-0.04,1}},
+	k/0.2}
+    \addBodeZPKPlots[%
+    true/{red,thick}]
+    {magnitude}
+    {z/{-8},
+	p/{{-0.04,-1},{-0.04,1}},
+	k/50}
+    \addBodeZPKPlots[%
+    true/{blue,thick}]
+    {magnitude}
+    {z/{-8},
+	p/{{-0.04,-1},{-0.04,1}},
+	k/2.52}
+\end{BodeMagPlot}
+\end{document}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a7b9aeec6d9d96fa11c8caf31ff9bb9e04fac0cf62e2b3125cd3557d7369db27.svg" src="../../_images/a7b9aeec6d9d96fa11c8caf31ff9bb9e04fac0cf62e2b3125cd3557d7369db27.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex1-bode-sol-phase.svg
+
+\documentclass{article}
+\usepackage[pgf]{bodeplot}
+\usepackage[paperwidth=20cm, paperheight=8cm, margin=0cm]{geometry}
+
+
+\begin{document}
+\begin{BodePhPlot}[ytick distance=30, width=17cm, height=6cm] {0.01} {100}
+    \addBodeZPKPlots[%
+    true/{black,thick, dotted}]
+    {phase}
+    {z/{-8},
+	p/{{-0.04,-1},{-0.04,1}},
+	k/0.2}
+\end{BodePhPlot}
+\end{document}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d9ed5126b7eb07cad7f0e5d934374742c5c5d7a1d1d4ca742508beb5e7e4eb05.svg" src="../../_images/d9ed5126b7eb07cad7f0e5d934374742c5c5d7a1d1d4ca742508beb5e7e4eb05.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex3.svg
 \begin{tikzpicture}[auto, node distance=3cm,&gt;=latex&#39;]
 
