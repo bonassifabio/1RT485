@@ -35,29 +35,39 @@ function asymptotic_bode(obj)
         w_t=[w_p,w_z];
     catch
         try
-            w_t=[w_p];
+            w_t=[w_p]; 
         catch
-            w_t=[w_z];
-        end
-    end
-
-    interval=sort([0.01*w_t(1,:), 0.05*w_t(1,:), 0.1*w_t(1,:), 0.2*w_t(1,:), w_t(1,:), 2*w_t(1,:), 5*w_t(1,:), 10*w_t(1,:),100*w_t(1,:)]);
-    mag=zeros(size(w_t,2),length(interval));
-    Phi=zeros(size(w_t,2),length(interval));
-
-    % calculate magnitude of each pole and zero
-    for ii=1:size(mag,1)
-            m=20*w_t(2,ii);
-            n=-m*log10(w_t(1,ii));
-        for jj=1:size(mag,2)
-            if jj < find(interval==w_t(1,ii))+1
-                mag(ii,jj)=0;
-            else
-                mag(ii,jj)=m*log10(interval(jj))+n;
+            try
+                w_t=[w_z];
+            catch
+                w_t=[];
             end
         end
     end
-    mag=sum(mag,1);
+
+    if ~isempty(w_t)
+        interval=sort([0.01*w_t(1,:), 0.05*w_t(1,:), 0.1*w_t(1,:), 0.2*w_t(1,:), w_t(1,:), 2*w_t(1,:), 5*w_t(1,:), 10*w_t(1,:),100*w_t(1,:)]);
+        mag=zeros(size(w_t,2),length(interval));
+        Phi=zeros(size(w_t,2),length(interval));
+
+        % calculate magnitude of each pole and zero
+        for ii=1:size(mag,1)
+                m=20*w_t(2,ii);
+                n=-m*log10(w_t(1,ii));
+            for jj=1:size(mag,2)
+                if jj < find(interval==w_t(1,ii))+1
+                    mag(ii,jj)=0;
+                else
+                    mag(ii,jj)=m*log10(interval(jj))+n;
+                end
+            end
+        end
+        mag=sum(mag,1);
+    else
+        interval=sort([0.01, 0.05, 0.1, 0.2, 1, 2, 5, 10, 100]);
+        mag=zeros(1,length(interval));
+        Phi=zeros(1,length(interval));
+    end
 
     % Account for integrators and differentiators (mag)
     if length(find(imag(im_p)==0))>0
@@ -89,21 +99,25 @@ function asymptotic_bode(obj)
 
 
     % Calculate phase
-    for ii=1:size(Phi,1)
-            m=(pi/4)*w_t(3,ii);
-            n=-m*log10(interval(find(interval==0.1*w_t(1,ii))));%m;
-            n=n(1);
-        for jj=1:size(Phi,2)
-            if jj < find(interval==0.1*w_t(1,ii))+1
-                Phi(ii,jj)=0;
-            elseif jj < find(interval==10*w_t(1,ii))+1
-                Phi(ii,jj)=m*log10(interval(jj))+n;
-            else
-                Phi(ii,jj)=(pi/2)*w_t(3,ii);    
+    if ~isempty(w_t)
+        for ii=1:size(Phi,1)
+                m=(pi/4)*w_t(3,ii);
+                n=-m*log10(interval(find(interval==0.1*w_t(1,ii))));%m;
+                n=n(1);
+            for jj=1:size(Phi,2)
+                if jj < find(interval==0.1*w_t(1,ii))+1
+                    Phi(ii,jj)=0;
+                elseif jj < find(interval==10*w_t(1,ii))+1
+                    Phi(ii,jj)=m*log10(interval(jj))+n;
+                else
+                    Phi(ii,jj)=(pi/2)*w_t(3,ii);    
+                end
             end
         end
+        Phi = sum(Phi,1);
+    else
+        Phi = zeros(1, length(interval));
     end
-    Phi=sum(Phi,1);
 
     %integrators and differentiators (phase)
     if length(find(imag(im_p)==0))>0
@@ -146,15 +160,17 @@ function asymptotic_bode(obj)
     grid on
 
     % mark frequencies
-    y0=get(gca,'ylim');
-    y0=y0(1);
-    Ind=unique(mod(find(interval(:)==w_t(1,:)),length(interval)),'stable');
+    if ~isempty(w_t)
+        y0=get(gca,'ylim');
+        y0=y0(1);
+        Ind=unique(mod(find(interval(:)==w_t(1,:)),length(interval)),'stable');
 
-    tx = [w_t(1,:);w_t(1,:);nan(1,length(w_t(1,:)))];
-    ty = [y0*ones(1,length(w_t(1,:)));mag(Ind);nan(1,length(w_t(1,:)))];
+        tx = [w_t(1,:);w_t(1,:);nan(1,length(w_t(1,:)))];
+        ty = [y0*ones(1,length(w_t(1,:)));mag(Ind);nan(1,length(w_t(1,:)))];
 
-    plot(tx(:),ty(:),'--k','LineWidth',0.75);
-
+        plot(tx(:),ty(:),'--k','LineWidth',0.75);
+    end
+    
     % phase
     subplot(2,1,2)
     semilogx(interval,rad2deg(Phi+phase_dt),'b','LineWidth',1.2);
