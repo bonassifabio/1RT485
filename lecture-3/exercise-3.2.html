@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -197,6 +197,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-4/index.html">Exercise session 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lecture-4/exercise-4.1.html">Exercise 4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lecture-4/exercise-4.2.html">Exercise 4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lecture-4/exercise-4.3.html">Exercise 4.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -508,8 +509,13 @@
 <div class="cell_input docutils container">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if the `asymptotic_bode` function is available, otherwise download it</span>
 <span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;asymptotic_bode&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">urlwrite</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">urlwrite</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/matlab/asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">);</span>
 <span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting MATLAB ...
 </pre></div>
 </div>
 </div>
@@ -524,7 +530,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8d10fe1a07e4fc3a6020bcc1b7d03db46330663e176a94bdf0f04abe077c350a.png" src="../_images/8d10fe1a07e4fc3a6020bcc1b7d03db46330663e176a94bdf0f04abe077c350a.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unrecognized function or variable &#39;asymptotic_bode&#39;.
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -582,7 +590,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0c83b973789d21f0b669eccce8e2cb54e893db75f65501d7a4b73a25fb43b452.png" src="../_images/0c83b973789d21f0b669eccce8e2cb54e893db75f65501d7a4b73a25fb43b452.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unrecognized function or variable &#39;asymptotic_bode&#39;.
+</pre></div>
+</div>
 </div>
 </div>
 </section>

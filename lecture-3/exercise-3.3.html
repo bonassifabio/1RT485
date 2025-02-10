@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -197,6 +197,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-4/index.html">Exercise session 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lecture-4/exercise-4.1.html">Exercise 4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lecture-4/exercise-4.2.html">Exercise 4.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lecture-4/exercise-4.3.html">Exercise 4.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -465,7 +466,7 @@ G(s) = \frac{s+10}{(s+0.1)^2(s+5)}
 <div class="cell_input docutils container">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if the `asymptotic_bode` function is available, otherwise download it</span>
 <span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;asymptotic_bode&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">urlwrite</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">urlwrite</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/matlab/asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">);</span>
 <span class="k">end</span>
 
 <span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
@@ -492,7 +493,7 @@ G(s) = \frac{s+10}{(s+0.1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f4d5b65af79715367a66ed975291b8dd028dafe4ce8df59147fec068440eefcc.png" src="../_images/f4d5b65af79715367a66ed975291b8dd028dafe4ce8df59147fec068440eefcc.png" />
+<img alt="../_images/025f992d2565e13e84f0352c99c56e79cf8e7acec056915962e9a097eaa663e3.png" src="../_images/025f992d2565e13e84f0352c99c56e79cf8e7acec056915962e9a097eaa663e3.png" />
 </div>
 </div>
 <p>From the root locus, we can see that the closed-loop poles are stable for <span class="math notranslate nohighlight">\(K &lt; 24\)</span>.</p>
@@ -537,7 +538,7 @@ G_o(s) = 10 \frac{s + 10}{(s+0.1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d25b09846f9b76b5aed18d91247d7e1da4bafeb901491fed96dc4af36a487f4a.png" src="../_images/d25b09846f9b76b5aed18d91247d7e1da4bafeb901491fed96dc4af36a487f4a.png" />
+<img alt="../_images/f13fb1aa1ed2f93321bc0c7c4c1b7f91a49858d4e1c568b35886dcc1b24c2f62.png" src="../_images/f13fb1aa1ed2f93321bc0c7c4c1b7f91a49858d4e1c568b35886dcc1b24c2f62.png" />
 </div>
 </div>
 <p>We can now evaluate the phase margin as</p>
@@ -630,7 +631,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">(2)</a>, <sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2bdbfea303a3fafc7471a1a12f4118dcca18fa69a669b128b8168f6e58410b0e.png" src="../_images/2bdbfea303a3fafc7471a1a12f4118dcca18fa69a669b128b8168f6e58410b0e.png" />
+<img alt="../_images/aef3460f37f804477aa019d2454acc2f86aa858f19e09d489d2f6713bf823048.png" src="../_images/aef3460f37f804477aa019d2454acc2f86aa858f19e09d489d2f6713bf823048.png" />
 </div>
 </div>
 </section>

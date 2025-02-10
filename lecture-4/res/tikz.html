@@ -481,6 +481,46 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex2-sol1.svg
+\begin{tikzpicture}[auto, node distance=3cm,&gt;=latex&#39;]
+
+	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=5em]
+	\tikzstyle{sum} = [draw, fill=white, circle, node distance=1cm]
+	\tikzstyle{input} = [coordinate]
+	\tikzstyle{output} = [coordinate]
+	\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+	
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum1) {};
+    \node [block, right of=sum1, node distance=2cm] (controller1) { \large $F(s) = K_1$};
+    \node [sum, right of=controller1, node distance=2cm] (sum2) {};
+    \node [block, right of=sum2, node distance=2cm] (controller2) {\large $F_i(s) = K_2$};
+    \node [block, right of=controller2] (system2) { \Large $\frac{90}{s+100}$};
+    \node [block, right of=system2, node distance=3cm] (system1) {\Large $\frac{5}{s+0.2}$};
+
+    \draw [-&gt;] (controller2) -- node[name=u] {$u$} (system2);
+    \draw [-&gt;] (system2) -- node[name=z] {$z$} (system1);
+    \node [output, right of=system1] (output) {};
+    \coordinate [below of=z, node distance=3cm] (meas1);
+    \coordinate [below of=u, node distance=2cm] (meas2);
+
+    \draw [draw,-&gt;] (input) -- node {$\theta_{ref}$} (sum1);
+    \draw [-&gt;] (sum1) -- node {$e$} (controller1);
+    \draw [-&gt;] (system1) -- node [name=y] {$\theta$}(output);
+    \draw [-&gt;] (controller1) -- (sum2);
+    \draw [-&gt;] (sum2) -- (controller2);
+    \draw [-&gt;] (y) |- (meas1) -| node[pos=0.99] {$-$}  (sum1);
+    \draw [-&gt;] (z) |- (meas2) -| node[pos=0.99] {$-$}  (sum2);
+\end{tikzpicture}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8d534d1d27ec2639dcdb23bd3aed2c57f1db0058bbf5edc4f7bd4cc118d0cc05.svg" src="../../_images/8d534d1d27ec2639dcdb23bd3aed2c57f1db0058bbf5edc4f7bd4cc118d0cc05.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex1-block.svg
 \begin{tikzpicture}[auto, node distance=2cm,&gt;=latex&#39;]
 
