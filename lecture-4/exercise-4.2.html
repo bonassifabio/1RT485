@@ -539,7 +539,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07258e481e8a97ec2e296525ddb1f690bb72302a08bc7fb06cadb6b50e356702.png" src="../_images/07258e481e8a97ec2e296525ddb1f690bb72302a08bc7fb06cadb6b50e356702.png" />
+<img alt="../_images/7ed9e1e0e80f44c1542fe8b2e8e7d2870f528983c8d52df84bf80f1fe8e40c2c.png" src="../_images/7ed9e1e0e80f44c1542fe8b2e8e7d2870f528983c8d52df84bf80f1fe8e40c2c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -563,7 +563,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span><span class="w"> </span>
-<span class="nb">step</span><span class="p">(</span><span class="n">G_c2</span><span class="p">)</span>
+<span class="nb">step</span><span class="p">(</span><span class="n">G_c2</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-3</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
 
 <span class="k">if</span><span class="w"> </span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;stepinfo&#39;</span><span class="p">)</span>
 <span class="w">    </span><span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Step response information: &#39;</span><span class="p">);</span><span class="w"> </span><span class="nb">disp</span><span class="p">(</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">G_c2</span><span class="p">))</span>
@@ -572,7 +572,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b5797818868fd80c5799a7b426d31f1a050de4ecdcff63074967d839ebb8abae.png" src="../_images/b5797818868fd80c5799a7b426d31f1a050de4ecdcff63074967d839ebb8abae.png" />
+<img alt="../_images/2229b61bef4370bf3193fc1736fc1e8842de2564e94c87a1cad1413083792d60.png" src="../_images/2229b61bef4370bf3193fc1736fc1e8842de2564e94c87a1cad1413083792d60.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
 </pre></div>
 </div>
@@ -619,7 +619,7 @@ G_{c1}(s) = \frac{5 K_1}{s + (0.2 + 5 K_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/de8b7ac0eab72c81db49d27a3dc3a5bdd24e0cad2718ba407d929e5fac844899.png" src="../_images/de8b7ac0eab72c81db49d27a3dc3a5bdd24e0cad2718ba407d929e5fac844899.png" />
+<img alt="../_images/c23bfd40f3d66f86be598804a4d7aa0dfdca643104bd79026bac68f309ff74be.png" src="../_images/c23bfd40f3d66f86be598804a4d7aa0dfdca643104bd79026bac68f309ff74be.png" />
 </div>
 </div>
 <p>Let’s recall that the bandwitdh <span class="math notranslate nohighlight">\(\omega_B\)</span> can roughly be approximated as the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = 0\)</span> dB. Then, the magnitude of <span class="math notranslate nohighlight">\(G_1(s)\)</span> at the target critical frequency <span class="math notranslate nohighlight">\(\omega_c = 1\)</span> rad/s is <span class="math notranslate nohighlight">\(\lvert G_1(i 1) \lvert_{\text{dB}} \simeq 15\)</span> dB.
@@ -654,7 +654,7 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/72175cc0b0c5b33977e784071e9a709eb7fa4e0cc4e62580d603a5c98c89f970.png" src="../_images/72175cc0b0c5b33977e784071e9a709eb7fa4e0cc4e62580d603a5c98c89f970.png" />
+<img alt="../_images/bf279f1b7addb607a8c97955de935d1432f54b51200b0739ddfa910332e03c48.png" src="../_images/bf279f1b7addb607a8c97955de935d1432f54b51200b0739ddfa910332e03c48.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -735,7 +735,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f44a5afe2b55385395b3e7e7ed59937e2a4fa2349f394584242ead54eaadb79e.png" src="../_images/f44a5afe2b55385395b3e7e7ed59937e2a4fa2349f394584242ead54eaadb79e.png" />
+<img alt="../_images/89947b23a74db9342d8ef5bea3fcd68e69285b91b2b5d47954bfd14d44534b8d.png" src="../_images/89947b23a74db9342d8ef5bea3fcd68e69285b91b2b5d47954bfd14d44534b8d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -771,13 +771,13 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span><span class="w"> </span>
-<span class="nb">step</span><span class="p">(</span><span class="n">Gc_new</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+<span class="nb">step</span><span class="p">(</span><span class="n">Gc_new</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
 <span class="nb">title</span><span class="p">(</span><span class="s">&#39;Step response of the closed-loop system with a PI controller&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/35c5330c89492e5ab90b89b494d0dc7c43a271111715335ad13a2e65b7d822af.png" src="../_images/35c5330c89492e5ab90b89b494d0dc7c43a271111715335ad13a2e65b7d822af.png" />
+<img alt="../_images/eaac0cbbbfb054e4f20555d8257cf77bec63fcc0ca513673bed84a5b22f68d1e.png" src="../_images/eaac0cbbbfb054e4f20555d8257cf77bec63fcc0ca513673bed84a5b22f68d1e.png" />
 </div>
 </div>
 <div class="cell docutils container">
