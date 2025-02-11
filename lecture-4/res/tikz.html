@@ -659,7 +659,7 @@
     \node [sum, right of=input] (sum) {};
     \node [block, right of=sum, node distance=2cm] (controller) { \Large $F(s)$};
     \node [block, right of=controller] (actuator) { \Large $\frac{1}{1+sT}$};
-    \node [block, right of=actuator, node distance=3cm] (system) {\Large $\frac{1}{(1+sT_1)(1+sT_2)}$};
+    \node [block, right of=actuator, node distance=3cm] (system) {\Large $\frac{1}{s(1+sT_1)(1+sT_2)}$};
 
     \draw [-&gt;] (controller) -- node[name=u] {$u$} (actuator);
     \draw [-&gt;] (actuator) -- node[name=z] {$z$} (system);
@@ -675,7 +675,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/de52a50d656efd71462c24b0ac1bc50cf1bcd4cce53ea2a17fdbabafcbf89015.svg" src="../../_images/de52a50d656efd71462c24b0ac1bc50cf1bcd4cce53ea2a17fdbabafcbf89015.svg" />
+<img alt="../../_images/17e372471b2709ee3d03ffe1fc9cc041c64e7201a92c3684acc32329b3879f9e.svg" src="../../_images/17e372471b2709ee3d03ffe1fc9cc041c64e7201a92c3684acc32329b3879f9e.svg" />
 </div>
 </div>
 
