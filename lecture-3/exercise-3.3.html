@@ -449,7 +449,7 @@
 <p>A vehicle is characterized by the following transfer function, which relates the throttle input  <span class="math notranslate nohighlight">\(U(s)\)</span>  to the velocity  <span class="math notranslate nohighlight">\(Y(s)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
-G(s) = \frac{s+10}{(s+0.1)^2(s+5)}
+G(s) = \frac{s+10}{(s+1)^2(s+5)}
 \]</div>
 <p>We need to design a controller that regulates the speed of the vehicle.</p>
 <ol class="arabic simple">
@@ -493,7 +493,7 @@ G(s) = \frac{s+10}{(s+0.1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/025f992d2565e13e84f0352c99c56e79cf8e7acec056915962e9a097eaa663e3.png" src="../_images/025f992d2565e13e84f0352c99c56e79cf8e7acec056915962e9a097eaa663e3.png" />
+<img alt="../_images/fbac64b7f8fc21b94b792442f56b431508c27b51fd654054eed3713d1003b58a.png" src="../_images/fbac64b7f8fc21b94b792442f56b431508c27b51fd654054eed3713d1003b58a.png" />
 </div>
 </div>
 <p>From the root locus, we can see that the closed-loop poles are stable for <span class="math notranslate nohighlight">\(K &lt; 24\)</span>.</p>
@@ -510,7 +510,7 @@ G(s) = \frac{s+10}{(s+0.1)^2(s+5)}
 <p>where <span class="math notranslate nohighlight">\(G_o(s) = F(s) G(s)\)</span> is the <strong>open-loop transfer function</strong> and <span class="math notranslate nohighlight">\(\omega_c\)</span> is the <strong>critical frequency</strong>, that is, the frequency where the open loop transfer function has unitary amplitude, <span class="math notranslate nohighlight">\(\lvert G_o(i \omega_c) \lvert = 1\)</span>. Remember that <span class="math notranslate nohighlight">\(G_o(i \omega)\)</span> is a complex number!</p>
 <div class="math notranslate nohighlight">
 \[
-G_o(s) = 10 \frac{s + 10}{(s+0.1)^2(s+5)}
+G_o(s) = 10 \frac{s + 10}{(s+1)^2(s+5)}
 \]</div>
 <p>To compute <span class="math notranslate nohighlight">\(\omega_c\)</span> we replace <span class="math notranslate nohighlight">\(s = i \omega\)</span> for different values of <span class="math notranslate nohighlight">\(\omega\)</span>, until we find a value where the modulus of <span class="math notranslate nohighlight">\(G_o(i \omega)\)</span> is approximately <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <div class="cell docutils container">
@@ -538,7 +538,7 @@ G_o(s) = 10 \frac{s + 10}{(s+0.1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f13fb1aa1ed2f93321bc0c7c4c1b7f91a49858d4e1c568b35886dcc1b24c2f62.png" src="../_images/f13fb1aa1ed2f93321bc0c7c4c1b7f91a49858d4e1c568b35886dcc1b24c2f62.png" />
+<img alt="../_images/d8dd3359cf727966b7fadcc0cb292cd07fcecccf2d06008476a07a1ea840dfae.png" src="../_images/d8dd3359cf727966b7fadcc0cb292cd07fcecccf2d06008476a07a1ea840dfae.png" />
 </div>
 </div>
 <p>We can now evaluate the phase margin as</p>
@@ -631,7 +631,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">(2)</a>, <sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/aef3460f37f804477aa019d2454acc2f86aa858f19e09d489d2f6713bf823048.png" src="../_images/aef3460f37f804477aa019d2454acc2f86aa858f19e09d489d2f6713bf823048.png" />
+<img alt="../_images/15df9dff8053b0c5160dc772e3267a322ab3b495b04e1b052a31bfdbf3af74c3.png" src="../_images/15df9dff8053b0c5160dc772e3267a322ab3b495b04e1b052a31bfdbf3af74c3.png" />
 </div>
 </div>
 </section>
