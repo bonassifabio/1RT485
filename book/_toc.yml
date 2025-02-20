@@ -25,5 +25,7 @@ chapters:
       - file: lecture-4/exercise-4.1.ipynb
       - file: lecture-4/exercise-4.2.ipynb
       - file: lecture-4/exercise-4.3.ipynb
-
+  - file: lecture-5/index
+  - file: lecture-6/index
+  - file: lecture-7/index
 
