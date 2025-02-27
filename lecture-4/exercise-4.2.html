@@ -200,6 +200,9 @@
 <li class="toctree-l2"><a class="reference internal" href="exercise-4.3.html">Exercise 4.3</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture-5/index.html">Exercise session 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture-6/index.html">Exercise session 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture-7/index.html">Exercise session 7</a></li>
 </ul>
 
     </div>
@@ -432,7 +435,7 @@
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Question 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Question 4</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-design-the-pi-controller">How to design the PI controller?</a></li>
 </ul>
 </li>
@@ -498,7 +501,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 \[
 \frac{90 K_2}{100 + 90 K_2} \geq 0.99 \quad \implies \quad K_2 \geq \frac{99}{89.1} \quad \implies \quad K_2 \geq 110
 \]</div>
-<p>As for the bandwidth requirement, <span class="math notranslate nohighlight">\(\omega_B\)</span> is defined as the frequency where <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert = \frac{1}{\sqrt{2}}\)</span>, or equivalently <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert_{\text{dB}} = -3\)</span> dB.</p>
+<p>As for the bandwidth requirement, <span class="math notranslate nohighlight">\(\omega_B\)</span> is defined as the frequency where <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert = \frac{\lvert G_{c2}(0)  \lvert}{\sqrt{2}}\)</span>. Under the reasonable assumption<a class="footnote-reference brackets" href="#wb" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> that <span class="math notranslate nohighlight">\(\lvert G_{c2}(0)  \lvert \approx 1\)</span>, we can consider the simpler definition <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert = \frac{1}{\sqrt{2}}\)</span>, or equivalently <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert_{\text{dB}} = -3\)</span> dB.</p>
 <div class="math notranslate nohighlight">
 \[
 \lvert G_{c2}(i \omega) \lvert = \frac{\lvert 90 K_2 \lvert}{\lvert i\omega + (100 + 90 K_2)\lvert} = \frac{\lvert 90 K_2 \lvert}{\sqrt{\omega^2 + (100 + 90 K_2)^2}}
@@ -530,6 +533,14 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting MATLAB ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Executing ...
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -539,7 +550,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05bd39fc7ecf4286d19a1b74a37babbcbd37001ba4e2d81a29e73da5315d8008.png" src="../_images/05bd39fc7ecf4286d19a1b74a37babbcbd37001ba4e2d81a29e73da5315d8008.png" />
+<img alt="../_images/4cc1626911ebf9ef06e69cec260ee0d60bae49311d843bc4a4fd9e20750585e9.png" src="../_images/4cc1626911ebf9ef06e69cec260ee0d60bae49311d843bc4a4fd9e20750585e9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -553,9 +564,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bandwidth: 10000 rad/s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Static gain: 0.99
+Static gain: 0.99
 </pre></div>
 </div>
 </div>
@@ -572,11 +581,9 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8e4027ec00dae3dfa0cd1812ff026e5c8ee5e137f7b53bdab74d650f623c4957.png" src="../_images/8e4027ec00dae3dfa0cd1812ff026e5c8ee5e137f7b53bdab74d650f623c4957.png" />
+<img alt="../_images/946871cd3324cbaa2fae5f7a32efcb5c2db8c0c38b69196e9718f3b4bcc418da.png" src="../_images/946871cd3324cbaa2fae5f7a32efcb5c2db8c0c38b69196e9718f3b4bcc418da.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         RiseTime: 2.1970e-04
+         RiseTime: 2.1970e-04
     TransientTime: 3.9121e-04
      SettlingTime: 3.9121e-04
       SettlingMin: 0.8910
@@ -619,7 +626,7 @@ G_{c1}(s) = \frac{5 K_1}{s + (0.2 + 5 K_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3b68b4d7810e68671c60b5d5626c6ffb26c316a02adeb82aa9efdfc4cd33cd39.png" src="../_images/3b68b4d7810e68671c60b5d5626c6ffb26c316a02adeb82aa9efdfc4cd33cd39.png" />
+<img alt="../_images/022de30e9180aacf66eac6b52f859a48b436563d636402f6e660d12ca5696306.png" src="../_images/022de30e9180aacf66eac6b52f859a48b436563d636402f6e660d12ca5696306.png" />
 </div>
 </div>
 <p>Let’s recall that the bandwitdh <span class="math notranslate nohighlight">\(\omega_B\)</span> can roughly be approximated as the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = 0\)</span> dB. Then, the magnitude of <span class="math notranslate nohighlight">\(G_1(s)\)</span> at the target critical frequency <span class="math notranslate nohighlight">\(\omega_c = 1\)</span> rad/s is <span class="math notranslate nohighlight">\(\lvert G_1(i 1) \lvert_{\text{dB}} \simeq 15\)</span> dB.
@@ -654,7 +661,7 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6223d9010de8ac2456a591d15976ae1ca36aeb31365d9b8b58b12fbf90b4680c.png" src="../_images/6223d9010de8ac2456a591d15976ae1ca36aeb31365d9b8b58b12fbf90b4680c.png" />
+<img alt="../_images/0a9d3305953a48a929a9d2566f1b67bfbf4583df2efa3be4fea762e84fa9f5b5.png" src="../_images/0a9d3305953a48a929a9d2566f1b67bfbf4583df2efa3be4fea762e84fa9f5b5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -668,9 +675,7 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bandwidth: 1.0848 rad/s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Static gain: 0.86207
+Static gain: 0.86207
 </pre></div>
 </div>
 </div>
@@ -706,8 +711,8 @@ G_c(s) = \frac{\frac{12375}{(s+0.2)(s + 10000)}}{1 + \frac{12375}{(s+0.2)(s + 10
 </div>
 <p>This means that if the velocity target is <span class="math notranslate nohighlight">\(60\)</span> km/h, the cruise control will reach <span class="math notranslate nohighlight">\(51\)</span> km/h!</p>
 </section>
-<section id="id1">
-<h3>Question 4<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Question 4<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>To achieve zero steady-state error, it is enough to use a PI controller.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -740,7 +745,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/61356d821d4919defaabd1e7468431bf8bd1c728dca01ebcb3dfed3d4d9e99e5.png" src="../_images/61356d821d4919defaabd1e7468431bf8bd1c728dca01ebcb3dfed3d4d9e99e5.png" />
+<img alt="../_images/036bfd352d2221b757b21490b31c2b24306cdef0b501a66dafcd426f71106814.png" src="../_images/036bfd352d2221b757b21490b31c2b24306cdef0b501a66dafcd426f71106814.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -782,7 +787,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9c2ea23328e336443a033f1bc03940d055fb197354651f4376b9399a8245f87d.png" src="../_images/9c2ea23328e336443a033f1bc03940d055fb197354651f4376b9399a8245f87d.png" />
+<img alt="../_images/bc3f984adc9bcda990f3859470a4fce4a1fbec2467f9d73f9407d1d998bf5b1a.png" src="../_images/bc3f984adc9bcda990f3859470a4fce4a1fbec2467f9d73f9407d1d998bf5b1a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -795,9 +800,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         RiseTime: 1.7749
+         RiseTime: 1.7749
     TransientTime: 3.1618
      SettlingTime: 3.1618
       SettlingMin: 0.9088
@@ -810,6 +813,12 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 </div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="wb" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>A well-designed closed-loop transfer function has a unitary (or very close to unitary) static gain. For example, in the solution to Question 2 we have seen that for <span class="math notranslate nohighlight">\(K_2 &gt; 110\)</span> the static gain of the closed-loop transfer function is in the range <span class="math notranslate nohighlight">\((0.99, 1.0)\)</span>. We can therefore opt for the definition <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert = \frac{1}{\sqrt{2}}\)</span>, which is simpler because the right-hand side does not depend upon <span class="math notranslate nohighlight">\(K\)</span>.</p>
+</aside>
+</aside>
 </section>
 </section>
 </section>
@@ -889,7 +898,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Question 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Question 4</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-design-the-pi-controller">How to design the PI controller?</a></li>
 </ul>
 </li>
