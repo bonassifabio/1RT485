@@ -13,3 +13,4 @@ dependencies:
   - fortran-compiler
   - cxx-compiler
   - jupytext
+  - jupyterlab-myst
