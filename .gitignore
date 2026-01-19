@@ -5,3 +5,4 @@ octave-workspace
 bin/
 .DS_Store
 book/lecture-*/asymptotic_bode.m
+.ipynb_checkpoints
