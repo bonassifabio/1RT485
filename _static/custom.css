@@ -1,0 +1,12 @@
+/* Hide scrollbar for primary and secondary sidebars */
+.bd-sidebar-primary,
+.bd-sidebar-secondary {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    overflow-y: auto !important; /* Keep it scrollable but hide the bar */
+}
+
+.bd-sidebar-primary::-webkit-scrollbar,
+.bd-sidebar-secondary::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}

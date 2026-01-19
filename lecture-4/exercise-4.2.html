@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,36 +13,34 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e9f7d9f3" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -66,15 +64,12 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exercise 4.3" href="exercise-4.3.html" />
-    <link rel="prev" title="Exercise 4.1" href="exercise-4.1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
   
@@ -86,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -95,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -102,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -119,8 +126,9 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -146,21 +154,23 @@
   
     
     
-      
-    
     
     <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485 Exercise Book 2.0 - Home"/>
-    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="1RT485 Exercise Book 2.0 - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="1RT485 Exercise Book 2.0 - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -171,35 +181,11 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.1.html">Exercise 1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.2.html">Exercise 1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.3.html">Exercise 1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.4.html">Exercise 1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.5.html">Exercise 1.5</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-2/index.html">Exercise session 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-2/exercise-2.1.html">Exercise 2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-2/exercise-2.2.html">Exercise 2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-2/exercise-2.3.html">Exercise 2.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-2/exercise-2.4.html">Exercise 2.4</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-3/index.html">Exercise session 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-3/exercise-3.1.html">Exercise 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-3/exercise-3.2.html">Exercise 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-3/exercise-3.4.html">Exercise 3.4</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Exercise session 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="exercise-4.1.html">Exercise 4.1</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercise 4.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="exercise-4.3.html">Exercise 4.3</a></li>
-</ul>
-</details></li>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture-2/index.html">Exercise session 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture-3/index.html">Exercise session 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Exercise session 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lecture-5/index.html">Exercise session 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lecture-6/index.html">Exercise session 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lecture-7/index.html">Exercise session 7</a></li>
@@ -211,14 +197,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -393,16 +374,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -455,15 +444,16 @@
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-4-2">
 <span id="ref-lec4-ex2"></span><h1>Exercise 4.2<a class="headerlink" href="#exercise-4-2" title="Link to this heading">#</a></h1>
 <figure class="align-default" id="fig-lec4-ex2-car">
-<a class="reference internal image-reference" href="../_images/ex2.svg"><img alt="../_images/ex2.svg" src="../_images/ex2.svg" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/ex2.svg"><img alt="../_images/ex2.svg" src="../_images/ex2.svg" style="height: 200px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex2-car" title="Link to this image">#</a></p>
+<p><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex2-car" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The cruise controller of an electric car works by adjusting the voltage applied to the electric motor to regulate the velocity, making sure it is as close as possible to the speed setpoint coming from the driver. The system has the following dynamics:</p>
 <p><strong>Electric Dynamics</strong> (Voltage <span class="math notranslate nohighlight">\(\to\)</span> Current): <span class="math notranslate nohighlight">\(G_2(s) = \frac{90}{s + 100}\)</span></p>
 <p><strong>Mechanical Dynamics</strong> (Current <span class="math notranslate nohighlight">\(\to\)</span> Speed): <span class="math notranslate nohighlight">\(G_1(s) = \frac{5}{s + 0.2}\)</span></p>
-<p>The block diagram of the car is shown in <a class="reference internal" href="#fig-lec4-ex2-car"><span class="std std-numref">Fig. 12</span></a>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
+<p>The block diagram of the car is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex2:car</span></code>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
 <ol class="arabic simple">
 <li><p>Sketch the block diagram of the system when a cascade control scheme is used. What are the control variable, the  <em>intermediate signal</em> that is fed back in the internal loop, and the output?</p></li>
 <li><p>We start designing the cascade control scheme by the inner controller. Assume that we use a proportional controller <span class="math notranslate nohighlight">\(F_i(s) = K_2\)</span>. Design <span class="math notranslate nohighlight">\(K_2\)</span> so that the bandwidth of the inner loop is at least <span class="math notranslate nohighlight">\(50\)</span> rad/s and the steady-state error of this internal loop is no larger than <span class="math notranslate nohighlight">\(1\%\)</span>.</p></li>
@@ -477,9 +467,10 @@
 <h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
 <p>The cascade control scheme is implemented by closing the inner loop with the current measurement, and the outer loop with the speed measurement. The resulting block diagram is depicted below.</p>
 <figure class="align-default" id="fig-lec4-ex2-cascade">
-<a class="reference internal image-reference" href="../_images/ex2-sol1.svg"><img alt="../_images/ex2-sol1.svg" src="../_images/ex2-sol1.svg" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/ex2-sol1.svg"><img alt="../_images/ex2-sol1.svg" src="../_images/ex2-sol1.svg" style="height: 200px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Cascade control scheme.</span><a class="headerlink" href="#fig-lec4-ex2-cascade" title="Link to this image">#</a></p>
+<p><span class="caption-text">Cascade control scheme.</span><a class="headerlink" href="#fig-lec4-ex2-cascade" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -487,7 +478,7 @@
 <h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
 <p>The inner control loop is characterized by the open-loop transfer function <span class="math notranslate nohighlight">\(G_{o2}(s) = F_i(s) \cdot G_2(s) = \frac{90 K_2}{s + 100}\)</span>, and by the closed-loop transfer function</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec4-ex2-gc2">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-lec4-ex2-gc2" title="Link to this equation">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex2-gc2" title="Link to this equation">#</a></span>\[
 G_{c2}(s) = \frac{G_{o2}(s)}{1 + G_{o2}(s)} = \frac{\frac{90 K_2}{s + 100}}{1 + \frac{90 K_2}{s + 100}} = \frac{90 K_2}{s + (100 + 90 K_2)}
 \]</div>
 <p>This closed-loop is stable if <span class="math notranslate nohighlight">\(100 + 90 K_2 &gt; 0\)</span>, i.e. <span class="math notranslate nohighlight">\(K &gt; - \frac{10}{9}\)</span>. Therefore, any <span class="math notranslate nohighlight">\(K_2 &gt; 0\)</span> ensures closed-loop stability.</p>
@@ -534,10 +525,13 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting MATLAB ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Executing ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
 </pre></div>
 </div>
 </div>
@@ -550,7 +544,15 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4cc1626911ebf9ef06e69cec260ee0d60bae49311d843bc4a4fd9e20750585e9.png" src="../_images/4cc1626911ebf9ef06e69cec260ee0d60bae49311d843bc4a4fd9e20750585e9.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -563,8 +565,13 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bandwidth: 10000 rad/s
-Static gain: 0.99
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
 </pre></div>
 </div>
 </div>
@@ -581,17 +588,13 @@ Static gain: 0.99
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/946871cd3324cbaa2fae5f7a32efcb5c2db8c0c38b69196e9718f3b4bcc418da.png" src="../_images/946871cd3324cbaa2fae5f7a32efcb5c2db8c0c38b69196e9718f3b4bcc418da.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
-         RiseTime: 2.1970e-04
-    TransientTime: 3.9121e-04
-     SettlingTime: 3.9121e-04
-      SettlingMin: 0.8910
-      SettlingMax: 0.9893
-        Overshoot: 0
-       Undershoot: 0
-             Peak: 0.9893
-         PeakTime: 7.3222e-04
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
 </pre></div>
 </div>
 </div>
@@ -626,7 +629,15 @@ G_{c1}(s) = \frac{5 K_1}{s + (0.2 + 5 K_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/022de30e9180aacf66eac6b52f859a48b436563d636402f6e660d12ca5696306.png" src="../_images/022de30e9180aacf66eac6b52f859a48b436563d636402f6e660d12ca5696306.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
+</pre></div>
+</div>
 </div>
 </div>
 <p>Let’s recall that the bandwitdh <span class="math notranslate nohighlight">\(\omega_B\)</span> can roughly be approximated as the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = 0\)</span> dB. Then, the magnitude of <span class="math notranslate nohighlight">\(G_1(s)\)</span> at the target critical frequency <span class="math notranslate nohighlight">\(\omega_c = 1\)</span> rad/s is <span class="math notranslate nohighlight">\(\lvert G_1(i 1) \lvert_{\text{dB}} \simeq 15\)</span> dB.
@@ -661,7 +672,15 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0a9d3305953a48a929a9d2566f1b67bfbf4583df2efa3be4fea762e84fa9f5b5.png" src="../_images/0a9d3305953a48a929a9d2566f1b67bfbf4583df2efa3be4fea762e84fa9f5b5.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -674,8 +693,13 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bandwidth: 1.0848 rad/s
-Static gain: 0.86207
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
 </pre></div>
 </div>
 </div>
@@ -684,9 +708,9 @@ Static gain: 0.86207
 </section>
 <section id="question-4">
 <h3>Question 4<a class="headerlink" href="#question-4" title="Link to this heading">#</a></h3>
-<p>Recalling <a class="reference internal" href="#equation-eq-lec4-ex2-gc2">(5)</a>, the overall closed-loop transfer function is</p>
+<p>Recalling <a class="reference internal" href="#equation-eq-lec4-ex2-gc2">()</a>, the overall closed-loop transfer function is</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec4-ex2-gc">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-lec4-ex2-gc" title="Link to this equation">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex2-gc" title="Link to this equation">#</a></span>\[
 G_c(s) = \frac{F(s) G_{c2}(s) G_1(s)}{1 + F(s) G_{c2}(s) G_1(s)} 
 \]</div>
 <p>Picking <span class="math notranslate nohighlight">\(K_2 = 110\)</span> and <span class="math notranslate nohighlight">\(K_1 = 0.25\)</span>,</p>
@@ -704,7 +728,13 @@ G_c(s) = \frac{\frac{12375}{(s+0.2)(s + 10000)}}{1 + \frac{12375}{(s+0.2)(s + 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steady state error: 13.913%
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
 </pre></div>
 </div>
 </div>
@@ -745,7 +775,15 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/036bfd352d2221b757b21490b31c2b24306cdef0b501a66dafcd426f71106814.png" src="../_images/036bfd352d2221b757b21490b31c2b24306cdef0b501a66dafcd426f71106814.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -756,7 +794,13 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Magnitude at 1 rad/s: 13.9794 dB
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
 </pre></div>
 </div>
 </div>
@@ -773,7 +817,13 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steady state error: 0%
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
 </pre></div>
 </div>
 </div>
@@ -787,7 +837,15 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bc3f984adc9bcda990f3859470a4fce4a1fbec2467f9d73f9407d1d998bf5b1a.png" src="../_images/bc3f984adc9bcda990f3859470a4fce4a1fbec2467f9d73f9407d1d998bf5b1a.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -799,16 +857,13 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
-         RiseTime: 1.7749
-    TransientTime: 3.1618
-     SettlingTime: 3.1618
-      SettlingMin: 0.9088
-      SettlingMax: 1.0000
-        Overshoot: 0
-       Undershoot: 0
-             Peak: 1.0000
-         PeakTime: 8.8557
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
+                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
+                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
+                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
+                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
+                    shown upon execution of any code.
+                    
 </pre></div>
 </div>
 </div>
@@ -854,24 +909,6 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="exercise-4.1.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exercise 4.1</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="exercise-4.3.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercise 4.3</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -879,8 +916,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -945,8 +981,8 @@ By Fabio Bonassi
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
