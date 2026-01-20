@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="227.17" height="66.371" viewBox="0 0 227.17 66.371">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="227.17pt" height="66.371pt" viewBox="0 0 227.17 66.371">
 <defs>
 <g>
 <g id="glyph-0-0">
@@ -53,13 +53,13 @@
 <use xlink:href="#glyph-0-1" x="155.158011" y="18.554162"/>
 </g>
 <g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
-<use xlink:href="#glyph-1-0" x="166.133992" y="18.554162"/>
+<use xlink:href="#glyph-1-0" x="166.134987" y="18.554162"/>
 </g>
 <g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
-<use xlink:href="#glyph-0-2" x="171.545705" y="18.554162"/>
+<use xlink:href="#glyph-0-2" x="171.546733" y="18.554162"/>
 </g>
 <g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
-<use xlink:href="#glyph-1-1" x="178.100584" y="18.554162"/>
+<use xlink:href="#glyph-1-1" x="178.101084" y="18.554162"/>
 </g>
 <path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 115.126885 0.000844541 L 137.603522 0.000844541 " transform="matrix(0.990612, 0, 0, -0.990612, 0.852371, 15.000837)"/>
 <path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 139.53125 15 C 138.542969 14.804688 136.769531 14.410156 135.582031 13.519531 C 136.570312 14.605469 136.570312 15.394531 135.582031 16.480469 C 136.769531 15.59375 138.542969 15.199219 139.53125 15 Z M 139.53125 15 "/>
