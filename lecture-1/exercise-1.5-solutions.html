@@ -194,7 +194,7 @@
 <li class="toctree-l3"><a class="reference internal" href="exercise-1.2-solutions.html">Solutions of Exercise 1.2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="useful-formulas.html">Some useful formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful-formulas.html">Useful formulas</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="exercise-1.3.html">Exercise 1.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="exercise-1.3-solutions.html">Solutions of Exercise 1.3</a></li>
 </ul>
@@ -463,7 +463,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solutions-of-exercise-1-5">
 <span id="ref-lec1-ex5-sol"></span><h1>Solutions of Exercise 1.5<a class="headerlink" href="#solutions-of-exercise-1-5" title="Link to this heading">#</a></h1>
-<p>Assume that the DC motor described in <a class="reference internal" href="exercise-1.2.html#ref-lec1-ex2"><span class="std std-ref">Exercise 1.2</span></a> is controlled by a <strong>Proportional (P)</strong> controller.</p>
+<p>Assume that the DC motor described in <a class="reference internal" href="exercise-1.1.html#ref-lec1-ex1"><span class="std std-ref">Exercise 1.1</span></a> is controlled by a <strong>Proportional (P)</strong> controller.</p>
 <ol class="arabic simple">
 <li><p>Sketch the block diagram of the control system. Determine how the poles of the closed-loop depend on the proportional gain <span class="math notranslate nohighlight">\(K\)</span>, and discuss what this means for the behavior of the closed-loop.</p></li>
 <li><p>Consider two reference signals, a step <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{step}(t)\)</span> and a ramp <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{ramp}(t)\)</span>. What is the steady-state controll error (or output tracking error) in these two cases?</p></li>
@@ -472,7 +472,7 @@ document.write(`
 <hr class="docutils" />
 <section id="solution">
 <h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<p>As shown in <a class="reference internal" href="exercise-1.0.html#ref-lec1-ex1"><span class="std std-ref">Exercise 1.0</span></a>, the transfer function of the motor is</p>
+<p>As shown in <a class="reference internal" href="exercise-1.1.html#ref-lec1-ex1"><span class="std std-ref">Exercise 1.1</span></a>, the transfer function of the motor is</p>
 <div class="math notranslate nohighlight">
 \[
 G(s) = \frac{k_o}{s(s+\alpha)}
@@ -577,7 +577,7 @@ When it comes to the second one, under the condition <span class="math notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/036ff0644bfa3251b521cf833e74b1d97a8b9e32dce833a2b31ce4f6dea3811e.png" src="../_images/036ff0644bfa3251b521cf833e74b1d97a8b9e32dce833a2b31ce4f6dea3811e.png" />
+<img alt="../_images/65230ccd1c8551263422f4e368b498ec4b38f85ad7499dcf5d847253723ed0c9.png" src="../_images/65230ccd1c8551263422f4e368b498ec4b38f85ad7499dcf5d847253723ed0c9.png" />
 </div>
 </div>
 <p>As one can see from the plot above, for every <span class="math notranslate nohighlight">\(K &gt; 0\)</span> the closed-loop eigenvalues have negative real part.</p>
