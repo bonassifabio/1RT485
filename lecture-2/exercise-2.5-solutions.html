@@ -610,72 +610,75 @@ e_0 = \frac{\cancel{d_0} c_1}{\cancel{d_0}} = c_1 = 5K
 <p>According to the Routh criterion, the system is stable if the element in the first column are all strictly positive.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{dcases}
-1 &gt; 0 &amp; \textcircled{1} \\
-8 &gt; 0 &amp; \textcircled{2}\\
-\frac{135-5K}{8}  &gt; 0 \qquad &amp; \textcircled{3} \\
-\frac{ 3375 + 230K - 25K^2}{135 - 5K} \qquad &amp; \textcircled{4} \\
-5K &gt; 0 &amp; \textcircled{5} 
+1 &gt; 0 &amp; (A) \\
+8 &gt; 0 &amp; (B) \\
+\frac{135-5K}{8}  &gt; 0 \qquad &amp; (C) \\
+\frac{ 3375 + 230K - 25K^2}{135 - 5K} \qquad &amp; (D)\\
+5K &gt; 0 &amp; (E)
 \end{dcases}
 \)</span></p>
 <p>We now solve the inequalities one by one, and later reconstruct the system.</p>
-<p><strong>Inequality</strong> <span class="math notranslate nohighlight">\(\textcircled{1}\)</span></p>
+<p><strong>Inequality</strong> (A)</p>
 <p>Satisfied <span class="math notranslate nohighlight">\(\forall K\)</span></p>
-<p><strong>Inequality</strong> <span class="math notranslate nohighlight">\(\textcircled{2}\)</span></p>
+<p><strong>Inequality</strong> (B)</p>
 <p>Satisfied <span class="math notranslate nohighlight">\(\forall K\)</span></p>
-<p><strong>Inequality</strong> <span class="math notranslate nohighlight">\(\textcircled{3}\)</span></p>
+<p><strong>Inequality</strong> (C)</p>
 <p>Because <span class="math notranslate nohighlight">\(8\)</span> is known and positive, we can get rid of it:</p>
 <div class="math notranslate nohighlight">
 \[
 135 - 5K &gt; 0 \quad \rightarrow \boxed{K &lt; 27}
 \]</div>
-<p><strong>Inequality</strong> <span class="math notranslate nohighlight">\(\textcircled{4}\)</span></p>
+<p><strong>Inequality</strong> (D)</p>
 <p>This is a fractional inequality. It is solved by computing the intervals where the numerator is positive, and the intervals where the numerator is negative. Then, we apply the rule of sign.</p>
 <p><em><strong>Numerator &gt; 0</strong></em></p>
 <div class="math notranslate nohighlight">
 \[
 3375 + 230K - 25K^2 &gt; 0 
 \]</div>
-<p>We change the sign and flip the inequality:
-$<span class="math notranslate nohighlight">\(
+<p>We change the sign and flip the inequality:</p>
+<div class="math notranslate nohighlight">
+\[
 25 K^2 - 230K - 3375 &lt; 0
-\)</span>$</p>
-<p>Then, we compute the roots, that specify the boundary of the interval
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Then, we compute the roots, that specify the boundary of the interval</p>
+<div class="math notranslate nohighlight">
+\[
 25K^2 - 230 - 3375 = 0
-\)</span>$</p>
+\]</div>
 <p>The discriminant is <span class="math notranslate nohighlight">\(\Delta = 230^2 + 4 \cdot 25 \cdot 3375 = 390400 &gt; 0\)</span>. Because the discriminant is positive, the system admits two real solutions:</p>
 <div class="math notranslate nohighlight">
 \[
 K_1 = \frac{230 - \sqrt{390400}}{50} = - 7.9  \text{ and } K_2 = \frac{230 + \sqrt{390400}}{50} = 17.1
 \]</div>
 <p>Since the inequality had a <span class="math notranslate nohighlight">\(&lt;\)</span>, we conclude that the numerator is positive when <span class="math notranslate nohighlight">\(-7.9 &lt; K &lt; 17.1\)</span>.</p>
-<p><em><strong>Denominator &gt; 0</strong></em>
-$<span class="math notranslate nohighlight">\(
+<p><em><strong>Denominator &gt; 0</strong></em></p>
+<div class="math notranslate nohighlight">
+\[
 135 - 5K &gt; 0
-\)</span>$</p>
+\]</div>
 <p>This inequality is satisfied for <span class="math notranslate nohighlight">\(K &lt; 27\)</span>.</p>
 <p><em><strong>Rule of signs</strong></em></p>
 <figure class="align-default" id="fig-lec2-ex5-sign">
 <a class="reference internal image-reference" href="../_images/ex5-sign.svg"><img alt="../_images/ex5-sign.svg" src="../_images/ex5-sign.svg" style="height: 170px;" />
 </a>
 </figure>
-<p>Inequality <span class="math notranslate nohighlight">\(\textcircled{4}\)</span> was a <span class="math notranslate nohighlight">\(&gt;0\)</span> inequality, therefore the solution is</p>
+<p>Inequality (D) was a <span class="math notranslate nohighlight">\(&gt;0\)</span> inequality, therefore the solution is</p>
 <div class="math notranslate nohighlight">
 \[
-K &lt; -27 \cup -7.9 &lt; K &lt; 17.1
+ -7.9 &lt; K &lt; 17.1 \cup K &gt; 27
 \]</div>
-<p><strong>Inequality</strong> <span class="math notranslate nohighlight">\(\textcircled{5}\)</span>
-Satisfied for <span class="math notranslate nohighlight">\(K&gt;0\)</span>.</p>
+<p><strong>Inequality</strong> (E)</p>
+<p>Satisfied for <span class="math notranslate nohighlight">\(K&gt;0\)</span>.</p>
 </section>
 <section id="computing-the-interval">
 <h4>Computing the interval<a class="headerlink" href="#computing-the-interval" title="Link to this heading">#</a></h4>
-<p>We can finally reconstruct the system of inequalities <span class="math notranslate nohighlight">\(\textcircled{1}-\textcircled{5}\)</span></p>
+<p>We can finally reconstruct the system of inequalities <span class="math notranslate nohighlight">\((A)-(E)\)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{dcases}
 \forall K \\
 \forall K \\
 K &lt; 27 \\
-K &lt; -27 \cup -7.9 &lt; K &lt; 17.1 \\
+ -7.9 &lt; K &lt; 17.1 \cup K &gt; 27 \\
 K &gt; 0
 \end{dcases}
 \)</span></p>

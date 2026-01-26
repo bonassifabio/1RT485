@@ -594,19 +594,19 @@ document.write(`
 \node at (3,0.3) {$0$};
 
 % denominator signs
-\node at (-2,-0.4) {$-$};
-\node at (0,-0.4) {$-$};
-\node at (2,-0.4) {$-$};
-\node at (4,-0.4) {$+$};
+\node at (-2,-0.4) {$+$};
+\node at (0,-0.4) {$+$};
+\node at (2,-0.4) {$+$};
+\node at (4,-0.4) {$-$};
 
 % horizontal separator
 \draw (-3.5,-0.9) -- (4.5,-0.9);
 
 % total sign
-\node at (-2,-1.5) {$+$};
-\node at (0,-1.5) {$-$};
-\node at (2,-1.5) {$+$};
-\node at (4,-1.5) {$-$};
+\node at (-2,-1.5) {$-$};
+\node at (0,-1.5) {$+$};
+\node at (2,-1.5) {$-$};
+\node at (4,-1.5) {$+$};
 
 % zeros total
 \node at (-1,-1.5) {$0$};
@@ -618,7 +618,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e32e719d218031360e44521807047287feab76641fb4d09a996874e9443fcd61.svg" src="../../_images/e32e719d218031360e44521807047287feab76641fb4d09a996874e9443fcd61.svg" />
+<img alt="../../_images/b2ecfdb2d6772a4cdb49ebb6d4ae913cad27a7ed21d49f2f5a4948ee9ed6a253.svg" src="../../_images/b2ecfdb2d6772a4cdb49ebb6d4ae913cad27a7ed21d49f2f5a4948ee9ed6a253.svg" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -637,13 +637,13 @@ document.write(`
 
 % axis limits
 \def\xmin{-35}
-\def\xmax{30}
+\def\xmax{35}
 
 % labels on the left
-\node[left] at (\xmin,\yA) {$\textcircled{1}, \textcircled{2}$};
-\node[left] at (\xmin,\yB) {$\textcircled{3}$};
-\node[left] at (\xmin,\yC) {$\textcircled{4}$};
-\node[left] at (\xmin,\yD) {$\textcircled{5}$};
+\node[left] at (\xmin,\yA) {(A), (B)};
+\node[left] at (\xmin,\yB) {(C)};
+\node[left] at (\xmin,\yC) {(D)};
+\node[left] at (\xmin,\yD) {(E)};
 
 % ---- highlight the intersection 0 &lt; K &lt; 17.1 behind everything ----
 \fill[softyellow] (0,0.75) rectangle (17.1,4.25);
@@ -667,21 +667,21 @@ document.write(`
 % ---- inequalities ----
 
 %forall K
-\draw[very thick] (-35,\yA) -- (30,\yA);
+\draw[very thick] (-35,\yA) -- (35,\yA);
 
 % K &lt; 27
 \draw[very thick] (-35,\yB) -- (27,\yB);
 \draw[fill=white] (27,\yB) circle (2.5pt);
 
-% K &lt; -27 ∪ -7.9&lt;K&lt;17.1
-\draw[very thick] (-35,\yC) -- (-27,\yC);
-\draw[fill=white] (-27,\yC) circle (2.5pt);
+% K &gt; 27 ∪ -7.9&lt;K&lt;17.1
 \draw[very thick] (-7.9,\yC) -- (17.1,\yC);
 \draw[fill=white] (-7.9,\yC) circle (2.5pt);
 \draw[fill=white] (17.1,\yC) circle (2.5pt);
+\draw[very thick] (27,\yC) -- (35,\yC);
+\draw[fill=white] (27,\yC) circle (2.5pt);
 
 % K &gt; 0
-\draw[very thick] (0,\yD) -- (30,\yD);
+\draw[very thick] (0,\yD) -- (35,\yD);
 \draw[fill=white] (0,\yD) circle (2.5pt);
 
 \end{tikzpicture}
@@ -689,7 +689,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cce1888eeeaf4cc55a8c0fd856565dac0724a351a0f21198913f3a5378c43309.svg" src="../../_images/cce1888eeeaf4cc55a8c0fd856565dac0724a351a0f21198913f3a5378c43309.svg" />
+<img alt="../../_images/c6cc5d90e3c46e0209bc9ecc98f5ea1d8542449f3aa06da85fd4e37505706dc5.svg" src="../../_images/c6cc5d90e3c46e0209bc9ecc98f5ea1d8542449f3aa06da85fd4e37505706dc5.svg" />
 </div>
 </div>
 
