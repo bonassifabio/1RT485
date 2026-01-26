@@ -39,6 +39,9 @@ chapters:
       - file: lecture-2/exercise-2.4.ipynb
         sections: 
           - file: lecture-2/exercise-2.4-solutions.ipynb
+      - file: lecture-2/exercise-2.5.ipynb
+        sections:
+          - file: lecture-2/exercise-2.5-solutions.ipynb
   # - file: lecture-3/index
     # sections: 
     #   - file: lecture-3/exercise-3.1.ipynb
