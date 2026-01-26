@@ -24,6 +24,9 @@ chapters:
           - file: lecture-1/exercise-1.5-solutions.ipynb
   - file: lecture-2/index
     sections: 
+      - file: lecture-2/exercise-2.0.ipynb
+        sections: 
+          - file: lecture-2/exercise-2.0-solutions.ipynb
       - file: lecture-2/exercise-2.1.ipynb
         sections: 
           - file: lecture-2/exercise-2.1-solutions.ipynb
