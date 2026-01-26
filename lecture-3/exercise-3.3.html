@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e9f7d9f3" />
@@ -183,19 +183,33 @@
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.1.html">Exercise 1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.2.html">Exercise 1.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.3.html">Exercise 1.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.4.html">Exercise 1.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lecture-1/exercise-1.5.html">Exercise 1.5</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../lecture-2/index.html">Exercise session 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Exercise session 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lecture-4/index.html">Exercise session 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lecture-5/index.html">Exercise session 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lecture-6/index.html">Exercise session 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lecture-7/index.html">Exercise session 7</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.1.html">Exercise 1.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.1-solutions.html">Solutions of Exercise 1.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.2.html">Exercise 1.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.2-solutions.html">Solutions of Exercise 1.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../lecture-1/useful-formulas.html">Useful formulas</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.3.html">Exercise 1.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.3-solutions.html">Solutions of Exercise 1.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.4.html">Exercise 1.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.4-solutions.html">Solutions of Exercise 1.4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.5.html">Exercise 1.5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.5-solutions.html">Solutions of Exercise 1.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -473,17 +487,6 @@ G(s) = \frac{s+10}{(s+1)^2(s+5)}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -503,15 +506,7 @@ G(s) = \frac{s+10}{(s+1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
+<img alt="../_images/3d6653c4b83b30d94658b831e49645acbb5683e0ba8c67f2c916d2f2b591dd79.png" src="../_images/3d6653c4b83b30d94658b831e49645acbb5683e0ba8c67f2c916d2f2b591dd79.png" />
 </div>
 </div>
 <p>From the root locus, we can see that the closed-loop poles are stable for <span class="math notranslate nohighlight">\(K &lt; 24\)</span>.</p>
@@ -542,16 +537,7 @@ G_o(s) = 10 \frac{s + 10}{(s+1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><html><body><pre>ans = 9.8547</pre></body></html></div><div class="output text_html"><html><body><pre>ans = 0.1252</pre></body></html></div><div class="output text_html"><html><body><pre>ans = 0.9894</pre></body></html></div></div>
 </div>
 <p>Therefore <span class="math notranslate nohighlight">\(\omega_c \approx 4\)</span> rad/s.</p>
 <div class="admonition note">
@@ -565,15 +551,7 @@ G_o(s) = 10 \frac{s + 10}{(s+1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
+<img alt="../_images/9f19d134195db9437aac298075e63152efbf2c55d1099c914b1388845b5de2ce.png" src="../_images/9f19d134195db9437aac298075e63152efbf2c55d1099c914b1388845b5de2ce.png" />
 </div>
 </div>
 <p>We can now evaluate the phase margin as</p>
@@ -592,16 +570,7 @@ G_o(s) = 10 \frac{s + 10}{(s+1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><html><body><pre>phase_margin = 11.2141</pre></body></html></div></div>
 </div>
 <p>While a phase margin of <span class="math notranslate nohighlight">\(11^\circ\)</span> is bigger than <span class="math notranslate nohighlight">\(0^\circ\)</span>, so it is enough to guarantee the closed-loop stability, in practical applications it is too low to be accepted.</p>
 <ul class="simple">
@@ -644,16 +613,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">()</a>, <spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><html><body><pre>ans = -175.8151</pre></body></html></div><div class="output text_html"><html><body><pre>ans = -183.2101</pre></body></html></div><div class="output text_html"><html><body><pre>ans = -180.3060</pre></body></html></div></div>
 </div>
 <p>Therefore, <span class="math notranslate nohighlight">\(\omega_p \simeq 6\)</span> rad/s. We can finally evaluate the gain margin as</p>
 <div class="cell docutils container">
@@ -663,16 +623,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">()</a>, <spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><html><body><pre>Am = 2.4780</pre></body></html></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -681,16 +632,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">()</a>, <spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><html><body><pre>ans = 7.8819</pre></body></html></div></div>
 </div>
 <p>The gain margin is <span class="math notranslate nohighlight">\(A_m \simeq 2.5 \simeq 7.8 \text{ dB}\)</span>. Since it is bigger than <span class="math notranslate nohighlight">\(1\)</span> (i.e. <span class="math notranslate nohighlight">\(0\)</span> dB), the closed-loop is stable.</p>
 <p>We can confirm our results using MATLAB’s <code class="docutils literal notranslate"><span class="pre">margin</span></code> command.</p>
@@ -702,15 +644,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">()</a>, <spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
+<img alt="../_images/180cab07a228a79f0782dc10244266b6bceacbaca5f8ea01e24179e17d6e6bd9.png" src="../_images/180cab07a228a79f0782dc10244266b6bceacbaca5f8ea01e24179e17d6e6bd9.png" />
 </div>
 </div>
 </section>
@@ -725,16 +659,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">()</a>, <spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Error: Cannot start MATLAB as no licensing information was found. 
-                    Resolution: Set the environment variable MLM_LICENSE_FILE to provide a network license manager, 
-                    or set MWI_USE_EXISTING_LICENSE to True if the installed MATLAB is already licensed. 
-                    See https://github.com/mathworks/matlab-proxy/blob/main/Advanced-Usage.md for more information.
-                    To use Online licensing, start a MATLAB Kernel in a Jupyter notebook and login using the web interface 
-                    shown upon execution of any code.
-                    
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><html><body><pre>A_m = 24.0063</pre></body></html></div><div class="output text_html"><html><body><pre>Phi_m = 85.3027</pre></body></html></div></div>
 </div>
 <p>The gain margin is <span class="math notranslate nohighlight">\(A_m = 24\)</span>, which means that we can take <span class="math notranslate nohighlight">\(0 \leq K \leq 24\)</span> without compromising the closed-loop stability.</p>
 </section>
