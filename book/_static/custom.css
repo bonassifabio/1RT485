@@ -10,3 +10,12 @@
 .bd-sidebar-secondary::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
 }
+
+html[data-theme="dark"] img, 
+html[data-theme="dark"] .cell_output img, 
+html[data-theme="dark"] .rendered_html img {
+    filter: invert(1) hue-rotate(180deg) !important;
+    mix-blend-mode: normal !important; 
+    isolation: isolate;
+    background-color: transparent !important;
+}
