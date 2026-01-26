@@ -22,12 +22,20 @@ chapters:
       - file: lecture-1/exercise-1.5.ipynb
         sections: 
           - file: lecture-1/exercise-1.5-solutions.ipynb
-  # - file: lecture-2/index
-    # sections: 
-    #   - file: lecture-2/exercise-2.1.ipynb
-    #   - file: lecture-2/exercise-2.2.ipynb
-    #   - file: lecture-2/exercise-2.3.ipynb
-    #   - file: lecture-2/exercise-2.4.ipynb
+  - file: lecture-2/index
+    sections: 
+      - file: lecture-2/exercise-2.1.ipynb
+        sections: 
+          - file: lecture-2/exercise-2.1-solutions.ipynb
+      - file: lecture-2/exercise-2.2.ipynb
+        sections: 
+          - file: lecture-2/exercise-2.2-solutions.ipynb
+      - file: lecture-2/exercise-2.3.ipynb
+        sections: 
+          - file: lecture-2/exercise-2.3-solutions.ipynb
+      - file: lecture-2/exercise-2.4.ipynb
+        sections: 
+          - file: lecture-2/exercise-2.4-solutions.ipynb
   # - file: lecture-3/index
     # sections: 
     #   - file: lecture-3/exercise-3.1.ipynb

@@ -101,8 +101,8 @@ sphinx:
     html_show_copyright: false
     ilo_tags:
       analysis_model: "Analysis ∙ Linear dynamical systems"
-      analysis_closed_loop: "Analysis ∙ Closed-loop systems"
-      analysis_robustness: "Analysis ∙ Robustness properties"
+      analysis_closed_loop: "Analysis ∙ Feedback control"
+      analysis_robustness: "Analysis ∙ Robustness of feedback controllers"
       design_laplace: "Control design ∙ Laplace domain"
       design_time: "Control design ∙ State feedback"
       discrete: "Discrete-time implementation"
