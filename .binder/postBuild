@@ -6,7 +6,7 @@ set -o nounset
 # This works because postBuild user is the same as user running Binder.
 # https://docs.octave.org/interpreter/Administrating-Packages.html
 # Use micromamba so that the compilers are properly found.
-micromamba run -n notebook octave-cli --eval 'pkg install "https://github.com/gnu-octave/pkg-control/releases/download/control-4.2.0/control-4.2.0.tar.gz"'
+micromamba run -n notebook octave-cli --eval "pkg install -forge control"
 
 # Print the following instruction to ~/.octaverc
 echo "addpath('~/book/res/matlab/'); pkg load control; warning('off', 'all'); if isempty(getenv('BINDER_SERVICE_HOST')); t = 'notebook'; else; t = 'plotly'; end; graphics_toolkit(t);" >> ~/.octaverc
