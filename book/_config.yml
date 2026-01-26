@@ -10,7 +10,7 @@ logo: res/logo.svg
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: auto
+  execute_notebooks: cache
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -70,8 +70,19 @@ html:
     utterances              : false
   # announcement              : "This is a test" # A banner announcement at the top of the site.
 
+parse:
+  myst_substitutions:
+    # Syntax: {badge}`LABEL,COLOR-CLASS`
+    test1: "Test1"
+    tag_test3: "{bdg-primary}`test3`"
+    tag_stable: "{bdg-danger}`STABLE`"
+
 sphinx:
   recursive_update: true
+  extra_extensions:
+    - sphinx_tags
+  local_extensions:
+    tag_logic: _extensions
   config:
     html_static_path: ["_static"]
     html_css_files: ["custom.css"]
@@ -88,3 +99,10 @@ sphinx:
             - "mathtools"
     myst_footnote_transition: false
     html_show_copyright: false
+    ilo_tags:
+      analysis_model: "Analysis ∙ Linear dynamical systems"
+      analysis_closed_loop: "Analysis ∙ Closed-loop systems"
+      analysis_robustness: "Analysis ∙ Robustness properties"
+      design_laplace: "Control design ∙ Laplace domain"
+      design_time: "Control design ∙ State feedback"
+      discrete: "Discrete-time implementation"
