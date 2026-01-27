@@ -42,12 +42,21 @@ chapters:
       - file: lecture-2/exercise-2.5.ipynb
         sections:
           - file: lecture-2/exercise-2.5-solutions.ipynb
-  # - file: lecture-3/index
-    # sections: 
-    #   - file: lecture-3/exercise-3.1.ipynb
-    #   - file: lecture-3/exercise-3.2.ipynb
-    #   - file: lecture-3/exercise-3.3.ipynb
-    #   - file: lecture-3/exercise-3.4.ipynb
+  - file: lecture-3/index
+    sections: 
+      - file: lecture-3/exercise-3.0.ipynb
+        sections: 
+          - file: lecture-3/exercise-3.0-solutions.ipynb
+      - file: lecture-3/exercise-3.1.ipynb
+        sections:
+          - file: lecture-3/exercise-3.1-solutions.ipynb     
+      - file: lecture-3/exercise-3.2.ipynb
+        sections:
+          - file: lecture-3/exercise-3.2-solutions.ipynb
+      - file: lecture-3/exercise-3.3.ipynb
+        sections:
+          - file: lecture-3/exercise-3.3-solutions.ipynb
+
   # - file: lecture-4/index
     # sections:
     #   - file: lecture-4/exercise-4.1.ipynb
