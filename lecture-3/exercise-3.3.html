@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e9f7d9f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=85af71cb" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -125,8 +125,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -440,9 +438,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -458,23 +454,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">Phase margin</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">Gain margin</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-solution-to-question-1">Alternative solution to Question 1</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -486,211 +465,25 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-3-3">
 <span id="ref-lec3-ex3"></span><h1>Exercise 3.3<a class="headerlink" href="#exercise-3-3" title="Link to this heading">#</a></h1>
-<p>A vehicle is characterized by the following transfer function, which relates the throttle input  <span class="math notranslate nohighlight">\(U(s)\)</span>  to the velocity  <span class="math notranslate nohighlight">\(Y(s)\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
-G(s) = \frac{s+10}{(s+1)^2(s+5)}
-\]</div>
-<p>We need to design a controller that regulates the speed of the vehicle.</p>
-<ol class="arabic simple">
-<li><p>Start by designing a proportional controller <span class="math notranslate nohighlight">\(F(s) = K\)</span>. For what values of <span class="math notranslate nohighlight">\(K\)</span> is the closed-loop stable? How does the closed-loop performance change when <span class="math notranslate nohighlight">\(K\)</span> is changed?</p></li>
-<li><p>Consider now <span class="math notranslate nohighlight">\(K=10\)</span>. Compute the <strong>gain margin</strong> <span class="math notranslate nohighlight">\(A_m\)</span> and the <strong>phase margin</strong> <span class="math notranslate nohighlight">\(\varphi_m\)</span>.</p></li>
-</ol>
-<hr class="docutils" />
-<section id="solution">
-<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<section id="question-1">
-<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
-<p>Since the order of the closed-loop transfer function <span class="math notranslate nohighlight">\(G_c(s) = \frac{F(s) G(s)}{1 + F(s) G(s)}\)</span> is three, we can’t easily provide an analytical solution. We therefore inspect the root locus.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if the `asymptotic_bode` function is available, otherwise download it</span>
-<span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;asymptotic_bode&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">urlwrite</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/matlab/asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">);</span>
-<span class="k">end</span>
-
-<span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
-<span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">((</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">));</span>
-</pre></div>
+<p><a href="../search.html?q=Analysis%20%E2%88%99%20Feedback%20control" class="sd-badge sd-outline-primary sd-rounded-pill">Analysis ∙ Feedback control</a></p>
+<figure class="align-default" id="fig-lec3-ex3-block">
+<a class="reference internal image-reference" href="../_images/ex32.svg"><img alt="../_images/ex32.svg" src="../_images/ex32.svg" style="height: 180px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Block diagram of the closed loop</span><a class="headerlink" href="#fig-lec3-ex3-block" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A system <span class="math notranslate nohighlight">\(G(s)\)</span> is controlled using a feedback with a proportional controller according to <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec3:ex3:block</span></code>. <span class="math notranslate nohighlight">\(G(s)\)</span> has <strong>no unstable pole</strong>, that is, no pole with positive real part.</p>
+<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec3:ex3:nyquist</span></code>, the Nyquist diagram of four different systems <span class="math notranslate nohighlight">\(G(s)\)</span> are reported. Find, for each of these systems, the values of <span class="math notranslate nohighlight">\(K\)</span> for which the closed-loop is stable.</p>
+<figure class="align-default" id="fig-lec3-ex3-nyquist">
+<a class="reference internal image-reference" href="../_images/ex3-nyq.png"><img alt="../_images/ex3-nyq.png" src="../_images/ex3-nyq.png" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Nyquist plots of <span class="math notranslate nohighlight">\(G(s)\)</span></span><a class="headerlink" href="#fig-lec3-ex3-nyquist" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="toctree-wrapper compound">
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">rlocus</span><span class="p">(</span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"> </span><span class="c">% Plot the root locus</span>
-
-<span class="c">% Plot the closed-loop poles for specific values of K</span>
-<span class="n">K_points</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">];</span>
-<span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="n">K_points</span>
-<span class="w">    </span><span class="n">Go</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G</span><span class="p">;</span>
-<span class="w">    </span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">den</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tfdata</span><span class="p">(</span><span class="n">Go</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;vector&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">poles</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">roots</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">den</span><span class="p">);</span>
-<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;auto&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;DisplayName&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;K=%.2f&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">));</span>
-<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;markerfacecolor&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">get</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;color&#39;</span><span class="p">));</span>
-<span class="k">end</span>
-<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;northwest&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/432a015cbce19eb97cfcb93fa4ad2a16edba15db30e012af13c8ce71709efcd4.png" src="../_images/432a015cbce19eb97cfcb93fa4ad2a16edba15db30e012af13c8ce71709efcd4.png" />
-</div>
-</div>
-<p>From the root locus, we can see that the closed-loop poles are stable for <span class="math notranslate nohighlight">\(K &lt; 24\)</span>.</p>
-</section>
-<section id="question-2">
-<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
-<section id="phase-margin">
-<h4>Phase margin<a class="headerlink" href="#phase-margin" title="Link to this heading">#</a></h4>
-<p>Let’s start by computing the <strong>phase margin</strong>, which is defined as</p>
-<div class="math notranslate nohighlight">
-\[
-\varphi_m = 180^o + \angle G_o(i \omega_c)
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(G_o(s) = F(s) G(s)\)</span> is the <strong>open-loop transfer function</strong> and <span class="math notranslate nohighlight">\(\omega_c\)</span> is the <strong>critical frequency</strong>, that is, the frequency where the open loop transfer function has unitary amplitude, <span class="math notranslate nohighlight">\(\lvert G_o(i \omega_c) \lvert = 1\)</span>. Remember that <span class="math notranslate nohighlight">\(G_o(i \omega)\)</span> is a complex number!</p>
-<div class="math notranslate nohighlight">
-\[
-G_o(s) = 10 \frac{s + 10}{(s+1)^2(s+5)}
-\]</div>
-<p>To compute <span class="math notranslate nohighlight">\(\omega_c\)</span> we replace <span class="math notranslate nohighlight">\(s = i \omega\)</span> for different values of <span class="math notranslate nohighlight">\(\omega\)</span>, until we find a value where the modulus of <span class="math notranslate nohighlight">\(G_o(i \omega)\)</span> is approximately <span class="math notranslate nohighlight">\(1\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Go_modulus</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span>1<span class="nb">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">((</span>1<span class="nb">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span>1<span class="nb">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">)));</span>
-
-<span class="n">Go_modulus</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">Go_modulus</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">Go_modulus</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html><body><pre>ans = 9.8547</pre></body></html></div><div class="output text_html"><html><body><pre>ans = 0.1252</pre></body></html></div><div class="output text_html"><html><body><pre>ans = 0.9894</pre></body></html></div></div>
-</div>
-<p>Therefore <span class="math notranslate nohighlight">\(\omega_c \approx 4\)</span> rad/s.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can also find the critical frequency from the Bode diagram, as the interception between the plot of <span class="math notranslate nohighlight">\(\lvert G_o(i \omega) \lvert_{\text{dB}}\)</span> and the 0dB axis!</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span><span class="w"> </span><span class="n">asymptotic_bode</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02c5a7d8cc071ed22239da5b596fc7b21f0635e0ce7041bf373aaba08a9f64b2.png" src="../_images/02c5a7d8cc071ed22239da5b596fc7b21f0635e0ce7041bf373aaba08a9f64b2.png" />
-</div>
-</div>
-<p>We can now evaluate the phase margin as</p>
-<div class="math notranslate nohighlight">
-\[
-\varphi_m = 180 + \angle G_o(i 4)
-\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% We create a function that computes the angle of Go given the frequency omega</span>
-<span class="c">% We use the mod function to convert the angle to the range [-360, 0]</span>
-<span class="n">Go_angle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="nb">rad2deg</span><span class="p">(</span><span class="nb">angle</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span>1<span class="nb">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">((</span>1<span class="nb">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span>1<span class="nb">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">)))),</span><span class="w"> </span><span class="mi">360</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">360</span><span class="p">;</span>
-
-<span class="n">phase_margin</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Go_angle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w">   </span><span class="c">% Conver the angle from radians to degrees</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html><body><pre>phase_margin = 11.2141</pre></body></html></div></div>
-</div>
-<p>While a phase margin of <span class="math notranslate nohighlight">\(11^\circ\)</span> is bigger than <span class="math notranslate nohighlight">\(0^\circ\)</span>, so it is enough to guarantee the closed-loop stability, in practical applications it is too low to be accepted.</p>
-<ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(\varphi_m &gt; 90^\circ\)</span>, the <strong>dominant closed-loop pole</strong> is real valued and stable.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(0^\circ &lt; \varphi_m &lt; 90^\circ\)</span>, the <strong>dominant closed-loop poles</strong> are complex-conjugate, with damping coefficient <span class="math notranslate nohighlight">\(\xi = \cos(\varphi_m)\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(\varphi_m \leq 0^\circ\)</span>, the system is unstable.</p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>A phase margin below <span class="math notranslate nohighlight">\(30^\circ\)</span> indicates that the dominant poles have a low damping coefficient. In general, the phase margin should be at least <span class="math notranslate nohighlight">\(45^\circ\)</span> for adequate closed-loop performance.</p>
-</div>
-</section>
-<section id="gain-margin">
-<h4>Gain margin<a class="headerlink" href="#gain-margin" title="Link to this heading">#</a></h4>
-<p>We can then proceed computing the <strong>gain margin</strong>, which is defined as</p>
-<div class="math notranslate nohighlight">
-\[
-A_m = \frac{1}{\lvert G_o(i \omega_p) \lvert}
-\]</div>
-<p>or, in decibels,</p>
-<div class="math notranslate nohighlight">
-\[
-A_m = -\lvert G_o(i \omega_p) \lvert_{\text{dB}}
-\]</div>
-<p>Here <span class="math notranslate nohighlight">\(\omega_p\)</span> is the phase crossover frequency, i.e., the frequency at which the phase plot first crosses the <span class="math notranslate nohighlight">\(-180^\circ\)</span> axis. To find <span class="math notranslate nohighlight">\(\omega_p\)</span> we need to solve</p>
-<div class="math notranslate nohighlight" id="equation-eq-lec3-ex3-phase">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec3-ex3-phase" title="Link to this equation">#</a></span>\[
-\angle G_o(i \omega) := \varphi(0) + \sum_{i} \textrm{atan} \left( \frac{\omega}{p_i} \right) - \sum_{i} \textrm{atan} \left( \frac{\omega}{z_i} \right) = -180^\circ
-\]</div>
-<p>The initial phase <span class="math notranslate nohighlight">\(\varphi(0)\)</span> is <span class="math notranslate nohighlight">\(0^\circ\)</span>  if the static gain is positive, decremented by <span class="math notranslate nohighlight">\(90^\circ\)</span> for each pole in the origin and incremented by <span class="math notranslate nohighlight">\(90^\circ\)</span> for each zero in the origin.
-In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">()</a>, <span class="math notranslate nohighlight">\(p_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th pole of <span class="math notranslate nohighlight">\(G_o(s)\)</span> and <span class="math notranslate nohighlight">\(z_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th zero.</p>
-<p>To compute <span class="math notranslate nohighlight">\(\omega_p\)</span> we try replacing some candidate value until we find a value where <span class="math notranslate nohighlight">\(\angle(G_o(i \omega)) = -180^\circ\)</span>. Note that the phase might cross the <span class="math notranslate nohighlight">\(-180^\circ\)</span> axis multiple times, and we must be sure that we get the smallest possible of such values. The easiest way to find a reasonable value is to sketch the asymptotic Bode diagram (see above).</p>
-<p>It is apparent that the phase is crossing is somewhere between <span class="math notranslate nohighlight">\(4\)</span> rad/s and <span class="math notranslate nohighlight">\(10\)</span> rad/s. To find the exact value, we try evaluate <span class="math notranslate nohighlight">\(\angle G_o(i \omega)\)</span> in that range</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Go_angle</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">Go_angle</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">Go_angle</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html><body><pre>ans = -175.8151</pre></body></html></div><div class="output text_html"><html><body><pre>ans = -183.2101</pre></body></html></div><div class="output text_html"><html><body><pre>ans = -180.3060</pre></body></html></div></div>
-</div>
-<p>Therefore, <span class="math notranslate nohighlight">\(\omega_p \simeq 6\)</span> rad/s. We can finally evaluate the gain margin as</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Am</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Go_modulus</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html><body><pre>Am = 2.4780</pre></body></html></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="mi">20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">log10</span><span class="p">(</span><span class="n">Am</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html><body><pre>ans = 7.8819</pre></body></html></div></div>
-</div>
-<p>The gain margin is <span class="math notranslate nohighlight">\(A_m \simeq 2.5 \simeq 7.8 \text{ dB}\)</span>. Since it is bigger than <span class="math notranslate nohighlight">\(1\)</span> (i.e. <span class="math notranslate nohighlight">\(0\)</span> dB), the closed-loop is stable.</p>
-<p>We can confirm our results using MATLAB’s <code class="docutils literal notranslate"><span class="pre">margin</span></code> command.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span>
-<span class="n">margin</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/753244ebd7b35d7054dca21718749e3b792698eb352461b0a22b1f14d15446a9.png" src="../_images/753244ebd7b35d7054dca21718749e3b792698eb352461b0a22b1f14d15446a9.png" />
-</div>
-</div>
-</section>
-</section>
-<section id="alternative-solution-to-question-1">
-<h3>Alternative solution to Question 1<a class="headerlink" href="#alternative-solution-to-question-1" title="Link to this heading">#</a></h3>
-<p>Because <span class="math notranslate nohighlight">\(G(s)\)</span> is stable, we can solve Question 1 also computing the gain margin of <span class="math notranslate nohighlight">\(G(s)\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">A_m</span><span class="p">,</span><span class="w"> </span><span class="n">Phi_m</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">margin</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html><body><pre>A_m = 24.0063</pre></body></html></div><div class="output text_html"><html><body><pre>Phi_m = 85.3027</pre></body></html></div></div>
-</div>
-<p>The gain margin is <span class="math notranslate nohighlight">\(A_m = 24\)</span>, which means that we can take <span class="math notranslate nohighlight">\(0 \leq K \leq 24\)</span> without compromising the closed-loop stability.</p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -702,16 +495,16 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">()</a>, <spa
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "jupyter_matlab_kernel"
+            mode: "python"
         },
         kernelOptions: {
-            name: "jupyter_matlab_kernel",
+            name: "python3",
             path: "./lecture-3"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'jupyter_matlab_kernel'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -729,30 +522,6 @@ In <a class="reference internal" href="#equation-eq-lec3-ex3-phase">()</a>, <spa
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">Phase margin</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">Gain margin</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-solution-to-question-1">Alternative solution to Question 1</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
@@ -779,6 +548,11 @@ By Fabio Bonassi
   
   <div class="footer-item">
     
+<div class="extra_footer">
+  <script data-goatcounter="https://bonassifabio.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+</div>
   </div>
   
 </div>

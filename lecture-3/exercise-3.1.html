@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e9f7d9f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=85af71cb" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -125,8 +125,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -440,9 +438,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -458,18 +454,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-1">System 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-2">System 2</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -481,73 +465,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-3-1">
 <span id="ref-lec3-ex1"></span><h1>Exercise 3.1<a class="headerlink" href="#exercise-3-1" title="Link to this heading">#</a></h1>
-<p>Consider the following systems:</p>
+<p><a href="../search.html?q=Analysis%20%E2%88%99%20Linear%20dynamical%20systems" class="sd-badge sd-outline-primary sd-rounded-pill">Analysis ∙ Linear dynamical systems</a></p>
+<p>Sketch the Bode plot of the following systems:</p>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(G(s) = \frac{2}{s + 1}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(G(s) = \frac{1}{s^3 + 1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(G(s) = \frac{100(s + 8)}{s^2(s + 4)(s + 5)(s + 10)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(G(s) = \frac{0.4}{(s + 0.1)(s^2 + 0.4s + 4)(s + 0.5)}\)</span></p></li>
 </ol>
-<p>Let the input be <span class="math notranslate nohighlight">\(u(t) = \sin(t)\)</span>. Compute, in the cases where it is meaningful, the output when the transients have disappeared.</p>
-<hr class="docutils" />
-<section id="solution">
-<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<p>According to the <strong>Frequency Response Theorem</strong>, if <span class="math notranslate nohighlight">\(G(s)\)</span> is stable then any sinusoidal input <span class="math notranslate nohighlight">\(u(t)=A \sin(\omega t)\)</span> leads (asymptotically) to the sinusoidal output</p>
-<div class="math notranslate nohighlight">
-\[
-y(t) = A \lvert G(i \omega) \lvert \cdot \sin(\omega t + \angle G(i \omega))
-\]</div>
-<p>Note that</p>
-<ul class="simple">
-<li><p>The sinusoidal output has the same frequency <span class="math notranslate nohighlight">\(\omega\)</span> as the input</p></li>
-<li><p>The sinusoidal input gets amplified (or attenuated) by a factor equal to the magnitude of <span class="math notranslate nohighlight">\(G(s)\)</span> at frequency <span class="math notranslate nohighlight">\(\omega\)</span>, i.e., <span class="math notranslate nohighlight">\(\lvert G(i \omega) \lvert\)</span></p></li>
-<li><p>The sinusoidal input gets shifted by the phase of <span class="math notranslate nohighlight">\(G(s)\)</span> at frequency <span class="math notranslate nohighlight">\(\omega\)</span>, i.e., <span class="math notranslate nohighlight">\(\angle G(i \omega)\)</span></p></li>
-</ul>
-<section id="system-1">
-<h3>System 1<a class="headerlink" href="#system-1" title="Link to this heading">#</a></h3>
-<p>The system <span class="math notranslate nohighlight">\(G(s) = \frac{2}{s+1}\)</span> is stable (there is one pole in <span class="math notranslate nohighlight">\(s = -1\)</span>), therefore we can apply the Frequency Response Theorem.</p>
-<div class="math notranslate nohighlight">
-\[
-G(i \omega) = \frac{2}{i \omega + 1} = \frac{2}{i \omega + 1} \cdot \frac{-i \omega + 1}{-i \omega + 1} = \frac{-i 2 \omega + 2}{-i^2 \omega^2 + 1} = \frac{2}{1 + \omega^2} - i \frac{2 \omega}{1 + \omega^2}
-\]</div>
-<p>The input has frequency <span class="math notranslate nohighlight">\(\omega = 1\)</span>. We therefore first compute <span class="math notranslate nohighlight">\(G(i 1)\)</span>, and then its modulus and phase.</p>
-<div class="math notranslate nohighlight">
-\[
-G(i 1) = 1 - i1
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\lvert G(i1) \lvert = \sqrt{1^2 +(-1)^2} = \sqrt{2}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\angle G(i1) = \textrm{atan2}(-1, 1) = - \frac{\pi}{4}
-\]</div>
-<p>The asymptotic output signal is therefore</p>
-<div class="math notranslate nohighlight">
-\[
-y(t) = \sqrt{2} \sin \left(t - \frac{\pi}{4} \right)
-\]</div>
-</section>
-<section id="system-2">
-<h3>System 2<a class="headerlink" href="#system-2" title="Link to this heading">#</a></h3>
-<p>First, we have to compute the poles of <span class="math notranslate nohighlight">\(G(s) = \frac{1}{s^3 + 1}\)</span> to make sure that it is stable.</p>
-<p>To compute the poles, we look for the roots of <span class="math notranslate nohighlight">\(s^3 + 1 = 0\)</span>. Realizing that it’s a <a class="reference external" href="https://en.wikipedia.org/wiki/Sum_of_two_cubes">sum of cubes</a>, we can factorize the left-hand side as</p>
-<div class="math notranslate nohighlight">
-\[
-(s + 1)(s^2 + 1 - s) = 0
-\]</div>
-<p>Therefore, the poles are</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(s = -1\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(s = \frac{-1 \pm \sqrt{5}}{2}\)</span></p></li>
-</ul>
-<p>Unfortunately, one of the poles <span class="math notranslate nohighlight">\(\left( s = \frac{-1 + \sqrt{5}}{2} \right)\)</span> has positive real part <span class="math notranslate nohighlight">\(\to\)</span> unstable!
-In this case, <strong>we cannot apply the Frequency Response Theorem.</strong></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When applying the Frequency Response Theorem, don’t forget to first check the stability of the system!</p>
+<div class="toctree-wrapper compound">
 </div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -559,16 +484,16 @@ In this case, <strong>we cannot apply the Frequency Response Theorem.</strong></
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "jupyter_matlab_kernel"
+            mode: "python"
         },
         kernelOptions: {
-            name: "jupyter_matlab_kernel",
+            name: "python3",
             path: "./lecture-3"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'jupyter_matlab_kernel'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -586,25 +511,6 @@ In this case, <strong>we cannot apply the Frequency Response Theorem.</strong></
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-1">System 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-2">System 2</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
@@ -631,6 +537,11 @@ By Fabio Bonassi
   
   <div class="footer-item">
     
+<div class="extra_footer">
+  <script data-goatcounter="https://bonassifabio.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+</div>
   </div>
   
 </div>
