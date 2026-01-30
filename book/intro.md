@@ -23,7 +23,7 @@ Learn how to solve them step-by-step without relying too much on MATLAB. Remembe
 
 Happy learning!
 
-
+(how-to-run-the-code)=
 ## How to Run the Code
 
 ### Using Binder
