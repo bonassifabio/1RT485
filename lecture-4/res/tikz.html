@@ -235,6 +235,25 @@
 </details></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../lecture-3/index.html">Exercise session 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture-3/exercise-3.0.html">Exercise 3.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture-3/exercise-3.0-solutions.html">Solutions of Exercise 3.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture-3/exercise-3.1.html">Exercise 3.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture-3/exercise-3.1-solutions.html">Solution of Exercise 3.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture-3/exercise-3.2.html">Exercise 3.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture-3/exercise-3.2-solutions.html">Solutions of Exercise 3.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -494,7 +513,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex2.svg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex1.svg
 \begin{tikzpicture}[auto, node distance=3.5cm,&gt;=latex&#39;]
 
 	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=6em]
@@ -521,7 +540,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex2-sol1.svg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex1-sol1.svg
 \begin{tikzpicture}[auto, node distance=3cm,&gt;=latex&#39;]
 
 	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=5em]
@@ -561,7 +580,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex1-block.svg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex0-block.svg
 \begin{tikzpicture}[auto, node distance=2cm,&gt;=latex&#39;]
 
 	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=6em]
@@ -593,7 +612,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex1-bode.svg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex0-bode.svg
 \documentclass{article}
 \usepackage[pgf]{bodeplot}
 \usepackage[paperwidth=20cm, paperheight=14cm, margin=0cm]{geometry}
@@ -622,7 +641,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex1-bode-sol-mag.svg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex0-bode-sol-mag.svg
 \documentclass{article}
 \usepackage[pgf]{bodeplot}
 \usepackage[paperwidth=20cm, paperheight=8cm, margin=0cm]{geometry}
@@ -660,7 +679,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex1-bode-sol-phase.svg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -as=full-document -tp=lualatex --save-image=ex0-bode-sol-phase.svg
 
 \documentclass{article}
 \usepackage[pgf]{bodeplot}
@@ -686,7 +705,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex3.svg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex2.svg
 \begin{tikzpicture}[auto, node distance=3cm,&gt;=latex&#39;]
 
 	\tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=5em]

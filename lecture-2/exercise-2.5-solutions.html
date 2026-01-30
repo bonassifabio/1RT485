@@ -64,6 +64,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercise session 3" href="../lecture-3/index.html" />
     <link rel="prev" title="Exercise 2.5" href="exercise-2.5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -232,6 +233,40 @@
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="exercise-2.5.html">Exercise 2.5</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Solutions of Exercise 2.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-3/index.html">Exercise session 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.0.html">Exercise 3.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.0-solutions.html">Solutions of Exercise 3.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.1.html">Exercise 3.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.1-solutions.html">Solution of Exercise 3.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.2.html">Exercise 3.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.2-solutions.html">Solutions of Exercise 3.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-4/index.html">Exercise session 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-4/exercise-4.0.html">Exercise 4.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-4/exercise-4.0-solutions.html">Solutions of Exercise 4.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-4/exercise-4.1.html">Exercise 4.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-4/exercise-4.1-solutions.html">Solutions of Exercise 4.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-4/exercise-4.2.html">Exercise 4.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-4/exercise-4.2-solutions.html">Solutions of Exercise 4.2</a></li>
 </ul>
 </details></li>
 </ul>
@@ -465,7 +500,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comptuing-the-routh-table">Comptuing the Routh table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-routh-table">Computing the Routh table</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assessing-the-stability-with-the-routh-criterion">Assessing the stability with the Routh criterion</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-interval">Computing the interval</a></li>
 </ul>
@@ -535,11 +570,11 @@ G_c(s) = \frac{5K(s+1)}{s^4 + 8s^3 + 20s^2 + (25 + 5K)s + 5K}
 </section>
 <section id="question-2">
 <h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
-<section id="comptuing-the-routh-table">
-<h4>Comptuing the Routh table<a class="headerlink" href="#comptuing-the-routh-table" title="Link to this heading">#</a></h4>
+<section id="computing-the-routh-table">
+<h4>Computing the Routh table<a class="headerlink" href="#computing-the-routh-table" title="Link to this heading">#</a></h4>
 <div class="warning admonition">
 <p class="admonition-title">Warning</p>
-<p>Note that we could not solve this exercise computing the poles explicitly as in <span class="xref std std-ref">(ref:lec2:ex2_sol)</span>. An alternative solution is based on the root locus.</p>
+<p>Note that we could not solve this exercise computing the poles explicitly as in <a class="reference internal" href="exercise-2.2-solutions.html#ref-lec2-ex2-sol"><span class="std std-ref">Solutions of Exercise 2.2</span></a>. An alternative solution is based on the root locus.</p>
 </div>
 <p>The characteristic polynomial of the closed-loop system is the denominator of <span class="math notranslate nohighlight">\(G_c(s)\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -732,6 +767,15 @@ K &gt; 0
         <p class="prev-next-title">Exercise 2.5</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../lecture-3/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise session 3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -751,7 +795,7 @@ K &gt; 0
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comptuing-the-routh-table">Comptuing the Routh table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-routh-table">Computing the Routh table</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assessing-the-stability-with-the-routh-criterion">Assessing the stability with the Routh criterion</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-interval">Computing the interval</a></li>
 </ul>

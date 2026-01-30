@@ -126,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -233,6 +231,25 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.5.html">Exercise 2.5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.5-solutions.html">Solutions of Exercise 2.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-3/index.html">Exercise session 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.0.html">Exercise 3.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.0-solutions.html">Solutions of Exercise 3.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.1.html">Exercise 3.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.1-solutions.html">Solution of Exercise 3.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.2.html">Exercise 3.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.2-solutions.html">Solutions of Exercise 3.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -440,9 +457,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -458,20 +473,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -483,80 +484,24 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-4-1">
 <span id="ref-lec4-ex1"></span><h1>Exercise 4.1<a class="headerlink" href="#exercise-4-1" title="Link to this heading">#</a></h1>
-<p>We are given a mechanical system represented by the transfer function <span class="math notranslate nohighlight">\(G(s)\)</span>. While an explicit expression for <span class="math notranslate nohighlight">\(G(s)\)</span> is not available, we have obtained its frequency response through a lot of <a class="reference external" href="https://en.wikipedia.org/wiki/Modal_testing">hammer tests</a>. The resulting frequency response is depicted in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex1:bode</span></code> below.</p>
-<figure class="align-default" id="fig-lec4-ex1-bode">
-<a class="reference internal image-reference" href="../_images/ex1-bode.svg"><img alt="../_images/ex1-bode.svg" src="../_images/ex1-bode.svg" style="width: 750px;" />
+<p><a href="../search.html?q=Control%20design%20%E2%88%99%20Laplace/Frequency%20domain" class="sd-badge sd-outline-primary sd-rounded-pill">Control design ∙ Laplace/Frequency domain</a></p>
+<figure class="align-default" id="fig-lec4-ex1-car">
+<a class="reference internal image-reference" href="../_images/ex1.svg"><img alt="../_images/ex1.svg" src="../_images/ex1.svg" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Bode plot of the mechanical system <span class="math notranslate nohighlight">\(G(s)\)</span></span><a class="headerlink" href="#fig-lec4-ex1-bode" title="Link to this image">#</a></p>
+<p><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex1-car" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+<p>The cruise controller of an electric car works by adjusting the voltage applied to the electric motor to regulate the velocity, making sure it is as close as possible to the speed setpoint coming from the driver. The system has the following dynamics:</p>
+<p><strong>Electric Dynamics</strong> (Voltage <span class="math notranslate nohighlight">\(\to\)</span> Current): <span class="math notranslate nohighlight">\(G_2(s) = \frac{90}{s + 100}\)</span></p>
+<p><strong>Mechanical Dynamics</strong> (Current <span class="math notranslate nohighlight">\(\to\)</span> Speed): <span class="math notranslate nohighlight">\(G_1(s) = \frac{5}{s + 0.2}\)</span></p>
+<p>The block diagram of the car is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex1:car</span></code>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
 <ol class="arabic simple">
-<li><p>Design a proportional controller <span class="math notranslate nohighlight">\(F(s)=K\)</span> such that the following specifications are satisfied:</p>
-<ul class="simple">
-<li><p>The closed-loop is stable.</p></li>
-<li><p>The bandwidth is greater than <span class="math notranslate nohighlight">\(5\)</span> rad/s, but it does not exceed <span class="math notranslate nohighlight">\(15\)</span> rad/s.</p></li>
-<li><p>The phase margin <span class="math notranslate nohighlight">\(\varphi_m\)</span> is larger than <span class="math notranslate nohighlight">\(45^\circ\)</span>.</p></li>
-</ul>
-</li>
-<li><p>What will be the worst-case resonance peak of the closed-loop transfer function <span class="math notranslate nohighlight">\(G_c(s)\)</span>?</p></li>
+<li><p>Sketch the block diagram of the system when a cascade control scheme is used. What are the control variable, the  <em>intermediate signal</em> that is fed back in the internal loop, and the output?</p></li>
+<li><p>We start designing the cascade control scheme by the inner controller. Assume that we use a proportional controller <span class="math notranslate nohighlight">\(F_i(s) = K_2\)</span>. Design <span class="math notranslate nohighlight">\(K_2\)</span> so that the bandwidth of the inner loop is at least <span class="math notranslate nohighlight">\(50\)</span> rad/s and the steady-state error of this internal loop is no larger than <span class="math notranslate nohighlight">\(1\%\)</span>.</p></li>
+<li><p>We now design the controller for the outer loop as a proportional controller <span class="math notranslate nohighlight">\(F(s) = K_1\)</span>. Choose <span class="math notranslate nohighlight">\(K_1\)</span> so that the bandwidth of the closed-loop is at least <span class="math notranslate nohighlight">\(1\)</span> rad/s.</p></li>
+<li><p>Compute the steady-state output tracking error of the closed-loop. How can you modify the scheme so that the steady-state error is exactly zero?</p></li>
 </ol>
-<hr class="docutils" />
-<section id="solution">
-<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<section id="question-1">
-<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
-<p>We start by recalling that, letting <span class="math notranslate nohighlight">\(G_o(s) = F(s) G(s)\)</span> be the open-loop transfer function</p>
-<div class="math notranslate nohighlight" id="equation-eq-lec4-ex1-modulus">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex1-modulus" title="Link to this equation">#</a></span>\[
-\lvert G_o(i \omega) \lvert_{\text{dB}} = \lvert F(i \omega) \lvert_{\text{dB}}  + \lvert G(i \omega) \lvert_{\text{dB}} 
-\]</div>
-<div class="math notranslate nohighlight" id="equation-eq-lec4-ex1-phase">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex1-phase" title="Link to this equation">#</a></span>\[
-\angle G_o(i \omega) = \angle F(i \omega) + \angle G(i \omega)
-\]</div>
-<p>This means that the Bode plots of <span class="math notranslate nohighlight">\(G_o(s)\)</span>, and hence the closed-loop performance, can be inferred from the Bode plots of <span class="math notranslate nohighlight">\(G(s)\)</span> without actually knowing its analytical expression!</p>
-<p>In this specific case, we have a proportional controller. This means that</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\lvert F(i \omega) \lvert_{\text{dB}} = K_{\text{dB}} = 20 \log_{10} K\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\angle F(i \omega) = 0^\circ\)</span> as long as <span class="math notranslate nohighlight">\(K &gt; 0\)</span></p></li>
-</ul>
-<p>According to <a class="reference internal" href="#equation-eq-lec4-ex1-modulus">()</a> and <a class="reference internal" href="#equation-eq-lec4-ex1-phase">()</a>, <span class="math notranslate nohighlight">\(\angle G_o(i \omega)\)</span> remains unchanged, while <span class="math notranslate nohighlight">\(\lvert G_o(i \omega) \lvert_{\text{dB}}\)</span> is obtained by shifting <span class="math notranslate nohighlight">\(\lvert G(i \omega) \lvert_{\text{dB}}\)</span> up/down by <span class="math notranslate nohighlight">\(K_{\text{dB}}\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The closed-loop bandwidth is approximately equal to the critical frequency of the open-loop transfer function <span class="math notranslate nohighlight">\(G_o(i\omega)\)</span>, i.e., the frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_o(i \omega_c) \lvert_{\text{dB}}\)</span> cuts the <span class="math notranslate nohighlight">\(0\)</span> dB axis.</p>
-</div>
-<p>Inspecting <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex1:bode</span></code>, we realize that <span class="math notranslate nohighlight">\(\omega_c = 5\)</span> if <span class="math notranslate nohighlight">\(K_{\text{dB}} = 22\)</span> dB. Similarly, <span class="math notranslate nohighlight">\(\omega_c = 15\)</span> if <span class="math notranslate nohighlight">\(K_{\text{dB}} = 48\)</span> dB. The resulting Bode plots of <span class="math notranslate nohighlight">\(G_o(s)\)</span> are repoted in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex1:bode-sol</span></code>.</p>
-<figure class="align-default" id="fig-lec4-ex1-bode-sol">
-<a class="reference internal image-reference" href="../_images/ex1-bode-sol-mag.svg"><img alt="../_images/ex1-bode-sol-mag.svg" src="../_images/ex1-bode-sol-mag.svg" style="width: 750px;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Bode plot of <span class="math notranslate nohighlight">\(G_o(s)\)</span> for <span class="math notranslate nohighlight">\(K_{\text{dB}} = 22\)</span> dB (blue line) and for <span class="math notranslate nohighlight">\(K_{\text{dB}} = 48\)</span> dB (red line).</span><a class="headerlink" href="#fig-lec4-ex1-bode-sol" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Therefore, the range of gains statisfying the bandwidth requirement is</p>
-<div class="math notranslate nohighlight">
-\[
-12.6 \leq K \leq  250
-\]</div>
-<p>As for the phase, <span class="math notranslate nohighlight">\(\angle G_o(i \omega) = \angle G(i \omega)\)</span> for any <span class="math notranslate nohighlight">\(K &gt; 0\)</span>. Therefore, the phase margin <span class="math notranslate nohighlight">\(\varphi_m\)</span> is bigger than <span class="math notranslate nohighlight">\(45^\circ\)</span> as long as at the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span>, the phase satisfies <span class="math notranslate nohighlight">\(\angle G(i \omega_c) &gt; -135^\circ\)</span>.</p>
-<p>Inspecting <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex1:bode</span></code>, we can see that this is the case as long as <span class="math notranslate nohighlight">\(\omega_c &gt; 8\)</span> rad/s. This condition on the critical frequency is satisfied for <span class="math notranslate nohighlight">\(K_{\text{dB}} &gt; 28 \)</span> dB, hence</p>
-<div class="math notranslate nohighlight">
-\[
-K \geq 25
-\]</div>
-<p><strong>Solution</strong>: Any <span class="math notranslate nohighlight">\(K\)</span> in the range <span class="math notranslate nohighlight">\(25 \leq K \leq 250\)</span> satisfies the requirements.</p>
-<section id="question-2">
-<h4>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h4>
-<p>As seen during the lecture F6, the closed-loop resonance peak satisfies</p>
-<div class="math notranslate nohighlight">
-\[
-M_p \leq \frac{1}{2 \sin\left( \frac{\varphi_m}{2} \right)}
-\]</div>
-<p>The worst-case resonance peak happens at the minimum phase margin, <span class="math notranslate nohighlight">\(\varphi_m = 45^\circ\)</span>, at which <span class="math notranslate nohighlight">\(M_p = 1.3\)</span>.</p>
-</section>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -595,27 +540,6 @@ M_p \leq \frac{1}{2 \sin\left( \frac{\varphi_m}{2} \right)}
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

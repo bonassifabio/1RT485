@@ -126,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -233,6 +231,25 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.5.html">Exercise 2.5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.5-solutions.html">Solutions of Exercise 2.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-3/index.html">Exercise session 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.0.html">Exercise 3.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.0-solutions.html">Solutions of Exercise 3.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.1.html">Exercise 3.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.1-solutions.html">Solution of Exercise 3.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.2.html">Exercise 3.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.2-solutions.html">Solutions of Exercise 3.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -440,9 +457,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -458,28 +473,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#from-bode-plot">From Bode plot</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution">Analytical solution</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Question 4</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-design-the-pi-controller">How to design the PI controller?</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -491,376 +484,35 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercise-4-2">
 <span id="ref-lec4-ex2"></span><h1>Exercise 4.2<a class="headerlink" href="#exercise-4-2" title="Link to this heading">#</a></h1>
-<figure class="align-default" id="fig-lec4-ex2-car">
-<a class="reference internal image-reference" href="../_images/ex2.svg"><img alt="../_images/ex2.svg" src="../_images/ex2.svg" style="height: 200px;" />
+<p><a href="../search.html?q=Control%20design%20%E2%88%99%20Laplace/Frequency%20domain" class="sd-badge sd-outline-primary sd-rounded-pill">Control design ∙ Laplace/Frequency domain</a></p>
+<figure class="align-default" id="fig-lec4-ex2">
+<a class="reference internal image-reference" href="../_images/ex2.svg"><img alt="../_images/ex2.svg" src="../_images/ex2.svg" style="height: 170px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex2-car" title="Link to this image">#</a></p>
+<p><span class="caption-text">Block diagram of the DC-servomotor.</span><a class="headerlink" href="#fig-lec4-ex2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The cruise controller of an electric car works by adjusting the voltage applied to the electric motor to regulate the velocity, making sure it is as close as possible to the speed setpoint coming from the driver. The system has the following dynamics:</p>
-<p><strong>Electric Dynamics</strong> (Voltage <span class="math notranslate nohighlight">\(\to\)</span> Current): <span class="math notranslate nohighlight">\(G_2(s) = \frac{90}{s + 100}\)</span></p>
-<p><strong>Mechanical Dynamics</strong> (Current <span class="math notranslate nohighlight">\(\to\)</span> Speed): <span class="math notranslate nohighlight">\(G_1(s) = \frac{5}{s + 0.2}\)</span></p>
-<p>The block diagram of the car is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex2:car</span></code>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
+<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex2</span></code> the block diagram of a DC-servomotor is illustrated.</p>
+<p>In this system, the input voltage <span class="math notranslate nohighlight">\(u\)</span> first goes through a <a class="reference external" href="https://en.wikipedia.org/wiki/DC-to-DC_converter">isolated DC-DC convert</a><a class="footnote-reference brackets" href="#dc-dc" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, which applies the desired voltage <span class="math notranslate nohighlight">\(u\)</span> to the motor.
+This converter is modeled by the first-order transfer function with time constant <span class="math notranslate nohighlight">\(T=10\)</span> ms.</p>
+<p>The voltage is then applied to the motor, described by a second order transfer function with gaim <span class="math notranslate nohighlight">\(k_m=10\)</span>, electrical time constant <span class="math notranslate nohighlight">\(T_2 =25\)</span> ms, and mechanical time constant <span class="math notranslate nohighlight">\(T_1 = 50\)</span> ms.</p>
+<p>The servomotor is first tested with <span class="math notranslate nohighlight">\(F(s) = 1\)</span>, but the closed-loop turns out to be too slow.</p>
 <ol class="arabic simple">
-<li><p>Sketch the block diagram of the system when a cascade control scheme is used. What are the control variable, the  <em>intermediate signal</em> that is fed back in the internal loop, and the output?</p></li>
-<li><p>We start designing the cascade control scheme by the inner controller. Assume that we use a proportional controller <span class="math notranslate nohighlight">\(F_i(s) = K_2\)</span>. Design <span class="math notranslate nohighlight">\(K_2\)</span> so that the bandwidth of the inner loop is at least <span class="math notranslate nohighlight">\(50\)</span> rad/s and the steady-state error of this internal loop is no larger than <span class="math notranslate nohighlight">\(1\%\)</span>.</p></li>
-<li><p>We now design the controller for the outer loop as a proportional controller <span class="math notranslate nohighlight">\(F(s) = K_1\)</span>. Choose <span class="math notranslate nohighlight">\(K_1\)</span> so that the bandwidth of the closed-loop is at least <span class="math notranslate nohighlight">\(1\)</span> rad/s.</p></li>
-<li><p>Compute the steady-state output tracking error of the closed-loop. How can you modify the scheme so that the steady-state error is exactly zero?</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(F(s) = K\)</span> so thatthe closed-loop is twice as fast as for <span class="math notranslate nohighlight">\(F(s)=1\)</span>.</p></li>
+<li><p>Then, find <span class="math notranslate nohighlight">\(K\)</span> so that the following accuracy requirements are sastisfied:</p>
+<ul class="simple">
+<li><p>When <span class="math notranslate nohighlight">\(\theta_{ref}(t) = \textrm{step}(t)\)</span>, at steady state <span class="math notranslate nohighlight">\(\lvert \theta -  \theta_{ref} \lvert \leq 0.001\)</span></p></li>
+<li><p>When <span class="math notranslate nohighlight">\(\theta_{ref}(t) = 10 \cdot \textrm{ramp}(t)\)</span>, at steady state <span class="math notranslate nohighlight">\(\lvert \theta(t) -  \theta_{ref}(t)  \lvert \leq 0.01\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>(Extra!)</strong> Assume that the motor current can be measured. With the help of MATLAB, design a cascade control scheme for <span class="math notranslate nohighlight">\(G_2(s) = \frac{Z(s)}{U(s)} = \frac{1}{(1+sT)(1+sT_2)}\)</span> and <span class="math notranslate nohighlight">\(G_1(s) = \frac{Y(s)}{Z(s)} = \frac{10}{s(1+sT_1)}\)</span>, so that the phase margin is at least <span class="math notranslate nohighlight">\(60^\circ\)</span>, and the bandwidth of the servomotr is at least <span class="math notranslate nohighlight">\(100\)</span>  rad/s.</p></li>
 </ol>
-<hr class="docutils" />
-<section id="solution">
-<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<section id="question-1">
-<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
-<p>The cascade control scheme is implemented by closing the inner loop with the current measurement, and the outer loop with the speed measurement. The resulting block diagram is depicted below.</p>
-<figure class="align-default" id="fig-lec4-ex2-cascade">
-<a class="reference internal image-reference" href="../_images/ex2-sol1.svg"><img alt="../_images/ex2-sol1.svg" src="../_images/ex2-sol1.svg" style="height: 200px;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Cascade control scheme.</span><a class="headerlink" href="#fig-lec4-ex2-cascade" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="question-2">
-<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
-<p>The inner control loop is characterized by the open-loop transfer function <span class="math notranslate nohighlight">\(G_{o2}(s) = F_i(s) \cdot G_2(s) = \frac{90 K_2}{s + 100}\)</span>, and by the closed-loop transfer function</p>
-<div class="math notranslate nohighlight" id="equation-eq-lec4-ex2-gc2">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex2-gc2" title="Link to this equation">#</a></span>\[
-G_{c2}(s) = \frac{G_{o2}(s)}{1 + G_{o2}(s)} = \frac{\frac{90 K_2}{s + 100}}{1 + \frac{90 K_2}{s + 100}} = \frac{90 K_2}{s + (100 + 90 K_2)}
-\]</div>
-<p>This closed-loop is stable if <span class="math notranslate nohighlight">\(100 + 90 K_2 &gt; 0\)</span>, i.e. <span class="math notranslate nohighlight">\(K &gt; - \frac{10}{9}\)</span>. Therefore, any <span class="math notranslate nohighlight">\(K_2 &gt; 0\)</span> ensures closed-loop stability.</p>
-<p>According to the Final Value Theorem, at steady state the output tracking error of <span class="math notranslate nohighlight">\(G_{c2}(s)\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[
-e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{s}} = \lim_{s \to 0} \big[ 1 - G_{c2}(s) \big] = 1 - \frac{90 K_2}{100 + 90 K_2}
-\]</div>
-<p>The static error is less than <span class="math notranslate nohighlight">\(1\%\)</span> if <span class="math notranslate nohighlight">\(\frac{90 K_2}{100 + 90 K_2} \geq 1 - 0.01\)</span>, that is</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{90 K_2}{100 + 90 K_2} \geq 0.99 \quad \implies \quad K_2 \geq \frac{99}{89.1} \quad \implies \quad K_2 \geq 110
-\]</div>
-<p>As for the bandwidth requirement, <span class="math notranslate nohighlight">\(\omega_B\)</span> is defined as the frequency where <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert = \frac{\lvert G_{c2}(0)  \lvert}{\sqrt{2}}\)</span>. Under the reasonable assumption<a class="footnote-reference brackets" href="#wb" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> that <span class="math notranslate nohighlight">\(\lvert G_{c2}(0)  \lvert \approx 1\)</span>, we can consider the simpler definition <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert = \frac{1}{\sqrt{2}}\)</span>, or equivalently <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert_{\text{dB}} = -3\)</span> dB.</p>
-<div class="math notranslate nohighlight">
-\[
-\lvert G_{c2}(i \omega) \lvert = \frac{\lvert 90 K_2 \lvert}{\lvert i\omega + (100 + 90 K_2)\lvert} = \frac{\lvert 90 K_2 \lvert}{\sqrt{\omega^2 + (100 + 90 K_2)^2}}
-\]</div>
-<p>Therefore, we need to solve <span class="math notranslate nohighlight">\(\lvert G_{c2}(i 50) \lvert = \frac{1}{\sqrt{2}}\)</span> for <span class="math notranslate nohighlight">\(K_2\)</span></p>
-<div class="math notranslate nohighlight">
-\[
-\frac{90 K_2}{\sqrt{50^2 + (100 + 90 K_2)^2}} = \frac{1}{\sqrt{2}}
-\]</div>
-<p>Since both sides are positive for any <span class="math notranslate nohighlight">\(K_2 &gt; 0\)</span>, we can square them and re-arrange the equations as follows</p>
-<div class="math notranslate nohighlight">
-\[
-16200 K_2^2 = 2500 + 10000 + 18000 K_2 + 8100 K_2^2
-\]</div>
-<p>We can divide both sides by <span class="math notranslate nohighlight">\(100\)</span> and solve by <span class="math notranslate nohighlight">\(K_2\)</span></p>
-<div class="math notranslate nohighlight">
-\[
-81 K_2^2 - 180 K_2 - 125 = 0 \qquad \Rightarrow \quad K_2 \simeq 2.8
-\]</div>
-<p>Any <span class="math notranslate nohighlight">\(K_2 &gt; 2.8\)</span> guarantees a bandwidth larger than <span class="math notranslate nohighlight">\(50\)</span> rad/s.</p>
-<p><strong>Solution</strong>: Both requirements are satisfied when <span class="math notranslate nohighlight">\(K \geq 110\)</span>. Let’s check this with MATLAB.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
-<span class="n">G_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
-<span class="n">K_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">110</span><span class="p">;</span>
-<span class="n">G_o2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">K_2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_2</span><span class="p">;</span><span class="w">           </span><span class="c">% Open-loop transfer function</span>
-<span class="n">G_c2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G_o2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">G_o2</span><span class="p">);</span><span class="w">   </span><span class="c">% Closed-loop transfer function</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span>
-<span class="n">bode</span><span class="p">(</span><span class="n">G_c2</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/035b34c58bc9f0ff0bdb21e02a2b4fa4150c185430f8bf01b6e47d6440ec8a9a.png" src="../_images/035b34c58bc9f0ff0bdb21e02a2b4fa4150c185430f8bf01b6e47d6440ec8a9a.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">mag</span><span class="p">,</span><span class="w"> </span><span class="n">phase</span><span class="p">,</span><span class="w"> </span><span class="n">wout</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bode</span><span class="p">(</span><span class="n">G_c2</span><span class="p">);</span><span class="w"> </span><span class="c">% Get the magnitude, phase, and frequency data</span>
-<span class="n">w_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">wout</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">mag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;first&#39;</span><span class="p">));</span>
-<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Bandwidth: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">(</span><span class="n">w_b</span><span class="p">),</span><span class="w"> </span><span class="s">&#39; rad/s&#39;</span><span class="p">])</span>
-<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Static gain: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">(</span><span class="n">dcgain</span><span class="p">(</span><span class="n">G_c2</span><span class="p">))])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bandwidth: 10000 rad/s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Static gain: 0.99
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span><span class="w"> </span>
-<span class="nb">step</span><span class="p">(</span><span class="n">G_c2</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-3</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
-
-<span class="k">if</span><span class="w"> </span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;stepinfo&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Step response information: &#39;</span><span class="p">);</span><span class="w"> </span><span class="nb">disp</span><span class="p">(</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">G_c2</span><span class="p">))</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/c03c34163522b240b13cfa81ef204ac7e3a28b9d08ebb2db4f7e2aafca997e75.png" src="../_images/c03c34163522b240b13cfa81ef204ac7e3a28b9d08ebb2db4f7e2aafca997e75.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         RiseTime: 2.1970e-04
-    TransientTime: 3.9121e-04
-     SettlingTime: 3.9121e-04
-      SettlingMin: 0.8910
-      SettlingMax: 0.9893
-        Overshoot: 0
-       Undershoot: 0
-             Peak: 0.9893
-         PeakTime: 7.3222e-04
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="question-3">
-<h3>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h3>
-<p>At this stage, we approximate <span class="math notranslate nohighlight">\(G_{c2}(s) \approx 1\)</span>. Therefore, the open-loop transfer function of the outer loop is</p>
-<div class="math notranslate nohighlight">
-\[
-G_{o1}(s) = F(s) G_1(s) = K_1 \frac{5 }{s + 0.2}
-\]</div>
-<p>The resulting closed-loop is</p>
-<div class="math notranslate nohighlight">
-\[
-G_{c1}(s) = \frac{5 K_1}{s + (0.2 + 5 K_1)}
-\]</div>
-<p>The values of <span class="math notranslate nohighlight">\(K_1\)</span> for which the bandwidth requirement is satisfied can be found in two ways: from the Bode plot of <span class="math notranslate nohighlight">\(G_{o1}(s)\)</span>, or analytically.</p>
-<section id="from-bode-plot">
-<span id="ref-lec4-ex2-sol-q3-bode"></span><h4>From Bode plot<a class="headerlink" href="#from-bode-plot" title="Link to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if the `asymptotic_bode` function is available, otherwise download it</span>
-<span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;asymptotic_bode&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">urlwrite</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/matlab/asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">);</span>
-<span class="k">end</span>
-
-<span class="n">G_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="p">);</span>
-<span class="nb">figure</span><span class="p">;</span>
-<span class="n">asymptotic_bode</span><span class="p">(</span><span class="n">G_1</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/5a26c8357fb764eaa1ac706ef8e175252ccfd96df47b85d738278939e2f24053.png" src="../_images/5a26c8357fb764eaa1ac706ef8e175252ccfd96df47b85d738278939e2f24053.png" />
-</div>
-</div>
-<p>Let’s recall that the bandwitdh <span class="math notranslate nohighlight">\(\omega_B\)</span> can roughly be approximated as the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = 0\)</span> dB. Then, the magnitude of <span class="math notranslate nohighlight">\(G_1(s)\)</span> at the target critical frequency <span class="math notranslate nohighlight">\(\omega_c = 1\)</span> rad/s is <span class="math notranslate nohighlight">\(\lvert G_1(i 1) \lvert_{\text{dB}} \simeq 15\)</span> dB.
-Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = \lvert G_{1}(i \omega) \lvert_{\text{dB}} + \lvert K_1 \lvert_{\text{dB}}\)</span>, the bandwidth requirement is satisfied by <span class="math notranslate nohighlight">\(K_1 &gt; - 15\)</span> dB. That is, <span class="math notranslate nohighlight">\(K_1 &gt; 10^{\frac{-15}{20}} \simeq 0.18\)</span>.</p>
-</section>
-<section id="analytical-solution">
-<h4>Analytical solution<a class="headerlink" href="#analytical-solution" title="Link to this heading">#</a></h4>
-<p>The bandwidth of <span class="math notranslate nohighlight">\(G_{c1}(s)\)</span> is defined as the value of <span class="math notranslate nohighlight">\(\omega\)</span> such that</p>
-<div class="math notranslate nohighlight">
-\[ 
-\lvert G_{c1}(i \omega) \lvert = \frac{1}{\sqrt{2}} 
-\]</div>
-<p>We therefore solve <span class="math notranslate nohighlight">\(\lvert G_{c1}(i 1) \lvert = \frac{1}{\sqrt{2}}\)</span> for <span class="math notranslate nohighlight">\(K_1\)</span></p>
-<div class="math notranslate nohighlight">
-\[
-\lvert G_{c1}(i 1) \lvert  = \frac{\lvert 5 K_1 \lvert}{\sqrt{1^2 + (0.2 + 5 K_1)^2}} = \frac{1}{\sqrt{2}}
-\]</div>
-<p>Because both sides are positive for any <span class="math notranslate nohighlight">\(K_1 &gt; 0\)</span>, we can square them. With some manipulation we get</p>
-<div class="math notranslate nohighlight">
-\[
-25 K_1^2 - 2 K_1 - 1.04 = 0  \quad \implies \quad K_1 \simeq 0.25
-\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">K_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.25</span><span class="p">;</span>
-<span class="n">G_o1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">K_1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_1</span><span class="p">;</span>
-<span class="n">G_c1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G_o1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">G_o1</span><span class="p">);</span>
-
-<span class="nb">figure</span><span class="p">;</span><span class="w"> </span>
-<span class="n">bode</span><span class="p">(</span><span class="n">G_c1</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/a77336abdd1ad2cedfb5354aa3c0aa649ccb1556750a5f886e8925d8d0862261.png" src="../_images/a77336abdd1ad2cedfb5354aa3c0aa649ccb1556750a5f886e8925d8d0862261.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">mag</span><span class="p">,</span><span class="w"> </span><span class="n">phase</span><span class="p">,</span><span class="w"> </span><span class="n">wout</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bode</span><span class="p">(</span><span class="n">G_c1</span><span class="p">);</span><span class="w">  </span><span class="c">% Get the magnitude, phase, and frequency data</span>
-<span class="n">w_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">wout</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">mag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;first&#39;</span><span class="p">));</span>
-<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Bandwidth: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">(</span><span class="n">w_b</span><span class="p">),</span><span class="w"> </span><span class="s">&#39; rad/s&#39;</span><span class="p">])</span>
-<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Static gain: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">(</span><span class="n">dcgain</span><span class="p">(</span><span class="n">G_c1</span><span class="p">))])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bandwidth: 1.0848 rad/s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Static gain: 0.86207
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="question-4">
-<h3>Question 4<a class="headerlink" href="#question-4" title="Link to this heading">#</a></h3>
-<p>Recalling <a class="reference internal" href="#equation-eq-lec4-ex2-gc2">()</a>, the overall closed-loop transfer function is</p>
-<div class="math notranslate nohighlight" id="equation-eq-lec4-ex2-gc">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex2-gc" title="Link to this equation">#</a></span>\[
-G_c(s) = \frac{F(s) G_{c2}(s) G_1(s)}{1 + F(s) G_{c2}(s) G_1(s)} 
-\]</div>
-<p>Picking <span class="math notranslate nohighlight">\(K_2 = 110\)</span> and <span class="math notranslate nohighlight">\(K_1 = 0.25\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[
-G_c(s) = \frac{\frac{12375}{(s+0.2)(s + 10000)}}{1 + \frac{12375}{(s+0.2)(s + 10000)}} = \frac{12375}{s^2 + 10000.2 s + 14375}
-\]</div>
-<p>The steady-state error for a step reference is</p>
-<p><span class="math notranslate nohighlight">\(e_\infty = \lim_{s \to 0} s \big[ 1 - G_c(s) \big] \frac{1}{s} = \frac{2000}{14375} \simeq 14 \%\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Gc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">K_1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">K_1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_1</span><span class="p">);</span>
-<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Steady state error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dcgain</span><span class="p">(</span><span class="n">Gc</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;%&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steady state error: 13.913%
-</pre></div>
-</div>
-</div>
-</div>
-<p>This means that if the velocity target is <span class="math notranslate nohighlight">\(60\)</span> km/h, the cruise control will reach <span class="math notranslate nohighlight">\(51\)</span> km/h!</p>
-</section>
-<section id="id2">
-<h3>Question 4<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>To achieve zero steady-state error, it is enough to use a PI controller.</p>
-<div class="math notranslate nohighlight">
-\[
-F(s) = K_{1P} + \frac{K_{1I}}{s} = K_{1P} \cdot \frac{s + \frac{K_{1I}}{K_{1P}}}{s}
-\]</div>
-<p>The new open-loop transfer function (assuming <span class="math notranslate nohighlight">\(G_{c2}(s) = 1\)</span> for the sake of simplicity) is</p>
-<div class="math notranslate nohighlight">
-\[
-G_{o1}(s) = K_{1P} \cdot \frac{s + \frac{K_{1I}}{K_{1P}}}{s} \cdot \frac{5}{s + 0.2}
-\]</div>
-<p>Since <span class="math notranslate nohighlight">\(G_{o1}(s)\)</span> is of type <span class="math notranslate nohighlight">\(g=1\)</span> (i.e., it has <span class="math notranslate nohighlight">\(g=1\)</span> poles in the origin), the steady-state error for step references is exactly <span class="math notranslate nohighlight">\(0\)</span>.</p>
-<section id="how-to-design-the-pi-controller">
-<h4>How to design the PI controller?<a class="headerlink" href="#how-to-design-the-pi-controller" title="Link to this heading">#</a></h4>
-<p>An easy design choice is to use the zero of the PI controller to cancel the pole of the system.</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{K_{1I}}{K_{1P}} = 0.2
-\]</div>
-<p>In this way, <span class="math notranslate nohighlight">\(G_{o1}(s)\)</span> becomes</p>
-<div class="math notranslate nohighlight">
-\[
-G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
-\]</div>
-<p>The proportional gain <span class="math notranslate nohighlight">\(K_{1P}\)</span> is designed so that the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> is larger than the desired bandwidth <span class="math notranslate nohighlight">\(1\)</span> rad/s. To this end, we can proceed in the same way as in the section <a class="reference internal" href="#ref-lec4-ex2-sol-q3-bode"><span class="std std-ref">From Bode plot</span></a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span>
-<span class="n">asymptotic_bode</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/9b2fc9f5fcbe6dffe87e3db0cbcfbb7a9016fa691f8bedf1390a7e326491f1bb.png" src="../_images/9b2fc9f5fcbe6dffe87e3db0cbcfbb7a9016fa691f8bedf1390a7e326491f1bb.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">mag_at_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mag2db</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">freqresp</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)));</span>
-<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Magnitude at 1 rad/s: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">(</span><span class="n">mag_at_1</span><span class="p">),</span><span class="w"> </span><span class="s">&#39; dB&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Magnitude at 1 rad/s: 13.9794 dB
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Solution</strong>: <span class="math notranslate nohighlight">\(K_{1P} &gt;  - 14\)</span> dB guarantees the desired bandwidth. For example, <span class="math notranslate nohighlight">\(K_{1P} = 0.25\)</span> and <span class="math notranslate nohighlight">\(K_{1I} = 0.2 \cdot K_{1P} = 0.05\)</span>.</p>
-<p>Let’s just check this solution with MATLAB.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">F_PI</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.25</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
-
-<span class="n">Gc_new</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">F_PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">F_PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G_1</span><span class="p">);</span>
-<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Steady state error: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">num2str</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dcgain</span><span class="p">(</span><span class="n">Gc_new</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;%&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steady state error: 0%
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span><span class="w"> </span>
-<span class="nb">step</span><span class="p">(</span><span class="n">Gc_new</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Step response of the closed-loop system with a PI controller&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/a2987d21f6a719e51ec2f4f8052c63e0cedb3209de4287372309fa7b0ef47fd0.png" src="../_images/a2987d21f6a719e51ec2f4f8052c63e0cedb3209de4287372309fa7b0ef47fd0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;stepinfo&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Step response information: &#39;</span><span class="p">);</span><span class="w"> </span><span class="nb">disp</span><span class="p">(</span><span class="n">stepinfo</span><span class="p">(</span><span class="n">Gc_new</span><span class="p">))</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         RiseTime: 1.7749
-    TransientTime: 3.1618
-     SettlingTime: 3.1618
-      SettlingMin: 0.9088
-      SettlingMax: 1.0000
-        Overshoot: 0
-       Undershoot: 0
-             Peak: 1.0000
-         PeakTime: 8.8557
-</pre></div>
-</div>
-</div>
-</div>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="wb" role="doc-footnote">
+<aside class="footnote brackets" id="dc-dc" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>A well-designed closed-loop transfer function has a unitary (or very close to unitary) static gain. For example, in the solution to Question 2 we have seen that for <span class="math notranslate nohighlight">\(K_2 &gt; 110\)</span> the static gain of the closed-loop transfer function is in the range <span class="math notranslate nohighlight">\((0.99, 1.0)\)</span>. We can therefore opt for the definition <span class="math notranslate nohighlight">\(\lvert G_{c2}(i \omega_B)  \lvert = \frac{1}{\sqrt{2}}\)</span>, which is simpler because the right-hand side does not depend upon <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<p>A DC-DC isolated converter is an electronic device that applies the desired control signal  <span class="math notranslate nohighlight">\(u\)</span>  to the motor while keeping the controller board electrically insulated from the high-current/high-voltage motor circuit.</p>
 </aside>
 </aside>
-</section>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -899,35 +551,6 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#from-bode-plot">From Bode plot</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution">Analytical solution</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Question 4</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-design-the-pi-controller">How to design the PI controller?</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
