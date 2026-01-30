@@ -68,6 +68,9 @@ chapters:
       - file: lecture-4/exercise-4.2.ipynb
         sections:
           - file: lecture-4/exercise-4.2-solutions.ipynb
+      - file: lecture-4/exercise-4.3.ipynb
+        sections:
+          - file: lecture-4/exercise-4.3-solutions.ipynb
   # - file: lecture-5/index
   # - file: lecture-6/index
   # - file: lecture-7/index
