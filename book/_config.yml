@@ -98,6 +98,6 @@ sphinx:
       analysis_model: "Analysis ∙ Linear dynamical systems"
       analysis_closed_loop: "Analysis ∙ Feedback control"
       analysis_robustness: "Analysis ∙ Robustness of feedback controllers"
-      design_laplace: "Control design ∙ Laplace domain"
+      design_laplace: "Control design ∙ Laplace/Frequency domain"
       design_time: "Control design ∙ State feedback"
       discrete: "Discrete-time implementation"
