@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Solutions of Exercise 4.3 &#8212; 1RT485 Exercise Book 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=85af71cb" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-4/exercise-4.3-solutions';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485 Exercise Book 2.0 - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="1RT485 Exercise Book 2.0 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.1.html">Exercise 1.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.1-solutions.html">Solutions of Exercise 1.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.2.html">Exercise 1.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.2-solutions.html">Solutions of Exercise 1.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../lecture-1/useful-formulas.html">Useful formulas</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.3.html">Exercise 1.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.3-solutions.html">Solutions of Exercise 1.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.4.html">Exercise 1.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.4-solutions.html">Solutions of Exercise 1.4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.5.html">Exercise 1.5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.5-solutions.html">Solutions of Exercise 1.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-2/index.html">Exercise session 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.0.html">Exercise 2.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.0-solutions.html">Solutions of Exercise 2.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.1.html">Exercise 2.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.1-solutions.html">Solutions of Exercise 2.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.2.html">Exercise 2.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.2-solutions.html">Solutions of Exercise 2.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.3.html">Exercise 2.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.3-solutions.html">Solutions of Exercise 2.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.4.html">Exercise 2.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.4-solutions.html">Solutions of Exercise 2.4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.5.html">Exercise 2.5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.5-solutions.html">Solutions of Exercise 2.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-3/index.html">Exercise session 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.0.html">Exercise 3.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.0-solutions.html">Solutions of Exercise 3.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.1.html">Exercise 3.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.1-solutions.html">Solution of Exercise 3.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.2.html">Exercise 3.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.2-solutions.html">Solutions of Exercise 3.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/bonassifabio/1RT485/main?urlpath=lab/tree/book/lecture-4/exercise-4.3-solutions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/bonassifabio/1RT485" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/bonassifabio/1RT485/issues/new?title=Issue%20on%20page%20%2Flecture-4/exercise-4.3-solutions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lecture-4/exercise-4.3-solutions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Solutions of Exercise 4.3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="solutions-of-exercise-4-3">
+<span id="ref-lec4-ex3-sol"></span><h1>Solutions of Exercise 4.3<a class="headerlink" href="#solutions-of-exercise-4-3" title="Link to this heading">#</a></h1>
+<figure class="align-default" id="fig-lec4-ex3-sol">
+<a class="reference internal image-reference" href="../_images/ex3-block.svg"><img alt="../_images/ex3-block.svg" src="../_images/ex3-block.svg" style="height: 225px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Block diagram of a system affected by a disturbance <span class="math notranslate nohighlight">\(v\)</span></span><a class="headerlink" href="#fig-lec4-ex3-sol" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A system <span class="math notranslate nohighlight">\(G(s) = \frac{5}{s+2}\)</span> is affected by a disturbance <span class="math notranslate nohighlight">\(v\)</span> via a transfer function <span class="math notranslate nohighlight">\(H(s) = \frac{s+10}{s+2}\)</span>.</p>
+<p>The system is controlled with a proportional controller <span class="math notranslate nohighlight">\(F(s) = K\)</span>, with <span class="math notranslate nohighlight">\(K &gt; 0\)</span>, as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex3_sol</span></code>.</p>
+<ol class="arabic simple">
+<li><p>For what values of <span class="math notranslate nohighlight">\(K\)</span> the closed-loop stability is guaranteed?</p></li>
+<li><p>For what values of <span class="math notranslate nohighlight">\(K\)</span> the steady-state effect of a disturbance <span class="math notranslate nohighlight">\(v = \text{step}(t)\)</span> on the output is less than <span class="math notranslate nohighlight">\(5\%\)</span> in closed-loop?</p></li>
+<li><p>Show how the control scheme can be changed to explicitly compensate the disturbance.</p></li>
+</ol>
+<hr class="docutils" />
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+<section id="question-1">
+<h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
+<p>The closed-loop transfer function is still</p>
+<div class="math notranslate nohighlight">
+\[
+G_c(s) = \frac{F(s)G(s)}{1 + F(s)G(s)} = \frac{5K}{s + 2 +5 K}
+\]</div>
+<p>The closed-loop pole is in <span class="math notranslate nohighlight">\(s = -2 - 5K\)</span>, which is negative for any <span class="math notranslate nohighlight">\(K&gt;0\)</span>.</p>
+</section>
+<section id="question-2">
+<h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
+<p>To appreciate the effect of <span class="math notranslate nohighlight">\(v\)</span> on the output, we compute the transfer function between <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. We can ignore the reference at this stage (<span class="math notranslate nohighlight">\(r=0\)</span>) because of the superimposition principle.</p>
+<div class="math notranslate nohighlight">
+\[
+Y(s) = G(s) U(s) + H(s) V(s) = G(s) F(s) (\cancel{R(s)} - Y(s)) + H(s) V(s)
+\]</div>
+<p>The transfer function between <span class="math notranslate nohighlight">\(V(s)\)</span> and <span class="math notranslate nohighlight">\(Y(s)\)</span> is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{Y(s)}{V(s)} = G_v(s) = \frac{H(s)}{1 + F(s)G(s)} = \frac{\frac{s+10}{s+2}}{1 + \frac{5K}{s+2}} = \frac{s+10}{s + 2 + 5K}
+\]</div>
+<p>This transfer function is stable for <span class="math notranslate nohighlight">\(K&gt;0\)</span> (it has the same poles of <span class="math notranslate nohighlight">\(G_c(s)\)</span>).
+Therefore, we can apply the Final Value Theorem to compute <span class="math notranslate nohighlight">\(y(\infty)\)</span> in response to <span class="math notranslate nohighlight">\(v(t) = \text{step}(t)\)</span>, i.e., <span class="math notranslate nohighlight">\(V(s) = \frac{1}{s}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{t\to \infty} y(t) = \lim_{s \to 0} s Y(s) = \lim_{s \to 0} s G_v(s) V(s) = \lim_{s \to 0} \cancel{s} \frac{s+10}{s + 2 + 5K} \frac{1}{\cancel{s}} = \frac{10}{2+5K}
+\]</div>
+<p>The effect is less than <span class="math notranslate nohighlight">\(5\%\)</span> if</p>
+<div class="math notranslate nohighlight">
+\[
+\left\lvert \frac{10}{2+5K} \right\lvert &lt; 0.05 
+\]</div>
+<p>This is equivalent to</p>
+<div class="math notranslate nohighlight">
+\[
+\lvert 2 + 5K \lvert &gt;  200 = \frac{10}{0.05}
+\]</div>
+<p>Mathematically, this is satisfied by <span class="math notranslate nohighlight">\(2 + 5 K &lt; - 200\)</span> or <span class="math notranslate nohighlight">\(2 + 5K &gt; 200\)</span>, that is, <span class="math notranslate nohighlight">\(K &lt; - 40.4\)</span> or <span class="math notranslate nohighlight">\(K &gt; 39.6\)</span>. The former solution must, however, be discarded because it would make the closed-loop unstable. Therefore, <span class="math notranslate nohighlight">\(K &gt; 39.6\)</span>.</p>
+</section>
+<section id="question-3">
+<h3>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h3>
+<p>The disturbance <span class="math notranslate nohighlight">\(v\)</span> is measurable, therefore we can use a feed-forward compensator <span class="math notranslate nohighlight">\(F_{ff}(s)\)</span> as in the figure below.</p>
+<figure class="align-default" id="fig-lec4-ex3-sol-ff">
+<a class="reference internal image-reference" href="../_images/ex3-block-ff.svg"><img alt="../_images/ex3-block-ff.svg" src="../_images/ex3-block-ff.svg" style="height: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Control scheme with feed-forward disturbance compensator, <span class="math notranslate nohighlight">\(F_{ff}(s)\)</span>.</span><a class="headerlink" href="#fig-lec4-ex3-sol-ff" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In order to design this compensator <span class="math notranslate nohighlight">\(F_{ff}(s)\)</span>, we can write down the closed-loop transfer function with this additional control action.</p>
+<div class="math notranslate nohighlight">
+\[
+Y(s) = G(s) \left[ F(s) (\cancel{R(s)}  - Y(s)) + F_{ff}(s) V(s) \right] + H(s) V(s)
+\]</div>
+<p>In this case, the transfer function between <span class="math notranslate nohighlight">\(V(s)\)</span> and <span class="math notranslate nohighlight">\(Y(s)\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{Y(s)}{V(s)} = \frac{G(s) F_{ff}(s) + H(s)}{1 + F(s)G(s)}
+\]</div>
+<p>An ideal compensator <span class="math notranslate nohighlight">\(F_{ff}^{\star}(s)\)</span> is one that makes the transfer function null, so that <span class="math notranslate nohighlight">\(Y(s) = 0 V(s)\)</span> for any possible <span class="math notranslate nohighlight">\(V(s)\)</span>.  This is achieved if</p>
+<div class="math notranslate nohighlight">
+\[
+G(s) F_{ff}^{\star}(s) + H(s) = 0
+\]</div>
+<p>Which means</p>
+<div class="math notranslate nohighlight">
+\[
+F_{ff}(s)^{\star} = - \frac{H(s)}{G(s)} = -\frac{\frac{s+10}{s+2}}{\frac{5}{s+2}} = - 0.2 (s + 10)
+\]</div>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>This feed-forward controller <span class="math notranslate nohighlight">\(F^{\star}_{ff}(s)\)</span> cannot be implemented, because its transfer function is non-proper (it has more zeros than poles).</p>
+<p>In practice we would implement a <strong>static compensator</strong></p>
+<div class="math notranslate nohighlight">
+\[
+F_{ff}(s) = F_{ff}^{\star}(0) = -2
+\]</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lecture-4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Fabio Bonassi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <script data-goatcounter="https://bonassifabio.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=85af71cb" />
@@ -735,6 +735,112 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/ebf6497d7b5a2260b2dfa6fe748dc8e9f74906c8ebc2e3f65b60b1af9c0b264b.svg" src="../../_images/ebf6497d7b5a2260b2dfa6fe748dc8e9f74906c8ebc2e3f65b60b1af9c0b264b.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex3-block.svg
+\begin{tikzpicture}[auto, node distance=2cm,&gt;=latex&#39;]
+
+    \tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=6em]
+    \tikzstyle{sum} = [draw, fill=white, circle, node distance=1cm]
+    \tikzstyle{input} = [coordinate]
+    \tikzstyle{output} = [coordinate]
+    
+    % Nodes
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum] (controller) { \Large $K$};
+    \node [block, right of=controller, node distance=3cm] (system) {\Large $G(s)$};
+    
+    % Disturbance Nodes
+    \node [sum, right of=system, node distance=2.5cm] (sum2) {};
+    \node [block, above of=sum2, node distance=2cm] (dist_tf) {\Large $H(s)$};
+    \node [input, above of=dist_tf, node distance=1.5cm] (v_in) {};
+
+    % Output Node
+    \node [output, right of=sum2, node distance=2cm] (output) {};
+
+    % Connections
+    \draw [-&gt;] (input) -- node {$r$} (sum);
+    \draw [-&gt;] (sum) -- node {$e$} (controller);
+    \draw [-&gt;] (controller) -- node {$u$} (system);
+    \draw [-&gt;] (system) -- (sum2);
+    
+    % Disturbance path
+    \draw [-&gt;] (v_in) -- node {$v$} (dist_tf);
+    \draw [-&gt;] (dist_tf) -- node {} (sum2);
+    
+    % Final output and feedback
+    \draw [-&gt;] (sum2) -- node [name=y] {$y$} (output);
+    \draw [-&gt;] (y) |- ++(0,-2) -| node[pos=0.99] {$-$} (sum);
+
+\end{tikzpicture}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5114359a94fcdc7e65c3302daad1ca7858acd4c954ed62f10f2e952f132333e1.svg" src="../../_images/5114359a94fcdc7e65c3302daad1ca7858acd4c954ed62f10f2e952f132333e1.svg" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">tikz</span> -l positioning,calc,arrows --save-image=ex3-block-ff.svg
+\begin{tikzpicture}[auto, node distance=2cm,&gt;=latex&#39;]
+
+    \tikzstyle{block} = [draw, fill=white, rectangle, minimum height=3em, minimum width=6em]
+    \tikzstyle{sum} = [draw, fill=white, circle, node distance=1cm]
+    \tikzstyle{input} = [coordinate]
+    \tikzstyle{output} = [coordinate]
+    
+    % --- Nodes ---
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum_err) {};
+    \node [block, right of=sum_err] (controller) {\Large $K$};
+    
+    % Summing junction for u (Feedback + Feedforward)
+    \node [sum, right of=controller, node distance=2.5cm] (sum_u) {};
+    
+    \node [block, right of=sum_u, node distance=2.5cm] (system) {\Large $G(s)$};
+    
+    % Disturbance Nodes
+    \node [sum, right of=system, node distance=2.5cm] (sum_y) {};
+    \node [block, above of=sum_y, node distance=2cm] (dist_tf) {\Large $H(s)$};
+    \node [input, above of=dist_tf, node distance=1.5cm] (v_in) {};
+    
+    % Feedforward Controller
+    % Positioned between v_in and sum_u
+    \node [block] at ($(sum_u) + (0,2)$) (ff_controller) {\Large $F_{ff}(s)$};
+
+    % Output Node
+    \node [output, right of=sum_y, node distance=2cm] (output) {};
+
+    % --- Connections ---
+    \draw [-&gt;] (input) -- node {$r$} (sum_err);
+    \draw [-&gt;] (sum_err) -- node {$e$} (controller);
+    \draw [-&gt;] (controller) -- (sum_u);
+    \draw [-&gt;] (sum_u) -- node {$u$} (system);
+    \draw [-&gt;] (system) -- (sum_y);
+    
+    % Disturbance path
+    \draw [-&gt;] (v_in) -- node(v_point) {$v$} (dist_tf);
+    \draw [-&gt;] (dist_tf) -- node {} (sum_y);
+    
+    % Feedforward path
+    \draw [-&gt;] (v_point) -| (ff_controller);
+    % Changed (ff_controller) to (ff_controller.south) to start from the edge
+    \draw [-&gt;] (ff_controller.south) -- node[pos=0.9, left] {$+$} (sum_u);
+    
+    % Final output and feedback
+    \draw [-&gt;] (sum_y) -- node [name=y] {$y$} (output);
+    \draw [-&gt;] (y) |- ++(0,-2) -| node[pos=0.99] {$-$} (sum_err);
+
+\end{tikzpicture}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/844b2766e9646ed10b4c5670c83318692011e0476ec018dc098479f54c764e75.svg" src="../../_images/844b2766e9646ed10b4c5670c83318692011e0476ec018dc098479f54c764e75.svg" />
 </div>
 </div>
 
