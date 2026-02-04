@@ -555,14 +555,14 @@ y(t) = \sqrt{2} \sin \left(t - \frac{\pi}{4} \right)
 <p>To compute the poles, we look for the roots of <span class="math notranslate nohighlight">\(s^3 + 1 = 0\)</span>. Realizing that it’s a <a class="reference external" href="https://en.wikipedia.org/wiki/Sum_of_two_cubes">sum of cubes</a>, we can factorize the left-hand side as</p>
 <div class="math notranslate nohighlight">
 \[
-(s + 1)(s^2 + 1 - s) = 0
+(s + 1)(s^2 - s + 1) = 0
 \]</div>
 <p>Therefore, the poles are</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(s = -1\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(s = \frac{-1 \pm \sqrt{5}}{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s = \frac{1 \pm i \sqrt{3}}{2}\)</span></p></li>
 </ul>
-<p>Unfortunately, one of the poles <span class="math notranslate nohighlight">\(\left( s = \frac{-1 + \sqrt{5}}{2} \right)\)</span> has positive real part <span class="math notranslate nohighlight">\(\to\)</span> unstable!
+<p>Unfortunately, the complex cojugate poles <span class="math notranslate nohighlight">\(\left( s = \frac{1 + i \sqrt{3}}{2} \right)\)</span> have positive real part <span class="math notranslate nohighlight">\(\to\)</span> unstable!
 In this case, <strong>we cannot apply the Frequency Response Theorem.</strong></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
