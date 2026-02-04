@@ -7,3 +7,4 @@ bin/
 book/lecture-*/asymptotic_bode.m
 book/lecture-*/bodeplot_universal.m
 .ipynb_checkpoints
+*.pyc
