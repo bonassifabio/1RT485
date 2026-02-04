@@ -64,7 +64,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exercise 1.3" href="exercise-1.3.html" />
+    <link rel="next" title="Dominant pole approximation" href="dominant-pole.html" />
     <link rel="prev" title="Solutions of Exercise 1.2" href="exercise-1.2-solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,7 +195,10 @@
 <li class="toctree-l3"><a class="reference internal" href="exercise-1.2-solutions.html">Solutions of Exercise 1.2</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Useful formulas</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Useful formulas</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="dominant-pole.html">Dominant pole approximation</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="exercise-1.3.html">Exercise 1.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="exercise-1.3-solutions.html">Solutions of Exercise 1.3</a></li>
 </ul>
@@ -611,7 +614,7 @@ G(s) = \frac{\omega_0^2}{s^2 + 2s + \omega_0^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d4a420c54285133a72840aa27d6e6107ee10e5d95fb240be55593e89663c844d.png" src="../_images/d4a420c54285133a72840aa27d6e6107ee10e5d95fb240be55593e89663c844d.png" />
+<img alt="../_images/12442223680dc1965a9b9f1141e869843f6f1fc37a672a6c7201bf1e62dd2419.png" src="../_images/12442223680dc1965a9b9f1141e869843f6f1fc37a672a6c7201bf1e62dd2419.png" />
 </div>
 </div>
 </section>
@@ -619,20 +622,38 @@ G(s) = \frac{\omega_0^2}{s^2 + 2s + \omega_0^2}
 </section>
 <section id="higher-order-systems">
 <h2>Higher order systems<a class="headerlink" href="#higher-order-systems" title="Link to this heading">#</a></h2>
-<p>If the transfer function has multiple real poles, or has a degree higher than <span class="math notranslate nohighlight">\(2\)</span>, its characteristics depend upon the <strong>dominant poles</strong>, that is, the pole (either a real one, or two complex-conjugate ones) with the largest real part.</p>
+<p>If the transfer function has multiple real poles, or has a degree higher than <span class="math notranslate nohighlight">\(2\)</span>, its <em>dynamic response</em> is mostly determined by the <strong>dominant poles</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Dominant Pole</p>
+<p>If <span class="math notranslate nohighlight">\(G(s)\)</span> is stable (all its poles have negative real part):</p>
 <ul class="simple">
-<li><p>If the system is stable (i.e., all the poles have negative real part):</p>
-<ul>
-<li><p>the dominant pole is the closest one to the imaginary axis;</p></li>
+<li><p>The dominant pole is the one <strong>closest to the origin</strong><a class="footnote-reference brackets" href="#slowestpole" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></li>
 </ul>
-</li>
-<li><p>If the system is unstable (i.e., one or more poles have positive real part):</p>
-<ul>
-<li><p>the dominant pole is the furtherst pole on the right-hand side of the imaginary axis.</p></li>
+<p>If <span class="math notranslate nohighlight">\(G(s)\)</span> is unstable (at least one pole has positive real part):</p>
+<ul class="simple">
+<li><p>The dominant pole is the one farthest into the right-half plane.<a class="footnote-reference brackets" href="#mostunstablepole" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></li>
 </ul>
-</li>
-</ul>
+</div>
+<p>Note that the dominant pole is either real-valued (first order system) or complex-conjugates (second order system).</p>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>The dominant pole provides an approximation of the dynamic response of the higher-order system.
+An example of how to derive the dominant pole approximation is shown in the next page.</p>
+<p>Note, however, that to estimate the settling time <span class="math notranslate nohighlight">\(T_{1-\varepsilon}\)</span> of the high-order system it is often better to use the real pole, or the complex conjugate pole, with the smallest real part (especially when <span class="math notranslate nohighlight">\(\varepsilon\)</span> is really small, like <span class="math notranslate nohighlight">\(\varepsilon &lt; 0.01\)</span>).</p>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="slowestpole" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>The pole closest to the origin (that is, with the smallest <em>modulus</em>) is the <em>slowest pole</em> of the system.</p>
+</aside>
+<aside class="footnote brackets" id="mostunstablepole" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>The pole farthest into the right-half plane (that is, with the largest <em>modulus</em> and positive real part) is the most unstable pole, that is, the one that is diverging faster.</p>
+</aside>
+</aside>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -675,11 +696,11 @@ G(s) = \frac{\omega_0^2}{s^2 + 2s + \omega_0^2}
       </div>
     </a>
     <a class="right-next"
-       href="exercise-1.3.html"
+       href="dominant-pole.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercise 1.3</p>
+        <p class="prev-next-title">Dominant pole approximation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

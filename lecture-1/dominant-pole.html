@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dominant pole approximation &#8212; 1RT485 Exercise Book 2.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=85af71cb" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-1/dominant-pole';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercise 1.3" href="exercise-1.3.html" />
+    <link rel="prev" title="Useful formulas" href="useful-formulas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485 Exercise Book 2.0 - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="1RT485 Exercise Book 2.0 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Exercise session 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-1.1.html">Exercise 1.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-1.1-solutions.html">Solutions of Exercise 1.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-1.2.html">Exercise 1.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-1.2-solutions.html">Solutions of Exercise 1.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="useful-formulas.html">Useful formulas</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Dominant pole approximation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-1.3.html">Exercise 1.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-1.3-solutions.html">Solutions of Exercise 1.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-1.4.html">Exercise 1.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-1.4-solutions.html">Solutions of Exercise 1.4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-1.5.html">Exercise 1.5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-1.5-solutions.html">Solutions of Exercise 1.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-2/index.html">Exercise session 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.0.html">Exercise 2.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.0-solutions.html">Solutions of Exercise 2.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.1.html">Exercise 2.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.1-solutions.html">Solutions of Exercise 2.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.2.html">Exercise 2.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.2-solutions.html">Solutions of Exercise 2.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.3.html">Exercise 2.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.3-solutions.html">Solutions of Exercise 2.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.4.html">Exercise 2.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.4-solutions.html">Solutions of Exercise 2.4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-2/exercise-2.5.html">Exercise 2.5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-2/exercise-2.5-solutions.html">Solutions of Exercise 2.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-3/index.html">Exercise session 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.0.html">Exercise 3.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.0-solutions.html">Solutions of Exercise 3.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.1.html">Exercise 3.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.1-solutions.html">Solution of Exercise 3.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.2.html">Exercise 3.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.2-solutions.html">Solutions of Exercise 3.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/bonassifabio/1RT485/main?urlpath=lab/tree/book/lecture-1/dominant-pole.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/bonassifabio/1RT485" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/bonassifabio/1RT485/issues/new?title=Issue%20on%20page%20%2Flecture-1/dominant-pole.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lecture-1/dominant-pole.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dominant pole approximation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-the-real-pole-is-dominant">Case 1: The real pole is dominant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-the-complex-conjugate-poles-are-dominant">Case 2: The complex-conjugate poles are dominant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-example">Exploratory example</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dominant-pole-approximation">
+<h1>Dominant pole approximation<a class="headerlink" href="#dominant-pole-approximation" title="Link to this heading">#</a></h1>
+<p>In this page, we show how to determine the dominant pole approximation of a third-order system having a real pole (<span class="math notranslate nohighlight">\(s=-\gamma\)</span>) and two complex-conjugate ones (<span class="math notranslate nohighlight">\(s = -\alpha \pm i \beta\)</span>). Let this higher order system be</p>
+<div class="math notranslate nohighlight">
+\[
+G(s) = \frac{\mu}{(s + \gamma)(s+ \alpha + i \beta)(s + \alpha - i \beta)}
+\]</div>
+<p>We assume that all the poles are on the left-hand side (<span class="math notranslate nohighlight">\(\alpha &gt;0\)</span>, <span class="math notranslate nohighlight">\(\gamma &gt; 0\)</span>).</p>
+<p>According to the page <a class="reference internal" href="useful-formulas.html#ref-lec1-useful-formulas"><span class="std std-ref">Useful formulas</span></a>, we need to check whether <span class="math notranslate nohighlight">\(\gamma &lt; \sqrt{\alpha^2 + \beta^2}\)</span> or <span class="math notranslate nohighlight">\(\gamma &gt; \sqrt{\alpha^2 + \beta^2}\)</span>.</p>
+<section id="case-1-the-real-pole-is-dominant">
+<h2>Case 1: The real pole is dominant<a class="headerlink" href="#case-1-the-real-pole-is-dominant" title="Link to this heading">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\(\gamma &lt; \sqrt{\alpha^2 + \beta^2}\)</span>, the real pole is dominant because its closer to the origin. In this case, we can obtain the dominant pole approximation by replacing <span class="math notranslate nohighlight">\(s=0\)</span> into the complex conjugate poles</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\tilde{G}_1(s)} = \frac{\mu}{s + \gamma} \cdot \frac{1}{\alpha^2 + \beta^2} = \boxed{\frac{\tilde{\mu}_1}{s + \gamma}} \quad \text{ where } \tilde{\mu}_1 = \frac{\mu}{\alpha^2 + \beta^2}
+\]</div>
+<p>The adjustment of <span class="math notranslate nohighlight">\(\mu\)</span> to <span class="math notranslate nohighlight">\(\tilde{\mu}_1\)</span> makes the static gain of <span class="math notranslate nohighlight">\(\tilde{G}_1(s)\)</span> the same as that of <span class="math notranslate nohighlight">\(G(s)\)</span>.</p>
+</section>
+<section id="case-2-the-complex-conjugate-poles-are-dominant">
+<h2>Case 2: The complex-conjugate poles are dominant<a class="headerlink" href="#case-2-the-complex-conjugate-poles-are-dominant" title="Link to this heading">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\(\gamma &gt; \sqrt{\alpha^2 + \beta^2}\)</span>, the complex-conjugate poles are dominant as they are closer to the origin (they have a smaller modulus). In this case, we can obtain the dominant pole approximation by replacing <span class="math notranslate nohighlight">\(s=0\)</span> into the real pole</p>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\tilde{G}_2(s)} = \frac{\mu}{(s+ \alpha + i \beta)(s + \alpha - i \beta)} \cdot \frac{1}{\gamma} = \frac{\tilde{\mu}_2}{ (s+ \alpha + i \beta)(s + \alpha - i \beta)} =  \boxed{\frac{\tilde{\mu}_2}{s^2 + b s + c}}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\tilde{\mu}_2 = \frac{\mu}{\gamma}\)</span> adjusts the static gain of <span class="math notranslate nohighlight">\(\tilde{G}_2(s)\)</span> to make it identical to that of <span class="math notranslate nohighlight">\(G(s)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b = 2 \alpha \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c = \alpha^2 + \beta^2\)</span></p></li>
+</ul>
+</section>
+<section id="exploratory-example">
+<h2>Exploratory example<a class="headerlink" href="#exploratory-example" title="Link to this heading">#</a></h2>
+<p>Below these approximations are reported for a system with the specified values of <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>, while <span class="math notranslate nohighlight">\(\mu\)</span> is computed so that the static gain of <span class="math notranslate nohighlight">\(G(s)\)</span> is <span class="math notranslate nohighlight">\(1\)</span> for  ease of visualization.</p>
+<div class="tip admonition">
+<p class="admonition-title">Try out</p>
+<p>Open this page in Binder and try to change the values of <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>, and reflect on the following points:</p>
+<ul class="simple">
+<li><p>What is the dominant pole in this case?</p></li>
+<li><p>Does the Bode plot of the dominant pole approximation resemble that of <span class="math notranslate nohighlight">\(G(s)\)</span>?</p></li>
+<li><p>In your specific case, do the impulse and step response look better for <span class="math notranslate nohighlight">\(G_1(s)\)</span> or <span class="math notranslate nohighlight">\(G_2(s)\)</span>?</p></li>
+<li><p>Is the settling time accurate?</p></li>
+</ul>
+</div>
+<div class="danger admonition">
+<p class="admonition-title">Note</p>
+<p>The dominant pole approximation is usually good if <span class="math notranslate nohighlight">\(\gamma\)</span> is at least <span class="math notranslate nohighlight">\(5 \div 10\)</span> smaller/larger than <span class="math notranslate nohighlight">\(\sqrt{\alpha^2 + \beta^2}\)</span>. In this case, the poles are well separated and the approximation becomes more accurate!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Real pole is s = - gamma</span>
+<span class="nb">gamma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c">% gamma &gt; 0</span>
+<span class="c">% Complex conjugate poles are s = -alpha + i beta</span>
+<span class="nb">alpha</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c">% alpha &gt; 0</span>
+<span class="nb">beta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c">% beta &gt; 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
+<span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">gamma</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nb">alpha</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">beta</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">((</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">gamma</span><span class="p">)</span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">alpha</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">alpha</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">beta</span><span class="o">^</span><span class="mi">2</span><span class="p">));</span>
+<span class="n">G1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">gamma</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">gamma</span><span class="p">);</span>
+<span class="n">G2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="nb">alpha</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">beta</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">alpha</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">alpha</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">beta</span><span class="o">^</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="nb">figure</span><span class="p">;</span><span class="w"> </span>
+<span class="n">pzmap</span><span class="p">(</span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"> </span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">get</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Responses&#39;</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;MarkerSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% Set pole marker size</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Poles of G(s)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/eeb7c3526dc9f0309095c20ab958e5f984095c4f623ae6ce6dfc4faf2ec62ed7.png" src="../_images/eeb7c3526dc9f0309095c20ab958e5f984095c4f623ae6ce6dfc4faf2ec62ed7.png" />
+</div>
+</div>
+<p><strong>What is the dominant pole?</strong></p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nb">gamma</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">alpha</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">beta</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;Dominant pole: s = -%.2f. G1(s) is the dominant pole approximation of G(s).&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">gamma</span><span class="p">);</span>
+<span class="w">    </span><span class="n">style_g1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;r-&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">style_g2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;b:&#39;</span><span class="p">;</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="n">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;Dominant poles: s = -%.2f +/- i %.2f. G2(s) is the dominant pole approximation of G(s).&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">alpha</span><span class="p">,</span><span class="w"> </span><span class="nb">beta</span><span class="p">);</span>
+<span class="w">    </span><span class="n">style_g1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;r:&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">style_g2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;b-&#39;</span><span class="p">;</span>
+<span class="k">end</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dominant pole: s = -5.00. G1(s) is the dominant pole approximation of G(s).
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Bode plots comparison</strong></p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span>
+<span class="n">bodeplot_universal</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;k-&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">G1</span><span class="p">,</span><span class="w"> </span><span class="n">style_g1</span><span class="p">,</span><span class="w"> </span><span class="n">G2</span><span class="p">,</span><span class="w"> </span><span class="n">style_g2</span><span class="p">);</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;$G(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$\tilde{G}_1(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$\tilde{G}_2(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Interpreter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;latex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;southoutside&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Orientation&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;horizontal&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/efc794fcd87974f4598f5e6f5c01f017e7fd273f025bcbcb1ee41c657cec0afe.png" src="../_images/efc794fcd87974f4598f5e6f5c01f017e7fd273f025bcbcb1ee41c657cec0afe.png" />
+</div>
+</div>
+<p><strong>Step and impulse response comparison</strong></p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">T_end</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="nb">gamma</span><span class="p">,</span><span class="w"> </span><span class="nb">alpha</span><span class="p">);</span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="mf">1e-4</span><span class="p">:</span><span class="n">T_end</span><span class="p">;</span>
+<span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">impulse</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="p">[</span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">impulse</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="p">[</span><span class="n">y2</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">impulse</span><span class="p">(</span><span class="n">G2</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="nb">figure</span><span class="p">;</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Impulse Response Comparison&#39;</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;k-&quot;</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="n">style_g1</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">,</span><span class="w"> </span><span class="n">style_g2</span><span class="p">);</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;$G(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$\tilde{G}_1(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$\tilde{G}_2(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Interpreter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;latex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;southoutside&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Orientation&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;horizontal&#39;</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (s)&#39;</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Amplitude&#39;</span><span class="p">);</span>
+
+<span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">step</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="p">[</span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">step</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="p">[</span><span class="n">y2</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">step</span><span class="p">(</span><span class="n">G2</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<span class="nb">figure</span><span class="p">;</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Step Response Comparison&#39;</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;k-&quot;</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="n">style_g1</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">,</span><span class="w"> </span><span class="n">style_g2</span><span class="p">);</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;$G(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$\tilde{G}_1(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$\tilde{G}_2(s)$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Interpreter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;latex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;southoutside&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Orientation&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;horizontal&#39;</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (s)&#39;</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Amplitude&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/ce5ea1670d708d62e891562522a2ce45df3b5c9387214d376cc268813b71390b.png" src="../_images/ce5ea1670d708d62e891562522a2ce45df3b5c9387214d376cc268813b71390b.png" />
+<img alt="../_images/34e6d78047dc0cc2eaae329fa7483b1b47b47816944b13d2a0b918a7fa0d4f2e.png" src="../_images/34e6d78047dc0cc2eaae329fa7483b1b47b47816944b13d2a0b918a7fa0d4f2e.png" />
+</div>
+</div>
+<p><strong>Settling time estimation</strong>
+For <span class="math notranslate nohighlight">\(G(s)\)</span>, the settling time is estimated as the value of <span class="math notranslate nohighlight">\(t\)</span> permanently enters the interval <span class="math notranslate nohighlight">\([0.99, 1.01]\)</span>. For <span class="math notranslate nohighlight">\(\tilde{G}_1(s)\)</span> and <span class="math notranslate nohighlight">\(\tilde{G}_2(s)\)</span>, the settling time is approximated with the formula <span class="math notranslate nohighlight">\(T_{99\%} = \frac{5}{\gamma}\)</span> and  <span class="math notranslate nohighlight">\(T_{99\%} = \frac{5}{\alpha}\)</span>, respectively (see <a class="reference internal" href="useful-formulas.html#ref-lec1-useful-formulas"><span class="std std-ref">Useful formulas</span></a>).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last&#39;</span><span class="p">),</span><span class="w"> </span><span class="nb">find</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last&#39;</span><span class="p">));</span>
+<span class="n">T_G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
+<span class="n">T_G1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">gamma</span><span class="p">;</span>
+<span class="n">T_G2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">alpha</span><span class="p">;</span>
+
+<span class="n">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;\nSettling time (99%%):\n\tof G(s): %.2f sec\n\tof G1(s): %.2f sec\n\tof G2(s): %.2f sec\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">T_G</span><span class="p">,</span><span class="w"> </span><span class="n">T_G1</span><span class="p">,</span><span class="w"> </span><span class="n">T_G2</span><span class="p">);</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Settling time (99
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "jupyter_matlab_kernel"
+        },
+        kernelOptions: {
+            name: "jupyter_matlab_kernel",
+            path: "./lecture-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'jupyter_matlab_kernel'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="useful-formulas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Useful formulas</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercise-1.3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise 1.3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-the-real-pole-is-dominant">Case 1: The real pole is dominant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-the-complex-conjugate-poles-are-dominant">Case 2: The complex-conjugate poles are dominant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-example">Exploratory example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Fabio Bonassi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <script data-goatcounter="https://bonassifabio.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
