@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# 1. Crea una directory temporanea
+TEMP_DIR=$(mktemp -d)
+
+git clone --branch main --single-branch --depth 1 https://github.com/bonassifabio/1RT485.git "$TEMP_DIR"
+cp -a "$TEMP_DIR/book/." "$HOME/"
+
+# copy lecture-* directories
+mkdir -p "$HOME/book"
+for src in "$TEMP_DIR/book"/lecture-*; do
+    [ -e "$src" ] || continue
+    cp -a "$src" "$HOME/book/"
+done
+
+# copy matlab resources preserving tree
+if [ -d "$TEMP_DIR/book/res/matlab" ]; then
+    mkdir -p "$HOME/book/res"
+    cp -a "$TEMP_DIR/book/res/matlab" "$HOME/book/res/"
+fi
+
+rm -rf "$TEMP_DIR"
+
+xvfb-run exec "$@"

@@ -1,0 +1,21 @@
+name: Build Binder Image
+on:
+  push:
+    paths:
+      - '.binder/**'
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
+      - name: Remove Dockerfile for Build
+        run: rm -f .binder/Dockerfile
+
+      - name: Build and Push to DockerHub
+        uses: jupyterhub/repo2docker-action@master
+        with:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          IMAGE_NAME: bonassifabio/1rt485-image

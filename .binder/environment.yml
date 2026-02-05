@@ -1,0 +1,14 @@
+name: notebook
+channels:
+  - conda-forge
+dependencies:
+  - octave
+  - octave-control
+  - octave-signal
+  - xeus-octave
+  # For Plotly graphical toolkit
+  - plotly
+  # Runtime dependency for Octave ``symbolic`` package.
+  - sympy
+  - jupytext
+  - jupyterlab-myst

@@ -1,0 +1,13 @@
+#!/bin/bash
+# Fail fast
+set -o errexit
+set -o nounset
+
+# Print the following instruction to ~/.octaverc
+# We load the control package here so it is available in every session.
+echo "addpath('~/book/res/matlab/'); pkg load control; warning('off', 'all'); if isempty(getenv('BINDER_SERVICE_HOST')); t = 'notebook'; else; t = 'plotly'; end; graphics_toolkit(t);" >> ~/.octaverc
+
+# Rename xeus-octave (xoctave) to jupyter_matlab_kernel for compatibility with lecture notebooks
+mv /srv/conda/envs/notebook/share/jupyter/kernels/xoctave /srv/conda/envs/notebook/share/jupyter/kernels/jupyter_matlab_kernel
+sed -i 's/Octave (xoctave)/Matlab (via Octave)/g' /srv/conda/envs/notebook/share/jupyter/kernels/jupyter_matlab_kernel/kernel.json
+sed -i 's/"Octave"/"matlab"/g' /srv/conda/envs/notebook/share/jupyter/kernels/jupyter_matlab_kernel/kernel.json
