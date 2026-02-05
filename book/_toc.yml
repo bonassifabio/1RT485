@@ -59,20 +59,20 @@ chapters:
         sections:
           - file: lecture-3/exercise-3.3-solutions.ipynb
 
-  # - file: lecture-4/index
-  #   sections:
-  #     - file: lecture-4/exercise-4.0.ipynb
-  #       sections:
-  #         - file: lecture-4/exercise-4.0-solutions.ipynb
-  #     - file: lecture-4/exercise-4.1.ipynb
-  #       sections:
-  #         - file: lecture-4/exercise-4.1-solutions.ipynb
-  #     - file: lecture-4/exercise-4.2.ipynb
-  #       sections:
-  #         - file: lecture-4/exercise-4.2-solutions.ipynb
-  #     - file: lecture-4/exercise-4.3.ipynb
-  #       sections:
-  #         - file: lecture-4/exercise-4.3-solutions.ipynb
+  - file: lecture-4/index
+    sections:
+      - file: lecture-4/exercise-4.0.ipynb
+        sections:
+          - file: lecture-4/exercise-4.0-solutions.ipynb
+      - file: lecture-4/exercise-4.1.ipynb
+        sections:
+          - file: lecture-4/exercise-4.1-solutions.ipynb
+      - file: lecture-4/exercise-4.2.ipynb
+        sections:
+          - file: lecture-4/exercise-4.2-solutions.ipynb
+      - file: lecture-4/exercise-4.3.ipynb
+        sections:
+          - file: lecture-4/exercise-4.3-solutions.ipynb
   # - file: lecture-5/index
   # - file: lecture-6/index
   # - file: lecture-7/index
