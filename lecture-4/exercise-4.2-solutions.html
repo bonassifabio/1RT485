@@ -64,6 +64,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercise 4.3" href="exercise-4.3.html" />
+    <link rel="prev" title="Exercise 4.2" href="exercise-4.2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,8 +128,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
@@ -255,6 +255,25 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Exercise session 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.0.html">Exercise 4.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.0-solutions.html">Solutions of Exercise 4.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.1.html">Exercise 4.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.1-solutions.html">Solutions of Exercise 4.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="exercise-4.2.html">Exercise 4.2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Solutions of Exercise 4.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.3.html">Exercise 4.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.3-solutions.html">Solutions of Exercise 4.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -512,10 +531,10 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/ex2.svg"><img alt="../_images/ex2.svg" src="../_images/ex2.svg" style="height: 170px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Block diagram of the DC-servomotor.</span><a class="headerlink" href="#fig-lec4-ex2-sol" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Block diagram of the DC-servomotor.</span><a class="headerlink" href="#fig-lec4-ex2-sol" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex2_sol</span></code> the block diagram of a DC-servomotor is illustrated.</p>
+<p>In <a class="reference internal" href="#fig-lec4-ex2-sol"><span class="std std-numref">Fig. 26</span></a> the block diagram of a DC-servomotor is illustrated.</p>
 <p>In this system, the input voltage <span class="math notranslate nohighlight">\(u\)</span> first goes through a <a class="reference external" href="https://en.wikipedia.org/wiki/DC-to-DC_converter">isolated DC-DC convert</a><a class="footnote-reference brackets" href="#dc-dc" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, which applies the desired voltage <span class="math notranslate nohighlight">\(u\)</span> to the motor.
 This converter is modeled by the first-order transfer function with time constant <span class="math notranslate nohighlight">\(T=10\)</span> ms.</p>
 <p>The voltage is then applied to the motor, described by a second order transfer function with gaim <span class="math notranslate nohighlight">\(k_m=10\)</span>, electrical time constant <span class="math notranslate nohighlight">\(T_2 =25\)</span> ms, and mechanical time constant <span class="math notranslate nohighlight">\(T_1 = 50\)</span> ms.</p>
@@ -537,12 +556,12 @@ This converter is modeled by the first-order transfer function with time constan
 <h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
 <p>First of all, let’s compute the bandwith for <span class="math notranslate nohighlight">\(F(s) = K = 1\)</span>. The open loop transfer function is defined as</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec4-ex2-go">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex2-go" title="Link to this equation">#</a></span>\[
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-lec4-ex2-go" title="Link to this equation">#</a></span>\[
 G_o(s) = F(s) G(s) = K \frac{10}{s(1+sT)(1+sT_1)(1+sT_2)}
 \]</div>
 <p>while the closed-loop transfer function is</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec4-ex2-gc">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex2-gc" title="Link to this equation">#</a></span>\[
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-lec4-ex2-gc" title="Link to this equation">#</a></span>\[
 G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 + T_1 T_2) s^3 + (T+T_1+T_2 + T) s^2 + s + 10 K}
 \]</div>
 <p>Finding <span class="math notranslate nohighlight">\(\omega_B\)</span> such that <span class="math notranslate nohighlight">\(\lvert G_c(i \omega_B) \lvert = \frac{1}{\sqrt{2}}\)</span> is impractical because of its high order.</p>
@@ -558,7 +577,7 @@ G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 +
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c487f54a7de24fbbb4dee7c9a610678ccfe39eb7678957685b717bea041344a2.png" src="../_images/c487f54a7de24fbbb4dee7c9a610678ccfe39eb7678957685b717bea041344a2.png" />
+<img alt="../_images/360b5e12b1eb03b3b2a37e5815d02cf458416a2d2687e14b2833ae214ba4de82.png" src="../_images/360b5e12b1eb03b3b2a37e5815d02cf458416a2d2687e14b2833ae214ba4de82.png" />
 </div>
 </div>
 <p>The bandwidth for <span class="math notranslate nohighlight">\(K=1\)</span> is approximately <span class="math notranslate nohighlight">\(9\)</span> rad/s.</p>
@@ -592,7 +611,7 @@ G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 +
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f48751deb44856a080b9bbbd6595bd4bc9b56d940eec62686d5038ad7821a527.png" src="../_images/f48751deb44856a080b9bbbd6595bd4bc9b56d940eec62686d5038ad7821a527.png" />
+<img alt="../_images/f494ba48f1d608fba92d3485b7554e38363dddd3fcc1e0b26064b3a818d47651.png" src="../_images/f494ba48f1d608fba92d3485b7554e38363dddd3fcc1e0b26064b3a818d47651.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -649,7 +668,7 @@ G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 +
 </section>
 <section id="question-2">
 <h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
-<p>Consider the open-loop transfer function <a class="reference internal" href="#equation-eq-lec4-ex2-go">()</a> and the closed-loop transfer function <a class="reference internal" href="#equation-eq-lec4-ex2-gc">()</a> for a generic gain <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<p>Consider the open-loop transfer function <a class="reference internal" href="#equation-eq-lec4-ex2-go">(12)</a> and the closed-loop transfer function <a class="reference internal" href="#equation-eq-lec4-ex2-gc">(13)</a> for a generic gain <span class="math notranslate nohighlight">\(K\)</span>.</p>
 <p>We start by analyzing for what values of <span class="math notranslate nohighlight">\(K\)</span> the closed-loop remains stable. For this, we can use root locus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -670,7 +689,7 @@ G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 +
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bae3ea0070ec005b73ebf5a2903372f5bee686d2505d219255914c76dd758281.png" src="../_images/bae3ea0070ec005b73ebf5a2903372f5bee686d2505d219255914c76dd758281.png" />
+<img alt="../_images/6719fd14728d897934611e4cd5dd73ac1750a07836a75223fe2d4d48a785260c.png" src="../_images/6719fd14728d897934611e4cd5dd73ac1750a07836a75223fe2d4d48a785260c.png" />
 </div>
 </div>
 <p>The closed-loop is stable for <span class="math notranslate nohighlight">\(0 &lt; K &lt; 3.9\)</span>.</p>
@@ -738,6 +757,24 @@ e(t) = \lim_{s \to 0} s \big[ 1 - G_c(s)] \frac{10}{s^2} = \lim_{s \to 0} \frac{
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="exercise-4.2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercise 4.2</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercise-4.3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise 4.3</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

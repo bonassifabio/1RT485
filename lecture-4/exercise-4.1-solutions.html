@@ -64,6 +64,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercise 4.2" href="exercise-4.2.html" />
+    <link rel="prev" title="Exercise 4.1" href="exercise-4.1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,8 +128,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
@@ -255,6 +255,25 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Exercise session 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.0.html">Exercise 4.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.0-solutions.html">Solutions of Exercise 4.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="exercise-4.1.html">Exercise 4.1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Solutions of Exercise 4.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.2.html">Exercise 4.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.2-solutions.html">Solutions of Exercise 4.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.3.html">Exercise 4.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.3-solutions.html">Solutions of Exercise 4.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -517,13 +536,13 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/ex1.svg"><img alt="../_images/ex1.svg" src="../_images/ex1.svg" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex1-sol-car" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex1-sol-car" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The cruise controller of an electric car works by adjusting the voltage applied to the electric motor to regulate the velocity, making sure it is as close as possible to the speed setpoint coming from the driver. The system has the following dynamics:</p>
 <p><strong>Electric Dynamics</strong> (Voltage <span class="math notranslate nohighlight">\(\to\)</span> Current): <span class="math notranslate nohighlight">\(G_2(s) = \frac{90}{s + 100}\)</span></p>
 <p><strong>Mechanical Dynamics</strong> (Current <span class="math notranslate nohighlight">\(\to\)</span> Speed): <span class="math notranslate nohighlight">\(G_1(s) = \frac{5}{s + 0.2}\)</span></p>
-<p>The block diagram of the car is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex1_sol:car</span></code>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
+<p>The block diagram of the car is shown in <a class="reference internal" href="#fig-lec4-ex1-sol-car"><span class="std std-numref">Fig. 23</span></a>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
 <ol class="arabic simple">
 <li><p>Sketch the block diagram of the system when a cascade control scheme is used. What are the control variable, the  <em>intermediate signal</em> that is fed back in the internal loop, and the output?</p></li>
 <li><p>We start designing the cascade control scheme by the inner controller. Assume that we use a proportional controller <span class="math notranslate nohighlight">\(F_i(s) = K_2\)</span>. Design <span class="math notranslate nohighlight">\(K_2\)</span> so that the bandwidth of the inner loop is at least <span class="math notranslate nohighlight">\(50\)</span> rad/s and the steady-state error of this internal loop is no larger than <span class="math notranslate nohighlight">\(1\%\)</span>.</p></li>
@@ -540,7 +559,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/ex1-sol1.svg"><img alt="../_images/ex1-sol1.svg" src="../_images/ex1-sol1.svg" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Cascade control scheme.</span><a class="headerlink" href="#fig-lec4-ex1-cascade" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Cascade control scheme.</span><a class="headerlink" href="#fig-lec4-ex1-cascade" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -548,7 +567,7 @@ document.write(`
 <h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
 <p>The inner control loop is characterized by the open-loop transfer function <span class="math notranslate nohighlight">\(G_{o2}(s) = F_i(s) \cdot G_2(s) = \frac{90 K_2}{s + 100}\)</span>, and by the closed-loop transfer function</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec4-ex1-gc2">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex1-gc2" title="Link to this equation">#</a></span>\[
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-lec4-ex1-gc2" title="Link to this equation">#</a></span>\[
 G_{c2}(s) = \frac{G_{o2}(s)}{1 + G_{o2}(s)} = \frac{\frac{90 K_2}{s + 100}}{1 + \frac{90 K_2}{s + 100}} = \frac{90 K_2}{s + (100 + 90 K_2)}
 \]</div>
 <p>This closed-loop is stable if <span class="math notranslate nohighlight">\(100 + 90 K_2 &gt; 0\)</span>, i.e. <span class="math notranslate nohighlight">\(K &gt; - \frac{10}{9}\)</span>. Therefore, any <span class="math notranslate nohighlight">\(K_2 &gt; 0\)</span> ensures closed-loop stability.</p>
@@ -603,7 +622,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/63d1f86dbe3a4b43f8060bec5ff508c7d739c9beef6e926542dfc8730388722f.png" src="../_images/63d1f86dbe3a4b43f8060bec5ff508c7d739c9beef6e926542dfc8730388722f.png" />
+<img alt="../_images/bd75cd3b25d49798e08266bf201635c34184467db38946f3d629e2b79dc5ef1f.png" src="../_images/bd75cd3b25d49798e08266bf201635c34184467db38946f3d629e2b79dc5ef1f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -636,7 +655,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d94739085cf138f7fb9c4844c42846db1a0a8da23e0db84d157fb75586c97fa7.png" src="../_images/d94739085cf138f7fb9c4844c42846db1a0a8da23e0db84d157fb75586c97fa7.png" />
+<img alt="../_images/9bc09ae2137d6668ce58624e682b33eae6d1a6ab3ab5965e01844c9d6c172c43.png" src="../_images/9bc09ae2137d6668ce58624e682b33eae6d1a6ab3ab5965e01844c9d6c172c43.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
 </pre></div>
 </div>
@@ -683,7 +702,7 @@ G_{c1}(s) = \frac{5 K_1}{s + (0.2 + 5 K_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/543acad98f37fbf4f3f0eef78b187a2e92035cf0a6da1596e4f9ff70304460fd.png" src="../_images/543acad98f37fbf4f3f0eef78b187a2e92035cf0a6da1596e4f9ff70304460fd.png" />
+<img alt="../_images/b9a3c56a1a82bc664ac8a05e80261243a378325b4d5cec1fc3137c87784ada51.png" src="../_images/b9a3c56a1a82bc664ac8a05e80261243a378325b4d5cec1fc3137c87784ada51.png" />
 </div>
 </div>
 <p>Let’s recall that the bandwitdh <span class="math notranslate nohighlight">\(\omega_B\)</span> can roughly be approximated as the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = 0\)</span> dB. Then, the magnitude of <span class="math notranslate nohighlight">\(G_1(s)\)</span> at the target critical frequency <span class="math notranslate nohighlight">\(\omega_c = 1\)</span> rad/s is <span class="math notranslate nohighlight">\(\lvert G_1(i 1) \lvert_{\text{dB}} \simeq 15\)</span> dB.
@@ -718,7 +737,7 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1d544a0119c3d3cb376d92c822c4c9399b65f4f01f35eb2adbb991061a7367d7.png" src="../_images/1d544a0119c3d3cb376d92c822c4c9399b65f4f01f35eb2adbb991061a7367d7.png" />
+<img alt="../_images/aa8e6ec39f1c3c467a333a6aaf22d7701b41160ce49db0ac8e06b604cbb0c6e0.png" src="../_images/aa8e6ec39f1c3c467a333a6aaf22d7701b41160ce49db0ac8e06b604cbb0c6e0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -743,9 +762,9 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </section>
 <section id="question-4">
 <h3>Question 4<a class="headerlink" href="#question-4" title="Link to this heading">#</a></h3>
-<p>Recalling <a class="reference internal" href="#equation-eq-lec4-ex1-gc2">()</a>, the overall closed-loop transfer function is</p>
+<p>Recalling <a class="reference internal" href="#equation-eq-lec4-ex1-gc2">(10)</a>, the overall closed-loop transfer function is</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec4-ex1-gc">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec4-ex1-gc" title="Link to this equation">#</a></span>\[
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-lec4-ex1-gc" title="Link to this equation">#</a></span>\[
 G_c(s) = \frac{F(s) G_{c2}(s) G_1(s)}{1 + F(s) G_{c2}(s) G_1(s)} 
 \]</div>
 <p>Picking <span class="math notranslate nohighlight">\(K_2 = 110\)</span> and <span class="math notranslate nohighlight">\(K_1 = 0.25\)</span>,</p>
@@ -804,7 +823,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/19a77da1e5c07345484dc65c17ff8702f4d04f18ac214ad9b5747139ee909e2d.png" src="../_images/19a77da1e5c07345484dc65c17ff8702f4d04f18ac214ad9b5747139ee909e2d.png" />
+<img alt="../_images/d37de36489ac37c20227a6d488f810666038ea54e7b2fc14b4c8ba2c6bc67a2f.png" src="../_images/d37de36489ac37c20227a6d488f810666038ea54e7b2fc14b4c8ba2c6bc67a2f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -846,7 +865,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6f1e8a082579c395cf6a6a9f9e2dbdec2ed0a3cc604f0febc7eb079c4b925587.png" src="../_images/6f1e8a082579c395cf6a6a9f9e2dbdec2ed0a3cc604f0febc7eb079c4b925587.png" />
+<img alt="../_images/08af0d5d75c100e98630e67940c06fd0eab33e2b27ce85a77160db9ee11f228e.png" src="../_images/08af0d5d75c100e98630e67940c06fd0eab33e2b27ce85a77160db9ee11f228e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -915,6 +934,24 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="exercise-4.1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercise 4.1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercise-4.2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise 4.2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

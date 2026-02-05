@@ -64,6 +64,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solutions of Exercise 4.2" href="exercise-4.2-solutions.html" />
+    <link rel="prev" title="Solutions of Exercise 4.1" href="exercise-4.1-solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,8 +128,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
@@ -255,6 +255,25 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Exercise session 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.0.html">Exercise 4.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.0-solutions.html">Solutions of Exercise 4.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.1.html">Exercise 4.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.1-solutions.html">Solutions of Exercise 4.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Exercise 4.2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.2-solutions.html">Solutions of Exercise 4.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.3.html">Exercise 4.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.3-solutions.html">Solutions of Exercise 4.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -494,10 +513,10 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/ex2.svg"><img alt="../_images/ex2.svg" src="../_images/ex2.svg" style="height: 170px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Block diagram of the DC-servomotor.</span><a class="headerlink" href="#fig-lec4-ex2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Block diagram of the DC-servomotor.</span><a class="headerlink" href="#fig-lec4-ex2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex2</span></code> the block diagram of a DC-servomotor is illustrated.</p>
+<p>In <a class="reference internal" href="#fig-lec4-ex2"><span class="std std-numref">Fig. 25</span></a> the block diagram of a DC-servomotor is illustrated.</p>
 <p>In this system, the input voltage <span class="math notranslate nohighlight">\(u\)</span> first goes through a <a class="reference external" href="https://en.wikipedia.org/wiki/DC-to-DC_converter">isolated DC-DC convert</a><a class="footnote-reference brackets" href="#dc-dc" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, which applies the desired voltage <span class="math notranslate nohighlight">\(u\)</span> to the motor.
 This converter is modeled by the first-order transfer function with time constant <span class="math notranslate nohighlight">\(T=10\)</span> ms.</p>
 <p>The voltage is then applied to the motor, described by a second order transfer function with gaim <span class="math notranslate nohighlight">\(k_m=10\)</span>, electrical time constant <span class="math notranslate nohighlight">\(T_2 =25\)</span> ms, and mechanical time constant <span class="math notranslate nohighlight">\(T_1 = 50\)</span> ms.</p>
@@ -518,6 +537,8 @@ This converter is modeled by the first-order transfer function with time constan
 <p>A DC-DC isolated converter is an electronic device that applies the desired control signal  <span class="math notranslate nohighlight">\(u\)</span>  to the motor while keeping the controller board electrically insulated from the high-current/high-voltage motor circuit.</p>
 </aside>
 </aside>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -550,6 +571,24 @@ This converter is modeled by the first-order transfer function with time constan
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="exercise-4.1-solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Solutions of Exercise 4.1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercise-4.2-solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solutions of Exercise 4.2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

@@ -64,6 +64,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solutions of Exercise 4.1" href="exercise-4.1-solutions.html" />
+    <link rel="prev" title="Solutions of Exercise 4.0" href="exercise-4.0-solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,8 +128,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
@@ -255,6 +255,25 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Exercise session 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.0.html">Exercise 4.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.0-solutions.html">Solutions of Exercise 4.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Exercise 4.1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.1-solutions.html">Solutions of Exercise 4.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.2.html">Exercise 4.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.2-solutions.html">Solutions of Exercise 4.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.3.html">Exercise 4.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.3-solutions.html">Solutions of Exercise 4.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -494,19 +513,21 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/ex1.svg"><img alt="../_images/ex1.svg" src="../_images/ex1.svg" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex1-car" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Block diagram of the electric car</span><a class="headerlink" href="#fig-lec4-ex1-car" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The cruise controller of an electric car works by adjusting the voltage applied to the electric motor to regulate the velocity, making sure it is as close as possible to the speed setpoint coming from the driver. The system has the following dynamics:</p>
 <p><strong>Electric Dynamics</strong> (Voltage <span class="math notranslate nohighlight">\(\to\)</span> Current): <span class="math notranslate nohighlight">\(G_2(s) = \frac{90}{s + 100}\)</span></p>
 <p><strong>Mechanical Dynamics</strong> (Current <span class="math notranslate nohighlight">\(\to\)</span> Speed): <span class="math notranslate nohighlight">\(G_1(s) = \frac{5}{s + 0.2}\)</span></p>
-<p>The block diagram of the car is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex1:car</span></code>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
+<p>The block diagram of the car is shown in <a class="reference internal" href="#fig-lec4-ex1-car"><span class="std std-numref">Fig. 22</span></a>. Both the motor current and the car velocity are measured, respectively with an <a class="reference external" href="https://en.wikipedia.org/wiki/Hall_effect_sensor">Hall-effect sensor</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Speedometer">speedometer</a>.</p>
 <ol class="arabic simple">
 <li><p>Sketch the block diagram of the system when a cascade control scheme is used. What are the control variable, the  <em>intermediate signal</em> that is fed back in the internal loop, and the output?</p></li>
 <li><p>We start designing the cascade control scheme by the inner controller. Assume that we use a proportional controller <span class="math notranslate nohighlight">\(F_i(s) = K_2\)</span>. Design <span class="math notranslate nohighlight">\(K_2\)</span> so that the bandwidth of the inner loop is at least <span class="math notranslate nohighlight">\(50\)</span> rad/s and the steady-state error of this internal loop is no larger than <span class="math notranslate nohighlight">\(1\%\)</span>.</p></li>
 <li><p>We now design the controller for the outer loop as a proportional controller <span class="math notranslate nohighlight">\(F(s) = K_1\)</span>. Choose <span class="math notranslate nohighlight">\(K_1\)</span> so that the bandwidth of the closed-loop is at least <span class="math notranslate nohighlight">\(1\)</span> rad/s.</p></li>
 <li><p>Compute the steady-state output tracking error of the closed-loop. How can you modify the scheme so that the steady-state error is exactly zero?</p></li>
 </ol>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -539,6 +560,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="exercise-4.0-solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Solutions of Exercise 4.0</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercise-4.1-solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solutions of Exercise 4.1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

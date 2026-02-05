@@ -64,6 +64,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Exercise 4.3" href="exercise-4.3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,8 +127,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +180,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
@@ -255,6 +254,25 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-3/exercise-3.3.html">Exercise 3.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-3/exercise-3.3-solutions.html">Solutions of Exercise 3.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Exercise session 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.0.html">Exercise 4.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.0-solutions.html">Solutions of Exercise 4.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.1.html">Exercise 4.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.1-solutions.html">Solutions of Exercise 4.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-4.2.html">Exercise 4.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-4.2-solutions.html">Solutions of Exercise 4.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="exercise-4.3.html">Exercise 4.3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Solutions of Exercise 4.3</a></li>
 </ul>
 </details></li>
 </ul>
@@ -508,11 +526,11 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/ex3-block.svg"><img alt="../_images/ex3-block.svg" src="../_images/ex3-block.svg" style="height: 225px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Block diagram of a system affected by a disturbance <span class="math notranslate nohighlight">\(v\)</span></span><a class="headerlink" href="#fig-lec4-ex3-sol" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Block diagram of a system affected by a disturbance <span class="math notranslate nohighlight">\(v\)</span></span><a class="headerlink" href="#fig-lec4-ex3-sol" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>A system <span class="math notranslate nohighlight">\(G(s) = \frac{5}{s+2}\)</span> is affected by a disturbance <span class="math notranslate nohighlight">\(v\)</span> via a transfer function <span class="math notranslate nohighlight">\(H(s) = \frac{s+10}{s+2}\)</span>.</p>
-<p>The system is controlled with a proportional controller <span class="math notranslate nohighlight">\(F(s) = K\)</span>, with <span class="math notranslate nohighlight">\(K &gt; 0\)</span>, as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:lec4:ex3_sol</span></code>.</p>
+<p>The system is controlled with a proportional controller <span class="math notranslate nohighlight">\(F(s) = K\)</span>, with <span class="math notranslate nohighlight">\(K &gt; 0\)</span>, as shown in <a class="reference internal" href="#fig-lec4-ex3-sol"><span class="std std-numref">Fig. 28</span></a>.</p>
 <ol class="arabic simple">
 <li><p>For what values of <span class="math notranslate nohighlight">\(K\)</span> the closed-loop stability is guaranteed?</p></li>
 <li><p>For what values of <span class="math notranslate nohighlight">\(K\)</span> the steady-state effect of a disturbance <span class="math notranslate nohighlight">\(v = \text{step}(t)\)</span> on the output is less than <span class="math notranslate nohighlight">\(5\%\)</span> in closed-loop?</p></li>
@@ -567,7 +585,7 @@ Therefore, we can apply the Final Value Theorem to compute <span class="math not
 <a class="reference internal image-reference" href="../_images/ex3-block-ff.svg"><img alt="../_images/ex3-block-ff.svg" src="../_images/ex3-block-ff.svg" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Control scheme with feed-forward disturbance compensator, <span class="math notranslate nohighlight">\(F_{ff}(s)\)</span>.</span><a class="headerlink" href="#fig-lec4-ex3-sol-ff" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Control scheme with feed-forward disturbance compensator, <span class="math notranslate nohighlight">\(F_{ff}(s)\)</span>.</span><a class="headerlink" href="#fig-lec4-ex3-sol-ff" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In order to design this compensator <span class="math notranslate nohighlight">\(F_{ff}(s)\)</span>, we can write down the closed-loop transfer function with this additional control action.</p>
@@ -633,6 +651,15 @@ F_{ff}(s) = F_{ff}^{\star}(0) = -2
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="exercise-4.3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercise 4.3</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
