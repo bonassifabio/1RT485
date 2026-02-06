@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=85af71cb" />
@@ -566,26 +566,28 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>The closed-loop bandwidth is approximately equal to the critical frequency of the open-loop transfer function <span class="math notranslate nohighlight">\(G_o(i\omega)\)</span>, i.e., the frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_o(i \omega_c) \lvert_{\text{dB}}\)</span> cuts the <span class="math notranslate nohighlight">\(0\)</span> dB axis.</p>
 </div>
-<p>Inspecting <a class="reference internal" href="#fig-lec4-ex0-sol-bode"><span class="std std-numref">Fig. 20</span></a>, we realize that <span class="math notranslate nohighlight">\(\omega_c = 5\)</span> if <span class="math notranslate nohighlight">\(K_{\text{dB}} = 22\)</span> dB. Similarly, <span class="math notranslate nohighlight">\(\omega_c = 15\)</span> if <span class="math notranslate nohighlight">\(K_{\text{dB}} = 48\)</span> dB. The resulting Bode plots of <span class="math notranslate nohighlight">\(G_o(s)\)</span> are repoted in <a class="reference internal" href="#fig-lec4-ex0-bode-sol"><span class="std std-numref">Fig. 21</span></a>.</p>
+<p>Inspecting <a class="reference internal" href="#fig-lec4-ex0-sol-bode"><span class="std std-numref">Fig. 20</span></a>, we realize that <span class="math notranslate nohighlight">\(\omega_c = 5\)</span> if <span class="math notranslate nohighlight">\(K_{\text{dB}} = 22\)</span> dB. Similarly, <span class="math notranslate nohighlight">\(\omega_c = 15\)</span> if <span class="math notranslate nohighlight">\(K_{\text{dB}} = 36\)</span> dB. The resulting Bode plots of <span class="math notranslate nohighlight">\(G_o(s)\)</span> are repoted in <a class="reference internal" href="#fig-lec4-ex0-bode-sol"><span class="std std-numref">Fig. 21</span></a>.</p>
 <figure class="align-default" id="fig-lec4-ex0-bode-sol">
-<a class="reference internal image-reference" href="../_images/ex0-bode-sol-mag.svg"><img alt="../_images/ex0-bode-sol-mag.svg" src="../_images/ex0-bode-sol-mag.svg" style="width: 750px;" />
+<a class="reference internal image-reference" href="../_images/ex0-bode-sol-mag.svg"><img alt="../_images/ex0-bode-sol-mag.svg" src="../_images/ex0-bode-sol-mag.svg" style="width: 1000px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Bode plot of <span class="math notranslate nohighlight">\(G_o(s)\)</span> for <span class="math notranslate nohighlight">\(K_{\text{dB}} = 22\)</span> dB (blue line) and for <span class="math notranslate nohighlight">\(K_{\text{dB}} = 48\)</span> dB (red line).</span><a class="headerlink" href="#fig-lec4-ex0-bode-sol" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Bode plot of <span class="math notranslate nohighlight">\(G_o(s)\)</span> for <span class="math notranslate nohighlight">\(K_{\text{dB}} = 22\)</span> dB (blue line) and for <span class="math notranslate nohighlight">\(K_{\text{dB}} = 36\)</span> dB (red line).</span><a class="headerlink" href="#fig-lec4-ex0-bode-sol" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Therefore, the range of gains statisfying the bandwidth requirement is</p>
 <div class="math notranslate nohighlight">
 \[
-12.6 \leq K \leq  250
+12.6 \leq K \leq  63
 \]</div>
 <p>As for the phase, <span class="math notranslate nohighlight">\(\angle G_o(i \omega) = \angle G(i \omega)\)</span> for any <span class="math notranslate nohighlight">\(K &gt; 0\)</span>. Therefore, the phase margin <span class="math notranslate nohighlight">\(\varphi_m\)</span> is bigger than <span class="math notranslate nohighlight">\(45^\circ\)</span> as long as at the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span>, the phase satisfies <span class="math notranslate nohighlight">\(\angle G(i \omega_c) &gt; -135^\circ\)</span>.</p>
-<p>Inspecting <a class="reference internal" href="#fig-lec4-ex0-sol-bode"><span class="std std-numref">Fig. 20</span></a>, we can see that this is the case as long as <span class="math notranslate nohighlight">\(\omega_c &gt; 8\)</span> rad/s. This condition on the critical frequency is satisfied for <span class="math notranslate nohighlight">\(K_{\text{dB}} &gt; 28 \)</span> dB, hence</p>
+<p>Inspecting <a class="reference internal" href="#fig-lec4-ex0-sol-bode"><span class="std std-numref">Fig. 20</span></a>, we can see that this is the case as long as  <span class="math notranslate nohighlight">\(\omega_c &lt; 1.1\)</span> rad/s or <span class="math notranslate nohighlight">\(\omega_c &gt; 8\)</span> rad/s.
+The former interval is not acceptable (it would violate the condition <span class="math notranslate nohighlight">\(\omega_c &gt; 5\)</span>).
+The second condition, instead, is acceptable and translates to <span class="math notranslate nohighlight">\(K_{\text{dB}} &gt; 28 \)</span> dB. Hence,</p>
 <div class="math notranslate nohighlight">
 \[
 K \geq 25
 \]</div>
-<p><strong>Solution</strong>: Any <span class="math notranslate nohighlight">\(K\)</span> in the range <span class="math notranslate nohighlight">\(25 \leq K \leq 250\)</span> satisfies the requirements.</p>
+<p><strong>Solution</strong>: Any <span class="math notranslate nohighlight">\(K\)</span> in the range <span class="math notranslate nohighlight">\(25 \leq K \leq 63\)</span> satisfies the requirements.</p>
 </section>
 <section id="question-2">
 <h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
