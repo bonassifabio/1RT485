@@ -1,4 +1,5 @@
 book/_build/
+book/_extensions/__pycache__
 _build/
 .venv
 octave-workspace
@@ -7,5 +8,5 @@ bin/
 book/lecture-*/asymptotic_bode.m
 book/lecture-*/bodeplot_universal.m
 .ipynb_checkpoints
-*.pyc
+.pyc
 **/__pycache__
