@@ -30,7 +30,7 @@ Happy learning!
 
 The easiest way to interactively run the MATLAB code reported in the exercises' solutions is using Binder. Binder is a free and open source service that allows to open and run Jupyter Notebooks from your browser.
 
-To run the code in Binder, just click on the rocket logo in the top navigation bar, and then on "Binder". When the notebook gets opened in Binder, select the **Octave kernel**[^octave].
+To run the code in Binder, just click on the rocket logo in the top navigation bar, and then on "Binder". When the notebook gets opened in Binder, select the **Matlab (via Octave)** kernel[^octave].
 
 ```{note}
 Binder is a free service, and from time to time it might be congested or offline. In this case, retry after a while or open the notebook locally, see below.
@@ -81,4 +81,4 @@ You are also welcome to contribute proposing additional exercises or fixing erro
 
 ---
 
-[^octave]: Octave is a GNU-GPL scientific programming language that offers, in many cases, a drop-in replacement to MATLAB. See [the website](https://octave.org) for more information.
+[^octave]: Octave is a GNU-GPL scientific programming language that offers, in many cases, an almost-drop-in replacement to MATLAB. See [the website](https://octave.org) for more information.
