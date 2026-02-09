@@ -6,5 +6,5 @@ fi
 echo "Installing MATLAB kernel for Jupyter"
 install-matlab-kernelspec
 
-echo "Installing Octave's control system toolbox"
-octave --eval "pkg install -forge control"
+echo "Updating .octaverc"
+echo "addpath('~/book/res/matlab/'); pkg load control; warning('off', 'all'); if isempty(getenv('BINDER_SERVICE_HOST')); t = 'notebook'; else; t = 'plotly'; end; graphics_toolkit(t);" >> ~/.octaverc
