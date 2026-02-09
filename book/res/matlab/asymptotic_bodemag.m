@@ -138,7 +138,7 @@ function varargout = asymptotic_bodemag(obj)
         tx = [w_t(1,:);w_t(1,:);nan(1,length(w_t(1,:)))];
         ty = [y0*ones(1,length(w_t(1,:)));mag(Ind);nan(1,length(w_t(1,:)))];
 
-        plot(tx(:),ty(:),'--k','LineWidth',0.75);
+        % plot(tx(:),ty(:),'--k','LineWidth',0.75);
     end
     
     title('Asymptotic Bode magnitude plot');
