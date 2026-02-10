@@ -19,3 +19,24 @@ html[data-theme="dark"] .rendered_html img {
     isolation: isolate;
     background-color: transparent !important;
 }
+
+/* Only force the background color when the viewer is actually showing (has the 'viewer-in' class) */
+.viewer-backdrop.viewer-in {
+    background-color: var(--pst-color-background) !important;
+    opacity: 1 !important; 
+}
+
+/* Ensure the backdrop is invisible when the viewer is closed or closing */
+.viewer-backdrop {
+    background-color: transparent;
+}
+
+/* Make toolbar buttons more visible against the solid background */
+.viewer-toolbar > li {
+    background-color: rgba(128, 128, 128, 0.5); /* Neutral gray for visibility in both modes */
+    border-radius: 50%;
+}
+.viewer-toolbar > li:hover {
+    background-color: var(--pst-color-primary); /* Use theme primary color on hover */
+    color: white;
+}

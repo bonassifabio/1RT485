@@ -60,6 +60,11 @@ html:
   extra_footer              : |
     <script data-goatcounter="https://bonassifabio.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+  extra_css:
+    - "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css"
+  extra_js:
+    - "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js"
+
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
   baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   # analytics:
@@ -81,6 +86,7 @@ sphinx:
   config:
     html_static_path: ["_static"]
     html_css_files: ["custom.css"]
+    html_js_files: ["custom.js"]
     html_context:
       default_mode: light
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
