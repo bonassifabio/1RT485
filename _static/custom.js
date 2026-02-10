@@ -1,10 +1,12 @@
-// _static/custom.js
-
 document.addEventListener("DOMContentLoaded", function() {
-    
-    const viewerCss = "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css";
-    const viewerJs = "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js";
 
+    // --- 1. CONFIGURATION ---
+    const config = window.ViewerConfig || {
+        css: "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.css",
+        js: "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js"
+    };
+
+    // --- 2. HELPERS ---
     function loadCss(url) {
         const link = document.createElement("link");
         link.rel = "stylesheet";
@@ -20,11 +22,34 @@ document.addEventListener("DOMContentLoaded", function() {
         document.head.appendChild(script);
     }
 
-    // --- MAIN LOGIC ---
-    loadCss(viewerCss);
+    loadCss(config.css);
 
-    loadScript(viewerJs, function() {
-        console.log("Viewer.js library loaded successfully with simplified toolbar.");
+    // --- 3. MAIN EXECUTION ---
+    loadScript(config.js, function() {
+        
+        // Define the reusable logic here, inside the scope where Viewer is loaded
+        function applyBestFit(viewerInstance) {
+            if (!viewerInstance) return;
+
+            const img = viewerInstance.imageData;
+            const container = viewerInstance.containerData;
+
+            if (img && container) {
+                const naturalW = img.naturalWidth || img.width;
+                const naturalH = img.naturalHeight || img.height;
+
+                if (naturalW > 0 && naturalH > 0) {
+                    // YOUR LOGIC: Scale to 70% of screen width OR height (whichever is smaller)
+                    const widthRatio = (container.width * 0.7) / naturalW;
+                    const heightRatio = (container.height * 0.7) / naturalH;
+                    
+                    // The "Best Fit" (Contain) logic
+                    const fitRatio = Math.min(widthRatio, heightRatio); 
+                    
+                    viewerInstance.zoomTo(fitRatio);
+                }
+            }
+        }
 
         document.body.addEventListener('click', function(e) {
             const target = e.target.closest('.bd-article img');
@@ -34,34 +59,49 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.stopPropagation();
 
                 const viewer = new Viewer(target, {
-                    // --- CUSTOMIZED TOOLBAR ---
-                    toolbar: {
-                        zoomIn: 1,  // Keep
-                        zoomOut: 1, // Keep
-                        reset: 1,   // Keep (This is "Fit to View")
-                        
-                        // Hide everything else by setting to 0
-                        oneToOne: 0,
-                        prev: 0,
-                        play: 0,
-                        next: 0,
-                        rotateLeft: 0,
-                        rotateRight: 0,
-                        flipHorizontal: 0,
-                        flipVertical: 0,
+                    // --- CAPTION LOGIC ---
+                    title: function (image) {
+                        const figure = target.closest('figure');
+                        if (figure) {
+                            const numberEl = figure.querySelector('.caption-number');
+                            const textEl = figure.querySelector('.caption-text');
+                            const numberText = numberEl ? numberEl.innerText : "";
+                            const bodyText = textEl ? textEl.innerText : "";
+                            const fullCaption = (numberText + " " + bodyText).trim();
+                            if (fullCaption.length > 0) return fullCaption;
+                        }
+                        return ""; 
                     },
-                    navbar: false, // Hide the bottom thumbnail bar
-                    title: true,  // Show image title/alt text at top
-                    tooltip: false, // Hide zoom percentage tooltip on hover
 
-                    // --- THE FIX: FORCE FIT-WIDTH ON OPEN ---
-                    viewed() {
-                        // Calculate ratio: Container Width / Image Natural Width
-                        // This forces the image to touch the left and right edges
-                        const widthRatio = 0.75 * viewer.containerData.width / viewer.imageData.naturalWidth;
+                    // --- TOOLBAR ---
+                    toolbar: {
+                        zoomIn: 1, 
+                        zoomOut: 1, 
+                        oneToOne: 1, 
                         
-                        // Apply the zoom
-                        viewer.zoomTo(widthRatio);
+                        // CUSTOM RESET BUTTON
+                        reset: {
+                            show: 1,
+                            size: 'medium',
+                            click: function() {
+                                // Apply your 70% fit logic on click
+                                applyBestFit(viewer);
+                            }
+                        },
+
+                        prev: 0, play: 0, next: 0, 
+                        rotateLeft: 0, rotateRight: 0, 
+                        flipHorizontal: 0, flipVertical: 0,
+                    },
+                    
+                    navbar: false,
+                    tooltip: false,
+                    backdrop: true,
+
+                    // --- INITIAL OPEN ---
+                    viewed() {
+                        // Apply your 70% fit logic on open
+                        applyBestFit(viewer);
                     },
 
                     hidden: function() {
