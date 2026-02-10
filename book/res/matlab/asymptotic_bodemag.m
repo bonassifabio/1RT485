@@ -39,7 +39,21 @@ function varargout = asymptotic_bodemag(obj)
     if ~isempty(w_t)
         interval=sort([0.01*w_t(1,:), 0.05*w_t(1,:), 0.1*w_t(1,:), 0.2*w_t(1,:), w_t(1,:), 2*w_t(1,:), 5*w_t(1,:), 10*w_t(1,:),100*w_t(1,:)]);
     else
-        interval=sort([0.01, 0.05, 0.1, 0.2, 1, 2, 5, 10, 100]);
+        % No non-origin poles/zeros.
+        % Check if we have integrators/differentiators.
+        num_int = length(find(imag(im_p)==0));
+        num_diff = length(find(imag(im_z)==0));
+        delta_N = num_int - num_diff;
+        
+        if delta_N ~= 0 && K ~= 0
+             % Calculate 0dB crossing frequency
+             % mag = 20*log10(K) - 20*delta_N*log10(wc) = 0
+             % log10(wc) = log10(K) / delta_N
+             wc = 10^(log10(abs(K))/delta_N);
+             interval = wc * [0.01, 0.05, 0.1, 0.2, 1, 2, 5, 10, 100];
+        else
+             interval=sort([0.01, 0.05, 0.1, 0.2, 1, 2, 5, 10, 100]);
+        end
     end
 
     % Initial magnitude calculation
@@ -128,18 +142,6 @@ function varargout = asymptotic_bodemag(obj)
     xlabel('Frequency [rad/s]','FontSize',14)
     xlim([interval(1), interval(end)]);
     grid on
-
-    % mark frequencies
-    if ~isempty(w_t)
-        y0=get(gca,'ylim');
-        y0=y0(1);
-        Ind=unique(mod(find(interval(:)==w_t(1,:)),length(interval)),'stable');
-
-        tx = [w_t(1,:);w_t(1,:);nan(1,length(w_t(1,:)))];
-        ty = [y0*ones(1,length(w_t(1,:)));mag(Ind);nan(1,length(w_t(1,:)))];
-
-        % plot(tx(:),ty(:),'--k','LineWidth',0.75);
-    end
     
     title('Asymptotic Bode magnitude plot');
 
