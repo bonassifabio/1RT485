@@ -4,7 +4,7 @@ default: build
 
 build:
 	echo "Building the book"
-	mamba run -n book jupyter book build ./book --path-output ./
+	MWI_USE_EXISTING_LICENSE=true mamba run -n book jupyter book build ./book --path-output ./
 
 setup:
 	cd .dev/
@@ -17,5 +17,8 @@ setup:
 
 web:
 	mamba run -n book ghp-import -n -p -f _build/html
+
+notebooks:
+	MWI_USE_EXISTING_LICENSE=true mamba run -n book python3 scripts/execute_notebooks.py
 
 all: build web

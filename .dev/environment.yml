@@ -20,3 +20,4 @@ dependencies:
       - jupyter-matlab-proxy
       - sphinxemoji
       - jupyter-tikz
+      - jb1-zoomies
