@@ -35,7 +35,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=efbb3667" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/viewer_custom.css?v=f07af0ce" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -60,9 +61,72 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/viewerjs/dist/viewer.min.js"></script>
+    <script>window.ViewerConfig = {"selector": ".bd-article img", "toolbar": ["zoomIn", "zoomOut", "oneToOne", "reset"], "bestFit": 70};</script>
+    <script>const style = document.createElement('style'); style.textContent = `
+    :root {
+        --zoomies-bg-color: rgba(255, 255, 255, 0.95);
+        --zoomies-caption-color: var(--pst-color-text-base);
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75);
+        --zoomies-img-padding: 15px;
+        --zoomies-img-rounded: 8px;
+    }
+
+    /* Robust dark mode detection */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --zoomies-bg-color: #333;
+            --zoomies-caption-color: var(--pst-color-text-base);
+            --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+            --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85);
+        }
+    }
+
+    html[data-theme="dark"], body[data-theme="dark"], [data-theme="dark"], .theme-dark, .dark {
+        --zoomies-bg-color: #333 !important;
+        --zoomies-caption-color: var(--pst-color-text-base) !important;
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    html[data-theme="light"], body[data-theme="light"], [data-theme="light"], .theme-light, .light {
+        --zoomies-bg-color: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-caption-color: var(--pst-color-text-base) !important;
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75) !important;
+    }
+    
+    /* Hide scrollbar for primary and secondary sidebars */
+    .bd-sidebar-primary,
+    .bd-sidebar-secondary {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow-y: auto !important; /* Keep it scrollable but hide the bar */
+    }
+
+    .bd-sidebar-primary::-webkit-scrollbar,
+    .bd-sidebar-secondary::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+
+    /* Global image inversion in dark mode */
+    html[data-theme="dark"] img, 
+    html[data-theme="dark"] .cell_output img, 
+    html[data-theme="dark"] .rendered_html img {
+        filter: invert(1) hue-rotate(180deg) !important;
+        mix-blend-mode: normal !important; 
+        isolation: isolate;
+        background-color: transparent !important;
+    }
+
+    /* Specific override for the Viewer.js image to allow its background to be inverted correctly */
+    html[data-theme="dark"] .viewer-canvas img {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+    `; document.head.appendChild(style);</script>
+    <script src="../_static/viewer_custom.js?v=3f26c593"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-1/useful-formulas';</script>
-    <script src="../_static/custom.js?v=5a719d51"></script>
-    <script src="../_static/envs.js"></script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -654,7 +718,7 @@ G(s) = \frac{\omega_0^2}{s^2 + 2s + \omega_0^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f52066dc0c9612319e411e9c5b34c103dfe8b2d5c5a36825c0fa7decf6798b7f.png" src="../_images/f52066dc0c9612319e411e9c5b34c103dfe8b2d5c5a36825c0fa7decf6798b7f.png" />
+<img alt="../_images/4e93fb1adc43c9292f18bd1cd4b724d9f24a3975e759245c83648dcf7eba5e1f.png" src="../_images/4e93fb1adc43c9292f18bd1cd4b724d9f24a3975e759245c83648dcf7eba5e1f.png" />
 </div>
 </div>
 </section>
@@ -801,12 +865,6 @@ By Fabio Bonassi
 <div class="extra_footer">
   <script data-goatcounter="https://bonassifabio.goatcounter.com/count"
     async src="//gc.zgo.at/count.js"></script>
-<script>
-  window.ViewerConfig = {
-    css: "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css",
-    js: "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js"
-  };
-</script>
 
 </div>
   </div>

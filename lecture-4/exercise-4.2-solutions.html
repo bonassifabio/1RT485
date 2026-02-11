@@ -35,7 +35,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=efbb3667" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/viewer_custom.css?v=f07af0ce" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -60,9 +61,72 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/viewerjs/dist/viewer.min.js"></script>
+    <script>window.ViewerConfig = {"selector": ".bd-article img", "toolbar": ["zoomIn", "zoomOut", "oneToOne", "reset"], "bestFit": 70};</script>
+    <script>const style = document.createElement('style'); style.textContent = `
+    :root {
+        --zoomies-bg-color: rgba(255, 255, 255, 0.95);
+        --zoomies-caption-color: var(--pst-color-text-base);
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75);
+        --zoomies-img-padding: 15px;
+        --zoomies-img-rounded: 8px;
+    }
+
+    /* Robust dark mode detection */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --zoomies-bg-color: #333;
+            --zoomies-caption-color: var(--pst-color-text-base);
+            --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+            --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85);
+        }
+    }
+
+    html[data-theme="dark"], body[data-theme="dark"], [data-theme="dark"], .theme-dark, .dark {
+        --zoomies-bg-color: #333 !important;
+        --zoomies-caption-color: var(--pst-color-text-base) !important;
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    html[data-theme="light"], body[data-theme="light"], [data-theme="light"], .theme-light, .light {
+        --zoomies-bg-color: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-caption-color: var(--pst-color-text-base) !important;
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75) !important;
+    }
+    
+    /* Hide scrollbar for primary and secondary sidebars */
+    .bd-sidebar-primary,
+    .bd-sidebar-secondary {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow-y: auto !important; /* Keep it scrollable but hide the bar */
+    }
+
+    .bd-sidebar-primary::-webkit-scrollbar,
+    .bd-sidebar-secondary::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+
+    /* Global image inversion in dark mode */
+    html[data-theme="dark"] img, 
+    html[data-theme="dark"] .cell_output img, 
+    html[data-theme="dark"] .rendered_html img {
+        filter: invert(1) hue-rotate(180deg) !important;
+        mix-blend-mode: normal !important; 
+        isolation: isolate;
+        background-color: transparent !important;
+    }
+
+    /* Specific override for the Viewer.js image to allow its background to be inverted correctly */
+    html[data-theme="dark"] .viewer-canvas img {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+    `; document.head.appendChild(style);</script>
+    <script src="../_static/viewer_custom.js?v=3f26c593"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-4/exercise-4.2-solutions';</script>
-    <script src="../_static/custom.js?v=5a719d51"></script>
-    <script src="../_static/envs.js"></script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -598,25 +662,20 @@ G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 +
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4f1c5828036ac44a6e2769e610d20f444c7d5be7b77107e23c34fd9ab2cf289b.png" src="../_images/4f1c5828036ac44a6e2769e610d20f444c7d5be7b77107e23c34fd9ab2cf289b.png" />
+<img alt="../_images/257b9ad91ea41027971a983839ecde5fb7db97b374a344471cb6f6ea20897802.png" src="../_images/257b9ad91ea41027971a983839ecde5fb7db97b374a344471cb6f6ea20897802.png" />
 </div>
 </div>
 <p>The bandwidth for <span class="math notranslate nohighlight">\(K=1\)</span> is approximately <span class="math notranslate nohighlight">\(9\)</span> rad/s.</p>
 <p>This means we are required to find <span class="math notranslate nohighlight">\(K\)</span> such that the critical frequency is <span class="math notranslate nohighlight">\(18\)</span> rad/s. Looking at the Bode plot of <span class="math notranslate nohighlight">\(G(s)\)</span>, we can see that <span class="math notranslate nohighlight">\(\lvert G(i 18) \lvert_{\text{dB}} \approx -8 \)</span> dB.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Magnitude at 18 rad/s: %.1f dB\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">mag2db</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">freqresp</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">))));</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">mag_at_18</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="n">mag2db</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">freqresp</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">)));</span>
+<span class="nb">disp</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;Magnitude at 18 rad/s: %.1f dB&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">mag_at_18</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Magnitude at 18 rad/s: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-8.6
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Magnitude at 18 rad/s: -8.6 dB
 </pre></div>
 </div>
 </div>
@@ -632,7 +691,7 @@ G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 +
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c9e76f50f331fa94ab69c62ef1707d439d60c9acee695e9badcfb233b86ee2ac.png" src="../_images/c9e76f50f331fa94ab69c62ef1707d439d60c9acee695e9badcfb233b86ee2ac.png" />
+<img alt="../_images/ffe1a10bf8081545ae613ee7831839d84e021e3022ded01313c4ba85084bc64e.png" src="../_images/ffe1a10bf8081545ae613ee7831839d84e021e3022ded01313c4ba85084bc64e.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -644,44 +703,20 @@ G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 +
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G_c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="c">% Closed looop transfer function for K=1</span>
 <span class="p">[</span><span class="n">mag</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bode</span><span class="p">(</span><span class="n">G_c</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">});</span>
 <span class="n">w_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">mag</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last&#39;</span><span class="p">));</span>
-<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Closed-loop bandwidth for K=1 is %.2f rad/s, while the critical frequency is %.0f rad/s\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">w_b</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;Closed-loop bandwidth for K=1 is %.2f rad/s, while the critical frequency is %.0f rad/s&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">w_b</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">));</span>
 
 <span class="n">G_c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Go</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Go</span><span class="p">);</span><span class="w"> </span><span class="c">% Closed looop transfer function for K=2.7</span>
 <span class="p">[</span><span class="n">mag</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">bode</span><span class="p">(</span><span class="n">G_c</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">});</span>
 <span class="n">w_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">mag</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;last&#39;</span><span class="p">));</span>
-<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Closed-loop bandwidth for K=2.7 is %.2f rad/s, while the critical frequency is %.0f rad/s\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">w_b</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;Closed-loop bandwidth for K=2.7 is %.2f rad/s, while the critical frequency is %.0f rad/s&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">w_b</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closed-loop bandwidth for K=1 is 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closed-loop bandwidth for K=1 is 14.42 rad/s, while the critical frequency is 9 rad/s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.42
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> rad/s, while the critical frequency is 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> rad/s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closed-loop bandwidth for K=2.7 is 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28.45
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> rad/s, while the critical frequency is 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> rad/s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Closed-loop bandwidth for K=2.7 is 28.45 rad/s, while the critical frequency is 18 rad/s
 </pre></div>
 </div>
 </div>
@@ -710,7 +745,7 @@ G_c(s) = \frac{G_o(s)}{1+G_o(s)} = \frac{10 K}{(T T_1 T_2)s^4 + (T T_1 + T T_2 +
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cde9ae79531c924e0c1b03ecd47149fb7112abb9256263350de8da1cbece1b15.png" src="../_images/cde9ae79531c924e0c1b03ecd47149fb7112abb9256263350de8da1cbece1b15.png" />
+<img alt="../_images/f35e61b805211f9b081f3f31f798e584326e0f90c6c404ea27de873a1cdf824e.png" src="../_images/f35e61b805211f9b081f3f31f798e584326e0f90c6c404ea27de873a1cdf824e.png" />
 </div>
 </div>
 <p>The closed-loop is stable for <span class="math notranslate nohighlight">\(0 &lt; K &lt; 3.9\)</span>.</p>
@@ -855,12 +890,6 @@ By Fabio Bonassi
 <div class="extra_footer">
   <script data-goatcounter="https://bonassifabio.goatcounter.com/count"
     async src="//gc.zgo.at/count.js"></script>
-<script>
-  window.ViewerConfig = {
-    css: "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css",
-    js: "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js"
-  };
-</script>
 
 </div>
   </div>

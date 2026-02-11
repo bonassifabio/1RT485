@@ -1,0 +1,48 @@
+/* --- Base Styles for Caption --- */
+.viewer-title {
+    font-size: 1.25rem !important;
+    line-height: 1.4;
+    font-weight: 500;
+    white-space: normal;
+    padding-bottom: 10px;
+    opacity: 1 !important;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    color: var(--zoomies-caption-color) !important;
+
+    /* Halo effect using standard PST background variables */
+    text-shadow: 
+        0 0 3px var(--pst-color-background, #fff), 
+        0 0 6px var(--pst-color-background, #fff);
+}
+
+/* --- Dynamic Background Application --- */
+
+/* 1. Backdrop Background */
+.viewer-backdrop {
+    background-color: var(--zoomies-backdrop-bg) !important;
+}
+
+/* 2. Image Background (for transparent images) */
+.viewer-container .viewer-canvas > img {
+    background-color: var(--zoomies-img-bg) !important;
+    padding: var(--zoomies-img-padding, 0) !important;
+    border-radius: var(--zoomies-img-rounded, 0) !important;
+    
+    /* Ensure padding and background are visible */
+    box-sizing: content-box !important;
+
+    /* Prevent vertical stretching when zooming beyond screen width */
+    max-width: none !important;
+    max-height: none !important;
+    flex-shrink: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    /* Extra visibility: subtle border in dark mode if it's the image background */
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.05) !important;
+}
+
+/* Ensure the canvas itself is transparent */
+.viewer-canvas {
+    background-color: transparent !important;
+}

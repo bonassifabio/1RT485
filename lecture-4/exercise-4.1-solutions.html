@@ -35,7 +35,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=efbb3667" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/viewer_custom.css?v=f07af0ce" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -60,9 +61,72 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/viewerjs/dist/viewer.min.js"></script>
+    <script>window.ViewerConfig = {"selector": ".bd-article img", "toolbar": ["zoomIn", "zoomOut", "oneToOne", "reset"], "bestFit": 70};</script>
+    <script>const style = document.createElement('style'); style.textContent = `
+    :root {
+        --zoomies-bg-color: rgba(255, 255, 255, 0.95);
+        --zoomies-caption-color: var(--pst-color-text-base);
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75);
+        --zoomies-img-padding: 15px;
+        --zoomies-img-rounded: 8px;
+    }
+
+    /* Robust dark mode detection */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --zoomies-bg-color: #333;
+            --zoomies-caption-color: var(--pst-color-text-base);
+            --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+            --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85);
+        }
+    }
+
+    html[data-theme="dark"], body[data-theme="dark"], [data-theme="dark"], .theme-dark, .dark {
+        --zoomies-bg-color: #333 !important;
+        --zoomies-caption-color: var(--pst-color-text-base) !important;
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    html[data-theme="light"], body[data-theme="light"], [data-theme="light"], .theme-light, .light {
+        --zoomies-bg-color: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-caption-color: var(--pst-color-text-base) !important;
+        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75) !important;
+    }
+    
+    /* Hide scrollbar for primary and secondary sidebars */
+    .bd-sidebar-primary,
+    .bd-sidebar-secondary {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow-y: auto !important; /* Keep it scrollable but hide the bar */
+    }
+
+    .bd-sidebar-primary::-webkit-scrollbar,
+    .bd-sidebar-secondary::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+
+    /* Global image inversion in dark mode */
+    html[data-theme="dark"] img, 
+    html[data-theme="dark"] .cell_output img, 
+    html[data-theme="dark"] .rendered_html img {
+        filter: invert(1) hue-rotate(180deg) !important;
+        mix-blend-mode: normal !important; 
+        isolation: isolate;
+        background-color: transparent !important;
+    }
+
+    /* Specific override for the Viewer.js image to allow its background to be inverted correctly */
+    html[data-theme="dark"] .viewer-canvas img {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+    `; document.head.appendChild(style);</script>
+    <script src="../_static/viewer_custom.js?v=3f26c593"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-4/exercise-4.1-solutions';</script>
-    <script src="../_static/custom.js?v=5a719d51"></script>
-    <script src="../_static/envs.js"></script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -643,7 +707,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6367341ae6f8c74abfe001254703b2fa30a9ddfbb1dc51121534a40a7d4f07ae.png" src="../_images/6367341ae6f8c74abfe001254703b2fa30a9ddfbb1dc51121534a40a7d4f07ae.png" />
+<img alt="../_images/e7ae6cd02f4dc383d2365df66cad31e468f41713d27bd544639f88958e7273ef.png" src="../_images/e7ae6cd02f4dc383d2365df66cad31e468f41713d27bd544639f88958e7273ef.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -676,7 +740,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3ac7a32fe0b1496a38450b4c2c73a3f7f0e08045d5421bc241a0bf32ba6dfc92.png" src="../_images/3ac7a32fe0b1496a38450b4c2c73a3f7f0e08045d5421bc241a0bf32ba6dfc92.png" />
+<img alt="../_images/7eee4066514725cccde5e6d5d2f37c3f5ad717998c6eba1cd77fac28156582c6.png" src="../_images/7eee4066514725cccde5e6d5d2f37c3f5ad717998c6eba1cd77fac28156582c6.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
 </pre></div>
 </div>
@@ -723,7 +787,7 @@ G_{c1}(s) = \frac{5 K_1}{s + (0.2 + 5 K_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1fca20bd8ac31247103ea2c9bad0adae7842cfc2892623ebe440f1376ce66182.png" src="../_images/1fca20bd8ac31247103ea2c9bad0adae7842cfc2892623ebe440f1376ce66182.png" />
+<img alt="../_images/9fe38dbbc33d025fbf60fba29c42af9abc623eb5b1af6ed05e17982d2118d659.png" src="../_images/9fe38dbbc33d025fbf60fba29c42af9abc623eb5b1af6ed05e17982d2118d659.png" />
 </div>
 </div>
 <p>Let’s recall that the bandwitdh <span class="math notranslate nohighlight">\(\omega_B\)</span> can roughly be approximated as the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = 0\)</span> dB. Then, the magnitude of <span class="math notranslate nohighlight">\(G_1(s)\)</span> at the target critical frequency <span class="math notranslate nohighlight">\(\omega_c = 1\)</span> rad/s is <span class="math notranslate nohighlight">\(\lvert G_1(i 1) \lvert_{\text{dB}} \simeq 15\)</span> dB.
@@ -758,7 +822,7 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4444136b29392cf4d3c2cba190553ca973b823b156c96c38949f88dfa40052ae.png" src="../_images/4444136b29392cf4d3c2cba190553ca973b823b156c96c38949f88dfa40052ae.png" />
+<img alt="../_images/68742ba3177d06626749b9046078ad0c1f553416c1f0d8c1f9ed1652410ee3c2.png" src="../_images/68742ba3177d06626749b9046078ad0c1f553416c1f0d8c1f9ed1652410ee3c2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -844,7 +908,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bc64fe2380d0ec8437546b3793fbc6a535b8f98f2e62c2c2647b452cc30846c5.png" src="../_images/bc64fe2380d0ec8437546b3793fbc6a535b8f98f2e62c2c2647b452cc30846c5.png" />
+<img alt="../_images/ebc9511fed51619a4ab4ecb3ff56000976bc6cf26acbdf1e7b46be23fcc14289.png" src="../_images/ebc9511fed51619a4ab4ecb3ff56000976bc6cf26acbdf1e7b46be23fcc14289.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -886,7 +950,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9fba21f6e217bdb281762f15814be708de69461c58a50601339dc7a0d4773e70.png" src="../_images/9fba21f6e217bdb281762f15814be708de69461c58a50601339dc7a0d4773e70.png" />
+<img alt="../_images/99eb2f32c3b5c2e704b48bfd58112a1ff200051ac9fffb132c2b601f349141c4.png" src="../_images/99eb2f32c3b5c2e704b48bfd58112a1ff200051ac9fffb132c2b601f349141c4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1037,12 +1101,6 @@ By Fabio Bonassi
 <div class="extra_footer">
   <script data-goatcounter="https://bonassifabio.goatcounter.com/count"
     async src="//gc.zgo.at/count.js"></script>
-<script>
-  window.ViewerConfig = {
-    css: "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.css",
-    js: "https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.7/viewer.min.js"
-  };
-</script>
 
 </div>
   </div>
