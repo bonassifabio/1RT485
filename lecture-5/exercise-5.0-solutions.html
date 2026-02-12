@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
@@ -669,8 +669,8 @@ T(s) = -\frac{K \frac{10}{s+1}}{1 + K \frac{10}{s+1}} = -\frac{10 K}{s + 10K + 1
 <div class="math notranslate nohighlight" id="equation-eq-lec5-ex0-sol-complementary-sensitivity">
 <span class="eqno">(14)<a class="headerlink" href="#equation-eq-lec5-ex0-sol-complementary-sensitivity" title="Link to this equation">#</a></span>\[\begin{split}
 \lvert T(i \omega) \lvert_{\text{dB}} \approx \begin{dcases}
-    0 \text{ dB } &amp; \text{for } \omega &lt; \omega_c \\
-    \lvert G_o(i \omega) \lvert_{\text{dB}} &amp;  \text{for } \omega &gt; \omega_c
+    0 \text{ dB } &amp; \text{where } \lvert G_o (i \omega)\lvert_{\text{dB}} &gt; 0dB \\
+    \lvert G_o(i \omega) \lvert_{\text{dB}} &amp;  \text{where }  \lvert G_o (i \omega)\lvert_{\text{dB}} &lt; 0dB
 \end{dcases}
 \end{split}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(T(s)\)</span> is stable for any <span class="math notranslate nohighlight">\(K&gt;0\)</span>, the effect of <span class="math notranslate nohighlight">\(n(t) = \sin(50t)\)</span> on the output <span class="math notranslate nohighlight">\(y(t)\)</span> is described by <span class="math notranslate nohighlight">\(\lvert T(i50) \lvert\)</span>. In particular, the <strong>attenuation factor is defined</strong> as <span class="math notranslate nohighlight">\(\frac{1}{\lvert T(i50) \lvert}\)</span>.</p>
