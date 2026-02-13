@@ -636,9 +636,12 @@ G(s) = \frac{s+10}{(s+1)^2(s+5)}
 <p>Since the order of the closed-loop transfer function <span class="math notranslate nohighlight">\(G_c(s) = \frac{F(s) G(s)}{1 + F(s) G(s)}\)</span> is three, we can’t easily provide an analytical solution. We therefore inspect the root locus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if the `asymptotic_bode` function is available, otherwise download it</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Check if the `asymptotic_bode` and `rlocus_arrows` functions are available, otherwise download them from the github URLs.</span>
 <span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;asymptotic_bode&#39;</span><span class="p">)</span>
 <span class="w">    </span><span class="n">urlwrite</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/matlab/asymptotic_bode.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;asymptotic_bode.m&#39;</span><span class="p">);</span>
+<span class="k">end</span>
+<span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="nb">exist</span><span class="p">(</span><span class="s">&#39;rlocus_arrows&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">urlwrite</span><span class="p">(</span><span class="s">&#39;https://raw.githubusercontent.com/bonassifabio/1RT485/refs/heads/main/book/res/matlab/rlocus_arrows.m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;rlocus_arrow.m&#39;</span><span class="p">);</span>
 <span class="k">end</span>
 
 <span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">);</span>
@@ -649,23 +652,12 @@ G(s) = \frac{s+10}{(s+1)^2(s+5)}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">rlocus</span><span class="p">(</span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"> </span><span class="c">% Plot the root locus</span>
-
-<span class="c">% Plot the closed-loop poles for specific values of K</span>
-<span class="n">K_points</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">];</span>
-<span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="n">K_points</span>
-<span class="w">    </span><span class="n">Go</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">G</span><span class="p">;</span>
-<span class="w">    </span><span class="p">[</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">den</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tfdata</span><span class="p">(</span><span class="n">Go</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;vector&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">poles</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">roots</span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">den</span><span class="p">);</span>
-<span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">poles</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerSize&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;auto&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;DisplayName&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;K=%.2f&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">));</span>
-<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;markerfacecolor&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">get</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;color&#39;</span><span class="p">));</span>
-<span class="k">end</span>
-<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;northwest&#39;</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">rlocus_arrows</span><span class="p">(</span><span class="n">G</span><span class="p">);</span><span class="w"> </span><span class="c">% A convenient wrapper of rlocus that add arrows and relevant points to the root locus plot.</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2037016a17b0d4dd3a81b33c3c6388057ea7e457e7dded3aa8181760805761c3.png" src="../_images/2037016a17b0d4dd3a81b33c3c6388057ea7e457e7dded3aa8181760805761c3.png" />
+<img alt="../_images/a666cb62597aa47ff18a308f47266e7272c05dc846248c0510c8ad80ded01158.png" src="../_images/a666cb62597aa47ff18a308f47266e7272c05dc846248c0510c8ad80ded01158.png" />
 </div>
 </div>
 <p>From the root locus, we can see that the closed-loop poles are stable for <span class="math notranslate nohighlight">\(K &lt; 24\)</span>.</p>
@@ -743,7 +735,7 @@ G_o(s) = 10 \frac{s + 10}{(s+1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6ec13410d9cd2c3d2a8128fd80796864a5150e6499c102a66e917a041272c00d.png" src="../_images/6ec13410d9cd2c3d2a8128fd80796864a5150e6499c102a66e917a041272c00d.png" />
+<img alt="../_images/b1070c4ef4d7e1fc8fbe3f3d8b80138a7c4e4169bfe9c3c2f2887e12b5968880.png" src="../_images/b1070c4ef4d7e1fc8fbe3f3d8b80138a7c4e4169bfe9c3c2f2887e12b5968880.png" />
 </div>
 </div>
 <p>We can now evaluate the phase margin as</p>
@@ -836,7 +828,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex2-phase">(5)</a>, <sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3c084be0d2a579d6f1f2889e0b233418b4d59f0b3eeaf2ec45454e995b571863.png" src="../_images/3c084be0d2a579d6f1f2889e0b233418b4d59f0b3eeaf2ec45454e995b571863.png" />
+<img alt="../_images/208254988c545549458e52b9d151b8a58e1ca53408e3e280fd7424a26a56d1bb.png" src="../_images/208254988c545549458e52b9d151b8a58e1ca53408e3e280fd7424a26a56d1bb.png" />
 </div>
 </div>
 </section>
