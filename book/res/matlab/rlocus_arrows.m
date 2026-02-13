@@ -189,7 +189,7 @@ function rlocus_arrows(sys)
   
   xlabel('Real');
   ylabel('Imaginary');
-  title('Root Locus with Directional Arrows');
+  title('Root Locus');
   grid on;
 
   % Move axes lines to the background
