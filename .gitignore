@@ -5,9 +5,7 @@ _build/
 octave-workspace
 bin/
 .DS_Store
-book/lecture-*/asymptotic_bode.m
-book/lecture-*/asymptotic_bodemag.m
-book/lecture-*/bodeplot_universal.m
+book/lecture-*/*.m
 .ipynb_checkpoints
 .pyc
 **/__pycache__
