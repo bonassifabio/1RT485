@@ -97,6 +97,8 @@ chapters:
       - file: lecture-6/exercise-6.1.ipynb
         sections:
           - file: lecture-6/exercise-6.1-solutions.ipynb
-
+      - file: lecture-6/exercise-6.2.ipynb
+        sections:
+          - file: lecture-6/exercise-6.2-solutions.ipynb
   # - file: lecture-7/index
 
