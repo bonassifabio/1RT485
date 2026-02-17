@@ -89,6 +89,11 @@ chapters:
         sections:
           - file: lecture-5/exercise-5.3-solutions.ipynb
           
-  # - file: lecture-6/index
+  - file: lecture-6/index
+    sections:
+      - file: lecture-6/exercise-6.0.ipynb
+        sections:
+          - file: lecture-6/exercise-6.0-solutions.ipynb
+
   # - file: lecture-7/index
 
