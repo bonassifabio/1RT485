@@ -81,6 +81,7 @@ sphinx:
     - teachbooks_zoomies
     - jupyterbook_patches
     - sphinx_accessibility
+    - teachbooks_sphinx_tippy
   local_extensions:
     tag_logic: _extensions
   config:

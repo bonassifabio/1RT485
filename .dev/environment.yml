@@ -23,3 +23,5 @@ dependencies:
       - teachbooks-zoomies
       - jupyterbook_patches
       - sphinx-accessibility
+      - teachbooks-sphinx-tippy
+
