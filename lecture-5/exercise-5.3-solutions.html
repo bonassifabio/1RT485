@@ -32,8 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/image_dark_mode.css?v=803b5a5f" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/viewer_custom.css?v=f07af0ce" />
@@ -78,7 +79,7 @@
         :root {
             --zoomies-bg-color: #333;
             --zoomies-caption-color: var(--pst-color-text-base);
-            --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+            --zoomies-img-bg: #333;
             --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85);
         }
     }
@@ -86,7 +87,7 @@
     html[data-theme="dark"], body[data-theme="dark"], [data-theme="dark"], .theme-dark, .dark {
         --zoomies-bg-color: #333 !important;
         --zoomies-caption-color: var(--pst-color-text-base) !important;
-        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-img-bg: #333 !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85) !important;
     }
 
@@ -96,40 +97,13 @@
         --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75) !important;
     }
-    
-    /* Hide scrollbar for primary and secondary sidebars */
-    .bd-sidebar-primary,
-    .bd-sidebar-secondary {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        overflow-y: auto !important; /* Keep it scrollable but hide the bar */
-    }
-
-    .bd-sidebar-primary::-webkit-scrollbar,
-    .bd-sidebar-secondary::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-    }
-
-    /* Global image inversion in dark mode */
-    html[data-theme="dark"] img, 
-    html[data-theme="dark"] .cell_output img, 
-    html[data-theme="dark"] .rendered_html img {
-        filter: invert(1) hue-rotate(180deg) !important;
-        mix-blend-mode: normal !important; 
-        isolation: isolate;
-        background-color: transparent !important;
-    }
-
-    /* Specific override for the Viewer.js image to allow its background to be inverted correctly */
-    html[data-theme="dark"] .viewer-canvas img {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-    }
     `; document.head.appendChild(style);</script>
     <script src="../_static/viewer_custom.js?v=3f26c593"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-5/exercise-5.3-solutions';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercise session 6" href="../lecture-6/index.html" />
     <link rel="prev" title="Exercise 5.3" href="exercise-5.3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -220,8 +194,8 @@
     
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485 Exercise Book 2.0 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="1RT485 Exercise Book 2.0 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485"/>
+    <script>document.write(`<img src="../_static/logo-dark.svg" class="logo__image only-dark" alt="1RT485"/>`);</script>
   
   
 </a></div>
@@ -358,6 +332,29 @@
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="exercise-5.3.html">Exercise 5.3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Solutions of Exercise 5.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-6/index.html">Exercise session 6</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.0.html">Exercise 6.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.0-solutions.html">Solutions of Exercise 6.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.1.html">Exercise 6.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.1-solutions.html">Solutions of Exercise 6.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.2.html">Exercise 6.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.2-solutions.html">Solutions of Exercise 6.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.3.html">Exercise 6.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.3-solutions.html">Solutions of Exercise 6.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.4.html">Exercise 6.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.4-solutions.html">Solutions of Exercise 6.4</a></li>
 </ul>
 </details></li>
 </ul>
@@ -631,7 +628,7 @@ G^0(s) = G(s) \frac{\alpha}{s+\alpha}, \quad \text{where } \alpha &gt; 0
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex3-sol-bode">
-<a class="reference internal image-reference" href="../_images/60ab1104b93ebf891f22cbb7eab21d9bea613ecef1eaf7c7768e6b03b6477ab7.png"><img alt="../_images/60ab1104b93ebf891f22cbb7eab21d9bea613ecef1eaf7c7768e6b03b6477ab7.png" src="../_images/60ab1104b93ebf891f22cbb7eab21d9bea613ecef1eaf7c7768e6b03b6477ab7.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/19c307537a3f98f644f4fd275b4f59cbc0e81a7e6661c163c3092c7bcaf9a7b5.png"><img alt="../_images/19c307537a3f98f644f4fd275b4f59cbc0e81a7e6661c163c3092c7bcaf9a7b5.png" src="../_images/19c307537a3f98f644f4fd275b4f59cbc0e81a7e6661c163c3092c7bcaf9a7b5.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 54 </span><span class="caption-text">Magnitude Bode plot of the nominal complementary sensitivity transfer function <span class="math notranslate nohighlight">\(T(s)\)</span>.</span><a class="headerlink" href="#fig-lec5-ex3-sol-bode" title="Link to this image">#</a></p>
@@ -735,7 +732,7 @@ G^0(s) = G(s) \left( 1 + \Delta(s) \right)
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex3-sol-delta-bode">
-<a class="reference internal image-reference" href="../_images/322e41ab0a64b14a3d0da08ecc441be38b49a685bb133bfd9857c8bac538dc5e.png"><img alt="../_images/322e41ab0a64b14a3d0da08ecc441be38b49a685bb133bfd9857c8bac538dc5e.png" src="../_images/322e41ab0a64b14a3d0da08ecc441be38b49a685bb133bfd9857c8bac538dc5e.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/9aa72ca6659bf96b60d101da206b6f878c4e79bc0b0b48dc456fd68006e59823.png"><img alt="../_images/9aa72ca6659bf96b60d101da206b6f878c4e79bc0b0b48dc456fd68006e59823.png" src="../_images/9aa72ca6659bf96b60d101da206b6f878c4e79bc0b0b48dc456fd68006e59823.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 55 </span><span class="caption-text">Asymoptotic magnitude plot of <span class="math notranslate nohighlight">\(\Delta(s)\)</span> for several values of <span class="math notranslate nohighlight">\(\alpha\)</span>.</span><a class="headerlink" href="#fig-lec5-ex3-sol-delta-bode" title="Link to this image">#</a></p>
@@ -747,7 +744,7 @@ G^0(s) = G(s) \left( 1 + \Delta(s) \right)
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex3-sol-comparison-1">
-<a class="reference internal image-reference" href="../_images/9e111438a3fc167d068151eb1759eb20403f119f8b8d54da9e5d71de5e6c9c68.png"><img alt="../_images/9e111438a3fc167d068151eb1759eb20403f119f8b8d54da9e5d71de5e6c9c68.png" src="../_images/9e111438a3fc167d068151eb1759eb20403f119f8b8d54da9e5d71de5e6c9c68.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/0ef58cd24082bc4d12984103e93434d8901dcb95edf5ac06af71806ecc99f888.png"><img alt="../_images/0ef58cd24082bc4d12984103e93434d8901dcb95edf5ac06af71806ecc99f888.png" src="../_images/0ef58cd24082bc4d12984103e93434d8901dcb95edf5ac06af71806ecc99f888.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 56 </span><span class="caption-text">Comparison between the nominal complementary sensitivity <span class="math notranslate nohighlight">\(\lvert T(i \omega) \lvert_{\text{dB}}\)</span> and  <span class="math notranslate nohighlight">\(-\lvert \Delta(i \omega) \lvert_{\text{dB}}\)</span></span><a class="headerlink" href="#fig-lec5-ex3-sol-comparison-1" title="Link to this image">#</a></p>
@@ -759,7 +756,7 @@ G^0(s) = G(s) \left( 1 + \Delta(s) \right)
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex3-sol-comparison-2">
-<a class="reference internal image-reference" href="../_images/b237df89d23d94219d63af2f930d972ee4b5c70f5abd266a6f9f070abd19c8c2.png"><img alt="../_images/b237df89d23d94219d63af2f930d972ee4b5c70f5abd266a6f9f070abd19c8c2.png" src="../_images/b237df89d23d94219d63af2f930d972ee4b5c70f5abd266a6f9f070abd19c8c2.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/5e3203151a164f5f822a34941d4be4814aa71ab074b9e9a4a4b22e9cc75c854b.png"><img alt="../_images/5e3203151a164f5f822a34941d4be4814aa71ab074b9e9a4a4b22e9cc75c854b.png" src="../_images/5e3203151a164f5f822a34941d4be4814aa71ab074b9e9a4a4b22e9cc75c854b.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 57 </span><span class="caption-text">Comparison between the nominal complementary sensitivity <span class="math notranslate nohighlight">\(\lvert T(i \omega) \lvert_{\text{dB}}\)</span> and  <span class="math notranslate nohighlight">\(-\lvert \Delta(i \omega) \lvert_{\text{dB}}\)</span> for <span class="math notranslate nohighlight">\(\alpha=4\)</span>.</span><a class="headerlink" href="#fig-lec5-ex3-sol-comparison-2" title="Link to this image">#</a></p>
@@ -819,6 +816,15 @@ G^0(s) = G(s) \left( 1 + \Delta(s) \right)
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Exercise 5.3</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../lecture-6/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise session 6</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

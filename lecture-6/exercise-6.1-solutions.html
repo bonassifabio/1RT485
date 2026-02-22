@@ -32,8 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/image_dark_mode.css?v=803b5a5f" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/viewer_custom.css?v=f07af0ce" />
@@ -78,7 +79,7 @@
         :root {
             --zoomies-bg-color: #333;
             --zoomies-caption-color: var(--pst-color-text-base);
-            --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+            --zoomies-img-bg: #333;
             --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85);
         }
     }
@@ -86,7 +87,7 @@
     html[data-theme="dark"], body[data-theme="dark"], [data-theme="dark"], .theme-dark, .dark {
         --zoomies-bg-color: #333 !important;
         --zoomies-caption-color: var(--pst-color-text-base) !important;
-        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-img-bg: #333 !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85) !important;
     }
 
@@ -96,40 +97,14 @@
         --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75) !important;
     }
-    
-    /* Hide scrollbar for primary and secondary sidebars */
-    .bd-sidebar-primary,
-    .bd-sidebar-secondary {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        overflow-y: auto !important; /* Keep it scrollable but hide the bar */
-    }
-
-    .bd-sidebar-primary::-webkit-scrollbar,
-    .bd-sidebar-secondary::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-    }
-
-    /* Global image inversion in dark mode */
-    html[data-theme="dark"] img, 
-    html[data-theme="dark"] .cell_output img, 
-    html[data-theme="dark"] .rendered_html img {
-        filter: invert(1) hue-rotate(180deg) !important;
-        mix-blend-mode: normal !important; 
-        isolation: isolate;
-        background-color: transparent !important;
-    }
-
-    /* Specific override for the Viewer.js image to allow its background to be inverted correctly */
-    html[data-theme="dark"] .viewer-canvas img {
-        background-color: rgba(255, 255, 255, 0.95) !important;
-    }
     `; document.head.appendChild(style);</script>
     <script src="../_static/viewer_custom.js?v=3f26c593"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lecture-6/exercise-6.1-solutions';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercise 6.2" href="exercise-6.2.html" />
+    <link rel="prev" title="Exercise 6.1" href="exercise-6.1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,8 +167,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -221,8 +194,8 @@
     
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485 Exercise Book 2.0 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="1RT485 Exercise Book 2.0 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485"/>
+    <script>document.write(`<img src="../_static/logo-dark.svg" class="logo__image only-dark" alt="1RT485"/>`);</script>
   
   
 </a></div>
@@ -247,7 +220,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-1/index.html">Exercise session 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-1/exercise-1.0.html">Exercise 1.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-1/exercise-1.0-solutions.html">Solutions of Exercise 1.0</a></li>
@@ -359,6 +332,29 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-5/exercise-5.3.html">Exercise 5.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-5/exercise-5.3-solutions.html">Solutions of Exercise 5.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Exercise session 6</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-6.0.html">Exercise 6.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-6.0-solutions.html">Solutions of Exercise 6.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="exercise-6.1.html">Exercise 6.1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Solutions of Exercise 6.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-6.2.html">Exercise 6.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-6.2-solutions.html">Solutions of Exercise 6.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-6.3.html">Exercise 6.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-6.3-solutions.html">Solutions of Exercise 6.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="exercise-6.4.html">Exercise 6.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercise-6.4-solutions.html">Solutions of Exercise 6.4</a></li>
 </ul>
 </details></li>
 </ul>
@@ -614,17 +610,17 @@ document.write(`
 <span id="ref-lec6-ex1-sol"></span><h1>Solutions of Exercise 6.1<a class="headerlink" href="#solutions-of-exercise-6-1" title="Link to this heading">#</a></h1>
 <p>A state-space representation of <span class="math notranslate nohighlight">\(G(s) = \frac{1}{s+1}\)</span> is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec6-ex1-sol-state-space">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-lec6-ex1-sol-state-space" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(26)<a class="headerlink" href="#equation-eq-lec6-ex1-sol-state-space" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{dcases}
     \dot{x} = \begin{bmatrix} -1 &amp; 0 \\ 0 &amp; 2  \end{bmatrix} x + \begin{bmatrix} 1 \\ 1 \end{bmatrix} u \\
     y = \begin{bmatrix} 1 &amp; 0 \end{bmatrix} x
 \end{dcases}
 \end{split}\]</div>
 <ol class="arabic simple">
-<li><p>Compute the poles of <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">()</a> and compare them with those of <span class="math notranslate nohighlight">\(G(s)\)</span>.</p></li>
-<li><p>Is <span class="math notranslate nohighlight">\(G(s)\)</span> input-output stable? Is <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">()</a> asymptotically stable?</p></li>
+<li><p>Compute the poles of <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">(26)</a> and compare them with those of <span class="math notranslate nohighlight">\(G(s)\)</span>.</p></li>
+<li><p>Is <span class="math notranslate nohighlight">\(G(s)\)</span> input-output stable? Is <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">(26)</a> asymptotically stable?</p></li>
 <li><p>Examine the controlalbility and observability of the system.</p></li>
-<li><p>Explain why <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">()</a> is not a good realization of <span class="math notranslate nohighlight">\(G(s)\)</span>, and provide a better state-space realization.</p></li>
+<li><p>Explain why <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">(26)</a> is not a good realization of <span class="math notranslate nohighlight">\(G(s)\)</span>, and provide a better state-space realization.</p></li>
 </ol>
 <hr class="docutils" />
 <section id="solution">
@@ -632,7 +628,7 @@ document.write(`
 <section id="question-1">
 <h3>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h3>
 <p>The poles of <span class="math notranslate nohighlight">\(G(s)\)</span> are the roots of the denominator, i.e., <span class="math notranslate nohighlight">\(s = -1\)</span>.
-The poles of <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">()</a> are the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>, and they can be computed by finding the roots of the characteristic polynomial</p>
+The poles of <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">(26)</a> are the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>, and they can be computed by finding the roots of the characteristic polynomial</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \varphi(\lambda) = \det \begin{bmatrix} \lambda + 1 &amp; 0 \\ 0 &amp; \lambda - 2 \end{bmatrix} = (\lambda + 1) (\lambda - 2)
@@ -642,7 +638,7 @@ The poles of <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state
 <section id="question-2">
 <h3>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h3>
 <p>The system is input-output stable if all the poles of <span class="math notranslate nohighlight">\(G(s)\)</span> have negative real part. In this case, we just have one pole in <span class="math notranslate nohighlight">\(s=-1\)</span>, which means that the system is actually input-output stable.</p>
-<p>Asymptotic stability depends, instead, depends on the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> (i.e., on the poles of the state-space system). We have one positive eigenvalue (<span class="math notranslate nohighlight">\(\lambda = 2\)</span>), which means that the <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">()</a> is <strong>unstable</strong>.</p>
+<p>Asymptotic stability depends, instead, depends on the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> (i.e., on the poles of the state-space system). We have one positive eigenvalue (<span class="math notranslate nohighlight">\(\lambda = 2\)</span>), which means that the <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">(26)</a> is <strong>unstable</strong>.</p>
 <section id="how-is-this-possible">
 <h4>How is this possible?<a class="headerlink" href="#how-is-this-possible" title="Link to this heading">#</a></h4>
 <p>To understand what’s happening, let’s assume <span class="math notranslate nohighlight">\(x(0) = 0\)</span> and <span class="math notranslate nohighlight">\(u(t) = \textrm{step}(t)\)</span>. Computing the state trajectory via the Lagrange formula yields</p>
@@ -655,7 +651,7 @@ x(t) = \cancel{x(0) e^{At}} + \int_{0}^{t} e^{A\tau} B u(t - \tau) d \tau =  \in
 <li><p><span class="math notranslate nohighlight">\(x_1(t) = \int_{0}^{t} e^{-\tau} d \tau = [- e^{-\tau} ]_0^t = 1 - e^{-t}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(x_2(t) = \int_{0}^{t} e^{2\tau} d \tau = [0.5 e^{2\tau} ]_0^t = 0.5 e^{2t} - 0.5\)</span></p></li>
 </ul>
-<p>Note that <span class="math notranslate nohighlight">\(\lim_{t \to \infty} x_{1}(t) = 1\)</span>, meaning that <span class="math notranslate nohighlight">\(x_1(t)\)</span> is converging to a constant, while <span class="math notranslate nohighlight">\(\lim_{t \to \infty} x_2(t) = + \infty\)</span>, meaning that state <span class="math notranslate nohighlight">\(x_2(t)\)</span> is diverging. That’s why <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">()</a> is <strong>unstable</strong>.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\lim_{t \to \infty} x_{1}(t) = 1\)</span>, meaning that <span class="math notranslate nohighlight">\(x_1(t)\)</span> is converging to a constant, while <span class="math notranslate nohighlight">\(\lim_{t \to \infty} x_2(t) = + \infty\)</span>, meaning that state <span class="math notranslate nohighlight">\(x_2(t)\)</span> is diverging. That’s why <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">(26)</a> is <strong>unstable</strong>.</p>
 <p>If we compute, however, <span class="math notranslate nohighlight">\(y(t)\)</span>, we get</p>
 <div class="math notranslate nohighlight">
 \[
@@ -681,7 +677,7 @@ O = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 1 &amp; 0 \\ -1 &amp
 </section>
 <section id="question-4">
 <h3>Question 4<a class="headerlink" href="#question-4" title="Link to this heading">#</a></h3>
-<p><a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">()</a> is surely not a good realization of <span class="math notranslate nohighlight">\(G(s)\)</span> because it has an extra pole (<span class="math notranslate nohighlight">\(\lambda = 2\)</span>) that is <strong>unstable</strong> and not observable<a class="footnote-reference brackets" href="#obsv" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p><a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">(26)</a> is surely not a good realization of <span class="math notranslate nohighlight">\(G(s)\)</span> because it has an extra pole (<span class="math notranslate nohighlight">\(\lambda = 2\)</span>) that is <strong>unstable</strong> and not observable<a class="footnote-reference brackets" href="#obsv" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>A much better realization would be any of the <strong>controllable canonical realizations</strong> of <span class="math notranslate nohighlight">\(G(s)\)</span>, which would give the following first-order state-space model:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -694,7 +690,7 @@ y = x
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="obsv" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>We can claim that <span class="math notranslate nohighlight">\(\lambda = 2\)</span> is the unobservable pole because it is the one not showing up in <span class="math notranslate nohighlight">\(G(s)\)</span>, and we know that <span class="math notranslate nohighlight">\(\det(O) = 0\)</span>. To verify this, try to compute <span class="math notranslate nohighlight">\(G(s)\)</span> from <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">()</a> and check that it get cancelled.</p>
+<p>We can claim that <span class="math notranslate nohighlight">\(\lambda = 2\)</span> is the unobservable pole because it is the one not showing up in <span class="math notranslate nohighlight">\(G(s)\)</span>, and we know that <span class="math notranslate nohighlight">\(\det(O) = 0\)</span>. To verify this, try to compute <span class="math notranslate nohighlight">\(G(s)\)</span> from <a class="reference internal" href="#equation-eq-lec6-ex1-sol-state-space">(26)</a> and check that it get cancelled.</p>
 </aside>
 </aside>
 </section>
@@ -731,6 +727,24 @@ y = x
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="exercise-6.1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercise 6.1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercise-6.2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercise 6.2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

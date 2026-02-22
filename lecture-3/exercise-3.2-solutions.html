@@ -32,8 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/image_dark_mode.css?v=803b5a5f" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/viewer_custom.css?v=f07af0ce" />
@@ -78,7 +79,7 @@
         :root {
             --zoomies-bg-color: #333;
             --zoomies-caption-color: var(--pst-color-text-base);
-            --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+            --zoomies-img-bg: #333;
             --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85);
         }
     }
@@ -86,7 +87,7 @@
     html[data-theme="dark"], body[data-theme="dark"], [data-theme="dark"], .theme-dark, .dark {
         --zoomies-bg-color: #333 !important;
         --zoomies-caption-color: var(--pst-color-text-base) !important;
-        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-img-bg: #333 !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85) !important;
     }
 
@@ -95,34 +96,6 @@
         --zoomies-caption-color: var(--pst-color-text-base) !important;
         --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75) !important;
-    }
-    
-    /* Hide scrollbar for primary and secondary sidebars */
-    .bd-sidebar-primary,
-    .bd-sidebar-secondary {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        overflow-y: auto !important; /* Keep it scrollable but hide the bar */
-    }
-
-    .bd-sidebar-primary::-webkit-scrollbar,
-    .bd-sidebar-secondary::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-    }
-
-    /* Global image inversion in dark mode */
-    html[data-theme="dark"] img, 
-    html[data-theme="dark"] .cell_output img, 
-    html[data-theme="dark"] .rendered_html img {
-        filter: invert(1) hue-rotate(180deg) !important;
-        mix-blend-mode: normal !important; 
-        isolation: isolate;
-        background-color: transparent !important;
-    }
-
-    /* Specific override for the Viewer.js image to allow its background to be inverted correctly */
-    html[data-theme="dark"] .viewer-canvas img {
-        background-color: rgba(255, 255, 255, 0.95) !important;
     }
     `; document.head.appendChild(style);</script>
     <script src="../_static/viewer_custom.js?v=3f26c593"></script>
@@ -221,8 +194,8 @@
     
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485 Exercise Book 2.0 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="1RT485 Exercise Book 2.0 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485"/>
+    <script>document.write(`<img src="../_static/logo-dark.svg" class="logo__image only-dark" alt="1RT485"/>`);</script>
   
   
 </a></div>
@@ -359,6 +332,29 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-5/exercise-5.3.html">Exercise 5.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-5/exercise-5.3-solutions.html">Solutions of Exercise 5.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-6/index.html">Exercise session 6</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.0.html">Exercise 6.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.0-solutions.html">Solutions of Exercise 6.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.1.html">Exercise 6.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.1-solutions.html">Solutions of Exercise 6.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.2.html">Exercise 6.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.2-solutions.html">Solutions of Exercise 6.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.3.html">Exercise 6.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.3-solutions.html">Solutions of Exercise 6.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.4.html">Exercise 6.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.4-solutions.html">Solutions of Exercise 6.4</a></li>
 </ul>
 </details></li>
 </ul>
@@ -657,7 +653,7 @@ G(s) = \frac{s+10}{(s+1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e339fe83c8bf4915c69446bd8e751e3e782a4ab957022c7332da000a2266f0f5.png" src="../_images/e339fe83c8bf4915c69446bd8e751e3e782a4ab957022c7332da000a2266f0f5.png" />
+<img alt="../_images/0ffe4b5efbd4f76dce846b90be85db4b32266c599f76dc77f5d549806c470abe.png" src="../_images/0ffe4b5efbd4f76dce846b90be85db4b32266c599f76dc77f5d549806c470abe.png" />
 </div>
 </div>
 <p>From the root locus, we can see that the closed-loop poles are stable for <span class="math notranslate nohighlight">\(K &lt; 24\)</span>.</p>
@@ -735,7 +731,7 @@ G_o(s) = 10 \frac{s + 10}{(s+1)^2(s+5)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/625cf2458dec24e268f2ea16e9f5fe53df8ac2b9f6a29058edb880427b6d5ab6.png" src="../_images/625cf2458dec24e268f2ea16e9f5fe53df8ac2b9f6a29058edb880427b6d5ab6.png" />
+<img alt="../_images/0d1189f41391086bf3497e7fb82dfc48fa72088d5fe79760ce3da2de84c5c59b.png" src="../_images/0d1189f41391086bf3497e7fb82dfc48fa72088d5fe79760ce3da2de84c5c59b.png" />
 </div>
 </div>
 <p>We can now evaluate the phase margin as</p>
@@ -828,7 +824,7 @@ In <a class="reference internal" href="#equation-eq-lec3-ex2-phase">(5)</a>, <sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7563f22dd977c760afc8ad2c0f9f02812bbcb61bc56e21c817abdffa47eb209c.png" src="../_images/7563f22dd977c760afc8ad2c0f9f02812bbcb61bc56e21c817abdffa47eb209c.png" />
+<img alt="../_images/c8ae05a7448045919d94af2494ee3aec8b138e217e0e5cc3ddeef27854793742.png" src="../_images/c8ae05a7448045919d94af2494ee3aec8b138e217e0e5cc3ddeef27854793742.png" />
 </div>
 </div>
 </section>

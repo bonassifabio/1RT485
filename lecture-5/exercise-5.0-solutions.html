@@ -32,8 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/image_dark_mode.css?v=803b5a5f" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/viewer_custom.css?v=f07af0ce" />
@@ -78,7 +79,7 @@
         :root {
             --zoomies-bg-color: #333;
             --zoomies-caption-color: var(--pst-color-text-base);
-            --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+            --zoomies-img-bg: #333;
             --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85);
         }
     }
@@ -86,7 +87,7 @@
     html[data-theme="dark"], body[data-theme="dark"], [data-theme="dark"], .theme-dark, .dark {
         --zoomies-bg-color: #333 !important;
         --zoomies-caption-color: var(--pst-color-text-base) !important;
-        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-img-bg: #333 !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85) !important;
     }
 
@@ -95,34 +96,6 @@
         --zoomies-caption-color: var(--pst-color-text-base) !important;
         --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75) !important;
-    }
-    
-    /* Hide scrollbar for primary and secondary sidebars */
-    .bd-sidebar-primary,
-    .bd-sidebar-secondary {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        overflow-y: auto !important; /* Keep it scrollable but hide the bar */
-    }
-
-    .bd-sidebar-primary::-webkit-scrollbar,
-    .bd-sidebar-secondary::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-    }
-
-    /* Global image inversion in dark mode */
-    html[data-theme="dark"] img, 
-    html[data-theme="dark"] .cell_output img, 
-    html[data-theme="dark"] .rendered_html img {
-        filter: invert(1) hue-rotate(180deg) !important;
-        mix-blend-mode: normal !important; 
-        isolation: isolate;
-        background-color: transparent !important;
-    }
-
-    /* Specific override for the Viewer.js image to allow its background to be inverted correctly */
-    html[data-theme="dark"] .viewer-canvas img {
-        background-color: rgba(255, 255, 255, 0.95) !important;
     }
     `; document.head.appendChild(style);</script>
     <script src="../_static/viewer_custom.js?v=3f26c593"></script>
@@ -221,8 +194,8 @@
     
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485 Exercise Book 2.0 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="1RT485 Exercise Book 2.0 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485"/>
+    <script>document.write(`<img src="../_static/logo-dark.svg" class="logo__image only-dark" alt="1RT485"/>`);</script>
   
   
 </a></div>
@@ -359,6 +332,29 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="exercise-5.3.html">Exercise 5.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="exercise-5.3-solutions.html">Solutions of Exercise 5.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-6/index.html">Exercise session 6</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.0.html">Exercise 6.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.0-solutions.html">Solutions of Exercise 6.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.1.html">Exercise 6.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.1-solutions.html">Solutions of Exercise 6.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.2.html">Exercise 6.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.2-solutions.html">Solutions of Exercise 6.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.3.html">Exercise 6.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.3-solutions.html">Solutions of Exercise 6.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.4.html">Exercise 6.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.4-solutions.html">Solutions of Exercise 6.4</a></li>
 </ul>
 </details></li>
 </ul>
@@ -644,7 +640,7 @@ document.write(`
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex0-sol-bode">
-<a class="reference internal image-reference" href="../_images/d373d00c7f89251fa92abf07243cccc95c266aa1f2d7e9256fddf3a5c521ace3.png"><img alt="../_images/d373d00c7f89251fa92abf07243cccc95c266aa1f2d7e9256fddf3a5c521ace3.png" src="../_images/d373d00c7f89251fa92abf07243cccc95c266aa1f2d7e9256fddf3a5c521ace3.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/de2e021ab8129662912fe1a79f901d2c7452f0441b71cf496cb62ac5fe2f1ddd.png"><img alt="../_images/de2e021ab8129662912fe1a79f901d2c7452f0441b71cf496cb62ac5fe2f1ddd.png" src="../_images/de2e021ab8129662912fe1a79f901d2c7452f0441b71cf496cb62ac5fe2f1ddd.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 33 </span><span class="caption-text">Magnitude Bode plot of <span class="math notranslate nohighlight">\(G(s)\)</span></span><a class="headerlink" href="#fig-lec5-ex0-sol-bode" title="Link to this image">#</a></p>
@@ -682,7 +678,7 @@ T(s) = -\frac{K \frac{10}{s+1}}{1 + K \frac{10}{s+1}} = -\frac{10 K}{s + 10K + 1
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex0-sol-compsens-1">
-<a class="reference internal image-reference" href="../_images/80ca9c6cbaf57f68ffd23262127dde095d57240fa5dac7268f8b21ac3e67f4dc.png"><img alt="../_images/80ca9c6cbaf57f68ffd23262127dde095d57240fa5dac7268f8b21ac3e67f4dc.png" src="../_images/80ca9c6cbaf57f68ffd23262127dde095d57240fa5dac7268f8b21ac3e67f4dc.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/6352a966664c72b61960173c046789e6a8980141ec3f3dacaa40e97cd0930b6b.png"><img alt="../_images/6352a966664c72b61960173c046789e6a8980141ec3f3dacaa40e97cd0930b6b.png" src="../_images/6352a966664c72b61960173c046789e6a8980141ec3f3dacaa40e97cd0930b6b.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 34 </span><span class="caption-text">Magnitude Bode plot of <span class="math notranslate nohighlight">\(G_o(s)= G(s)\)</span> and <span class="math notranslate nohighlight">\(T(s) for \)</span>K=1$</span><a class="headerlink" href="#fig-lec5-ex0-sol-compsens-1" title="Link to this image">#</a></p>
@@ -710,7 +706,7 @@ T(s) = -\frac{K \frac{10}{s+1}}{1 + K \frac{10}{s+1}} = -\frac{10 K}{s + 10K + 1
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex0-sol-compsens-2">
-<a class="reference internal image-reference" href="../_images/0beab994798be32b8c55c3ef860bf16b11aa8fe1d5d8c1e24efada5144503352.png"><img alt="../_images/0beab994798be32b8c55c3ef860bf16b11aa8fe1d5d8c1e24efada5144503352.png" src="../_images/0beab994798be32b8c55c3ef860bf16b11aa8fe1d5d8c1e24efada5144503352.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/c958acef1e049879da375483a1a0080f448479bf8d4d2da16b81a416a0d61df9.png"><img alt="../_images/c958acef1e049879da375483a1a0080f448479bf8d4d2da16b81a416a0d61df9.png" src="../_images/c958acef1e049879da375483a1a0080f448479bf8d4d2da16b81a416a0d61df9.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 35 </span><span class="caption-text">Magnitude Bode plot of <span class="math notranslate nohighlight">\(G_o(s)= G(s)\)</span> and <span class="math notranslate nohighlight">\(T(s)\)</span> for <span class="math notranslate nohighlight">\(K=0.44\)</span></span><a class="headerlink" href="#fig-lec5-ex0-sol-compsens-2" title="Link to this image">#</a></p>
@@ -799,7 +795,7 @@ F(s) = \frac{1}{\tau s + 1} \quad \text{where } \tau = \frac{1}{\alpha}
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex0-sol-compsens-alpha-10">
-<a class="reference internal image-reference" href="../_images/1720d845bd48a2cf72fd0f203d648ea4e666914c4ad0b7f873967555b2e880ea.png"><img alt="../_images/1720d845bd48a2cf72fd0f203d648ea4e666914c4ad0b7f873967555b2e880ea.png" src="../_images/1720d845bd48a2cf72fd0f203d648ea4e666914c4ad0b7f873967555b2e880ea.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/5ebfe5d090591433a5e0f572ee10cb34100b0456868a5397170894490c8d93d3.png"><img alt="../_images/5ebfe5d090591433a5e0f572ee10cb34100b0456868a5397170894490c8d93d3.png" src="../_images/5ebfe5d090591433a5e0f572ee10cb34100b0456868a5397170894490c8d93d3.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 36 </span><span class="caption-text">Magnitude Bode plot of <span class="math notranslate nohighlight">\(G_o(s)= \frac{\alpha}{s + \alpha} G(s)\)</span> and <span class="math notranslate nohighlight">\(T(s)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 10\)</span></span><a class="headerlink" href="#fig-lec5-ex0-sol-compsens-alpha-10" title="Link to this image">#</a></p>
@@ -822,7 +818,7 @@ F(s) = \frac{1}{\tau s + 1} \quad \text{where } \tau = \frac{1}{\alpha}
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex0-sol-compsens-alpha-20">
-<a class="reference internal image-reference" href="../_images/ec88dd46cf836bbae04cc20d4909ccc899744f62700a2b4b2a71766329ba46cd.png"><img alt="../_images/ec88dd46cf836bbae04cc20d4909ccc899744f62700a2b4b2a71766329ba46cd.png" src="../_images/ec88dd46cf836bbae04cc20d4909ccc899744f62700a2b4b2a71766329ba46cd.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/2ddfcfa087e95c8b0871800a2502cb9bdcc462d7eee59f395e7399f111f2abf0.png"><img alt="../_images/2ddfcfa087e95c8b0871800a2502cb9bdcc462d7eee59f395e7399f111f2abf0.png" src="../_images/2ddfcfa087e95c8b0871800a2502cb9bdcc462d7eee59f395e7399f111f2abf0.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 37 </span><span class="caption-text">Magnitude Bode plot of <span class="math notranslate nohighlight">\(G_o(s)= \frac{\alpha}{s + \alpha} G(s)\)</span> and <span class="math notranslate nohighlight">\(T(s)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 20\)</span></span><a class="headerlink" href="#fig-lec5-ex0-sol-compsens-alpha-20" title="Link to this image">#</a></p>
@@ -851,7 +847,7 @@ F(s) = \frac{1}{\tau s + 1} \quad \text{where } \tau = \frac{1}{\alpha}
 <div class="cell tag_hide-input tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-lec5-ex0-sol-step-response">
-<a class="reference internal image-reference" href="../_images/6344b43358a2c23afa19c9abca39052e67506da20a3826309d4f90cd564a7030.png"><img alt="../_images/6344b43358a2c23afa19c9abca39052e67506da20a3826309d4f90cd564a7030.png" src="../_images/6344b43358a2c23afa19c9abca39052e67506da20a3826309d4f90cd564a7030.png" style="width: 75%;" />
+<a class="reference internal image-reference" href="../_images/413e3618f7504530f6a51ae44c4e0c960a2a45850ffe50a2c5176112096eafb4.png"><img alt="../_images/413e3618f7504530f6a51ae44c4e0c960a2a45850ffe50a2c5176112096eafb4.png" src="../_images/413e3618f7504530f6a51ae44c4e0c960a2a45850ffe50a2c5176112096eafb4.png" style="width: 75%;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 38 </span><span class="caption-text">Closed-loop step response for design 1 (<span class="math notranslate nohighlight">\(F(s)=0.44\)</span>) and design 2 (<span class="math notranslate nohighlight">\(F(s) = \frac{\alpha}{s + \alpha}\)</span>) with and without the noise <span class="math notranslate nohighlight">\(n(t).\)</span></span><a class="headerlink" href="#fig-lec5-ex0-sol-step-response" title="Link to this image">#</a></p>

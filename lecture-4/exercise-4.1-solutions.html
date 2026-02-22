@@ -32,8 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/image_dark_mode.css?v=803b5a5f" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/viewerjs/dist/viewer.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/viewer_custom.css?v=f07af0ce" />
@@ -78,7 +79,7 @@
         :root {
             --zoomies-bg-color: #333;
             --zoomies-caption-color: var(--pst-color-text-base);
-            --zoomies-img-bg: rgba(255, 255, 255, 0.95);
+            --zoomies-img-bg: #333;
             --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85);
         }
     }
@@ -86,7 +87,7 @@
     html[data-theme="dark"], body[data-theme="dark"], [data-theme="dark"], .theme-dark, .dark {
         --zoomies-bg-color: #333 !important;
         --zoomies-caption-color: var(--pst-color-text-base) !important;
-        --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
+        --zoomies-img-bg: #333 !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.85) !important;
     }
 
@@ -95,34 +96,6 @@
         --zoomies-caption-color: var(--pst-color-text-base) !important;
         --zoomies-img-bg: rgba(255, 255, 255, 0.95) !important;
         --zoomies-backdrop-bg: rgba(0, 0, 0, 0.75) !important;
-    }
-    
-    /* Hide scrollbar for primary and secondary sidebars */
-    .bd-sidebar-primary,
-    .bd-sidebar-secondary {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        overflow-y: auto !important; /* Keep it scrollable but hide the bar */
-    }
-
-    .bd-sidebar-primary::-webkit-scrollbar,
-    .bd-sidebar-secondary::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-    }
-
-    /* Global image inversion in dark mode */
-    html[data-theme="dark"] img, 
-    html[data-theme="dark"] .cell_output img, 
-    html[data-theme="dark"] .rendered_html img {
-        filter: invert(1) hue-rotate(180deg) !important;
-        mix-blend-mode: normal !important; 
-        isolation: isolate;
-        background-color: transparent !important;
-    }
-
-    /* Specific override for the Viewer.js image to allow its background to be inverted correctly */
-    html[data-theme="dark"] .viewer-canvas img {
-        background-color: rgba(255, 255, 255, 0.95) !important;
     }
     `; document.head.appendChild(style);</script>
     <script src="../_static/viewer_custom.js?v=3f26c593"></script>
@@ -221,8 +194,8 @@
     
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485 Exercise Book 2.0 - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="1RT485 Exercise Book 2.0 - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="1RT485"/>
+    <script>document.write(`<img src="../_static/logo-dark.svg" class="logo__image only-dark" alt="1RT485"/>`);</script>
   
   
 </a></div>
@@ -359,6 +332,29 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-5/exercise-5.3.html">Exercise 5.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../lecture-5/exercise-5.3-solutions.html">Solutions of Exercise 5.3</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-6/index.html">Exercise session 6</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.0.html">Exercise 6.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.0-solutions.html">Solutions of Exercise 6.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.1.html">Exercise 6.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.1-solutions.html">Solutions of Exercise 6.1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.2.html">Exercise 6.2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.2-solutions.html">Solutions of Exercise 6.2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.3.html">Exercise 6.3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.3-solutions.html">Solutions of Exercise 6.3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-6/exercise-6.4.html">Exercise 6.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-6/exercise-6.4-solutions.html">Solutions of Exercise 6.4</a></li>
 </ul>
 </details></li>
 </ul>
@@ -707,7 +703,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7c504c02853d9150feeebee2ec67f664793c8b0967719129fb1c7022bc9ee539.png" src="../_images/7c504c02853d9150feeebee2ec67f664793c8b0967719129fb1c7022bc9ee539.png" />
+<img alt="../_images/9e46fcf1c7d02061384c91b375cff8f15405856573146261544f4a43562aa570.png" src="../_images/9e46fcf1c7d02061384c91b375cff8f15405856573146261544f4a43562aa570.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -740,7 +736,7 @@ e_\infty = \lim_{s \to 0} \cancel{s} \big[ 1 - G_{c2}(s) \big] \frac{1}{\cancel{
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/39d9671539ccbc69322c33c39cb3833af07f9da2ba624c42d56c430f50f8f1f5.png" src="../_images/39d9671539ccbc69322c33c39cb3833af07f9da2ba624c42d56c430f50f8f1f5.png" />
+<img alt="../_images/d95c75ccee9d378dc2fb095edc825c9bc451bb1b24e7190e59fc171c7b4499a2.png" src="../_images/d95c75ccee9d378dc2fb095edc825c9bc451bb1b24e7190e59fc171c7b4499a2.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step response information: 
 </pre></div>
 </div>
@@ -787,7 +783,7 @@ G_{c1}(s) = \frac{5 K_1}{s + (0.2 + 5 K_1)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f1393e2647313186835a8984b9ed96e7ec449fd47b062e76c56fd3241b46d89e.png" src="../_images/f1393e2647313186835a8984b9ed96e7ec449fd47b062e76c56fd3241b46d89e.png" />
+<img alt="../_images/88b959d1213fc42019a139e52c22dfffdbf42923e14701b05fd407bb32297031.png" src="../_images/88b959d1213fc42019a139e52c22dfffdbf42923e14701b05fd407bb32297031.png" />
 </div>
 </div>
 <p>Let’s recall that the bandwitdh <span class="math notranslate nohighlight">\(\omega_B\)</span> can roughly be approximated as the critical frequency <span class="math notranslate nohighlight">\(\omega_c\)</span> where <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \omega) \lvert_{\text{dB}} = 0\)</span> dB. Then, the magnitude of <span class="math notranslate nohighlight">\(G_1(s)\)</span> at the target critical frequency <span class="math notranslate nohighlight">\(\omega_c = 1\)</span> rad/s is <span class="math notranslate nohighlight">\(\lvert G_1(i 1) \lvert_{\text{dB}} \simeq 15\)</span> dB.
@@ -822,7 +818,7 @@ Therefore, since <span class="math notranslate nohighlight">\(\lvert G_{o1}(i \o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/700d5de5ac3703490f2542a3fa6bad5624a14a6ac37e384cdd4387e4023cbabd.png" src="../_images/700d5de5ac3703490f2542a3fa6bad5624a14a6ac37e384cdd4387e4023cbabd.png" />
+<img alt="../_images/9377ebfd5d9fc6c676c06e70b1ba3bd4a6eaacc7a1340328942ba5e752e5824b.png" src="../_images/9377ebfd5d9fc6c676c06e70b1ba3bd4a6eaacc7a1340328942ba5e752e5824b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -908,7 +904,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4e86d747ddb7a46e5fee34c86efd015a79e212c6d02eb9f4bb699ab067eb231c.png" src="../_images/4e86d747ddb7a46e5fee34c86efd015a79e212c6d02eb9f4bb699ab067eb231c.png" />
+<img alt="../_images/bf08e053d65225c5283a861895653e8477e0441ea250258563531f3022fe99d3.png" src="../_images/bf08e053d65225c5283a861895653e8477e0441ea250258563531f3022fe99d3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -950,7 +946,7 @@ G_{o1}(s) = K_{1P} \cdot \frac{5}{s}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bb6b5105289e0a050a7cdc966b4c3651c71e0276101b10102ed6d4a24387aadf.png" src="../_images/bb6b5105289e0a050a7cdc966b4c3651c71e0276101b10102ed6d4a24387aadf.png" />
+<img alt="../_images/72f3abb407dbfd97c84ac845a5ee8d92743ff08c3d6d3a32ee6c8f4f96c66d72.png" src="../_images/72f3abb407dbfd97c84ac845a5ee8d92743ff08c3d6d3a32ee6c8f4f96c66d72.png" />
 </div>
 </div>
 <div class="cell docutils container">
