@@ -16,7 +16,7 @@ def tag_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
     label = tags_dict.get(key, key)
     
     # Build the HTML
-    escaped_label = quote(label)
+    escaped_label = quote(f'"{label}"')
     html = (
         f'<a href="../search.html?q={escaped_label}" '
         f'class="sd-badge sd-outline-primary sd-rounded-pill">'
