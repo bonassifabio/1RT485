@@ -79,6 +79,7 @@ sphinx:
     - sphinx_tags
     - sphinx_image_inverter
     - teachbooks_zoomies
+    - jupyterbook_patches
   local_extensions:
     tag_logic: _extensions
   config:
