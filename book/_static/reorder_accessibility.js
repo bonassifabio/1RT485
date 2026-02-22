@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
             a11yMenu.prepend(li);
             observer.disconnect();
 
+            // Move the whole accessibility menu to the rightmost position in the header
+            const headerButtons = document.querySelector(".article-header-buttons");
+            if (headerButtons) headerButtons.appendChild(document.getElementById("AcccessibilityMenu"));
+
             // Update label whenever data-mode changes on <html>
             new MutationObserver(() => {
                 label.textContent = modeLabels[getCurrentMode()];
