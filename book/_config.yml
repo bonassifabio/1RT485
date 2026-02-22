@@ -3,7 +3,7 @@
 
 title: 1RT485 Exercise Book 2.0
 author: Fabio Bonassi
-copyright: "2025"
+copyright: "2026"
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 # logo: res/logo.svg
 
@@ -80,9 +80,12 @@ sphinx:
     - sphinx_image_inverter
     - teachbooks_zoomies
     - jupyterbook_patches
+    - sphinx_accessibility
   local_extensions:
     tag_logic: _extensions
   config:
+    html_js_files:
+      - reorder_accessibility.js
     zoomies_bg_apply_to_img: true
     # zoomies_invert_colors: true
     html_context:

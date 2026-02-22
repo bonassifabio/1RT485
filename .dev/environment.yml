@@ -22,3 +22,4 @@ dependencies:
       - jupyter-tikz
       - teachbooks-zoomies
       - jupyterbook_patches
+      - sphinx-accessibility
