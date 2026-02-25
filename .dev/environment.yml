@@ -1,4 +1,4 @@
-§name: book
+name: book
 channels:
   - conda-forge
 dependencies:
@@ -25,4 +25,4 @@ dependencies:
       - jupyterbook_patches
       - sphinx-accessibility
       - teachbooks-sphinx-tippy
-
+      - plotly
