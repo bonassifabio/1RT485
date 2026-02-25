@@ -107,5 +107,9 @@ chapters:
         sections:
           - file: lecture-6/exercise-6.4-solutions.ipynb
 
-  # - file: lecture-7/index
+  - file: lecture-7/index
+    sections:
+      - file: lecture-7/exercise-7.0.ipynb
+        sections:
+          - file: lecture-7/exercise-7.0-solutions.ipynb
 
