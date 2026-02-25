@@ -4,6 +4,9 @@ default: build
 
 build:
 	echo "Building the book"
+	@if [ -d "_build/html" ]; then \
+		rm -rf _build/html; \
+	fi
 	MWI_USE_EXISTING_LICENSE=true mamba run -n book jupyter book build ./book --path-output ./
 
 setup:
