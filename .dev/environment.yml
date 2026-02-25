@@ -16,6 +16,7 @@ dependencies:
   - control
   - jupyterlab-myst
   - pip:
+      - control
       - ghp-import
       - jupyter-matlab-proxy
       - sphinxemoji
