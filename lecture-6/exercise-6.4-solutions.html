@@ -88,7 +88,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy/lecture-6/exercise-6.4-solutions.0692e58e-76c4-476d-a33c-7b1023639398.js"></script>
+    <script defer="defer" src="../_static/tippy/lecture-6/exercise-6.4-solutions.ba768e04-be52-449e-bc44-57320d516d34.js"></script>
     <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools", "ui/lazy"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="../_static/mathjax_patch.js?v=c73a562d"></script>
     <script src="https://unpkg.com/viewerjs/dist/viewer.min.js"></script>
@@ -692,9 +692,9 @@ G(s) &amp;= C (s I - A)^{-1} B + D = \frac{1}{s^2 + 2s + 2} \begin{bmatrix} 1 &a
 <p>Let’s first check that the system is controllable. To do so, we inspect the controllability matrix</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-S = \begin{bmatrix} B &amp; AB \end{bmatrix} = \begin{bmatrix} 1 &amp; -2  \\ 1 &amp; 0 \end{bmatrix}
+\mathcal{S} = \begin{bmatrix} B &amp; AB \end{bmatrix} = \begin{bmatrix} 1 &amp; -2  \\ 1 &amp; 0 \end{bmatrix}
 \end{split}\]</div>
-<p>This matrix is full-rank. Indeed, <span class="math notranslate nohighlight">\(\det(S) = 2 \neq 0\)</span>. The system is therefore controllable.
+<p>This matrix is full-rank. Indeed, <span class="math notranslate nohighlight">\(\det(\mathcal{S}) = 2 \neq 0\)</span>. The system is therefore controllable.
 To design the state-feedback controller, we plug <span class="math notranslate nohighlight">\(u = -Lx + \ell_0 r\)</span> in <a class="reference internal" href="#equation-eq-lec6-ex4-sol-state-space">(32)</a>. Doing so, we get</p>
 <div class="math notranslate nohighlight" id="equation-eq-lec6-ex4-sol-state-space-cl">
 <span class="eqno">(33)<a class="headerlink" href="#equation-eq-lec6-ex4-sol-state-space-cl" title="Link to this equation">#</a></span>\[
