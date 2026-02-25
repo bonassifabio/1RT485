@@ -88,7 +88,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy/lecture-6/exercise-6.1-solutions.5370f7e8-c7ff-4cd5-9c77-c8a6f539da66.js"></script>
+    <script defer="defer" src="../_static/tippy/lecture-6/exercise-6.1-solutions.b4fe80e2-af1d-4a0c-af01-44c9a2664031.js"></script>
     <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools", "ui/lazy"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="../_static/mathjax_patch.js?v=c73a562d"></script>
     <script src="https://unpkg.com/viewerjs/dist/viewer.min.js"></script>
@@ -385,6 +385,17 @@
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="exercise-6.4.html">Exercise 6.4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="exercise-6.4-solutions.html">Solutions of Exercise 6.4</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lecture-7/index.html">Exercise session 7</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-7/exercise-7.0.html">Exercise 7.0</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-7/exercise-7.0-solutions.html">Solutions of Exercise 7.0</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lecture-7/exercise-7.1.html">Exercise 7.1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lecture-7/exercise-7.1-solutions.html">Solutions of Exercise 7.1</a></li>
 </ul>
 </details></li>
 </ul>
@@ -695,15 +706,15 @@ y(t) = 1 x_1(t) + 0 x_2(t) = 1 - e^{-t}
 <p>Let’s check the controllability matrix:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-S = \begin{bmatrix} B &amp; AB \end{bmatrix} = \begin{bmatrix} 1 &amp; -1 \\ 1 &amp; 2 \end{bmatrix}
+\mathcal{S} = \begin{bmatrix} B &amp; AB \end{bmatrix} = \begin{bmatrix} 1 &amp; -1 \\ 1 &amp; 2 \end{bmatrix}
 \end{split}\]</div>
 <p>The system is <strong>controllable</strong>, since <span class="math notranslate nohighlight">\(S\)</span> if full rank (<span class="math notranslate nohighlight">\(\det(S) = 3 \neq 0\)</span>).</p>
 <p>Now we move on to the observability matrix:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-O = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 1 &amp; 0 \\ -1 &amp; 0 \end{bmatrix}
+\mathcal{O} = \begin{bmatrix} C \\ CA \end{bmatrix} = \begin{bmatrix} 1 &amp; 0 \\ -1 &amp; 0 \end{bmatrix}
 \end{split}\]</div>
-<p>The observabiltiy matrix is singular, as <span class="math notranslate nohighlight">\(\det(O) = 0\)</span>. Note that the second column is indeed null! This means that the system is <strong>not observable</strong>.</p>
+<p>The observabiltiy matrix is singular, as <span class="math notranslate nohighlight">\(\det(\mathcal{O}) = 0\)</span>. Note that the second column is indeed null! This means that the system is <strong>not observable</strong>.</p>
 </section>
 <section id="question-4">
 <h3>Question 4<a class="headerlink" href="#question-4" title="Link to this heading">#</a></h3>
