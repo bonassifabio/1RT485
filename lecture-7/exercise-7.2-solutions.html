@@ -88,7 +88,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <script defer="defer" src="../_static/tippy/lecture-7/exercise-7.2-solutions.17d3c9a9-9b8c-4b35-9b83-944d658a6c40.js"></script>
+    <script defer="defer" src="../_static/tippy/lecture-7/exercise-7.2-solutions.fb88dca6-fba1-4b6e-90ae-b9a64a098b48.js"></script>
     <script>window.MathJax = {"loader": {"load": ["[tex]/mathtools", "ui/lazy"]}, "tex": {"packages": {"[+]": ["mathtools"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="../_static/mathjax_patch.js?v=c73a562d"></script>
     <script src="https://unpkg.com/viewerjs/dist/viewer.min.js"></script>
@@ -696,8 +696,8 @@ document.write(`
 \]</div>
 <p>Because</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(u(t) \forall t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\dot{\hat{x}} \leftarrow s \hat{X}(s)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u(t) \, \forall t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{\hat{x}} \rightarrow s \hat{X}(s)\)</span></p></li>
 </ul>
 <p><a class="reference internal" href="#equation-eq-lec7-ex2-sol-obsv">(38)</a> can be moved to the Laplace domain, resulting in</p>
 <div class="math notranslate nohighlight">
@@ -712,7 +712,7 @@ s \hat{X}(s) = A \hat{X}(s) - KC \hat{X}(s) + K Y(s)
 <p>We know that the estimated output is <span class="math notranslate nohighlight">\(\hat{y} = C \hat{x}\)</span>. This means</p>
 <div class="math notranslate nohighlight">
 \[
-\hat{Y}(s) = C \left( s I - A + KC \right) K Y(s)
+\hat{Y}(s) = \underbrace{C \left( s I - A + KC \right) K}_{G_{\text{obsv}}(s)} \, Y(s)
 \]</div>
 <p>Replacing <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(K\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> we get the following transfer function</p>
 <div class="math notranslate nohighlight">
