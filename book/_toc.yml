@@ -118,4 +118,6 @@ chapters:
       - file: lecture-7/exercise-7.2.ipynb
         sections:
           - file: lecture-7/exercise-7.2-solutions.ipynb
-
+      - file: lecture-7/exercise-7.3.ipynb
+        sections:
+          - file: lecture-7/exercise-7.3-solutions.ipynb
