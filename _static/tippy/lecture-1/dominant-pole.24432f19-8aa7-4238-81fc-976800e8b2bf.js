@@ -1,0 +1,22 @@
+selector_to_html = {"a[href=\"#dominant-pole-approximation\"]": "<h1 class=\"tippy-header\" style=\"margin-top: 0;\">Dominant pole approximation<a class=\"headerlink\" href=\"#dominant-pole-approximation\" title=\"Link to this heading\">#</a></h1><p>In this page, we show how to determine the dominant pole approximation of a third-order system having a real pole (<span class=\"math notranslate nohighlight\">\\(s=-\\gamma\\)</span>) and two complex-conjugate ones (<span class=\"math notranslate nohighlight\">\\(s = -\\alpha \\pm i \\beta\\)</span>). Let this higher order system be</p>", "a[href=\"#exploratory-example\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Exploratory example<a class=\"headerlink\" href=\"#exploratory-example\" title=\"Link to this heading\">#</a></h2><p>Below these approximations are reported for a system with the specified values of <span class=\"math notranslate nohighlight\">\\(\\alpha\\)</span>, <span class=\"math notranslate nohighlight\">\\(\\beta\\)</span>, and <span class=\"math notranslate nohighlight\">\\(\\gamma\\)</span>, while <span class=\"math notranslate nohighlight\">\\(\\mu\\)</span> is computed so that the static gain of <span class=\"math notranslate nohighlight\">\\(G(s)\\)</span> is <span class=\"math notranslate nohighlight\">\\(1\\)</span> for  ease of visualization.</p>", "a[href=\"#case-1-the-real-pole-is-dominant\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Case 1: The real pole is dominant<a class=\"headerlink\" href=\"#case-1-the-real-pole-is-dominant\" title=\"Link to this heading\">#</a></h2><p>If <span class=\"math notranslate nohighlight\">\\(\\gamma &lt; \\sqrt{\\alpha^2 + \\beta^2}\\)</span>, the real pole is dominant because its closer to the origin. In this case, we can obtain the dominant pole approximation by replacing <span class=\"math notranslate nohighlight\">\\(s=0\\)</span> into the complex conjugate poles</p>", "a[href=\"useful-formulas.html#ref-lec1-useful-formulas\"]": "<h1 class=\"tippy-header\" style=\"margin-top: 0;\">Useful formulas<a class=\"headerlink\" href=\"#useful-formulas\" title=\"Link to this heading\">#</a></h1><p>Before continuing with the exercises, we deem it useful to summarize some useful formula to interpret how the parameters of the transfer function affect the \u201ccharacteristics\u201d of the systems.</p>", "a[href=\"#case-2-the-complex-conjugate-poles-are-dominant\"]": "<h2 class=\"tippy-header\" style=\"margin-top: 0;\">Case 2: The complex-conjugate poles are dominant<a class=\"headerlink\" href=\"#case-2-the-complex-conjugate-poles-are-dominant\" title=\"Link to this heading\">#</a></h2><p>If <span class=\"math notranslate nohighlight\">\\(\\gamma &gt; \\sqrt{\\alpha^2 + \\beta^2}\\)</span>, the complex-conjugate poles are dominant as they are closer to the origin (they have a smaller modulus). In this case, we can obtain the dominant pole approximation by replacing <span class=\"math notranslate nohighlight\">\\(s=0\\)</span> into the real pole</p>"}
+skip_classes = ["headerlink", "sd-stretched-link"]
+
+window.onload = function () {
+    for (const [select, tip_html] of Object.entries(selector_to_html)) {
+        const links = document.querySelectorAll(`article.bd-article ${select}`);
+        for (const link of links) {
+            if (skip_classes.some(c => link.classList.contains(c))) {
+                continue;
+            }
+
+            tippy(link, {
+                content: tip_html,
+                allowHTML: true,
+                arrow: false,
+                placement: 'auto-start', maxWidth: 500, interactive: true, boundary: document.body, appendTo: document.body,
+                onShow(instance) {MathJax.typesetPromise([instance.popper]).then(() => {var isFirefox=typeof InstallTrigger!=='undefined';if(isFirefox&&window.MathJax&&MathJax.startup&&MathJax.startup.output&&MathJax.startup.output.name==="SVG"){const svgs=instance.popper.querySelectorAll('svg');svgs.forEach(svg=>{let bbox=svg.getBBox(),x=bbox.x,y=bbox.y,width=bbox.width,height=bbox.height;svg.setAttribute('width',width);svg.setAttribute('height',height);svg.setAttribute('viewBox',`${x} ${y} ${width} ${height}`);});let rescale=0.015;svgs.forEach(svg=>{let bbox=svg.getBBox(),width=bbox.width,height=bbox.height;svg.setAttribute('width',width*rescale);svg.setAttribute('height',height*rescale);});}});},
+            });
+        };
+    };
+    console.log("tippy tips loaded!");
+};
