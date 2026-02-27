@@ -1,7 +1,7 @@
-// 1. Official flag — tells Plotly “use the page’s MathJax 3, don’t load anything”
+// 1. Tells Plotly “use the page’s MathJax 3, don’t load anything”
 window.PlotlyConfig = { MathJaxConfig: 'local' };
 
-// 2. v2 → v3 compatibility shim (runs immediately, before any Plotly script)
+// v2 → v3 compatibility shim (runs immediately, before any Plotly script)
 (function() {
   if (typeof MathJax === 'undefined') return;
 
