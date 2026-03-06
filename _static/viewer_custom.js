@@ -38,6 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const target = e.target.closest(selector);
 
         if (target) {
+            // Do not trigger viewer if the image (or its container) has the 'no-zoomies' class
+            if (target.closest('.no-zoomies')) {
+                return;
+            }
+
             e.preventDefault();
             e.stopPropagation();
 
@@ -86,6 +91,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // C. INITIAL ZOOM
                 viewed() {
+                    // Transfer all classes from original img to the viewer's image
+                    if (viewer.image && target.classList.length > 0) {
+                        Array.from(target.classList).forEach(cls => {
+                            viewer.image.classList.add(cls);
+                        });
+                    }
                     // Measure footer (caption + toolbar) and push the canvas up so the image
                     // never sits behind the caption area.
                     captionHeight = viewer.footer ? viewer.footer.offsetHeight : 0;
